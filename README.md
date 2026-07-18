@@ -7,17 +7,17 @@ production-ready children's content package.
 
 - Phase: 1 — Foundation
 - Current milestone: M1 — Project Foundation
-- Overall progress: 0%
+- Overall progress: 10%
 - Current week: Week 1 of 16
-- Status: Not started
+- Status: In progress
 
 ## This week's objective
 
-1. Create the GitHub repository.
-2. Upload this starter structure.
-3. Create the GitHub Project tracker.
-4. Set up Claude Code.
-5. Complete the first learning log.
+- [x] Create the GitHub repository.
+- [x] Upload the starter structure.
+- [ ] Create the GitHub Project tracker.
+- [ ] Set up Claude Code.
+- [ ] Complete the first learning log.
 
 ## Current build
 
@@ -25,7 +25,8 @@ Milo Story Intake Workflow — Not started
 
 ## Latest achievement
 
-Project and learning approach agreed.
+Created the private GitHub repository, uploaded the starter project files,
+and established the complete nine-folder learning repository.
 
 ## Current blocker
 
