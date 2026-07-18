@@ -7,7 +7,7 @@ production-ready children's content package.
 
 - Phase: 1 — Foundation
 - Current milestone: M1 — Project Foundation
-- Overall progress: 15%
+- Overall progress: 20%
 - Current week: Week 1 of 16
 - Status: In progress
 
@@ -16,7 +16,7 @@ production-ready children's content package.
 - [x] Create the GitHub repository.
 - [x] Upload the starter structure.
 - [x] Create the GitHub Project tracker.
-- [ ] Set up Claude Code.
+- [x] Set up Claude Code.
 - [ ] Complete the first learning log.
 
 ## Current build
@@ -25,8 +25,7 @@ Milo Story Intake Workflow — Not started
 
 ## Latest achievement
 
-Created the live GitHub task board and 16-week roadmap, including
-eight dated project milestones from foundation through the completed studio.
+Installed Claude Code, resolved the Windows PATH issue, cloned the GitHub repository locally, and confirmed that Claude correctly reads the project instructions.
 
 ## Current blocker
 
