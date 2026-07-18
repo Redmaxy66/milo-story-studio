@@ -6,26 +6,27 @@ production-ready children's content package.
 ## Current position
 
 - Phase: 1 — Foundation
-- Current milestone: M1 — Project Foundation
-- Overall progress: 20%
-- Current week: Week 1 of 16
+- Current milestone: M2 — Milo Character Bible
+- Overall progress: 25%
+- Current week: Week 2 of 16
 - Status: In progress
 
 ## This week's objective
 
-- [x] Create the GitHub repository.
-- [x] Upload the starter structure.
-- [x] Create the GitHub Project tracker.
-- [x] Set up Claude Code.
-- [ ] Complete the first learning log.
+- [ ] Consolidate the approved Milo source material.
+- [ ] Create the Milo Character Bible files.
+- [ ] Review Milo's voice, personality, values, and boundaries.
+- [ ] Approve the initial continuity rules.
+- [ ] Commit and push the completed M2 documents.
 
 ## Current build
 
-Milo Story Intake Workflow — Not started
+Milo Character Bible — In progress
 
 ## Latest achievement
 
-Installed Claude Code, resolved the Windows PATH issue, cloned the GitHub repository locally, and confirmed that Claude correctly reads the project instructions.
+Completed M1 — Project Foundation, including the repository, project board,
+16-week roadmap, Claude Code environment, Git workflow, and Week 1 learning log.
 
 ## Current blocker
 
