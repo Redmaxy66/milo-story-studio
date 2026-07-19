@@ -6,27 +6,29 @@ production-ready children's content package.
 ## Current position
 
 - Phase: 1 — Foundation
-- Current milestone: M2 — Milo Character Bible
+- Current milestone: M3 — Story Vault
 - Overall progress: 30%
-- Current week: Week 2 of 16
+- Current week: Week 3 of 16
 - Status: In progress
 
 ## This week's objective
 
-- [x] Consolidate the approved Milo source material.
-- [x] Create the Milo Character Bible files.
-- [x] Review Milo's voice, personality, values, and boundaries.
-- [x] Approve the initial continuity rules.
-- [x] Commit and push the completed M2 documents.
+- [x] Approve the Story Vault specification and data fields.
+- [ ] Create the Milo Story Vault Google Sheet.
+- [ ] Create the first n8n story-intake form.
+- [ ] Generate a unique Milo story ID.
+- [ ] Validate and store test submissions.
+- [ ] Export the workflow and update the learning log.
 
 ## Current build
 
-Milo Character Bible v1.0 — Complete
+Milo Story Vault v1 — Specification approved
 
 ## Latest achievement
 
-Completed and approved Milo Character Bible v1.0, establishing the canonical
-character, backstory, voice, personality, visual reference, and change-control rules.
+Approved the Milo Story Vault v1 specification, including the data schema,
+Google Sheets design, validation rules, supporting-character transformation,
+test requirements, and sequential story ID approach.
 
 ## Current blocker
 

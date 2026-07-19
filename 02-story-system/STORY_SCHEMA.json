@@ -1,13 +1,16 @@
 {
   "storyId": "MILO-001",
+  "createdAt": "YYYY-MM-DDTHH:MM:SS+08:00",
+  "updatedAt": "YYYY-MM-DDTHH:MM:SS+08:00",
+  "status": "IDEA",
   "workingTitle": "",
-  "ageRange": "5-8",
+  "rawIdea": "",
+  "ageRange": "5-10",
   "theme": "",
   "lesson": "",
   "setting": "",
   "supportingCharacters": [],
   "targetLengthMinutes": 5,
-  "status": "IDEA",
-  "createdAt": "YYYY-MM-DDTHH:MM:SS+08:00",
+  "notes": "",
   "version": 1
 }
