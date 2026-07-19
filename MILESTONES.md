@@ -3,7 +3,7 @@
 | ID | Milestone | Target | Status | Completion evidence |
 |---|---|---:|---|---|
 | M1 | Project Foundation | Week 1 | Complete | Repository, nine-folder structure, live project board, dated roadmap, Claude Code environment, Git workflow, and Week 1 learning log completed. |
-| M2 | Milo Character Bible | Week 2 | In progress | Character source material being consolidated into the approved Milo Character Bible. |
+| M2 | Milo Character Bible | Week 2 | Complete | Milo Character Bible v1.0 approved, including character, backstory, voice, personality, visual reference, open decisions, and change-control rules. |
 | M3 | Story Vault | Week 4 | Not started | Intake, unique ID, validation and structured storage working |
 | M4 | Concept Generator | Week 6 | Not started | Raw idea converted into structured concepts with approval |
 | M5 | Script Pipeline | Week 8 | Not started | Approved concept moves through outline and script |

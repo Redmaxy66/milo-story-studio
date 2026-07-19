@@ -7,26 +7,26 @@ production-ready children's content package.
 
 - Phase: 1 — Foundation
 - Current milestone: M2 — Milo Character Bible
-- Overall progress: 25%
+- Overall progress: 30%
 - Current week: Week 2 of 16
 - Status: In progress
 
 ## This week's objective
 
-- [ ] Consolidate the approved Milo source material.
-- [ ] Create the Milo Character Bible files.
-- [ ] Review Milo's voice, personality, values, and boundaries.
-- [ ] Approve the initial continuity rules.
-- [ ] Commit and push the completed M2 documents.
+- [x] Consolidate the approved Milo source material.
+- [x] Create the Milo Character Bible files.
+- [x] Review Milo's voice, personality, values, and boundaries.
+- [x] Approve the initial continuity rules.
+- [x] Commit and push the completed M2 documents.
 
 ## Current build
 
-Milo Character Bible — In progress
+Milo Character Bible v1.0 — Complete
 
 ## Latest achievement
 
-Completed M1 — Project Foundation, including the repository, project board,
-16-week roadmap, Claude Code environment, Git workflow, and Week 1 learning log.
+Completed and approved Milo Character Bible v1.0, establishing the canonical
+character, backstory, voice, personality, visual reference, and change-control rules.
 
 ## Current blocker
 
