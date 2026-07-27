@@ -5,10 +5,10 @@ production-ready children's content package.
 
 ## Current position
 
-- Phase: 1 — Foundation
-- Current milestone: M3 — Story Vault
-- Overall progress: 30%
-- Current week: Week 3 of 16
+- Phase: 2 — Concepts and Scripts
+- Current milestone: M4 — Concept Generator
+- Overall progress: 40%
+- Current week: Week 5 of 16
 - Status: In progress
 
 ## This week's objective
