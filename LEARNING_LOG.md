@@ -70,3 +70,31 @@ Create one entry at the end of each week.
 
 - Complete the Milo Character Bible
 - Prepare the source material needed for the first n8n workflow
+
+---
+
+## Week 3 — Story Vault
+
+### What I built
+
+- The Milo Story Vault Google Sheet
+- The n8n workflow named “Milo Story Intake v0.1”
+- Sequential Milo story ID generation
+- Validation for rawIdea, theme, and targetLengthMinutes
+- A safe failure branch that prevents invalid submissions from reaching Google Sheets
+- A tested workflow export stored in 04-n8n-workflows/tested
+
+### What I learned
+
+- How n8n routes items through true and false branches
+- Why front-end form validation does not replace workflow validation
+- How to test invalid data safely without writing it to Google Sheets
+- How to export an n8n workflow as JSON
+- How to stage, commit, and push a tested workflow to GitHub
+
+### Evidence
+
+- Valid submission created MILO-005
+- Invalid targetLengthMinutes value was routed to Prepare Validation Failure
+- Invalid submission did not reach the Story Vault
+- Workflow export committed as d28937c
