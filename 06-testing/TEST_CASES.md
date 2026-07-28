@@ -52,5 +52,5 @@
 
 - Input: targetLengthMinutes supplied as non-numeric text
 - Expected result: submission is rejected and no Story Vault row is created
-- Actual result: not yet tested
-- Evidence: pending controlled test
+- Actual result: passed
+- Evidence: Standardise Story Data rejected NaN with a number-type error before validation or any Story Vault read/write node executed
