@@ -1,0 +1,838 @@
+{
+  "name": "Milo Concept Generator v0.1",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "df2ea9d4-8fd0-435d-aace-adb412f78256",
+      "name": "Start Concept Generation"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y",
+          "mode": "list",
+          "cachedResultName": "Milo Story Vault",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1969258097,
+          "mode": "list",
+          "cachedResultName": "Stories",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit#gid=1969258097"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "status",
+              "lookupValue": "IDEA"
+            }
+          ]
+        },
+        "options": {
+          "returnFirstMatch": true
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        208,
+        0
+      ],
+      "id": "c3254503-ac7a-4728-bb92-f88e85141643",
+      "name": "Read Eligible Story Ideas",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "QG2OeymCBBUfhfMJ",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "010a1e68-6dfe-44ad-81bf-0a0c1b617484",
+              "name": "storyId",
+              "value": "={{ $json.storyId }}",
+              "type": "string"
+            },
+            {
+              "id": "53552a38-cb81-41d6-b4fb-85e73ac0b83a",
+              "name": "rawIdea",
+              "value": "={{ $json.rawIdea }}",
+              "type": "string"
+            },
+            {
+              "id": "b2bae0a3-71f9-44c6-92e1-aa3b62bfa939",
+              "name": "theme",
+              "value": "={{ $json.theme }}",
+              "type": "string"
+            },
+            {
+              "id": "f7fc0969-34aa-4f74-bd82-02b4d707e81e",
+              "name": "targetLengthMinutes",
+              "value": "={{ Number($json.targetLengthMinutes) }}",
+              "type": "number"
+            },
+            {
+              "id": "3823d3eb-671e-4acc-a682-f74ef5b9cc39",
+              "name": "ageRange",
+              "value": "={{ $json.ageRange }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        416,
+        0
+      ],
+      "id": "45513606-6245-47be-b347-ffad7c75b595",
+      "name": "Prepare Concept Input"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Generate exactly three distinct Milo story concept options from the input below.\n\nStory ID: {{ $json.storyId }}\nRaw idea: {{ $json.rawIdea }}\nTheme: {{ $json.theme }}\nTarget length: {{ $json.targetLengthMinutes }} minutes\nAge range: {{ $json.ageRange }}\n\nRequirements:\n- Keep the original storyId unchanged.\n- Use conceptIds {{ $json.storyId }}-C01, {{ $json.storyId }}-C02, and {{ $json.storyId }}-C03.\n- Keep every concept suitable for the stated age range.\n- Explore the supplied theme in a child-friendly way.\n- Do not write a full outline or script.\n- Set approvalStatus to PENDING_REVIEW for every option.\n- Return exactly the structure required by the connected output parser.\n- supportingCharacters must contain only characters other than Milo; never include Milo in that array.\n- canonReferences may contain only these approved filenames:\n  MILO_CHARACTER.md\n  MILO_BACKSTORY.md\n  VOICE_GUIDE.md\n  PERSONALITY_RULES.md\n  VISUAL_REFERENCE.md",
+        "hasOutputParser": true,
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        624,
+        0
+      ],
+      "id": "099da7a3-38ba-45a8-b9f3-9b660f8baf99",
+      "name": "Generate Concept Options"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"concepts\": [\n    {\n      \"storyId\": \"MILO-001\",\n      \"conceptId\": \"MILO-001-C01\",\n      \"title\": \"Example title\",\n      \"premise\": \"Example premise\",\n      \"centralProblem\": \"Example central problem\",\n      \"emotionalArc\": \"Example emotional arc\",\n      \"theme\": \"Kindness\",\n      \"lesson\": \"Example lesson\",\n      \"setting\": \"Moonberry Wood\",\n      \"supportingCharacters\": [\"Pip\", \"Luma\"],\n      \"targetLengthMinutes\": 5,\n      \"canonReferences\": [\"MILO_CHARACTER.md\"],\n      \"approvalStatus\": \"PENDING_REVIEW\"\n    },\n    {\n      \"storyId\": \"MILO-001\",\n      \"conceptId\": \"MILO-001-C02\",\n      \"title\": \"Example title\",\n      \"premise\": \"Example premise\",\n      \"centralProblem\": \"Example central problem\",\n      \"emotionalArc\": \"Example emotional arc\",\n      \"theme\": \"Kindness\",\n      \"lesson\": \"Example lesson\",\n      \"setting\": \"Moonberry Wood\",\n      \"supportingCharacters\": [\"Pip\"],\n      \"targetLengthMinutes\": 5,\n      \"canonReferences\": [\"MILO_CHARACTER.md\"],\n      \"approvalStatus\": \"PENDING_REVIEW\"\n    },\n    {\n      \"storyId\": \"MILO-001\",\n      \"conceptId\": \"MILO-001-C03\",\n      \"title\": \"Example title\",\n      \"premise\": \"Example premise\",\n      \"centralProblem\": \"Example central problem\",\n      \"emotionalArc\": \"Example emotional arc\",\n      \"theme\": \"Kindness\",\n      \"lesson\": \"Example lesson\",\n      \"setting\": \"Moonberry Wood\",\n      \"supportingCharacters\": [],\n      \"targetLengthMinutes\": 5,\n      \"canonReferences\": [\"MILO_CHARACTER.md\"],\n      \"approvalStatus\": \"PENDING_REVIEW\"\n    }\n  ]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        768,
+        208
+      ],
+      "id": "a0226a53-cc9b-4ac0-8581-707b0eba04df",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-5-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        512,
+        208
+      ],
+      "id": "ba5922bf-904a-4ed1-9d34-2b4b39349ac6",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "Z6w9iWdwUe796ksy",
+          "name": "OpenAI account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "output.concepts",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        976,
+        0
+      ],
+      "id": "0e994870-a5f5-4a14-9395-63c4a0e34d84",
+      "name": "Split Concept Options"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y",
+          "mode": "list",
+          "cachedResultName": "Milo Story Vault",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 754294451,
+          "mode": "list",
+          "cachedResultName": "Concepts",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit#gid=754294451"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "storyId": "={{ $json.storyId }}",
+            "conceptId": "={{ $json.conceptId }}",
+            "title": "={{ $json.title }}",
+            "premise": "={{ $json.premise }}",
+            "centralProblem": "={{ $json.centralProblem }}",
+            "emotionalArc": "={{ $json.emotionalArc }}",
+            "theme": "={{ $json.theme }}",
+            "lesson": "={{ $json.lesson }}",
+            "setting": "={{ $json.setting }}",
+            "supportingCharacters": "={{ JSON.stringify($json.supportingCharacters) }}",
+            "targetLengthMinutes": "={{ Number($json.targetLengthMinutes) }}",
+            "canonReferences": "={{ JSON.stringify($json.canonReferences) }}",
+            "approvalStatus": "={{ $json.approvalStatus }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "storyId",
+              "displayName": "storyId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "conceptId",
+              "displayName": "conceptId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "premise",
+              "displayName": "premise",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "centralProblem",
+              "displayName": "centralProblem",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "emotionalArc",
+              "displayName": "emotionalArc",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "theme",
+              "displayName": "theme",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "lesson",
+              "displayName": "lesson",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "setting",
+              "displayName": "setting",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "supportingCharacters",
+              "displayName": "supportingCharacters",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "targetLengthMinutes",
+              "displayName": "targetLengthMinutes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "canonReferences",
+              "displayName": "canonReferences",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "approvalStatus",
+              "displayName": "approvalStatus",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1408,
+        -144
+      ],
+      "id": "2f67a43e-c81b-410e-a074-c9cf84fa1ed1",
+      "name": "Save Concepts to Vault",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "QG2OeymCBBUfhfMJ",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y",
+          "mode": "list",
+          "cachedResultName": "Milo Story Vault",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1969258097,
+          "mode": "list",
+          "cachedResultName": "Stories",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit#gid=1969258097"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "storyId": "={{ $json.storyId }}",
+            "createdAt": "={{ $('Read Eligible Story Ideas').item.json.createdAt }}",
+            "status": "CONCEPT_GENERATED",
+            "updatedAt": "={{ $now }}"
+          },
+          "matchingColumns": [
+            "storyId"
+          ],
+          "schema": [
+            {
+              "id": "storyId",
+              "displayName": "storyId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "createdAt",
+              "displayName": "createdAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "updatedAt",
+              "displayName": "updatedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "workingTitle",
+              "displayName": "workingTitle",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "rawIdea",
+              "displayName": "rawIdea",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ageRange",
+              "displayName": "ageRange",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "theme",
+              "displayName": "theme",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "lesson",
+              "displayName": "lesson",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "setting",
+              "displayName": "setting",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "supportingCharacters",
+              "displayName": "supportingCharacters",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "targetLengthMinutes",
+              "displayName": "targetLengthMinutes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "notes",
+              "displayName": "notes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "version",
+              "displayName": "version",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1808,
+        0
+      ],
+      "id": "aa25bf72-4b13-4c97-9c48-d1b5641507a9",
+      "name": "Mark Story Concept Generated",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "QG2OeymCBBUfhfMJ",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "compare": "selectedFields",
+        "fieldsToCompare": "storyId",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.removeDuplicates",
+      "typeVersion": 2,
+      "position": [
+        1600,
+        0
+      ],
+      "id": "03cba300-b594-4df9-9f9b-4d6419ee72b7",
+      "name": "One Story Update"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "83a7ee0b-7633-444f-b845-63c50833726e",
+              "leftValue": "={{ $json.conceptId }}",
+              "rightValue": "^MILO-\\d{3}-C0[1-3]$",
+              "operator": {
+                "type": "string",
+                "operation": "regex"
+              }
+            },
+            {
+              "id": "f5013570-8657-491c-9a90-b327ee19c422",
+              "leftValue": "={{ $json.storyId }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "2b43c8bc-e380-4126-b54e-e0cc9f75c91d",
+              "leftValue": "={{ $json.title }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "a80541f1-eff3-4ecc-80fe-35ba1f22daf0",
+              "leftValue": "={{ $json.premise }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "a5369dc2-1d49-4fee-82b1-036a35741e9c",
+              "leftValue": "={{ $json.centralProblem }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "2156aad6-19ca-4056-aa3f-d57791b0803e",
+              "leftValue": "={{ $json.emotionalArc }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "6d09d250-a463-40b2-bf26-aa4c5597f222",
+              "leftValue": "={{ $json.theme }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "f1e41ac7-b280-4225-afba-51dd138e6a90",
+              "leftValue": "={{ $json.targetLengthMinutes }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            },
+            {
+              "id": "f96a36bf-3f99-447b-a0bb-f19626e2d5a7",
+              "leftValue": "={{ $json.approvalStatus }}",
+              "rightValue": "PENDING_REVIEW",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1184,
+        0
+      ],
+      "id": "28a0d636-e352-4034-8eff-38a17b6094b4",
+      "name": "Validate Concept Option"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f8532350-05d4-4565-9a08-491d2174b51b",
+              "name": "storyId",
+              "value": "={{ $json.storyId || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "36e385f4-9870-4118-a46c-e2c34bc61534",
+              "name": "conceptId",
+              "value": "={{ $json.conceptId || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "3b9ab1b2-3450-4543-bf34-de86d83befbb",
+              "name": "failureType",
+              "value": "CONCEPT_VALIDATION_FAILED",
+              "type": "string"
+            },
+            {
+              "id": "f0a35357-ca26-4665-9d1c-9d2a603b8863",
+              "name": "failureMessage",
+              "value": "Concept option failed deterministic validation and was not saved to the Concepts tab.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1424,
+        128
+      ],
+      "id": "ad0a0893-2bab-4e02-b131-2982c2febb15",
+      "name": "Prepare Concept Validation Failure"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Start Concept Generation": {
+      "main": [
+        [
+          {
+            "node": "Read Eligible Story Ideas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Eligible Story Ideas": {
+      "main": [
+        [
+          {
+            "node": "Prepare Concept Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Concept Input": {
+      "main": [
+        [
+          {
+            "node": "Generate Concept Options",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Generate Concept Options",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Generate Concept Options",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Concept Options": {
+      "main": [
+        [
+          {
+            "node": "Split Concept Options",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Concept Options": {
+      "main": [
+        [
+          {
+            "node": "Validate Concept Option",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Concepts to Vault": {
+      "main": [
+        [
+          {
+            "node": "One Story Update",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "One Story Update": {
+      "main": [
+        [
+          {
+            "node": "Mark Story Concept Generated",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Concept Option": {
+      "main": [
+        [
+          {
+            "node": "Save Concepts to Vault",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare Concept Validation Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "bd259eff-d89c-4151-86ea-d1c86e2fe65b",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "518751276e5752827215acb8c5b0cf3cfc08b92ae0362228eac713048bcb9ab3"
+  },
+  "nodeGroups": [],
+  "id": "CPC044Q9Gu2EK8V2",
+  "tags": []
+}

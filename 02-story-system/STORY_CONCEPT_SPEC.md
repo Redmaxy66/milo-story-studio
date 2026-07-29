@@ -126,8 +126,49 @@ A generated concept option is valid only when:
 The following decisions are not yet approved:
 
 - which AI provider and model will generate the concepts
-- how approved canon files will be supplied to the generator
-- where concept options will be stored
-- how Alex will review and select an option
-- which Story Vault status makes a record eligible for M4
-- which Story Vault status is written after concept approval
+
+## 11. Approved status decisions
+
+- M4 entry status: IDEA
+- Status after concept generation: CONCEPT_GENERATED
+- Status after human approval: CONCEPT_APPROVED
+- Only Alex may approve a concept and trigger the transition to CONCEPT_APPROVED
+
+## 12. Approved storage decision
+
+- Concept options will be stored in a separate Google Sheets tab named Concepts.
+- The existing Stories tab and its authoritative 14-column schema will not be changed.
+- Each concept row will retain the original storyId.
+- Each concept option will occupy one row in the Concepts tab.
+
+## 13. Approved human-review decision
+
+- Alex will review concept options in the Concepts tab.
+- Each generated concept starts with approvalStatus set to PENDING_REVIEW.
+- Alex may change one option to APPROVED.
+- Alex may change unwanted options to REJECTED.
+- If no decision has been made, the option remains PENDING_REVIEW or may be set to UNDECIDED.
+- n8n must not change approvalStatus to APPROVED or REJECTED automatically.
+
+## 14. Approved canon source set
+
+The Concept Generator may use only these approved Milo Character Bible v1.0 files:
+
+- MILO_CHARACTER.md
+- MILO_BACKSTORY.md
+- VOICE_GUIDE.md
+- PERSONALITY_RULES.md
+- VISUAL_REFERENCE.md
+
+README.md is project documentation and is not part of the generator's canon context.
+
+The delivery method for supplying these files to n8n remains an open decision.
+
+## 15. Approved canon delivery decision
+
+- A curated file named MILO_CANON_CONTEXT.md will be stored in 03-prompts.
+- The file will be compiled only from the five approved Milo Character Bible v1.0 sources.
+- The original files in 01-character-bible remain authoritative.
+- MILO_CANON_CONTEXT.md is a delivery artifact, not a replacement for canon.
+- Alex must review and approve the compiled context before n8n uses it.
+- n8n will receive one reviewed canon context file rather than loading five separate files dynamically.
