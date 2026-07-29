@@ -25,6 +25,8 @@
 
 ## Phase 2 — Concepts and Scripts
 
+**Current M4 progress:** Initial concept-generation workflow built and checkpointed. Structured output, validation, safe failure routing, Concepts storage, and the `CONCEPT_GENERATED` status transition are working. Human approval and full M4 testing remain.
+
 ### Weeks 5–6
 - Learn APIs and structured AI output
 - Build Story Concept Generator

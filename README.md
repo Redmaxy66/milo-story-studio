@@ -13,24 +13,27 @@ production-ready children's content package.
 
 ## This week's objective
 
-- [x] Approve the Story Vault specification and data fields.
-- [x] Create the Milo Story Vault Google Sheet.
-- [x] Create the first n8n story-intake form.
-- [x] Generate a unique Milo story ID.
-- [x] Validate and store test submissions.
-- [x] Export the workflow and update the learning log.
+- [x] Draft the M4 Story Concept Generator specification.
+- [x] Build the initial n8n concept-generation workflow.
+- [x] Generate exactly three structured concept options.
+- [x] Store valid concept options in the Concepts tab.
+- [x] Update the source story to CONCEPT_GENERATED.
+- [x] Add deterministic validation and safe failure routing.
+- [ ] Add and test human concept approval.
+- [ ] Complete M4 test documentation.
+- [ ] Export the tested workflow and complete M4 documentation.
 
 ## Current build
 
-Milo Story Vault v1 — Specification approved
+Milo Concept Generator v0.1 — Development checkpoint
 
 ## Latest achievement
 
-Completed validation and safe failure handling for Milo Story Intake v0.1, confirmed a valid submission as MILO-005, exported the tested workflow JSON, and pushed commit d28937c to GitHub.
+Built and tested the first M4 concept-generation path. The workflow reads one eligible IDEA record, generates exactly three structured concept options, validates each option, blocks invalid output from storage, saves valid concepts to the Concepts tab, and updates the source story to CONCEPT_GENERATED.
 
 ## Current blocker
 
-None.
+Human concept approval and remaining M4 test documentation are not yet complete.
 
 ## Main links
 
