@@ -6,22 +6,17 @@ production-ready children's content package.
 ## Current position
 
 - Phase: 2 — Story Development
-- Current milestone: M4 — Concept Generator
+- Current milestone: M5 — Script Pipeline
 - Overall progress: 50%
-- Current week: Week 6 of 16
-- Status: In progress
+- Current week: Week 7 of 16
+- Status: Not started
 
 ## This week's objective
 
-- [x] Build `Milo Concept Generator v0.1`.
-- [x] Generate exactly three structured concepts from one eligible story.
-- [x] Validate and store concept options in the Concepts sheet.
-- [x] Update Story status to `CONCEPT_GENERATED`.
-- [x] Build separate `Milo Concept Approval v0.1`.
-- [x] Process human-approved concepts deterministically.
-- [x] Prevent repeat approval processing with `approvalProcessedAt`.
-- [x] Complete controlled end-to-end testing with `MILO-002`.
-- [ ] Complete final M4 closeout and mark the milestone complete.
+- [ ] Review the approved M5 specification and current roadmap.
+- [ ] Define the controlled outline-to-script workflow.
+- [ ] Confirm required fields, statuses, validation, and human approval points.
+- [ ] Build the first M5 workflow increment.
 
 ## Current build
 
@@ -33,7 +28,7 @@ Two controlled n8n workflows:
 
 ## Latest achievement
 
-Completed a controlled end-to-end M4 test using `MILO-002`. Three structured concepts were generated, validated, and stored. Human approval was separated into its own workflow, and `approvalProcessedAt` now prevents approved concepts from being processed repeatedly.
+Completed M4 — Concept Generator. Concept generation and human approval now run as separate controlled workflows, with successful end-to-end testing and deterministic repeat-processing protection.
 
 ## Current blocker
 
