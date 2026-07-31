@@ -721,6 +721,10 @@
             {
               "lookupColumn": "approvalStatus",
               "lookupValue": "APPROVED"
+            },
+            {
+              "lookupColumn": "storyId",
+              "lookupValue": "MILO-002"
             }
           ]
         },
@@ -1069,7 +1073,32 @@
       "name": "Prepare Approval Validation Failure"
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "Read Eligible Story Ideas": [
+      {
+        "json": {
+          "row_number": 3,
+          "storyId": "MILO-002",
+          "createdAt": "2026-07-19T16:45:16.572+08:00",
+          "updatedAt": "2026-07-19T16:45:16.572+08:00",
+          "status": "IDEA",
+          "workingTitle": "Milo and the hidden door",
+          "rawIdea": "Milo discovers a timy hidden door in a tree in Monnberry Wood.",
+          "ageRange": "5-10",
+          "theme": "Kindness",
+          "lesson": "",
+          "setting": "",
+          "supportingCharacters": "[]",
+          "targetLengthMinutes": 5,
+          "notes": "",
+          "version": 1
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
   "connections": {
     "Start Concept Generation": {
       "main": [
@@ -1240,7 +1269,7 @@
     "binaryMode": "separate",
     "availableInMCP": false
   },
-  "versionId": "fffc3c49-3c80-4376-bd43-47256c08c589",
+  "versionId": "23942e80-feb8-47fe-800d-fb3021e404b8",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "518751276e5752827215acb8c5b0cf3cfc08b92ae0362228eac713048bcb9ab3"
