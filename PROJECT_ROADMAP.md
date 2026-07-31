@@ -29,8 +29,10 @@
 
 ### Weeks 5–6
 - Learn APIs and structured AI output
-- Build Story Concept Generator
-- Add human approval
+- Build and test `Milo Concept Generator v0.1`
+- Generate, validate, and store three structured concept options
+- Build separate `Milo Concept Approval v0.1` workflow
+- Add deterministic human approval processing and repeat-processing protection
 
 ### Weeks 7–8
 - Learn reusable workflows and light JavaScript

@@ -98,3 +98,65 @@ Create one entry at the end of each week.
 - Invalid targetLengthMinutes value was routed to Prepare Validation Failure
 - Invalid submission did not reach the Story Vault
 - Workflow export committed as d28937c
+
+---
+
+## Week 6 — Concept Generator
+
+### What I built
+
+- The n8n workflow `Milo Concept Generator v0.1`
+- Structured generation of three concept options from one eligible Story Vault idea
+- Validation and safe-failure routing for generated concepts
+- Storage of approved concept fields in the Concepts sheet
+- Automatic Story status updates to `CONCEPT_GENERATED`
+- A separate n8n workflow named `Milo Concept Approval v0.1`
+- Human approval processing that updates a Story to `CONCEPT_APPROVED`
+- An `approvalProcessedAt` safeguard that prevents repeat processing
+
+### What I learned
+
+- Why generation and approval should use separate workflows
+- How shared triggers can cause unintended branches to execute
+- How to filter Google Sheets rows using multiple AND conditions
+- How n8n distinguishes fixed values from expressions
+- How to validate IDs using Boolean expressions
+- How to update related rows across two Google Sheets tabs
+- Why processed records need a deterministic timestamp or status marker
+- How Git can restore an accidentally overwritten exported workflow
+
+### Problems encountered
+
+- The original workflow ran generation and approval from the same Manual Trigger
+- `Read Approved Concept` repeatedly selected an older approved concept
+- The IF node treated some field names as fixed text instead of expressions
+- The regex operator did not validate the concept ID as expected
+- The approval workflow export accidentally overwrote the generator export
+
+### How I fixed them
+
+- Split approval into `Milo Concept Approval v0.1`
+- Added `approvalProcessedAt` to the Concepts sheet
+- Filtered for `approvalStatus = APPROVED` and a blank `approvalProcessedAt`
+- Changed IF condition inputs to n8n expressions
+- Used a Boolean JavaScript regex test for `conceptId`
+- Restored the generator export with `git restore`
+- Re-exported the approval workflow under its correct filename
+
+### Evidence
+
+- `MILO-002` generated exactly three concept options
+- All three concepts passed validation and were stored
+- `MILO-002` advanced to `CONCEPT_GENERATED`
+- `MILO-002-C01` passed the original human approval test
+- `MILO-002-C02` passed the separate approval workflow test
+- `MILO-002-C02` received `approvalProcessedAt: 2026-07-31T20:55:07.271+08:00`
+- Commit `88f65b3` — Complete M4 end-to-end concept test
+- Commit `7a27653` — Add separate M4 concept approval workflow
+- Repository pushed and working tree confirmed clean
+
+### Next focus
+
+- Complete the remaining M4 documentation
+- Perform the final M4 closeout check
+- Confirm whether M4 is ready to mark complete
