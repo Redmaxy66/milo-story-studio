@@ -33,14 +33,11 @@
             {
               "lookupColumn": "approvalStatus",
               "lookupValue": "APPROVED"
-            },
-            {
-              "lookupColumn": "approvalProcessedAt"
             }
           ]
         },
         "options": {
-          "returnFirstMatch": true
+          "returnFirstMatch": false
         }
       },
       "type": "n8n-nodes-base.googleSheets",
@@ -90,7 +87,7 @@
             },
             {
               "id": "4ef942f1-19ae-4158-9e4f-212e30fe2b61",
-              "leftValue": "{{$json.storyId}}",
+              "leftValue": "={{$json.storyId}}",
               "rightValue": "",
               "operator": {
                 "type": "string",
@@ -106,7 +103,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        416,
+        864,
         0
       ],
       "id": "648aa28b-1b30-4812-914c-dee8e63bb9c2",
@@ -133,6 +130,10 @@
             {
               "lookupColumn": "storyId",
               "lookupValue": "={{$json.storyId}}"
+            },
+            {
+              "lookupColumn": "status",
+              "lookupValue": "CONCEPT_GENERATED"
             }
           ]
         },
@@ -143,7 +144,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        624,
+        1072,
         -96
       ],
       "id": "e7f45afe-9d02-4660-88ac-5178177583e0",
@@ -329,7 +330,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        1040,
+        1488,
         -96
       ],
       "id": "aad78cac-b744-4b64-8d73-bdc01c18d57a",
@@ -388,7 +389,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        624,
+        1072,
         96
       ],
       "id": "f57a21de-73b2-4c65-a81a-852f86b9535a",
@@ -570,7 +571,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        832,
+        1280,
         -96
       ],
       "id": "c3951aa0-f750-4979-aa9c-24efdaeebc3b",
@@ -581,6 +582,51 @@
           "name": "Google Sheets account 2"
         }
       }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "3511cf09-7229-4c7e-aeec-cd2200ae69f2",
+              "leftValue": "={{ $json.approvalProcessedAt ?? '' }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3,
+      "position": [
+        432,
+        0
+      ],
+      "id": "2c30f16d-be3d-4e4f-a0d9-887ce3eb1eb8",
+      "name": "Filter Unprocessed Approved Concepts"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        656,
+        0
+      ],
+      "id": "fc923c8e-0fae-4aea-a30f-bb1017d25773",
+      "name": "Take One Unprocessed Concept"
     }
   ],
   "pinData": {},
@@ -600,7 +646,7 @@
       "main": [
         [
           {
-            "node": "Validate Approved Concept",
+            "node": "Filter Unprocessed Approved Concepts",
             "type": "main",
             "index": 0
           }
@@ -646,6 +692,28 @@
           }
         ]
       ]
+    },
+    "Filter Unprocessed Approved Concepts": {
+      "main": [
+        [
+          {
+            "node": "Take One Unprocessed Concept",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Take One Unprocessed Concept": {
+      "main": [
+        [
+          {
+            "node": "Validate Approved Concept",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
@@ -654,7 +722,7 @@
     "binaryMode": "separate",
     "availableInMCP": false
   },
-  "versionId": "ac21e31a-fe11-4c8e-bace-9e88b1744f15",
+  "versionId": "4e3826b8-ef30-4a6e-954f-ba802065418e",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "518751276e5752827215acb8c5b0cf3cfc08b92ae0362228eac713048bcb9ab3"
