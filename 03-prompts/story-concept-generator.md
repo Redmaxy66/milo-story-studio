@@ -18,17 +18,8 @@ Do not invent facts that are absent from the supplied canon context.
 Do not treat the optional creative context above as canon.
 Requirements:
 - Treat lesson, setting, supportingCharacters, and notes as optional creative direction. They are not canon and may be blank.
-- Keep the original storyId unchanged.
-- Use conceptIds {{ $json.storyId }}-C01, {{ $json.storyId }}-C02, and {{ $json.storyId }}-C03.
 - Keep every concept suitable for the stated age range.
 - Explore the supplied theme in a child-friendly way.
 - Do not write a full outline or script.
-- Set approvalStatus to PENDING_REVIEW for every option.
 - Return exactly the structure required by the connected output parser.
 - supportingCharacters must contain only characters other than Milo; never include Milo in that array.
-- canonReferences may contain only these approved filenames:
-  MILO_CHARACTER.md
-  MILO_BACKSTORY.md
-  VOICE_GUIDE.md
-  PERSONALITY_RULES.md
-  VISUAL_REFERENCE.md
