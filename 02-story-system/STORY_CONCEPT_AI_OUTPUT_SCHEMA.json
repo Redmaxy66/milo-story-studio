@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "properties": {
+    "concepts": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "premise": {
+            "type": "string"
+          },
+          "centralProblem": {
+            "type": "string"
+          },
+          "emotionalArc": {
+            "type": "string"
+          },
+          "lesson": {
+            "type": "string"
+          },
+          "setting": {
+            "type": "string"
+          },
+          "supportingCharacters": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "title",
+          "premise",
+          "centralProblem",
+          "emotionalArc",
+          "lesson",
+          "setting",
+          "supportingCharacters"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "concepts"
+  ],
+  "additionalProperties": false
+}

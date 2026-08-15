@@ -33,22 +33,38 @@ Version 1 will not:
 - replace the Story Vault schema
 
 ## 4. Structured concept output
-Each generated concept option must use the same fixed structure so n8n can validate, compare, store, and route it deterministically.
-Each concept option will contain:
 
-- storyId
-- conceptId
+Each stored concept option uses a fixed structure so n8n can validate, compare, store, and route it deterministically.
+
+### AI-generated creative fields
+
+The Concept Generator AI returns exactly three concept options containing only:
+
 - title
 - premise
 - centralProblem
 - emotionalArc
-- theme
 - lesson
 - setting
 - supportingCharacters
+
+The authoritative AI output schema is:
+
+`STORY_CONCEPT_AI_OUTPUT_SCHEMA.json`
+
+### Deterministic n8n control fields
+
+After AI generation, n8n attaches these fields deterministically:
+
+- storyId
+- conceptId
+- theme
 - targetLengthMinutes
 - canonReferences
 - approvalStatus
+
+The AI must not generate or choose these control fields.
+
 ## 5. Field definitions
 
 - storyId: the original Story Vault identifier
@@ -112,14 +128,16 @@ A generated concept option is valid only when:
 
 1. Select one eligible Story Vault record.
 2. Confirm the record is allowed to enter M4.
-3. Load the approved Milo canon references.
-4. Send the story record and canon context to the Concept Generator.
-5. Require structured output containing exactly three concept options.
-6. Validate every concept option deterministically.
-7. Attach conceptId and set approvalStatus to PENDING_REVIEW.
-8. Present the three options for human review.
-9. Record Alex's decision.
-10. Allow only an APPROVED concept to proceed to M5.
+3. Load the approved `MILO_CANON_CONTEXT.md`.
+4. Pass the Story input, optional creative context, and approved canon context to the Concept Generator.
+5. Require AI output containing exactly three creative concept options matching `STORY_CONCEPT_AI_OUTPUT_SCHEMA.json`.
+6. Split the three concept options into individual items.
+7. Attach storyId, conceptId, theme, targetLengthMinutes, canonReferences, and approvalStatus deterministically in n8n.
+8. Validate every complete concept option deterministically.
+9. Store valid concept options in the Concepts tab.
+10. Update the source Story status to CONCEPT_GENERATED once.
+11. Present the stored concept options for human review through the separate approval workflow.
+12. Allow only an APPROVED concept to proceed to M5.
 
 ## 10. Open decisions
 
@@ -162,7 +180,7 @@ The Concept Generator may use only these approved Milo Character Bible v1.0 file
 
 README.md is project documentation and is not part of the generator's canon context.
 
-The delivery method for supplying these files to n8n remains an open decision.
+n8n Cloud loads the reviewed `03-prompts/MILO_CANON_CONTEXT.md` from the GitHub repository at runtime, extracts it into `canonContext`, and supplies it to the Concept Generator as a system message.
 
 ## 15. Approved canon delivery decision
 
