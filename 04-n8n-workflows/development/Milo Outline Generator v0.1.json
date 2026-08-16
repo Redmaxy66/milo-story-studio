@@ -1,0 +1,1681 @@
+{
+  "name": "Milo Outline Generator v0.1",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1072,
+        -256
+      ],
+      "id": "6a0770ec-8489-4df5-9b02-28bc316a45f3",
+      "name": "Start Outline Generation"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y",
+          "mode": "list",
+          "cachedResultName": "Milo Story Vault",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1969258097,
+          "mode": "list",
+          "cachedResultName": "Stories",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit#gid=1969258097"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "status",
+              "lookupValue": "CONCEPT_APPROVED"
+            }
+          ]
+        },
+        "options": {
+          "returnFirstMatch": true
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -848,
+        -256
+      ],
+      "id": "717d0477-e556-4613-a016-9a11dab2d1c6",
+      "name": "Read Eligible Stories",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "QG2OeymCBBUfhfMJ",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y",
+          "mode": "list",
+          "cachedResultName": "Milo Story Vault",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 754294451,
+          "mode": "list",
+          "cachedResultName": "Concepts",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit#gid=754294451"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "storyId",
+              "lookupValue": "={{$json.storyId}}"
+            },
+            {
+              "lookupColumn": "approvalStatus",
+              "lookupValue": "APPROVED"
+            }
+          ]
+        },
+        "options": {
+          "returnFirstMatch": false
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -624,
+        -256
+      ],
+      "id": "3b43b3e5-7de9-46ce-a39e-cedfa50178c5",
+      "name": "Read Approved Concept",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "QG2OeymCBBUfhfMJ",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y",
+          "mode": "list",
+          "cachedResultName": "Milo Story Vault",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1383138951,
+          "mode": "list",
+          "cachedResultName": "Outlines",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit#gid=1383138951"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "storyId",
+              "lookupValue": "={{$json.storyId}}"
+            }
+          ]
+        },
+        "options": {
+          "returnFirstMatch": true
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        48,
+        -368
+      ],
+      "id": "756dfada-c310-4497-8174-82d24cc1a565",
+      "name": "Check Existing Outline",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "QG2OeymCBBUfhfMJ",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "f428178f-91c6-4075-b572-30ede98b35a7",
+              "leftValue": "={{ Object.keys($json).length === 0 }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        272,
+        -368
+      ],
+      "id": "8e1fc094-9a0d-4041-a9bf-bc3d99ca79b3",
+      "name": "Outline Does Not Exist"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "21c73875-aefc-44d2-925c-18053b8743cc",
+              "name": "storyId",
+              "value": "={{ $('Read Eligible Stories').item.json.storyId }}",
+              "type": "string"
+            },
+            {
+              "id": "76ec4525-33e6-4697-99a5-8501976fda24",
+              "name": "conceptId",
+              "value": "={{ $('Read Approved Concept').item.json.conceptId }}",
+              "type": "string"
+            },
+            {
+              "id": "caa5bab5-35f2-4932-8b9c-1baa4db0032b",
+              "name": "title",
+              "value": "={{ $('Read Approved Concept').item.json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "000bfbce-7af2-48f4-90a9-20e59076bdc1",
+              "name": "targetLengthMinutes",
+              "value": "={{ $('Read Approved Concept').item.json.targetLengthMinutes }}",
+              "type": "number"
+            },
+            {
+              "id": "6b2a9af4-d039-4910-bf38-8852ad2c88cd",
+              "name": "premise",
+              "value": "={{ $('Read Approved Concept').item.json.premise }}",
+              "type": "string"
+            },
+            {
+              "id": "eb090b37-f1d3-409b-bb08-ebe7de94a87c",
+              "name": "centralProblem",
+              "value": "={{ $('Read Approved Concept').item.json.centralProblem }}",
+              "type": "string"
+            },
+            {
+              "id": "64b7ab00-2f98-4592-8e54-a4a584c43f3d",
+              "name": "emotionalArc",
+              "value": "={{ $('Read Approved Concept').item.json.emotionalArc }}",
+              "type": "string"
+            },
+            {
+              "id": "35d39c3d-09ed-4e0b-b8c7-4aaea23245b5",
+              "name": "theme",
+              "value": "={{ $('Read Approved Concept').item.json.theme }}",
+              "type": "string"
+            },
+            {
+              "id": "a39d3d7a-cb43-4ae7-b237-1f1ee2712c26",
+              "name": "lesson",
+              "value": "={{ $('Read Approved Concept').item.json.lesson }}",
+              "type": "string"
+            },
+            {
+              "id": "6a8142dd-bf4c-4a47-97af-ef0fdc6bd0ba",
+              "name": "setting",
+              "value": "={{ $('Read Approved Concept').item.json.setting }}",
+              "type": "string"
+            },
+            {
+              "id": "ca95206b-e105-4322-8e1d-5e9ef02c1b72",
+              "name": "supportingCharacters",
+              "value": "={{ $('Read Approved Concept').item.json.supportingCharacters }}",
+              "type": "string"
+            },
+            {
+              "id": "5b58384f-7778-4cd1-9a36-3d3523321312",
+              "name": "canonReferences",
+              "value": "={{ $('Read Approved Concept').item.json.canonReferences }}",
+              "type": "string"
+            },
+            {
+              "id": "2d8b7b1a-40aa-43c1-9b37-559d553f382a",
+              "name": "ageRange",
+              "value": "={{ $('Read Eligible Stories').item.json.ageRange }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        720,
+        -352
+      ],
+      "id": "d1524f61-beb9-40fd-9142-09c1aa5b45ec",
+      "name": "Prepare Outline Input"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are the outline writer for Milo Story Studio.\n\nGenerate one structured children’s story outline from the approved concept below.\n\nUse only the supplied concept information and the approved Milo canon context provided in the System message.\nDo not invent new canon rules.\nKeep Milo’s behavior age-appropriate for ages {{ $json.ageRange }}.\nTarget length: {{ $json.targetLengthMinutes }} minutes.\n\nApproved concept:\nTitle: {{ $json.title }}\nPremise: {{ $json.premise }}\nCentral problem: {{ $json.centralProblem }}\nEmotional arc: {{ $json.emotionalArc }}\nTheme: {{ $json.theme }}\nLesson: {{ $json.lesson }}\nSetting: {{ $json.setting }}\nSupporting characters: {{ $json.supportingCharacters }}\n\nReturn a complete outline containing:\nopening\nsetup\nincitingIncident\nrisingAction\nclimax\nresolution\nemotionalArc\nlesson\n\nReturn only data matching the required structured output.",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "={{ $json.canonContext }}"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        1168,
+        -512
+      ],
+      "id": "bda2fc0f-aa31-4405-ba5f-31b4949ea7bb",
+      "name": "Generate Outline",
+      "retryOnFail": true,
+      "maxTries": 2,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-5-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        1176,
+        -296
+      ],
+      "id": "a4ece9b6-dd85-4e6a-8338-c976a2e24281",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "Z6w9iWdwUe796ksy",
+          "name": "OpenAI account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"opening\": {\n      \"type\": \"string\"\n    },\n    \"setup\": {\n      \"type\": \"string\"\n    },\n    \"incitingIncident\": {\n      \"type\": \"string\"\n    },\n    \"risingAction\": {\n      \"type\": \"string\"\n    },\n    \"climax\": {\n      \"type\": \"string\"\n    },\n    \"resolution\": {\n      \"type\": \"string\"\n    },\n    \"emotionalArc\": {\n      \"type\": \"string\"\n    },\n    \"lesson\": {\n      \"type\": \"string\"\n    }\n  },\n  \"required\": [\n    \"opening\",\n    \"setup\",\n    \"incitingIncident\",\n    \"risingAction\",\n    \"climax\",\n    \"resolution\",\n    \"emotionalArc\",\n    \"lesson\"\n  ],\n  \"additionalProperties\": false\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        1304,
+        -296
+      ],
+      "id": "30937a62-2c7f-4355-a8e6-9088b77787e9",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "=[\n  {\n    \"storyId\": \"MILO-002\",\n    \"outlineId\": \"MILO-002-O01\",\n    \"conceptId\": \"MILO-002-C01\",\n    \"title\": \"Validation Test\",\n    \"opening\": \"Test opening.\",\n    \"setup\": \"Test setup.\",\n    \"incitingIncident\": \"Test incident.\",\n    \"risingAction\": \"Test rising action.\",\n    \"climax\": \"Test climax.\",\n    \"resolution\": \"Test resolution.\",\n    \"emotionalArc\": \"Test emotional arc.\",\n    \"lesson\": \"Test lesson.\",\n    \"targetLengthMinutes\": 5,\n    \"canonReferences\": [\n      \"MILO_CHARACTER.md\",\n      \"MILO_BACKSTORY.md\",\n      \"VOICE_GUIDE.md\",\n      \"VISUAL_REFERENCE.md\",\n      \"PERSONALITY_RULES.md\"\n    ],\n    \"approvalStatus\": \"PENDING_REVIEW\",\n    \"createdAt\": \"2026-08-16T10:50:00.000+08:00\",\n    \"updatedAt\": \"2026-08-16T10:50:00.000+08:00\",\n    \"version\": 99\n  }\n]",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1520,
+        -544
+      ],
+      "id": "c7d9a623-f199-49fc-a40e-934b73eac36c",
+      "name": "Prepare Outline Record"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y",
+          "mode": "list",
+          "cachedResultName": "Milo Story Vault",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1383138951,
+          "mode": "list",
+          "cachedResultName": "Outlines",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit#gid=1383138951"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "storyId": "={{ $json.storyId }}",
+            "outlineId": "={{ $json.outlineId }}",
+            "conceptId": "={{ $json.conceptId }}",
+            "title": "={{ $json.title }}",
+            "opening": "={{ $json.opening }}",
+            "setup": "={{ $json.setup }}",
+            "incitingIncident": "={{ $json.incitingIncident }}",
+            "risingAction": "={{ $json.risingAction }}",
+            "climax": "={{ $json.climax }}",
+            "resolution": "={{ $json.resolution }}",
+            "emotionalArc": "={{ $json.emotionalArc }}",
+            "lesson": "={{ $json.lesson }}",
+            "targetLengthMinutes": "={{ $json.targetLengthMinutes }}",
+            "canonReferences": "={{ JSON.stringify($json.canonReferences) }}",
+            "approvalStatus": "={{ $json.approvalStatus }}",
+            "createdAt": "={{ $json.createdAt }}",
+            "updatedAt": "={{ $json.updatedAt }}",
+            "version": "={{ $json.version }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "storyId",
+              "displayName": "storyId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "outlineId",
+              "displayName": "outlineId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "conceptId",
+              "displayName": "conceptId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "opening",
+              "displayName": "opening",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "setup",
+              "displayName": "setup",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "incitingIncident",
+              "displayName": "incitingIncident",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "risingAction",
+              "displayName": "risingAction",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "climax",
+              "displayName": "climax",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "resolution",
+              "displayName": "resolution",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "emotionalArc",
+              "displayName": "emotionalArc",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "lesson",
+              "displayName": "lesson",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "targetLengthMinutes",
+              "displayName": "targetLengthMinutes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "canonReferences",
+              "displayName": "canonReferences",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "approvalStatus",
+              "displayName": "approvalStatus",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "approvalProcessedAt",
+              "displayName": "approvalProcessedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "createdAt",
+              "displayName": "createdAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "updatedAt",
+              "displayName": "updatedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "version",
+              "displayName": "version",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1968,
+        -640
+      ],
+      "id": "446b0dd4-9fff-45af-a8fe-d51248481e52",
+      "name": "Save Outline to Vault",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "QG2OeymCBBUfhfMJ",
+          "name": "Google Sheets account 2"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y",
+          "mode": "list",
+          "cachedResultName": "Milo Story Vault",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1969258097,
+          "mode": "list",
+          "cachedResultName": "Stories",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit#gid=1969258097"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "storyId": "={{ $json.storyId }}",
+            "createdAt": "={{ $('Read Eligible Stories').item.json.createdAt }}",
+            "updatedAt": "={{ $now.toISO() }}",
+            "status": "OUTLINE_GENERATED"
+          },
+          "matchingColumns": [
+            "storyId"
+          ],
+          "schema": [
+            {
+              "id": "storyId",
+              "displayName": "storyId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "createdAt",
+              "displayName": "createdAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "updatedAt",
+              "displayName": "updatedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "workingTitle",
+              "displayName": "workingTitle",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "rawIdea",
+              "displayName": "rawIdea",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "ageRange",
+              "displayName": "ageRange",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "theme",
+              "displayName": "theme",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "lesson",
+              "displayName": "lesson",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "setting",
+              "displayName": "setting",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "supportingCharacters",
+              "displayName": "supportingCharacters",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "targetLengthMinutes",
+              "displayName": "targetLengthMinutes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "notes",
+              "displayName": "notes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "version",
+              "displayName": "version",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2192,
+        -736
+      ],
+      "id": "559da746-f9ef-458a-92dc-2cec2ed7fc85",
+      "name": "Mark Story Outline Generated",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "QG2OeymCBBUfhfMJ",
+          "name": "Google Sheets account 2"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "file",
+        "operation": "get",
+        "owner": {
+          "__rl": true,
+          "value": "Redmaxy66",
+          "mode": "list",
+          "cachedResultName": "Redmaxy66",
+          "cachedResultUrl": "https://github.com/Redmaxy66"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "milo-story-studio",
+          "mode": "list",
+          "cachedResultName": "milo-story-studio",
+          "cachedResultUrl": "https://github.com/Redmaxy66/milo-story-studio"
+        },
+        "filePath": "03-prompts/MILO_CANON_CONTEXT.md",
+        "additionalParameters": {}
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        496,
+        -544
+      ],
+      "id": "e8ba9b4c-3f0a-4459-85dc-5aa0642e3c74",
+      "name": "Get Outline Canon Context",
+      "webhookId": "8d876f83-c2a4-4749-840c-f1034625d8ef",
+      "credentials": {
+        "githubOAuth2Api": {
+          "id": "74HHjvs9kuNuzg0r",
+          "name": "GitHub account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "text",
+        "destinationKey": "canonContext",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1.1,
+      "position": [
+        720,
+        -544
+      ],
+      "id": "129af0ca-30e7-481d-94a0-77a860d4e40d",
+      "name": "Extract Outline Canon Context"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        944,
+        -512
+      ],
+      "id": "d23f07bf-02c8-4041-946d-3deb337ed7f8",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "3647d749-ac04-45ba-8ace-a1aff74926d1",
+              "leftValue": "={{ $json.approvalProcessedAt ?? '' }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3,
+      "position": [
+        -400,
+        -256
+      ],
+      "id": "bc99d9a2-a70a-400c-a813-b4a639672ec3",
+      "name": "Filter Processed Approved Concepts"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "43118be4-4312-4f0d-a64c-9738f7f69c12",
+              "leftValue": "={{ /^MILO-[0-9]{3}$/.test($json.storyId ?? '') && $json.outlineId === (($json.storyId ?? '') + '-O01') && /^MILO-[0-9]{3}-C[0-9]{2}$/.test($json.conceptId ?? '') && ($json.conceptId ?? '').startsWith(($json.storyId ?? '') + '-') && ['title','opening','setup','incitingIncident','risingAction','climax','resolution','emotionalArc','lesson'].every(field => typeof $json[field] === 'string' && $json[field].trim().length > 0) && Number($json.targetLengthMinutes) > 0 && Array.isArray($json.canonReferences) && JSON.stringify($json.canonReferences) === JSON.stringify(['MILO_CHARACTER.md','MILO_BACKSTORY.md','VOICE_GUIDE.md','VISUAL_REFERENCE.md','PERSONALITY_RULES.md']) && $json.approvalStatus === 'PENDING_REVIEW' && Number($json.version) === 1 && typeof $json.createdAt === 'string' && $json.createdAt.length > 0 && typeof $json.updatedAt === 'string' && $json.updatedAt.length > 0 }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1744,
+        -544
+      ],
+      "id": "20812802-6f69-43ed-bf4f-95a13e7893bc",
+      "name": "Validate Outline Record"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "37abea69-570a-488a-96f7-fda3855cfa8b",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "8bdb4455-014d-41b1-b4a8-2c5ff626b90e",
+              "name": "errorCode",
+              "value": "DUPLICATE_OUTLINE",
+              "type": "string"
+            },
+            {
+              "id": "ea1b349a-6f83-45e1-851c-7003f175d4dc",
+              "name": "message",
+              "value": "Outline already exists for this storyId.",
+              "type": "string"
+            },
+            {
+              "id": "13b16934-23cd-4875-a4a9-300c7fa619ca",
+              "name": "workflow",
+              "value": "Milo Outline Generator v0.1",
+              "type": "string"
+            },
+            {
+              "id": "e324d432-f7fa-4b92-a39d-d7f407636e63",
+              "name": "storyId",
+              "value": "={{ $json.storyId }}",
+              "type": "string"
+            },
+            {
+              "id": "33c86af0-d34b-4379-b26c-cf81e822699d",
+              "name": "conceptId",
+              "value": "={{ $json.conceptId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "fcecf01e-e1c7-4f09-ad59-9da6bb744dd5",
+              "name": "outlineId",
+              "value": "={{ $json.outlineId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "89820342-e8f7-4985-9413-22b3496e1319",
+              "name": "scriptId",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "1292fedd-8f03-43da-b1dd-600e100f212f",
+              "name": "attempt",
+              "value": 0,
+              "type": "number"
+            },
+            {
+              "id": "4609fe60-47de-4e41-9f2b-97ade4ec07de",
+              "name": "failedAt",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        496,
+        -208
+      ],
+      "id": "5863eb29-e92c-4307-a342-82b2e8042c15",
+      "name": "Prepare Duplicate Outline Failure"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3002e2ba-d08e-42ad-9b42-8a93af2349c5",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "8b43347c-ca85-4cda-aae4-d9f5cff7e6a2",
+              "name": "errorCode",
+              "value": "OUTLINE_VALIDATION_FAILED",
+              "type": "string"
+            },
+            {
+              "id": "7d5fa00f-197f-4b8b-9b3c-d48006166561",
+              "name": "message",
+              "value": "Generated outline failed deterministic validation.",
+              "type": "string"
+            },
+            {
+              "id": "a8b57fde-35f2-4d9b-a3c6-dd2114e17877",
+              "name": "workflow",
+              "value": "Milo Outline Generator v0.1",
+              "type": "string"
+            },
+            {
+              "id": "c305bc0b-909a-4d12-9600-0a373d180dc6",
+              "name": "storyId",
+              "value": "={{ $json.storyId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "9e8def1c-0c1b-4f3f-8626-f49547f08130",
+              "name": "conceptId",
+              "value": "={{ $json.conceptId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "81abfd7f-7935-434d-bde0-a77165a9a056",
+              "name": "outlineId",
+              "value": "={{ $json.outlineId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "ac4ef796-c86b-47e3-979b-542260f7785d",
+              "name": "scriptId",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "f28d8a5a-bc42-45a1-94a7-5e5f78d72efb",
+              "name": "attempt",
+              "value": 1,
+              "type": "number"
+            },
+            {
+              "id": "2621bc03-b520-4718-a322-469c684b4ea2",
+              "name": "failedAt",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        1968,
+        -448
+      ],
+      "id": "59512404-bca2-4cd0-85b4-54e750ad9785",
+      "name": "Prepare Invalid Outline Failure"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e5b3e1f8-c596-4228-a40d-e704a497df43",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "74a2a02e-edf3-4ef6-a336-b544e86e5bc6",
+              "name": "errorCode",
+              "value": "OUTLINE_GENERATION_FAILED",
+              "type": "string"
+            },
+            {
+              "id": "ef150971-4bf9-4bde-b518-e7bdbe2a0cc8",
+              "name": "message",
+              "value": "Outline generation failed after maximum retry attempts.",
+              "type": "string"
+            },
+            {
+              "id": "f68f19e6-69ab-4c07-a15e-8c4f9b7f1720",
+              "name": "workflow",
+              "value": "Milo Outline Generator v0.1",
+              "type": "string"
+            },
+            {
+              "id": "0c1e1e04-2d38-4a9e-9f1b-35e6a7cfbcc9",
+              "name": "storyId",
+              "value": "={{ $('Merge').first().json.storyId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "a8e19805-a139-4a15-bd7b-a39b07f14420",
+              "name": "conceptId",
+              "value": "={{ $('Merge').first().json.conceptId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "dfe45cc8-cc65-402a-a777-33b82439e0b4",
+              "name": "outlineId",
+              "value": "={{ ($('Merge').first().json.storyId ?? '') ? ($('Merge').first().json.storyId + '-O01') : '' }}",
+              "type": "string"
+            },
+            {
+              "id": "67d4ed39-540a-4426-bac6-4eb9993f3472",
+              "name": "scriptId",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "286a2197-3818-4d6a-a396-2c5a383574da",
+              "name": "attempt",
+              "value": 2,
+              "type": "number"
+            },
+            {
+              "id": "e124146a-d801-4409-89fd-61a5df51bac9",
+              "name": "failedAt",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        1520,
+        -352
+      ],
+      "id": "a245ab76-c875-436e-9601-c5436e8fcc55",
+      "name": "Prepare Outline Generation Failure"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3002e2ba-d08e-42ad-9b42-8a93af2349c5",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "8b43347c-ca85-4cda-aae4-d9f5cff7e6a2",
+              "name": "errorCode",
+              "value": "OUTLINE_SAVE_FAILED",
+              "type": "string"
+            },
+            {
+              "id": "7d5fa00f-197f-4b8b-9b3c-d48006166561",
+              "name": "message",
+              "value": "Outline could not be saved to the Story Vault.",
+              "type": "string"
+            },
+            {
+              "id": "a8b57fde-35f2-4d9b-a3c6-dd2114e17877",
+              "name": "workflow",
+              "value": "Milo Outline Generator v0.1",
+              "type": "string"
+            },
+            {
+              "id": "9e8def1c-0c1b-4f3f-8626-f49547f08130",
+              "name": "conceptId",
+              "value": "={{ $('Prepare Outline Record').first().json.conceptId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "81abfd7f-7935-434d-bde0-a77165a9a056",
+              "name": "outlineId",
+              "value": "={{ $('Prepare Outline Record').first().json.outlineId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "ac4ef796-c86b-47e3-979b-542260f7785d",
+              "name": "scriptId",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "f28d8a5a-bc42-45a1-94a7-5e5f78d72efb",
+              "name": "attempt",
+              "value": 0,
+              "type": "number"
+            },
+            {
+              "id": "2621bc03-b520-4718-a322-469c684b4ea2",
+              "name": "failedAt",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            },
+            {
+              "id": "ecdac9a0-1c6c-4ae4-a955-66046b6ca029",
+              "name": "storyId",
+              "value": "={{ $('Prepare Outline Record').first().json.storyId ?? '' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        2192,
+        -544
+      ],
+      "id": "1a5bfd01-ece4-40bb-9db0-972afeb916d2",
+      "name": "Prepare Outline Save Failure"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3002e2ba-d08e-42ad-9b42-8a93af2349c5",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "8b43347c-ca85-4cda-aae4-d9f5cff7e6a2",
+              "name": "errorCode",
+              "value": "STORY_OUTLINE_STATUS_UPDATE_FAILED",
+              "type": "string"
+            },
+            {
+              "id": "7d5fa00f-197f-4b8b-9b3c-d48006166561",
+              "name": "message",
+              "value": "Outline was saved, but the Story status could not be updated to OUTLINE_GENERATED.",
+              "type": "string"
+            },
+            {
+              "id": "a8b57fde-35f2-4d9b-a3c6-dd2114e17877",
+              "name": "workflow",
+              "value": "Milo Outline Generator v0.1",
+              "type": "string"
+            },
+            {
+              "id": "9e8def1c-0c1b-4f3f-8626-f49547f08130",
+              "name": "conceptId",
+              "value": "={{ $('Prepare Outline Record').first().json.conceptId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "81abfd7f-7935-434d-bde0-a77165a9a056",
+              "name": "outlineId",
+              "value": "={{ $('Prepare Outline Record').first().json.outlineId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "ac4ef796-c86b-47e3-979b-542260f7785d",
+              "name": "scriptId",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "f28d8a5a-bc42-45a1-94a7-5e5f78d72efb",
+              "name": "attempt",
+              "value": 0,
+              "type": "number"
+            },
+            {
+              "id": "2621bc03-b520-4718-a322-469c684b4ea2",
+              "name": "failedAt",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            },
+            {
+              "id": "ecdac9a0-1c6c-4ae4-a955-66046b6ca029",
+              "name": "storyId",
+              "value": "={{ $('Prepare Outline Record').first().json.storyId ?? '' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        2416,
+        -736
+      ],
+      "id": "65d9825a-a742-492e-9b12-009376642fce",
+      "name": "Prepare Story Outline Status Failure"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "93a22aeb-6a02-45f3-96c2-743dd054b713",
+              "leftValue": "={{ $input.all().length === 1 }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -176,
+        -256
+      ],
+      "id": "68b3407d-243d-42fc-99de-a150ae96ab48",
+      "name": "Exactly One Approved Concept",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "37abea69-570a-488a-96f7-fda3855cfa8b",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "8bdb4455-014d-41b1-b4a8-2c5ff626b90e",
+              "name": "errorCode",
+              "value": "APPROVED_CONCEPT_COUNT_INVALID",
+              "type": "string"
+            },
+            {
+              "id": "ea1b349a-6f83-45e1-851c-7003f175d4dc",
+              "name": "message",
+              "value": "Story must have exactly one processed approved concept before outline generation.",
+              "type": "string"
+            },
+            {
+              "id": "13b16934-23cd-4875-a4a9-300c7fa619ca",
+              "name": "workflow",
+              "value": "Milo Outline Generator v0.1",
+              "type": "string"
+            },
+            {
+              "id": "e324d432-f7fa-4b92-a39d-d7f407636e63",
+              "name": "storyId",
+              "value": "={{ $json.storyId }}",
+              "type": "string"
+            },
+            {
+              "id": "33c86af0-d34b-4379-b26c-cf81e822699d",
+              "name": "conceptId",
+              "value": "=",
+              "type": "string"
+            },
+            {
+              "id": "fcecf01e-e1c7-4f09-ad59-9da6bb744dd5",
+              "name": "outlineId",
+              "value": "={{ $json.outlineId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "89820342-e8f7-4985-9413-22b3496e1319",
+              "name": "scriptId",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "1292fedd-8f03-43da-b1dd-600e100f212f",
+              "name": "attempt",
+              "value": 0,
+              "type": "number"
+            },
+            {
+              "id": "4609fe60-47de-4e41-9f2b-97ade4ec07de",
+              "name": "failedAt",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        48,
+        -176
+      ],
+      "id": "5244963f-3676-4620-a4fa-6874285dbdef",
+      "name": "Prepare Approved Concept Count Failure"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Start Outline Generation": {
+      "main": [
+        [
+          {
+            "node": "Read Eligible Stories",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Eligible Stories": {
+      "main": [
+        [
+          {
+            "node": "Read Approved Concept",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Approved Concept": {
+      "main": [
+        [
+          {
+            "node": "Filter Processed Approved Concepts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Existing Outline": {
+      "main": [
+        [
+          {
+            "node": "Outline Does Not Exist",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Outline Does Not Exist": {
+      "main": [
+        [
+          {
+            "node": "Prepare Outline Input",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get Outline Canon Context",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare Duplicate Outline Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Outline Input": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Generate Outline",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Generate Outline",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Outline": {
+      "main": [
+        [
+          {
+            "node": "Prepare Outline Record",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare Outline Generation Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Outline Record": {
+      "main": [
+        [
+          {
+            "node": "Validate Outline Record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Outline to Vault": {
+      "main": [
+        [
+          {
+            "node": "Mark Story Outline Generated",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare Outline Save Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Outline Canon Context": {
+      "main": [
+        [
+          {
+            "node": "Extract Outline Canon Context",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Generate Outline",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Outline Canon Context": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Filter Processed Approved Concepts": {
+      "main": [
+        [
+          {
+            "node": "Exactly One Approved Concept",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Outline Record": {
+      "main": [
+        [
+          {
+            "node": "Save Outline to Vault",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare Invalid Outline Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mark Story Outline Generated": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Prepare Story Outline Status Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Exactly One Approved Concept": {
+      "main": [
+        [
+          {
+            "node": "Check Existing Outline",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare Approved Concept Count Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "54e10fbc-9796-447b-90df-f22d573c6d01",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "518751276e5752827215acb8c5b0cf3cfc08b92ae0362228eac713048bcb9ab3"
+  },
+  "nodeGroups": [],
+  "id": "xN9uY3v25bffLE5j",
+  "tags": []
+}
