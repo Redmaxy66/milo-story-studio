@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "opening": {
+      "type": "string"
+    },
+    "setup": {
+      "type": "string"
+    },
+    "incitingIncident": {
+      "type": "string"
+    },
+    "risingAction": {
+      "type": "string"
+    },
+    "climax": {
+      "type": "string"
+    },
+    "resolution": {
+      "type": "string"
+    },
+    "emotionalArc": {
+      "type": "string"
+    },
+    "lesson": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "opening",
+    "setup",
+    "incitingIncident",
+    "risingAction",
+    "climax",
+    "resolution",
+    "emotionalArc",
+    "lesson"
+  ],
+  "additionalProperties": false
+}
