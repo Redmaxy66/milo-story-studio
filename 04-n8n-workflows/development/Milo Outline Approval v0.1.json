@@ -1,0 +1,1213 @@
+{
+  "name": "Milo Outline Approval v0.1",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        96
+      ],
+      "id": "1cb1c886-295e-4792-9134-4329abd327e6",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y",
+          "mode": "list",
+          "cachedResultName": "Milo Story Vault",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1383138951,
+          "mode": "list",
+          "cachedResultName": "Outlines",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit#gid=1383138951"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "approvalStatus",
+              "lookupValue": "APPROVED"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        224,
+        96
+      ],
+      "id": "a6437580-efa2-4127-8d03-ddf193653fd9",
+      "name": "Read Approved Outline",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "QG2OeymCBBUfhfMJ",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "7d792830-93b2-4e57-aaef-f55cb893b98d",
+              "leftValue": "={{ $json.approvalProcessedAt ?? '' }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3,
+      "position": [
+        448,
+        96
+      ],
+      "id": "b77db7bf-1545-43bb-8244-d000bd3155d5",
+      "name": "Filter Unprocessed Approved Outlines"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "effd5541-f438-4725-a7a1-57287d3d62fa",
+              "leftValue": "={{ $input.all().length === 1 }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        672,
+        96
+      ],
+      "id": "b436c494-5cfc-4e4b-8d5a-bb091c4967b9",
+      "name": "Exactly One Approved Outline"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6ddc8ba5-eed4-452f-9e27-94a5b7cb7b28",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "21502ad0-37df-49c3-a23d-4b5e97b7873a",
+              "name": "errorCode",
+              "value": "APPROVED_OUTLINE_COUNT_INVALID",
+              "type": "string"
+            },
+            {
+              "id": "b28f0aa0-8bef-4eb5-9708-79de27f4fa1b",
+              "name": "message",
+              "value": "More than one unprocessed approved outline was found.",
+              "type": "string"
+            },
+            {
+              "id": "22d53fd1-c871-4e29-a69a-af7c8dfacac9",
+              "name": "workflow",
+              "value": "Milo Outline Approval v0.1",
+              "type": "string"
+            },
+            {
+              "id": "3442abfc-6c70-426e-be82-1e680c3a61ad",
+              "name": "storyId",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "5bf2b43a-7321-48e6-9149-a19fdf93620c",
+              "name": "conceptId",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "506fec07-ecc3-406f-b04e-3abc459a7662",
+              "name": "outlineId",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "2ca6997b-dd41-415e-b8d3-8a7a6f5f6c45",
+              "name": "scriptId",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "f9c68cf4-567c-4d49-85a4-551cbba418dd",
+              "name": "attempt",
+              "value": 0,
+              "type": "number"
+            },
+            {
+              "id": "52c61dc4-7daa-4ba6-b31f-1eebfc15c901",
+              "name": "failedAt",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        896,
+        192
+      ],
+      "id": "45d07bc1-f1ab-47c4-89ca-ac59dd000bea",
+      "name": "Prepare Approved Outline Count Failure"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y",
+          "mode": "list",
+          "cachedResultName": "Milo Story Vault",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1969258097,
+          "mode": "list",
+          "cachedResultName": "Stories",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit#gid=1969258097"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "storyId",
+              "lookupValue": "={{ $json.storyId }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1120,
+        -96
+      ],
+      "id": "481544ca-0358-43be-b2d4-1bb89368dd81",
+      "name": "Read Source Story",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "QG2OeymCBBUfhfMJ",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "f42e759a-2241-4e66-bbf6-cf0cf25d816e",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "OUTLINE_GENERATED",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1344,
+        -96
+      ],
+      "id": "81b8f6bb-03e1-4af4-bcc2-294466eac17e",
+      "name": "Story Is Ready for Outline Approval"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8fb3012d-e587-4f52-8f9e-1312e356ffc2",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "7fcd7473-0092-4294-8468-376e2cb4de27",
+              "name": "errorCode",
+              "value": "STORY_NOT_READY_FOR_OUTLINE_APPROVAL",
+              "type": "string"
+            },
+            {
+              "id": "355f6f34-693a-414d-8b0f-56511d91e1b6",
+              "name": "message",
+              "value": "Story is missing or is not in OUTLINE_GENERATED status.",
+              "type": "string"
+            },
+            {
+              "id": "c4f9efe8-bdbb-48e2-bd74-5e862aa1632d",
+              "name": "workflow",
+              "value": "Milo Outline Approval v0.1",
+              "type": "string"
+            },
+            {
+              "id": "11d92cd7-1f2d-48e7-8186-538d8cb0d40a",
+              "name": "storyId",
+              "value": "={{ $('Exactly One Approved Outline').first().json.storyId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "07693869-1477-4215-90a0-d43a6f5136a3",
+              "name": "conceptId",
+              "value": "={{ $('Exactly One Approved Outline').first().json.conceptId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "477e81a6-3a97-4494-9596-b7a1918913ce",
+              "name": "outlineId",
+              "value": "={{ $('Exactly One Approved Outline').first().json.outlineId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "f8bda6cb-ac14-4a4f-b44e-d85ab1747007",
+              "name": "scriptId",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "be7c896c-594a-4f9c-bfd1-5761201d5043",
+              "name": "attempt",
+              "value": 0,
+              "type": "number"
+            },
+            {
+              "id": "09c256d6-4bbc-42e0-b73f-59e1f9ec7dc8",
+              "name": "failedAt",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        1568,
+        0
+      ],
+      "id": "8684e740-a33e-44da-af24-68d5c8aee3a2",
+      "name": "Prepare Story Not Ready Failure"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y",
+          "mode": "list",
+          "cachedResultName": "Milo Story Vault",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1969258097,
+          "mode": "list",
+          "cachedResultName": "Stories",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit#gid=1969258097"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "storyId": "={{ $('Exactly One Approved Outline').first().json.storyId }}",
+            "createdAt": "={{ $('Read Source Story').first().json.createdAt }}",
+            "updatedAt": "={{ $now.toISO() }}",
+            "status": "OUTLINE_APPROVED"
+          },
+          "matchingColumns": [
+            "storyId"
+          ],
+          "schema": [
+            {
+              "id": "storyId",
+              "displayName": "storyId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "createdAt",
+              "displayName": "createdAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "updatedAt",
+              "displayName": "updatedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "workingTitle",
+              "displayName": "workingTitle",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "rawIdea",
+              "displayName": "rawIdea",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "ageRange",
+              "displayName": "ageRange",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "theme",
+              "displayName": "theme",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "lesson",
+              "displayName": "lesson",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "setting",
+              "displayName": "setting",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "supportingCharacters",
+              "displayName": "supportingCharacters",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "targetLengthMinutes",
+              "displayName": "targetLengthMinutes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "notes",
+              "displayName": "notes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "version",
+              "displayName": "version",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1568,
+        -192
+      ],
+      "id": "31f08391-098d-40c6-8f38-bc7d6adc3c54",
+      "name": "Mark Story Outline Approved",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "QG2OeymCBBUfhfMJ",
+          "name": "Google Sheets account 2"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3b2acbe2-c166-4308-bd1c-1f761376cdae",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "2b1e4726-c1ac-4ba2-9eee-5ddb916c75bb",
+              "name": "errorCode",
+              "value": "STORY_OUTLINE_APPROVAL_UPDATE_FAILED",
+              "type": "string"
+            },
+            {
+              "id": "7e26cbaa-99fc-4ef3-abb6-2bafdfd50658",
+              "name": "message",
+              "value": "Story could not be updated to OUTLINE_APPROVED.",
+              "type": "string"
+            },
+            {
+              "id": "c93ff061-f2be-45a5-ba9d-2ef04da9f508",
+              "name": "workflow",
+              "value": "Milo Outline Approval v0.1",
+              "type": "string"
+            },
+            {
+              "id": "d5d0a994-ae45-4fa7-8105-740334ad3670",
+              "name": "storyId",
+              "value": "={{ $('Exactly One Approved Outline').first().json.storyId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "010c95d1-71f9-4422-bda6-4e3b076000e2",
+              "name": "=conceptId",
+              "value": "={{ $('Exactly One Approved Outline').first().json.conceptId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "07cebefd-4bee-44f9-b33d-38556f1f7416",
+              "name": "=outlineId",
+              "value": "={{ $('Exactly One Approved Outline').first().json.outlineId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "7ddde9b5-1e30-46a2-9327-83eb8d3cb628",
+              "name": "=scriptId",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "aeb0435c-3f36-4567-9e42-18e9b0dabb18",
+              "name": "attempt",
+              "value": 0,
+              "type": "number"
+            },
+            {
+              "id": "6e82419b-457a-4cd0-8208-917560ed6334",
+              "name": "=failedAt",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        1792,
+        -96
+      ],
+      "id": "201e5a3e-d293-4298-8825-9e2c459fff46",
+      "name": "Prepare Story Outline Approval Update Failure"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y",
+          "mode": "list",
+          "cachedResultName": "Milo Story Vault",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1383138951,
+          "mode": "list",
+          "cachedResultName": "Outlines",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit#gid=1383138951"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "outlineId": "={{ $('Exactly One Approved Outline').first().json.outlineId }}",
+            "approvalProcessedAt": "={{ $now.toISO() }}"
+          },
+          "matchingColumns": [
+            "outlineId"
+          ],
+          "schema": [
+            {
+              "id": "storyId",
+              "displayName": "storyId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "outlineId",
+              "displayName": "outlineId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "conceptId",
+              "displayName": "conceptId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "opening",
+              "displayName": "opening",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "setup",
+              "displayName": "setup",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "incitingIncident",
+              "displayName": "incitingIncident",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "risingAction",
+              "displayName": "risingAction",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "climax",
+              "displayName": "climax",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "resolution",
+              "displayName": "resolution",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "emotionalArc",
+              "displayName": "emotionalArc",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "lesson",
+              "displayName": "lesson",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "targetLengthMinutes",
+              "displayName": "targetLengthMinutes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "canonReferences",
+              "displayName": "canonReferences",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "approvalStatus",
+              "displayName": "approvalStatus",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "approvalProcessedAt",
+              "displayName": "approvalProcessedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "createdAt",
+              "displayName": "createdAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "updatedAt",
+              "displayName": "updatedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "version",
+              "displayName": "version",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1792,
+        -288
+      ],
+      "id": "76b87f16-97ab-48f4-a730-79a291cec759",
+      "name": "Stamp Outline Approval Processed",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "QG2OeymCBBUfhfMJ",
+          "name": "Google Sheets account 2"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3b2acbe2-c166-4308-bd1c-1f761376cdae",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "2b1e4726-c1ac-4ba2-9eee-5ddb916c75bb",
+              "name": "errorCode",
+              "value": "OUTLINE_APPROVAL_STAMP_FAILED",
+              "type": "string"
+            },
+            {
+              "id": "7e26cbaa-99fc-4ef3-abb6-2bafdfd50658",
+              "name": "message",
+              "value": "Story was updated to OUTLINE_APPROVED, but the outline approval could not be ",
+              "type": "string"
+            },
+            {
+              "id": "c93ff061-f2be-45a5-ba9d-2ef04da9f508",
+              "name": "workflow",
+              "value": "Milo Outline Approval v0.1",
+              "type": "string"
+            },
+            {
+              "id": "d5d0a994-ae45-4fa7-8105-740334ad3670",
+              "name": "storyId",
+              "value": "={{ $('Exactly One Approved Outline').first().json.storyId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "010c95d1-71f9-4422-bda6-4e3b076000e2",
+              "name": "=conceptId",
+              "value": "={{ $('Exactly One Approved Outline').first().json.conceptId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "07cebefd-4bee-44f9-b33d-38556f1f7416",
+              "name": "=outlineId",
+              "value": "={{ $('Exactly One Approved Outline').first().json.outlineId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "7ddde9b5-1e30-46a2-9327-83eb8d3cb628",
+              "name": "=scriptId",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "aeb0435c-3f36-4567-9e42-18e9b0dabb18",
+              "name": "attempt",
+              "value": 0,
+              "type": "number"
+            },
+            {
+              "id": "6e82419b-457a-4cd0-8208-917560ed6334",
+              "name": "=failedAt",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        2016,
+        -288
+      ],
+      "id": "488e45a7-45e2-4e73-9f21-c0f35c42a007",
+      "name": "Prepare Outline Approval Stamp Failure"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "4c4005e7-bfa5-4711-a5af-149e2cdd0280",
+              "leftValue": "={{ /^MILO-[0-9]{3}$/.test($json.storyId ?? '') && $json.outlineId === (($json.storyId ?? '') + '-O01') && /^MILO-[0-9]{3}-C[0-9]{2}$/.test($json.conceptId ?? '') && ($json.conceptId ?? '').startsWith(($json.storyId ?? '') + '-') && $json.approvalStatus === 'APPROVED' && String($json.approvalProcessedAt ?? '').trim() === '' && Number.isInteger(Number($json.version)) && Number($json.version) >= 1 }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        896,
+        0
+      ],
+      "id": "a7dd57bd-e94e-4269-9bb4-9115f4750ef0",
+      "name": "Approved Outline Is Valid"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3a279983-bb69-4d5b-9e94-2c9247c0d066",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "f8e514dd-827f-4f6d-ac8d-2b96df69ced9",
+              "name": "errorCode",
+              "value": "APPROVED_OUTLINE_INVALID",
+              "type": "string"
+            },
+            {
+              "id": "0ed7dfec-65ed-4b8c-9300-a973462f51ce",
+              "name": "message",
+              "value": "Approved outline failed deterministic validation.",
+              "type": "string"
+            },
+            {
+              "id": "624bba96-7f87-45c0-833b-ca41fad5a1b8",
+              "name": "workflow",
+              "value": "Milo Outline Approval v0.1",
+              "type": "string"
+            },
+            {
+              "id": "e1a4ceb6-7666-4bf0-ba37-ce29a922c1c7",
+              "name": "=storyId",
+              "value": "={{ $('Exactly One Approved Outline').first().json.storyId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "c030990b-8356-48b9-b333-65d980fcbc8a",
+              "name": "=conceptId",
+              "value": "={{ $('Exactly One Approved Outline').first().json.conceptId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "364d98bc-fb43-48bd-8c5f-eaf18c034c36",
+              "name": "scriptId",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "2a98909c-b906-4491-b6a4-c81f7785d8a4",
+              "name": "attempt",
+              "value": 0,
+              "type": "number"
+            },
+            {
+              "id": "cf83fa66-5eb4-406e-a9bb-db96106dc81a",
+              "name": "failedAt",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            },
+            {
+              "id": "14e338a3-4314-4f21-9936-0152db4e9d41",
+              "name": "outlineId",
+              "value": "={{ $('Exactly One Approved Outline').first().json.outlineId ?? '' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        1120,
+        96
+      ],
+      "id": "316c35fe-f31f-4c46-a90e-55928416ac5b",
+      "name": "Prepare Invalid Approved Outline Failure"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Read Approved Outline",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Approved Outline": {
+      "main": [
+        [
+          {
+            "node": "Filter Unprocessed Approved Outlines",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter Unprocessed Approved Outlines": {
+      "main": [
+        [
+          {
+            "node": "Exactly One Approved Outline",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Exactly One Approved Outline": {
+      "main": [
+        [
+          {
+            "node": "Approved Outline Is Valid",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare Approved Outline Count Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Source Story": {
+      "main": [
+        [
+          {
+            "node": "Story Is Ready for Outline Approval",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Story Is Ready for Outline Approval": {
+      "main": [
+        [
+          {
+            "node": "Mark Story Outline Approved",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare Story Not Ready Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mark Story Outline Approved": {
+      "main": [
+        [
+          {
+            "node": "Stamp Outline Approval Processed",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare Story Outline Approval Update Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Stamp Outline Approval Processed": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Prepare Outline Approval Stamp Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Approved Outline Is Valid": {
+      "main": [
+        [
+          {
+            "node": "Read Source Story",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare Invalid Approved Outline Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "29c3f3ea-3aeb-4c82-84d5-a1fe89fe13e5",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "518751276e5752827215acb8c5b0cf3cfc08b92ae0362228eac713048bcb9ab3"
+  },
+  "nodeGroups": [],
+  "id": "rGHbAi13CyP4akpB",
+  "tags": []
+}
