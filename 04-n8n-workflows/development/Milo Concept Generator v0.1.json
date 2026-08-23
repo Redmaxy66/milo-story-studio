@@ -7,7 +7,7 @@
       "typeVersion": 1,
       "position": [
         112,
-        -96
+        -64
       ],
       "id": "df2ea9d4-8fd0-435d-aace-adb412f78256",
       "name": "Start Concept Generation"
@@ -44,7 +44,7 @@
       "typeVersion": 4.7,
       "position": [
         336,
-        0
+        32
       ],
       "id": "c3254503-ac7a-4728-bb92-f88e85141643",
       "name": "Read Eligible Story Ideas",
@@ -121,7 +121,7 @@
       "typeVersion": 3.4,
       "position": [
         560,
-        0
+        32
       ],
       "id": "45513606-6245-47be-b347-ffad7c75b595",
       "name": "Prepare Concept Input"
@@ -144,8 +144,8 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.9,
       "position": [
-        1008,
-        -96
+        1680,
+        -192
       ],
       "id": "099da7a3-38ba-45a8-b9f3-9b660f8baf99",
       "name": "Generate Concept Options"
@@ -158,8 +158,8 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        1152,
-        128
+        1816,
+        40
       ],
       "id": "a0226a53-cc9b-4ac0-8581-707b0eba04df",
       "name": "Structured Output Parser"
@@ -177,8 +177,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.3,
       "position": [
-        944,
-        128
+        1584,
+        64
       ],
       "id": "ba5922bf-904a-4ed1-9d34-2b4b39349ac6",
       "name": "OpenAI Chat Model",
@@ -197,8 +197,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        1360,
-        -96
+        2032,
+        -192
       ],
       "id": "0e994870-a5f5-4a14-9395-63c4a0e34d84",
       "name": "Split Concept Options"
@@ -365,8 +365,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        2480,
-        -48
+        3152,
+        -16
       ],
       "id": "2f67a43e-c81b-410e-a074-c9cf84fa1ed1",
       "name": "Save Concepts to Vault",
@@ -563,8 +563,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        2928,
-        -48
+        3600,
+        -16
       ],
       "id": "aa25bf72-4b13-4c97-9c48-d1b5641507a9",
       "name": "Mark Story Concept Generated",
@@ -584,8 +584,8 @@
       "type": "n8n-nodes-base.removeDuplicates",
       "typeVersion": 2,
       "position": [
-        2704,
-        -48
+        3376,
+        -16
       ],
       "id": "03cba300-b594-4df9-9f9b-4d6419ee72b7",
       "name": "One Story Update"
@@ -696,8 +696,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        2256,
-        144
+        2736,
+        64
       ],
       "id": "28a0d636-e352-4034-8eff-38a17b6094b4",
       "name": "Validate Concept Option"
@@ -773,8 +773,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2480,
-        192
+        1296,
+        224
       ],
       "id": "ad0a0893-2bab-4e02-b131-2982c2febb15",
       "name": "Prepare Concept Validation Failure"
@@ -805,7 +805,7 @@
       "typeVersion": 1.1,
       "position": [
         336,
-        -192
+        -160
       ],
       "id": "c078cb0e-64cd-4c0f-9f50-06cf9caeef43",
       "name": "Get a file",
@@ -827,7 +827,7 @@
       "typeVersion": 1.1,
       "position": [
         560,
-        -192
+        -160
       ],
       "id": "9c0bfb4a-5622-443d-9d21-03bdf6a2a32e",
       "name": "Extract from File"
@@ -842,7 +842,7 @@
       "typeVersion": 3.2,
       "position": [
         784,
-        -96
+        -64
       ],
       "id": "86524fd5-78b9-4038-bbcf-35c20148d711",
       "name": "Merge"
@@ -895,8 +895,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        1584,
-        -96
+        2256,
+        -192
       ],
       "id": "f23ef8fb-7543-4b6a-8d0d-7dacf1f8a8c7",
       "name": "Stamp Concept Control Fields"
@@ -908,8 +908,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1808,
-        -96
+        2480,
+        -192
       ],
       "id": "1a0e6a8d-17a3-4b2a-81dd-c99b6b7914e8",
       "name": "Validate All Concept Options"
@@ -942,8 +942,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        2032,
-        -96
+        2704,
+        -192
       ],
       "id": "d74f7140-2e37-4b3c-a88b-519b9cc3afa2",
       "name": "Concept Batch Is Valid"
@@ -955,11 +955,180 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2256,
-        -96
+        2928,
+        -192
       ],
       "id": "7d31af97-5350-48ff-8488-6f6ae108a3cb",
       "name": "Unpack Valid Concept Batch"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y",
+          "mode": "list",
+          "cachedResultName": "Milo Story Vault",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 754294451,
+          "mode": "list",
+          "cachedResultName": "Concepts",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit#gid=754294451"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "storyId",
+              "lookupValue": "={{ $json.storyId }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1008,
+        -64
+      ],
+      "id": "e23c7c17-dd8c-4655-8cb7-8a08f93dac24",
+      "name": "Check Existing Concepts",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "QG2OeymCBBUfhfMJ",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "ef60445d-dea5-4eca-89bc-c3e79f797391",
+              "leftValue": "={{ Object.keys($json).length === 0 }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1232,
+        -64
+      ],
+      "id": "cd7ee883-f6d1-4aa5-89da-fee3eefe7df3",
+      "name": "Concepts Do Not Exist",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e06d4f94-adaa-4a31-8fde-7d411c807eb4",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "d8f8f29c-a1f6-4aed-9d39-0b4e75c2466b",
+              "name": "errorCode",
+              "value": "CONCEPTS_ALREADY_EXIST",
+              "type": "string"
+            },
+            {
+              "id": "fadbd5e8-a9a9-4d2a-bc16-01cdc407277c",
+              "name": "message",
+              "value": "Concepts already exist for this storyId. No new concepts were generated.",
+              "type": "string"
+            },
+            {
+              "id": "a494d956-ceee-4982-975d-e40c3b1578b6",
+              "name": "workflow",
+              "value": "Milo Concept Generator v0.1",
+              "type": "string"
+            },
+            {
+              "id": "3748c5c7-00ca-4a71-a24a-ddaa6788eb01",
+              "name": "=storyId",
+              "value": "={{ $('Merge').first().json.storyId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "812f26fc-2025-4310-aa3b-b75e75972d48",
+              "name": "conceptId",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "dbb6c28f-323f-4717-bb54-61e53a94ea9c",
+              "name": "outlineId",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "16122324-e165-4b1d-bb13-a2ca98263b98",
+              "name": "scriptId",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "0770a637-e937-4cd0-ad7c-393f810d9809",
+              "name": "attempt",
+              "value": 0,
+              "type": "number"
+            },
+            {
+              "id": "720e76f9-d8fa-4b3e-8ed3-35738806dd26",
+              "name": "=failedAt",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3152,
+        208
+      ],
+      "id": "dee92a1e-8fd0-4978-9c18-06f57d8ca48c",
+      "name": "Prepare Concepts Already Exist Failure"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{ $('Merge').first().json }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1456,
+        -192
+      ],
+      "id": "1bc11f20-d920-4152-a6ad-d18adc49cc2c",
+      "name": "Restore Concept Input"
     }
   ],
   "pinData": {},
@@ -1079,7 +1248,7 @@
         ],
         [
           {
-            "node": "Prepare Concept Validation Failure",
+            "node": "Prepare Concepts Already Exist Failure",
             "type": "main",
             "index": 0
           }
@@ -1101,7 +1270,7 @@
       "main": [
         [
           {
-            "node": "Generate Concept Options",
+            "node": "Check Existing Concepts",
             "type": "main",
             "index": 0
           }
@@ -1162,6 +1331,46 @@
           }
         ]
       ]
+    },
+    "Check Existing Concepts": {
+      "main": [
+        [
+          {
+            "node": "Concepts Do Not Exist",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Concepts Do Not Exist": {
+      "main": [
+        [
+          {
+            "node": "Restore Concept Input",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare Concepts Already Exist Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Restore Concept Input": {
+      "main": [
+        [
+          {
+            "node": "Generate Concept Options",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
@@ -1170,7 +1379,7 @@
     "binaryMode": "separate",
     "availableInMCP": false
   },
-  "versionId": "5e9c0e87-cf9d-4593-937b-37fea062d3a3",
+  "versionId": "d84015a7-015d-4b30-9236-5ad09ee71e73",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "518751276e5752827215acb8c5b0cf3cfc08b92ae0362228eac713048bcb9ab3"
