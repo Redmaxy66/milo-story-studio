@@ -314,8 +314,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.3,
       "position": [
-        1176,
-        -296
+        1120,
+        -304
       ],
       "id": "a4ece9b6-dd85-4e6a-8338-c976a2e24281",
       "name": "OpenAI Chat Model",
@@ -334,8 +334,8 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        1304,
-        -296
+        1312,
+        -304
       ],
       "id": "30937a62-2c7f-4355-a8e6-9088b77787e9",
       "name": "Structured Output Parser"
@@ -343,7 +343,7 @@
     {
       "parameters": {
         "mode": "raw",
-        "jsonOutput": "=[\n  {\n    \"storyId\": \"MILO-002\",\n    \"outlineId\": \"MILO-002-O01\",\n    \"conceptId\": \"MILO-002-C01\",\n    \"title\": \"Validation Test\",\n    \"opening\": \"Test opening.\",\n    \"setup\": \"Test setup.\",\n    \"incitingIncident\": \"Test incident.\",\n    \"risingAction\": \"Test rising action.\",\n    \"climax\": \"Test climax.\",\n    \"resolution\": \"Test resolution.\",\n    \"emotionalArc\": \"Test emotional arc.\",\n    \"lesson\": \"Test lesson.\",\n    \"targetLengthMinutes\": 5,\n    \"canonReferences\": [\n      \"MILO_CHARACTER.md\",\n      \"MILO_BACKSTORY.md\",\n      \"VOICE_GUIDE.md\",\n      \"VISUAL_REFERENCE.md\",\n      \"PERSONALITY_RULES.md\"\n    ],\n    \"approvalStatus\": \"PENDING_REVIEW\",\n    \"createdAt\": \"2026-08-16T10:50:00.000+08:00\",\n    \"updatedAt\": \"2026-08-16T10:50:00.000+08:00\",\n    \"version\": 99\n  }\n]",
+        "jsonOutput": "={{ {\n  storyId: $('Merge').first().json.storyId,\n  outlineId: $('Merge').first().json.storyId + '-O01',\n  conceptId: $('Merge').first().json.conceptId,\n  title: $('Merge').first().json.title,\n\n  opening: $json.output.opening,\n  setup: $json.output.setup,\n  incitingIncident: $json.output.incitingIncident,\n  risingAction: $json.output.risingAction,\n  climax: $json.output.climax,\n  resolution: $json.output.resolution,\n  emotionalArc: $json.output.emotionalArc,\n  lesson: $json.output.lesson,\n\n  targetLengthMinutes: Number($('Merge').first().json.targetLengthMinutes),\n\n  canonReferences: [\n    'MILO_CHARACTER.md',\n    'MILO_BACKSTORY.md',\n    'VOICE_GUIDE.md',\n    'VISUAL_REFERENCE.md',\n    'PERSONALITY_RULES.md'\n  ],\n\n  approvalStatus: 'PENDING_REVIEW',\n  approvalProcessedAt: '',\n  createdAt: $now.toISO(),\n  updatedAt: $now.toISO(),\n  version: 1\n} }}\n",
         "options": {}
       },
       "type": "n8n-nodes-base.set",
@@ -1670,7 +1670,7 @@
     "binaryMode": "separate",
     "availableInMCP": false
   },
-  "versionId": "54e10fbc-9796-447b-90df-f22d573c6d01",
+  "versionId": "e55064af-6561-472d-b183-346cda19229b",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "518751276e5752827215acb8c5b0cf3cfc08b92ae0362228eac713048bcb9ab3"
