@@ -586,19 +586,19 @@
             },
             {
               "id": "010c95d1-71f9-4422-bda6-4e3b076000e2",
-              "name": "=conceptId",
+              "name": "conceptId",
               "value": "={{ $('Exactly One Approved Outline').first().json.conceptId ?? '' }}",
               "type": "string"
             },
             {
               "id": "07cebefd-4bee-44f9-b33d-38556f1f7416",
-              "name": "=outlineId",
+              "name": "outlineId",
               "value": "={{ $('Exactly One Approved Outline').first().json.outlineId ?? '' }}",
               "type": "string"
             },
             {
               "id": "7ddde9b5-1e30-46a2-9327-83eb8d3cb628",
-              "name": "=scriptId",
+              "name": "scriptId",
               "value": "",
               "type": "string"
             },
@@ -610,7 +610,7 @@
             },
             {
               "id": "6e82419b-457a-4cd0-8208-917560ed6334",
-              "name": "=failedAt",
+              "name": "failedAt",
               "value": "={{ $now.toISO() }}",
               "type": "string"
             }
@@ -895,7 +895,7 @@
             {
               "id": "7e26cbaa-99fc-4ef3-abb6-2bafdfd50658",
               "name": "message",
-              "value": "Story was updated to OUTLINE_APPROVED, but the outline approval could not be ",
+              "value": "Story was updated to OUTLINE_APPROVED, but the outline approval could not be stamped.",
               "type": "string"
             },
             {
@@ -912,19 +912,19 @@
             },
             {
               "id": "010c95d1-71f9-4422-bda6-4e3b076000e2",
-              "name": "=conceptId",
+              "name": "conceptId",
               "value": "={{ $('Exactly One Approved Outline').first().json.conceptId ?? '' }}",
               "type": "string"
             },
             {
               "id": "07cebefd-4bee-44f9-b33d-38556f1f7416",
-              "name": "=outlineId",
+              "name": "outlineId",
               "value": "={{ $('Exactly One Approved Outline').first().json.outlineId ?? '' }}",
               "type": "string"
             },
             {
               "id": "7ddde9b5-1e30-46a2-9327-83eb8d3cb628",
-              "name": "=scriptId",
+              "name": "scriptId",
               "value": "",
               "type": "string"
             },
@@ -936,7 +936,7 @@
             },
             {
               "id": "6e82419b-457a-4cd0-8208-917560ed6334",
-              "name": "=failedAt",
+              "name": "failedAt",
               "value": "={{ $now.toISO() }}",
               "type": "string"
             }
@@ -1017,13 +1017,13 @@
             },
             {
               "id": "e1a4ceb6-7666-4bf0-ba37-ce29a922c1c7",
-              "name": "=storyId",
+              "name": "storyId",
               "value": "={{ $('Exactly One Approved Outline').first().json.storyId ?? '' }}",
               "type": "string"
             },
             {
               "id": "c030990b-8356-48b9-b333-65d980fcbc8a",
-              "name": "=conceptId",
+              "name": "conceptId",
               "value": "={{ $('Exactly One Approved Outline').first().json.conceptId ?? '' }}",
               "type": "string"
             },
@@ -1202,7 +1202,7 @@
     "binaryMode": "separate",
     "availableInMCP": false
   },
-  "versionId": "29c3f3ea-3aeb-4c82-84d5-a1fe89fe13e5",
+  "versionId": "8ab19104-8cac-4887-bea8-d8072cf6ecb7",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "518751276e5752827215acb8c5b0cf3cfc08b92ae0362228eac713048bcb9ab3"
