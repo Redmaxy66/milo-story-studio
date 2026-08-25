@@ -1,4 +1,16 @@
-# Milo Story Studio — 16-Week Roadmap
+﻿# Milo Story Studio — 16-Week Roadmap
+
+## Current position
+
+**M1–M5 complete.**
+
+The studio now supports the controlled progression:
+
+`IDEA -> CONCEPT_GENERATED -> CONCEPT_APPROVED -> OUTLINE_GENERATED -> OUTLINE_APPROVED -> SCRIPT_GENERATED -> SCRIPT_APPROVED`
+
+Current milestone: **M6 — Continuity Agent**
+
+---
 
 ## Phase 1 — Foundation and Story Vault
 
@@ -7,55 +19,98 @@
 - Install and configure Claude Code
 - Confirm folder structure
 - Start learning log
+- Complete M1: Project Foundation
 
 ### Week 2
 - Complete Milo Character Bible
 - Define voice, personality, values, and boundaries
 - Create initial continuity rules
+- Complete M2: Milo Character Bible
 
-### Week 3
+### Weeks 3–4
 - Learn n8n triggers, nodes, inputs, and outputs
-- Build a basic story-idea intake form
-
-### Week 4
+- Build story-idea intake
 - Assign unique story IDs
 - Store structured story records
-- Add status tracking and validation
+- Add status tracking and deterministic validation
 - Complete M3: Story Vault
+
+---
 
 ## Phase 2 — Concepts and Scripts
 
-**Current M4 progress:** Initial concept-generation workflow built and checkpointed. Structured output, validation, safe failure routing, Concepts storage, and the `CONCEPT_GENERATED` status transition are working. Human approval and full M4 testing remain.
-
 ### Weeks 5–6
 - Learn APIs and structured AI output
-- Build and test `Milo Concept Generator v0.1`
+- Build Milo Concept Generator v0.1
 - Generate, validate, and store three structured concept options
-- Build separate `Milo Concept Approval v0.1` workflow
-- Add deterministic human approval processing and repeat-processing protection
+- Build Milo Concept Approval v0.1
+- Add deterministic approval processing
+- Add duplicate and repeat-processing protection
+- Complete M4: Concept Generator
 
 ### Weeks 7–8
-- Learn reusable workflows and light JavaScript
-- Build Outline and Script Pipeline
+- Build Milo Outline Generator v0.1
+- Build Milo Outline Approval v0.1
+- Build Milo Script Generator v0.1
+- Build Milo Script Approval v0.1
+- Ground generation in approved Milo canon
+- Add deterministic validation and ID binding
+- Add duplicate protection and Story readiness controls
+- Add repair paths for partially completed approvals
+- Add structured safe-failure handling
+- Prove the complete Script Pipeline
+- Complete M5: Script Pipeline
 
-## Phase 3 — Agents and Production
+---
 
-### Weeks 9–10
-- Learn agent tools, memory, and guardrails
-- Build Milo Continuity Agent
+## Phase 3 — Continuity and Production
 
-### Weeks 11–12
-- Build scene breakdown and Production Package Generator
+### Weeks 9–10 — M6 Continuity Agent
+- Define continuity assessment contract
+- Define deterministic versus AI checks
+- Load approved Script and canon context
+- Check character consistency
+- Check Milo voice and personality
+- Check story-world continuity
+- Check lesson/theme alignment
+- Check contradictions and canon violations
+- Return structured findings and severity
+- Add human review / approval gate
+- Test clean, warning, and failure cases
+- Complete M6: Continuity Agent
+
+### Weeks 11–12 — M7 Production Package
+- Convert approved, continuity-cleared script into scene structure
+- Generate scene descriptions
+- Generate visual-production prompts
+- Generate voice-performance guidance
+- Generate animation / motion guidance
+- Generate required production metadata
+- Store versioned production package
+- Complete M7: Production Package
+
+---
 
 ## Phase 4 — Publishing and Hardening
 
 ### Weeks 13–14
-- Build YouTube and Instagram publishing package
-- Add approvals and content status
+- Build YouTube publishing package
+- Build Instagram publishing package
+- Add publishing approval states
+- Add platform-specific metadata
+- Add production and publishing status controls
 
 ### Weeks 15–16
-- Add testing, error handling, versioning, and documentation
-- Complete end-to-end capstone
+- Complete end-to-end regression testing
+- Harden failure handling
+- Review retry and recovery behaviour
+- Complete versioning model
+- Complete operational documentation
+- Complete learning and decision logs
+- Run capstone end-to-end test
+- Complete M8: Complete Studio
+
+---
 
 ## Simple Gantt
 
@@ -71,3 +126,14 @@
 | Production Package |  |  |  |  |  |  |  |  |  |  | ■ | ■ |  |  |  |  |
 | Publishing Workflow |  |  |  |  |  |  |  |  |  |  |  |  | ■ | ■ |  |  |
 | Testing and hardening |  |  |  |  |  |  |  |  |  |  |  |  | ■ | ■ | ■ | ■ |
+
+## Milestone status
+
+- M1 — Complete
+- M2 — Complete
+- M3 — Complete
+- M4 — Complete
+- M5 — Complete
+- M6 — Not started
+- M7 — Not started
+- M8 — Not started
