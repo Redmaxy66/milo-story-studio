@@ -1,0 +1,1769 @@
+{
+  "name": "Milo Script Generator v0.1",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        160
+      ],
+      "id": "4c27ee1c-78d2-482f-ac28-eba4425f7a1e",
+      "name": "Start Script Generation"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y",
+          "mode": "list",
+          "cachedResultName": "Milo Story Vault",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1383138951,
+          "mode": "list",
+          "cachedResultName": "Outlines",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit#gid=1383138951"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "approvalStatus",
+              "lookupValue": "APPROVED"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        224,
+        160
+      ],
+      "id": "5f0a485b-30e4-44a0-a2a0-dcc45cb3f997",
+      "name": "Read Approved Outline",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "QG2OeymCBBUfhfMJ",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "364d973c-b108-4b1a-8bdf-dc8835554450",
+              "leftValue": "=Left value:\n={{ $json.approvalProcessedAt ?? '' }}",
+              "rightValue": "is not empty",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3,
+      "position": [
+        448,
+        160
+      ],
+      "id": "6abb7c7f-6758-4922-9a04-69bb381df733",
+      "name": "Filter Processed Approved Outlines"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y",
+          "mode": "list",
+          "cachedResultName": "Milo Story Vault",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1969258097,
+          "mode": "list",
+          "cachedResultName": "Stories",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit#gid=1969258097"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "storyId",
+              "lookupValue": "={{ $json.storyId }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1120,
+        64
+      ],
+      "id": "8aa2a702-550e-47e3-b13e-ec3634f571ff",
+      "name": "Read Source Story",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "QG2OeymCBBUfhfMJ",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "d3f093d8-8c48-4c6b-ae81-995e51806286",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "OUTLINE_APPROVED",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1344,
+        64
+      ],
+      "id": "6c292f3b-9574-4d95-b3c2-c1393116250e",
+      "name": "Story Is Ready For Script Generation"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y",
+          "mode": "list",
+          "cachedResultName": "Milo Story Vault",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1688921272,
+          "mode": "list",
+          "cachedResultName": "Scripts",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit#gid=1688921272"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "storyId",
+              "lookupValue": "={{ $json.storyId }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1568,
+        -32
+      ],
+      "id": "d81a57ca-00e8-4ec9-b9fa-896710810939",
+      "name": "Read Existing Script",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "QG2OeymCBBUfhfMJ",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "f942dec8-54cb-477a-8241-69bbf316ccae",
+              "leftValue": "={{ Object.keys($json).length === 0 }}",
+              "rightValue": "is empty",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1792,
+        -32
+      ],
+      "id": "a6624885-b783-491e-b118-2e3dcdfacaba",
+      "name": "Script Does Not Exist",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{\n  json: $('Filter Processed Approved Outlines').first().json\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2016,
+        -128
+      ],
+      "id": "d94040a9-8647-480e-ab70-e2769368b81e",
+      "name": "Restore Approved Outline"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "11d76171-15a9-4dde-b411-6f12bcb81961",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "8a9cc3f7-254f-4191-a18d-598400e55f36",
+              "name": "errorCode",
+              "value": "SCRIPT_ALREADY_EXISTS",
+              "type": "string"
+            },
+            {
+              "id": "7ba88374-8d21-4020-ae4f-f0fab262e75b",
+              "name": "message",
+              "value": "A script already exists for this story.",
+              "type": "string"
+            },
+            {
+              "id": "aee784f1-d283-47e7-984a-e0f55096e18d",
+              "name": "storyId",
+              "value": "={{ $json.storyId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "0d223504-93f6-4bad-b85e-d429b9431ebb",
+              "name": "scriptId",
+              "value": "={{ $json.scriptId ?? '' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        2016,
+        64
+      ],
+      "id": "e441be21-43a9-4169-a970-31ad5a681632",
+      "name": "Prepare Script Already Exists Failure"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bf3935d0-26a3-48b5-b2cd-6c9a0e0e7135",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "2f4dccfe-6319-42a9-8da1-73c38fb7b05b",
+              "name": "errorCode",
+              "value": "STORY_NOT_READY_FOR_SCRIPT_GENERATION",
+              "type": "string"
+            },
+            {
+              "id": "c6047097-ddda-4976-9a48-ca9120c070b6",
+              "name": "message",
+              "value": "Story is not ready for script generation.",
+              "type": "string"
+            },
+            {
+              "id": "d9704e2c-8c22-4b86-8f92-a10f28a7d0b5",
+              "name": "stroyId",
+              "value": "=={{ $json.storyId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "41e8c0a2-9dbc-4eca-af77-c44c64d1d920",
+              "name": "StoryStatus",
+              "value": "=={{ $json.status ?? '' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        1568,
+        160
+      ],
+      "id": "8b90ac8e-d0b9-4bbe-becc-437b8df57596",
+      "name": "Prepare Story Not Ready Failure"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "68f851a2-511f-41a0-9673-c8a5508f4525",
+              "name": "storyId",
+              "value": "={{ $json.storyId }}",
+              "type": "string"
+            },
+            {
+              "id": "18238b8b-c23e-47aa-99b8-02bc7b2d2a95",
+              "name": "scriptId",
+              "value": "={{ $json.storyId + '-S01' }}",
+              "type": "string"
+            },
+            {
+              "id": "ccbcdadf-3fcb-4fb4-8e8a-818aa19f3927",
+              "name": "outlineId",
+              "value": "={{ $json.outlineId }}",
+              "type": "string"
+            },
+            {
+              "id": "1b98ab96-4970-4719-aa89-77e9d5c0c9be",
+              "name": "conceptId",
+              "value": "={{ $json.conceptId }}",
+              "type": "string"
+            },
+            {
+              "id": "0d391c61-583d-4a4a-83d3-2ce70eb83117",
+              "name": "title",
+              "value": "={{ $json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "620f1a38-9607-43a2-a2a1-b049d96744a9",
+              "name": "theme",
+              "value": "={{ $('Read Source Story').first().json.theme ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "fc6fd861-b8b0-4e2d-bc91-df519b987ada",
+              "name": "lesson",
+              "value": "={{ $json.lesson ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "1178e052-0c62-419f-984a-b556c50b2f81",
+              "name": "canonReferences",
+              "value": "={{ $json.canonReferences }}",
+              "type": "string"
+            },
+            {
+              "id": "eddc258e-a11c-4365-ad07-6cff8b453778",
+              "name": "approvalStatus",
+              "value": "PENDING_REVIEW",
+              "type": "string"
+            },
+            {
+              "id": "21da16d3-6bbb-4fb9-8d84-4717d343e951",
+              "name": "approvalProcessedAt",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "3eba7ef5-7405-406f-87de-eca6b06b084d",
+              "name": "createdAt",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            },
+            {
+              "id": "3cf4a07b-5ea7-4b9a-840e-c725f75a1afa",
+              "name": "updatedAt",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            },
+            {
+              "id": "74dddcde-9dd3-4c54-b0a2-c3bfd8f04114",
+              "name": "version",
+              "value": 1,
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        2240,
+        -128
+      ],
+      "id": "2bc2ccb0-bf07-4204-a447-f964a8a056b9",
+      "name": "Prepare Script Input",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are the script writer for Milo Story Studio.\n\nGenerate one complete children's story script from the approved outline below.\n\nUse only the supplied outline information.\nDo not invent new canon rules.\nKeep the story age-appropriate and faithful to the approved outline.\nPreserve the approved lesson and emotional arc.\nWrite a complete, polished story suitable for narration.\n\nApproved outline:\nTitle: {{ $json.title }}\nOpening: {{ $('Restore Approved Outline').first().json.opening }}\nSetup: {{ $('Restore Approved Outline').first().json.setup }}\nInciting incident: {{ $('Restore Approved Outline').first().json.incitingIncident }}\nRising action: {{ $('Restore Approved Outline').first().json.risingAction }}\nClimax: {{ $('Restore Approved Outline').first().json.climax }}\nResolution: {{ $('Restore Approved Outline').first().json.resolution }}\nEmotional arc: {{ $('Restore Approved Outline').first().json.emotionalArc }}\nLesson: {{ $json.lesson }}\n\nReturn:\nscriptText\nwordCount\nestimatedLengthMinutes\n\nReturn only data matching the required structured output.",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "={{ $json.canonContext }}"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        3136,
+        -128
+      ],
+      "id": "a7e4ca57-72ef-4c3e-b233-714cef4de931",
+      "name": "Generate Script"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-5-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        3144,
+        104
+      ],
+      "id": "51428227-3d2a-4413-bbaa-3686edb1ac3a",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "Z6w9iWdwUe796ksy",
+          "name": "OpenAI account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"scriptText\": {\n      \"type\": \"string\"\n    },\n    \"wordCount\": {\n      \"type\": \"integer\"\n    },\n    \"estimatedLengthMinutes\": {\n      \"type\": \"number\"\n    }\n  },\n  \"required\": [\n    \"scriptText\",\n    \"wordCount\",\n    \"estimatedLengthMinutes\"\n  ],\n  \"additionalProperties\": false\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        3272,
+        104
+      ],
+      "id": "f7edc3e2-7a98-4c66-a4d7-d5fc8e49cbb3",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "operation": "text",
+        "destinationKey": "canonContext",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1.1,
+      "position": [
+        2688,
+        -48
+      ],
+      "id": "ee38aac3-c42d-46f6-8edd-64028697cb48",
+      "name": "Extract from File"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        2912,
+        -128
+      ],
+      "id": "39ca06e2-8d09-4261-970f-03ec185d9043",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "file",
+        "operation": "get",
+        "owner": {
+          "__rl": true,
+          "value": "Redmaxy66",
+          "mode": "list",
+          "cachedResultName": "Redmaxy66",
+          "cachedResultUrl": "https://github.com/Redmaxy66"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "milo-story-studio",
+          "mode": "list",
+          "cachedResultName": "milo-story-studio",
+          "cachedResultUrl": "https://github.com/Redmaxy66/milo-story-studio"
+        },
+        "filePath": "03-prompts/MILO_CANON_CONTEXT.md",
+        "additionalParameters": {}
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        2464,
+        -48
+      ],
+      "id": "d43d2304-7c1e-4ea4-8687-32f328268f26",
+      "name": "Get Script Canon Context",
+      "webhookId": "6c0621de-d8a7-4910-ad84-07de2fa302a7",
+      "credentials": {
+        "githubOAuth2Api": {
+          "id": "74HHjvs9kuNuzg0r",
+          "name": "GitHub account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "68f851a2-511f-41a0-9673-c8a5508f4525",
+              "name": "storyId",
+              "value": "={{ $('Prepare Script Input').first().json.storyId }}",
+              "type": "string"
+            },
+            {
+              "id": "18238b8b-c23e-47aa-99b8-02bc7b2d2a95",
+              "name": "scriptId",
+              "value": "={{ $('Prepare Script Input').first().json.scriptId }}",
+              "type": "string"
+            },
+            {
+              "id": "ccbcdadf-3fcb-4fb4-8e8a-818aa19f3927",
+              "name": "outlineId",
+              "value": "={{ $('Prepare Script Input').first().json.outlineId }}",
+              "type": "string"
+            },
+            {
+              "id": "1b98ab96-4970-4719-aa89-77e9d5c0c9be",
+              "name": "conceptId",
+              "value": "={{ $('Prepare Script Input').first().json.conceptId }}",
+              "type": "string"
+            },
+            {
+              "id": "0d391c61-583d-4a4a-83d3-2ce70eb83117",
+              "name": "title",
+              "value": "={{ $('Prepare Script Input').first().json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "620f1a38-9607-43a2-a2a1-b049d96744a9",
+              "name": "theme",
+              "value": "={{ $('Prepare Script Input').first().json.theme }}",
+              "type": "string"
+            },
+            {
+              "id": "fc6fd861-b8b0-4e2d-bc91-df519b987ada",
+              "name": "lesson",
+              "value": "={{ $('Prepare Script Input').first().json.lesson }}",
+              "type": "string"
+            },
+            {
+              "id": "1178e052-0c62-419f-984a-b556c50b2f81",
+              "name": "canonReferences",
+              "value": "={{ $('Prepare Script Input').first().json.canonReferences }}",
+              "type": "string"
+            },
+            {
+              "id": "eddc258e-a11c-4365-ad07-6cff8b453778",
+              "name": "approvalStatus",
+              "value": "={{ $('Prepare Script Input').first().json.approvalStatus }}",
+              "type": "string"
+            },
+            {
+              "id": "21da16d3-6bbb-4fb9-8d84-4717d343e951",
+              "name": "approvalProcessedAt",
+              "value": "={{ $('Prepare Script Input').first().json.approvalProcessedAt }}",
+              "type": "string"
+            },
+            {
+              "id": "3eba7ef5-7405-406f-87de-eca6b06b084d",
+              "name": "createdAt",
+              "value": "={{ $('Prepare Script Input').first().json.createdAt }}",
+              "type": "string"
+            },
+            {
+              "id": "3cf4a07b-5ea7-4b9a-840e-c725f75a1afa",
+              "name": "updatedAt",
+              "value": "={{ $('Prepare Script Input').first().json.updatedAt }}",
+              "type": "string"
+            },
+            {
+              "id": "74dddcde-9dd3-4c54-b0a2-c3bfd8f04114",
+              "name": "version",
+              "value": "={{ $('Prepare Script Input').first().json.version }}",
+              "type": "number"
+            },
+            {
+              "id": "a85a2160-6837-45ed-a1ec-0d8a296a654c",
+              "name": "wordCount",
+              "value": "={{ $json.output.wordCount }}",
+              "type": "number"
+            },
+            {
+              "id": "57235f7e-80f1-4669-beb1-1cedd5abfb64",
+              "name": "estimatedLengthMinutes",
+              "value": "={{ $json.output.estimatedLengthMinutes }}",
+              "type": "number"
+            },
+            {
+              "id": "0de2cd36-f40a-4d49-a0ba-5c399fbc02dd",
+              "name": "scriptText",
+              "value": "={{ $json.output.scriptText }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        3488,
+        -128
+      ],
+      "id": "22d6152b-f663-47ef-87cd-3130e3aff671",
+      "name": "Prepare Script Record",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "jsCode": "const s = $json;\n\nconst valid =\n  /^MILO-[0-9]{3}$/.test(s.storyId ?? '') &&\n  s.scriptId === `${s.storyId}-S01` &&\n  s.outlineId === `${s.storyId}-O01` &&\n  /^MILO-[0-9]{3}-C0[1-3]$/.test(s.conceptId ?? '') &&\n  (s.conceptId ?? '').startsWith(`${s.storyId}-`) &&\n  typeof s.title === 'string' &&\n  s.title.trim().length > 0 &&\n  typeof s.scriptText === 'string' &&\n  s.scriptText.trim().length > 0 &&\n  Number.isInteger(Number(s.wordCount)) &&\n  Number(s.wordCount) > 0 &&\n  Number(s.estimatedLengthMinutes) > 0 &&\n  typeof s.theme === 'string' &&\n  s.theme.trim().length > 0 &&\n  typeof s.lesson === 'string' &&\n  s.lesson.trim().length > 0 &&\n  typeof s.canonReferences === 'string' &&\n  s.canonReferences.trim().length > 0 &&\n  s.approvalStatus === 'PENDING_REVIEW' &&\n  String(s.approvalProcessedAt ?? '').trim() === '' &&\n  Number(s.version) === 1 &&\n  typeof s.createdAt === 'string' &&\n  s.createdAt.length > 0 &&\n  typeof s.updatedAt === 'string' &&\n  s.updatedAt.length > 0;\n\nreturn {\n  json: {\n    ...s,\n    scriptRecordValid: valid\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3712,
+        -128
+      ],
+      "id": "c914a0a1-b6fa-4ac3-acb9-ad505a0cb290",
+      "name": "Validate Script Record"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "4605fe8d-d464-47fd-a1d4-d3f453a4c558",
+              "leftValue": "={{ $json.scriptRecordValid }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        3936,
+        -128
+      ],
+      "id": "158d56da-09f8-4b10-9461-ac23fcba8258",
+      "name": "Script Record Is Valid"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y",
+          "mode": "list",
+          "cachedResultName": "Milo Story Vault",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1688921272,
+          "mode": "list",
+          "cachedResultName": "Scripts",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit#gid=1688921272"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "storyId": "={{ $json.storyId }}",
+            "scriptId": "={{ $json.scriptId }}",
+            "outlineId": "={{ $json.outlineId }}",
+            "conceptId": "={{ $json.conceptId }}",
+            "title": "={{ $json.title }}",
+            "scriptText": "={{ $json.scriptText }}",
+            "wordCount": "={{ $json.wordCount }}",
+            "estimatedLengthMinutes": "={{ $json.estimatedLengthMinutes }}",
+            "theme": "={{ $json.theme }}",
+            "lesson": "={{ $json.lesson }}",
+            "canonReferences": "={{ $json.canonReferences }}",
+            "approvalStatus": "={{ $json.approvalStatus }}",
+            "approvalProcessedAt": "={{ $json.approvalProcessedAt }}",
+            "createdAt": "={{ $json.createdAt }}",
+            "updatedAt": "={{ $json.updatedAt }}",
+            "version": "={{ $json.version }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "storyId",
+              "displayName": "storyId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "scriptId",
+              "displayName": "scriptId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "outlineId",
+              "displayName": "outlineId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "conceptId",
+              "displayName": "conceptId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "scriptText",
+              "displayName": "scriptText",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "wordCount",
+              "displayName": "wordCount",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "estimatedLengthMinutes",
+              "displayName": "estimatedLengthMinutes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "theme",
+              "displayName": "theme",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "lesson",
+              "displayName": "lesson",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "canonReferences",
+              "displayName": "canonReferences",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "approvalStatus",
+              "displayName": "approvalStatus",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "approvalProcessedAt",
+              "displayName": "approvalProcessedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "createdAt",
+              "displayName": "createdAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "updatedAt",
+              "displayName": "updatedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "version",
+              "displayName": "version",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        4160,
+        -224
+      ],
+      "id": "7fb4aecd-549b-4b74-875f-d4176ca2328b",
+      "name": "Save Script Record",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "QG2OeymCBBUfhfMJ",
+          "name": "Google Sheets account 2"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4805ebcd-f22e-495d-97b6-c752d32ea0f5",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "6762ff24-e02f-4a60-9b6f-077d499cd67c",
+              "name": "errorCode",
+              "value": "SCRIPT_VALIDATION_FAILED",
+              "type": "string"
+            },
+            {
+              "id": "60c75960-543d-47dd-8c94-9afed2396e7c",
+              "name": "message",
+              "value": "Generated script failed deterministic validation.",
+              "type": "string"
+            },
+            {
+              "id": "ce8214a3-c82c-442d-b9e2-2a2a4b2b8937",
+              "name": "storyId",
+              "value": "={{ $json.storyId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "fc4efd1c-8447-4da1-a717-e3786ce1f710",
+              "name": "conceptId",
+              "value": "={{ $json.conceptId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "cc6d8caa-aecb-4b87-a45c-eb92bd1cdc33",
+              "name": "outlineId",
+              "value": "={{ $json.outlineId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "7b938cd7-21d7-4571-88f1-02acef7962c6",
+              "name": "scriptId",
+              "value": "={{ $json.scriptId ?? '' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        4160,
+        -32
+      ],
+      "id": "18450b0d-684f-4f0c-a16d-ec1614a9dedf",
+      "name": "Prepare Invalid Script Failure"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y",
+          "mode": "list",
+          "cachedResultName": "Milo Story Vault",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1969258097,
+          "mode": "list",
+          "cachedResultName": "Stories",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit#gid=1969258097"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "storyId": "={{ $json.storyId }}",
+            "updatedAt": "={{ $now.toISO() }}",
+            "status": "SCRIPT_GENERATED"
+          },
+          "matchingColumns": [
+            "storyId"
+          ],
+          "schema": [
+            {
+              "id": "storyId",
+              "displayName": "storyId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "createdAt",
+              "displayName": "createdAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "updatedAt",
+              "displayName": "updatedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "workingTitle",
+              "displayName": "workingTitle",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "rawIdea",
+              "displayName": "rawIdea",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "ageRange",
+              "displayName": "ageRange",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "theme",
+              "displayName": "theme",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "lesson",
+              "displayName": "lesson",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "setting",
+              "displayName": "setting",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "supportingCharacters",
+              "displayName": "supportingCharacters",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "targetLengthMinutes",
+              "displayName": "targetLengthMinutes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "notes",
+              "displayName": "notes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "version",
+              "displayName": "version",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        4384,
+        -320
+      ],
+      "id": "efc63641-e42a-448e-a836-89fb43ec156f",
+      "name": "Mark Story Script Generated",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "QG2OeymCBBUfhfMJ",
+          "name": "Google Sheets account 2"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bd2acb1b-aec7-4dcc-ba28-a99368268408",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "4f24f975-e404-4e10-99d6-bbbd70b2711a",
+              "name": "errorCode",
+              "value": "SCRIPT_SAVE_FAILED",
+              "type": "string"
+            },
+            {
+              "id": "49584df6-feb2-48a9-9435-cb89028fdf11",
+              "name": "message",
+              "value": "Script could not be saved to the Story Vault.",
+              "type": "string"
+            },
+            {
+              "id": "85d39918-9d76-42e0-bde3-c6fca46afe4f",
+              "name": "storyId",
+              "value": "={{ $('Prepare Script Record').first().json.storyId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "c0ce30db-fe73-4119-a3df-da9a09f1ad60",
+              "name": "conceptId",
+              "value": "={{ $('Prepare Script Record').first().json.conceptId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "575c5558-8ce1-4e4a-aebe-69f2312f85a5",
+              "name": "outlineId",
+              "value": "={{ $('Prepare Script Record').first().json.outlineId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "480b2a4f-03af-4efb-8288-04d1fff62d77",
+              "name": "scriptId",
+              "value": "={{ $('Prepare Script Record').first().json.scriptId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "8a13fef2-36b3-4281-9c94-51e36ce9a66d",
+              "name": "attempt",
+              "value": 0,
+              "type": "number"
+            },
+            {
+              "id": "b5060a27-868f-42a1-a390-4bd96f70bc19",
+              "name": "failedAt",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        4384,
+        -128
+      ],
+      "id": "97606bda-3015-42b0-accf-c644e25ac90e",
+      "name": "Prepare Script Save Failure"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b0f727ba-be3b-41f2-a8df-802bc03c4442",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "c0d4c9de-47d3-42a5-8797-b53ae9dfe4f7",
+              "name": "errorCode",
+              "value": "STORY_SCRIPT_STATUS_UPDATE_FAILED",
+              "type": "string"
+            },
+            {
+              "id": "81293076-b1d6-4eab-bfcf-1bb9a1452e9c",
+              "name": "message",
+              "value": "Script was saved, but the Story status could not be updated to SCRIPT_GENERATED.",
+              "type": "string"
+            },
+            {
+              "id": "b182540b-d7f2-4801-aab0-fdda3d9d87dd",
+              "name": "storyId",
+              "value": "={{ $('Prepare Script Record').first().json.storyId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "54f7b588-8fb4-4e1b-be46-5abcf834e63c",
+              "name": "conceptId",
+              "value": "={{ $('Prepare Script Record').first().json.conceptId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "b5ceaa47-f436-4cf7-b916-478823ef2b48",
+              "name": "outlineId",
+              "value": "={{ $('Prepare Script Record').first().json.outlineId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "a3f04129-cc9a-4bf0-8649-28657829cd97",
+              "name": "scriptId",
+              "value": "={{ $('Prepare Script Record').first().json.scriptId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "16b01898-86ca-49f3-8c14-301ba22005d9",
+              "name": "attempt",
+              "value": 0,
+              "type": "number"
+            },
+            {
+              "id": "d0e506f3-6ff3-4b89-9fbf-f768c8e84cc6",
+              "name": "failedAt",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        4640,
+        -272
+      ],
+      "id": "93ebb64a-bc3f-4e14-a549-025d0b717061",
+      "name": "Prepare Story Script Status Failure"
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\n\nconst groups = {};\n\nfor (const item of items) {\n  const storyId = item.json.storyId ?? '';\n\n  if (!groups[storyId]) {\n    groups[storyId] = [];\n  }\n\n  groups[storyId].push(item.json);\n}\n\nconst output = [];\n\nfor (const [storyId, outlines] of Object.entries(groups)) {\n\n  if (!storyId) {\n    output.push({\n      json: {\n        success: false,\n        valid: false,\n        errorCode: 'STORY_ID_MISSING',\n        message: 'Approved outline is missing storyId.',\n        storyId: ''\n      }\n    });\n    continue;\n  }\n\n  if (outlines.length !== 1) {\n    output.push({\n      json: {\n        success: false,\n        valid: false,\n        errorCode: 'APPROVED_OUTLINE_COUNT_INVALID',\n        message: 'Story must have exactly one processed APPROVED outline before script generation.',\n        storyId,\n        approvedOutlineCount: outlines.length\n      }\n    });\n    continue;\n  }\n\n  const outline = outlines[0];\n\n  const identifiersValid =\n    /^MILO-[0-9]{3}$/.test(storyId) &&\n    outline.outlineId === `${storyId}-O01` &&\n    /^MILO-[0-9]{3}-C0[1-3]$/.test(outline.conceptId ?? '') &&\n    (outline.conceptId ?? '').startsWith(`${storyId}-`);\n\n  if (!identifiersValid) {\n    output.push({\n      json: {\n        success: false,\n        valid: false,\n        errorCode: 'APPROVED_OUTLINE_INVALID',\n        message: 'Approved outline identifiers are invalid or do not belong to storyId.',\n        storyId,\n        outlineId: outline.outlineId ?? '',\n        conceptId: outline.conceptId ?? ''\n      }\n    });\n    continue;\n  }\n\n  output.push({\n    json: {\n      ...outline,\n      success: true,\n      valid: true\n    }\n  });\n}\n\nreturn output;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        672,
+        160
+      ],
+      "id": "0471666f-60d1-4e9c-9dc1-a53ea986ce5f",
+      "name": "Validate Approved Outline Batch"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "0af134bf-778d-4b54-85a2-aaa4b3f7afe3",
+              "leftValue": "={{ $json.valid }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        896,
+        160
+      ],
+      "id": "3a7b2b36-7fb6-4cc3-9474-cabd7dd783c5",
+      "name": "Approved Outline Batch Is Valid"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "059e6dd6-495c-4ed5-9f87-0bd00b425189",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "5f686674-bb27-43a2-94d4-8ab7059de166",
+              "name": "errorCode",
+              "value": "={{ $json.errorCode ?? 'APPROVED_OUTLINE_VALIDATION_FAILED' }}",
+              "type": "string"
+            },
+            {
+              "id": "fdc7148d-0424-4600-b106-5748e7b95fec",
+              "name": "message",
+              "value": "={{ $json.message ?? 'Approved outline failed validation.' }}",
+              "type": "string"
+            },
+            {
+              "id": "593115fd-a5d8-4285-b350-80de6548de86",
+              "name": "workflow",
+              "value": "Milo Script Generator v0.1",
+              "type": "string"
+            },
+            {
+              "id": "1e21ef10-0b66-4718-9d4d-0d156339222c",
+              "name": "storyId",
+              "value": "={{ $json.storyId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "f59a7046-b212-49dc-9257-24bf44da81ef",
+              "name": "conceptId",
+              "value": "={{ $json.conceptId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "064d81d6-067a-4d79-9f49-713074b8a4fe",
+              "name": "outlineId",
+              "value": "={{ $json.outlineId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "05046e68-a427-4fca-9213-7fc1752217dd",
+              "name": "scriptId",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "0118f120-9cc2-4e7c-86da-9e09ea5a169b",
+              "name": "attempt",
+              "value": 0,
+              "type": "number"
+            },
+            {
+              "id": "d500e903-8338-4066-b5f5-b39a1238fd09",
+              "name": "failedAt",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        1120,
+        256
+      ],
+      "id": "c0ac47ca-cb27-486c-b003-9838da0fab6f",
+      "name": "Prepare Approved Outline Validation Failure"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Start Script Generation": {
+      "main": [
+        [
+          {
+            "node": "Read Approved Outline",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Approved Outline": {
+      "main": [
+        [
+          {
+            "node": "Filter Processed Approved Outlines",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter Processed Approved Outlines": {
+      "main": [
+        [
+          {
+            "node": "Validate Approved Outline Batch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Source Story": {
+      "main": [
+        [
+          {
+            "node": "Story Is Ready For Script Generation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Story Is Ready For Script Generation": {
+      "main": [
+        [
+          {
+            "node": "Read Existing Script",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare Story Not Ready Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Existing Script": {
+      "main": [
+        [
+          {
+            "node": "Script Does Not Exist",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Script Does Not Exist": {
+      "main": [
+        [
+          {
+            "node": "Restore Approved Outline",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare Script Already Exists Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Restore Approved Outline": {
+      "main": [
+        [
+          {
+            "node": "Prepare Script Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Script Input": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get Script Canon Context",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Generate Script",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Script": {
+      "main": [
+        [
+          {
+            "node": "Prepare Script Record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Generate Script",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Generate Script",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Script Canon Context": {
+      "main": [
+        [
+          {
+            "node": "Extract from File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Script Record": {
+      "main": [
+        [
+          {
+            "node": "Validate Script Record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Script Record": {
+      "main": [
+        [
+          {
+            "node": "Script Record Is Valid",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Script Record Is Valid": {
+      "main": [
+        [
+          {
+            "node": "Save Script Record",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare Invalid Script Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Script Record": {
+      "main": [
+        [
+          {
+            "node": "Mark Story Script Generated",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare Script Save Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mark Story Script Generated": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Prepare Story Script Status Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Approved Outline Batch": {
+      "main": [
+        [
+          {
+            "node": "Approved Outline Batch Is Valid",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Approved Outline Batch Is Valid": {
+      "main": [
+        [
+          {
+            "node": "Read Source Story",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare Approved Outline Validation Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "a2ffcd0c-7fa8-461a-a254-495859d2d1e0",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "518751276e5752827215acb8c5b0cf3cfc08b92ae0362228eac713048bcb9ab3"
+  },
+  "nodeGroups": [],
+  "id": "lnDg88400349GRk5",
+  "tags": []
+}
