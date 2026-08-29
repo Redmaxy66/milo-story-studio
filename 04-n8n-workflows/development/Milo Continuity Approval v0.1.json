@@ -1,0 +1,1412 @@
+{
+  "name": "Milo Continuity Approval v0.1",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        176
+      ],
+      "id": "606092a9-99a1-4e8a-b925-18ac5f70edcd",
+      "name": "Start Continuity Approval"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y",
+          "mode": "list",
+          "cachedResultName": "Milo Story Vault",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 169160276,
+          "mode": "list",
+          "cachedResultName": "Continuity Reviews",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit#gid=169160276"
+        },
+        "filtersUI": {
+          "values": []
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        224,
+        176
+      ],
+      "id": "aa4611ff-8367-4732-8193-0f426a58fc52",
+      "name": "Read Reviewed Continuity Record",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "QG2OeymCBBUfhfMJ",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\n\nreturn items.filter(item => {\n  const r = item.json;\n\n  return (\n    ['APPROVED', 'REVISION_REQUIRED'].includes(r.reviewStatus) &&\n    String(r.reviewProcessedAt ?? '').trim() === ''\n  );\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        448,
+        176
+      ],
+      "id": "473876bd-85d7-4b00-9a0b-d0bee69b0756",
+      "name": "Filter Unprocessed Reviewed Records"
+    },
+    {
+      "parameters": {
+        "jsCode": "const r = $json;\n\nconst humanDecisionValid =\n  ['APPROVED', 'REVISION_REQUIRED'].includes(r.reviewStatus);\n\nconst assessmentValid =\n  ['PASS', 'REVIEW_REQUIRED', 'FAIL'].includes(r.assessmentResult);\n\nconst progressionAllowed =\n  r.reviewStatus === 'APPROVED' &&\n  ['PASS', 'REVIEW_REQUIRED'].includes(r.assessmentResult);\n\nconst requiresRevision =\n  r.reviewStatus === 'REVISION_REQUIRED' ||\n  r.assessmentResult === 'FAIL';\n\nconst valid =\n  /^MILO-[0-9]{3}$/.test(r.storyId ?? '') &&\n  r.scriptId === `${r.storyId}-S01` &&\n  r.reviewId === `${r.scriptId}-R01` &&\n  Number(r.scriptVersion) >= 1 &&\n  humanDecisionValid &&\n  assessmentValid &&\n  String(r.reviewProcessedAt ?? '').trim() === '' &&\n  !(r.reviewStatus === 'APPROVED' && r.assessmentResult === 'FAIL');\n\nreturn {\n  json: {\n    ...r,\n    valid,\n    progressionAllowed,\n    requiresRevision\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        672,
+        176
+      ],
+      "id": "4ec9e8b2-5e9a-4d2e-ba8b-a1ec8cea280b",
+      "name": "Validate Continuity Approval"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "da206e6c-0534-403c-9125-c1da0b3338ee",
+              "leftValue": "={{ $json.valid }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        896,
+        176
+      ],
+      "id": "1560ceeb-e9b4-4aca-a901-57699f3d7314",
+      "name": "Continuity Approval Is Valid"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y",
+          "mode": "list",
+          "cachedResultName": "Milo Story Vault",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1969258097,
+          "mode": "list",
+          "cachedResultName": "Stories",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit#gid=1969258097"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "storyId",
+              "lookupValue": "={{ $json.storyId }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1120,
+        80
+      ],
+      "id": "2687f9ba-cc14-4d98-b59a-d901496d55be",
+      "name": "Read Source Story",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "QG2OeymCBBUfhfMJ",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "21404997-9f54-4be2-83d9-a591e2450141",
+              "leftValue": "={{ \n  $json.status === 'CONTINUITY_REVIEWED' ||\n  ($json.status === 'CONTINUITY_APPROVED' && !$('Validate Continuity Approval').first().json.requiresRevision) ||\n  ($json.status === 'SCRIPT_REVISION_REQUIRED' && $('Validate Continuity Approval').first().json.requiresRevision)\n}}",
+              "rightValue": "CONTINUITY_REVIEWED",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1344,
+        80
+      ],
+      "id": "c4b79c0e-0b3f-44b4-9cbf-b85c2586d046",
+      "name": "Story Is Ready For Continuity Approval"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "9193ef4e-8174-4a18-a7ce-b21aad3c5b31",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "CONTINUITY_APPROVED",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1792,
+        80
+      ],
+      "id": "2c23eec1-8d4b-4113-a97c-50fde4d6827a",
+      "name": "Story Already Continuity Approved"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y",
+          "mode": "list",
+          "cachedResultName": "Milo Story Vault",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1969258097,
+          "mode": "list",
+          "cachedResultName": "Stories",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit#gid=1969258097"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "storyId": "={{ $('Validate Continuity Approval').first().json.storyId }}",
+            "status": "CONTINUITY_APPROVED",
+            "createdAt": "={{ $('Read Source Story').first().json.createdAt }}",
+            "updatedAt": "={{ $now.toISO() }}"
+          },
+          "matchingColumns": [
+            "storyId"
+          ],
+          "schema": [
+            {
+              "id": "storyId",
+              "displayName": "storyId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "createdAt",
+              "displayName": "createdAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "updatedAt",
+              "displayName": "updatedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "workingTitle",
+              "displayName": "workingTitle",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "rawIdea",
+              "displayName": "rawIdea",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "ageRange",
+              "displayName": "ageRange",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "theme",
+              "displayName": "theme",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "lesson",
+              "displayName": "lesson",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "setting",
+              "displayName": "setting",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "supportingCharacters",
+              "displayName": "supportingCharacters",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "targetLengthMinutes",
+              "displayName": "targetLengthMinutes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "notes",
+              "displayName": "notes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "version",
+              "displayName": "version",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2016,
+        144
+      ],
+      "id": "b465eb27-a3be-49a1-9a29-d16d26b4bacb",
+      "name": "Mark Story Continuity Approved",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "QG2OeymCBBUfhfMJ",
+          "name": "Google Sheets account 2"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y",
+          "mode": "list",
+          "cachedResultName": "Milo Story Vault",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1969258097,
+          "mode": "list",
+          "cachedResultName": "Stories",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit#gid=1969258097"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "status": "SCRIPT_REVISION_REQUIRED",
+            "storyId": "={{ $('Validate Continuity Approval').first().json.storyId }}",
+            "createdAt": "={{ $('Read Source Story').first().json.createdAt }}",
+            "updatedAt": "={{ $now.toISO() }}"
+          },
+          "matchingColumns": [
+            "storyId"
+          ],
+          "schema": [
+            {
+              "id": "storyId",
+              "displayName": "storyId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "createdAt",
+              "displayName": "createdAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "updatedAt",
+              "displayName": "updatedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "workingTitle",
+              "displayName": "workingTitle",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "rawIdea",
+              "displayName": "rawIdea",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ageRange",
+              "displayName": "ageRange",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "theme",
+              "displayName": "theme",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "lesson",
+              "displayName": "lesson",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "setting",
+              "displayName": "setting",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "supportingCharacters",
+              "displayName": "supportingCharacters",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "targetLengthMinutes",
+              "displayName": "targetLengthMinutes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "notes",
+              "displayName": "notes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "version",
+              "displayName": "version",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2016,
+        -192
+      ],
+      "id": "fbd0af1e-3484-4f2a-9a45-5dff1e2909d6",
+      "name": "Mark Story Script Revision Required",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "QG2OeymCBBUfhfMJ",
+          "name": "Google Sheets account 2"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y",
+          "mode": "list",
+          "cachedResultName": "Milo Story Vault",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 169160276,
+          "mode": "list",
+          "cachedResultName": "Continuity Reviews",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit#gid=169160276"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "reviewId": "={{ $('Validate Continuity Approval').first().json.reviewId }}",
+            "reviewProcessedAt": "={{ $now.toISO() }}",
+            "updatedAt": "={{ $now.toISO() }}",
+            "reviewStatus": "={{ $('Validate Continuity Approval').first().json.reviewStatus }}"
+          },
+          "matchingColumns": [
+            "reviewId"
+          ],
+          "schema": [
+            {
+              "id": "storyId",
+              "displayName": "storyId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "scriptId",
+              "displayName": "scriptId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "reviewId",
+              "displayName": "reviewId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "scriptVersion",
+              "displayName": "scriptVersion",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "assessmentResult",
+              "displayName": "assessmentResult",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "summary",
+              "displayName": "summary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "blockerCount",
+              "displayName": "blockerCount",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "warningCount",
+              "displayName": "warningCount",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "infoCount",
+              "displayName": "infoCount",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "findingsJson",
+              "displayName": "findingsJson",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "reviewStatus",
+              "displayName": "reviewStatus",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "reviewProcessedAt",
+              "displayName": "reviewProcessedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "createdAt",
+              "displayName": "createdAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "updatedAt",
+              "displayName": "updatedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "version",
+              "displayName": "version",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2240,
+        -16
+      ],
+      "id": "4763768a-9868-4e47-903b-dc73b682e96c",
+      "name": "Mark Continuity Review Processed",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "QG2OeymCBBUfhfMJ",
+          "name": "Google Sheets account 2"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c640d4b9-20a1-4d45-baa8-18713b21d9fa",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "48b3ed01-b3c2-4d44-959c-e069d7679049",
+              "name": "errorCode",
+              "value": "CONTINUITY_APPROVAL_INVALID",
+              "type": "string"
+            },
+            {
+              "id": "921399ed-e052-4046-a28e-d2be6519d694",
+              "name": "message",
+              "value": "Continuity approval failed deterministic validation.",
+              "type": "string"
+            },
+            {
+              "id": "57f5a90b-8bfc-42e6-95f3-636c503322da",
+              "name": "workflow",
+              "value": "Milo Continuity Approval v0.1",
+              "type": "string"
+            },
+            {
+              "id": "5fc88b17-310a-4145-9bed-3b88273c3c3c",
+              "name": "storyId",
+              "value": "={{ $json.storyId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "5e501044-b5dd-4541-bced-e54c621aaf17",
+              "name": "scriptId",
+              "value": "={{ $json.scriptId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "893438ba-78b3-4b47-b2fc-29861fe5cb9c",
+              "name": "reviewId",
+              "value": "={{ $json.reviewId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "0fbd5914-d3e0-41d6-a167-98aba931d3eb",
+              "name": "attempt",
+              "value": 0,
+              "type": "number"
+            },
+            {
+              "id": "4c51711c-963f-4afa-a4c2-32608a51c496",
+              "name": "failedAt",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        1120,
+        272
+      ],
+      "id": "1b8efad4-a36e-4125-89b6-e3b0cc343c01",
+      "name": "Prepare Invalid Continuity Approval Failure"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1a4d8d3d-efff-4029-922a-6082a6a52120",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "e704fe58-fb59-417b-95a1-2fc846132523",
+              "name": "errorCode",
+              "value": "STORY_NOT_READY_FOR_CONTINUITY_APPROVAL",
+              "type": "string"
+            },
+            {
+              "id": "56da8ad3-e464-4670-93a0-49f8c9c3af50",
+              "name": "message",
+              "value": "Story is not ready for continuity approval.",
+              "type": "string"
+            },
+            {
+              "id": "bf1ff428-11ee-4943-b10f-16bcc60bc01a",
+              "name": "workflow",
+              "value": "Milo Continuity Approval v0.1",
+              "type": "string"
+            },
+            {
+              "id": "bb1d2b9e-b15d-4ae3-a321-1db7f8946943",
+              "name": "stroyId",
+              "value": "={{ $('Validate Continuity Approval').first().json.storyId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "6df26472-7467-4103-82d4-6f9059810d01",
+              "name": "criptId",
+              "value": "={{ $('Validate Continuity Approval').first().json.scriptId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "e9e6a4b0-fae8-439d-a7ff-f117f354ac26",
+              "name": "reviewId",
+              "value": "={{ $('Validate Continuity Approval').first().json.reviewId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "514bbcb0-d53c-43fb-a035-8c8294a4a62e",
+              "name": "stroyStatus",
+              "value": "={{ $json.status ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "93b3f4e5-983a-4b6f-8516-619d62ecc473",
+              "name": "attempts",
+              "value": 0,
+              "type": "number"
+            },
+            {
+              "id": "3e7a6c6a-8745-4123-aa7d-fd3e5d33f854",
+              "name": "failedAt",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        1568,
+        176
+      ],
+      "id": "09365326-08cd-4e27-802e-32ea8f461e6a",
+      "name": "Prepare Story Not Ready Failure"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "e119290b-f461-4cb5-8542-259bf5675341",
+              "leftValue": "={{ $('Validate Continuity Approval').first().json.requiresRevision.toString().toBoolean() }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1568,
+        -16
+      ],
+      "id": "1abb05d2-498b-475d-8bfd-45943e3115b3",
+      "name": "Continuity Review Requires Revision"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7fc32c97-035b-4586-b2bb-62dc3db2b1bb",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "553a9d20-1d4a-43cc-80ab-fdfca2d59593",
+              "name": "errorCode",
+              "value": "STORY_CONTINUITY_APPROVED_UPDATE_FAILED",
+              "type": "string"
+            },
+            {
+              "id": "55c6cec9-8ba9-4daf-8257-260f70a226a8",
+              "name": "message",
+              "value": "Story could not be updated to CONTINUITY_APPROVED.",
+              "type": "string"
+            },
+            {
+              "id": "65b75c6b-b982-41f2-9220-f6f2391d949c",
+              "name": "workflow",
+              "value": "Milo Continuity Approval v0.1",
+              "type": "string"
+            },
+            {
+              "id": "1c2d1c31-4f2e-47cb-b1f8-bd30027ae2fb",
+              "name": "storyId",
+              "value": "={{ $('Validate Continuity Approval').first().json.storyId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "77a04f2b-ab66-4622-9da8-d6aa1a46b006",
+              "name": "scriptId",
+              "value": "={{ $('Validate Continuity Approval').first().json.scriptId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "ad86116f-2b48-4226-84db-0e849622ca8f",
+              "name": "reviewId",
+              "value": "={{ $('Validate Continuity Approval').first().json.reviewId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "e78ece02-51c2-43c1-984f-23a06290857d",
+              "name": "attempt",
+              "value": 0,
+              "type": "number"
+            },
+            {
+              "id": "1e13dfde-c706-4287-8fc5-4888f1eb88bb",
+              "name": "ailedAt",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        2240,
+        192
+      ],
+      "id": "9d834222-6903-46e4-9d9c-a01d86d77a64",
+      "name": "Prepare Story Continuity Approved Update Failure"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "11b09b32-18f9-4224-9ef4-71c5bb395f98",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "161898f1-8984-4bf7-b197-bc6396d5dabc",
+              "name": "errorCode",
+              "value": "STORY_SCRIPT_REVISION_UPDATE_FAILED",
+              "type": "string"
+            },
+            {
+              "id": "cb521342-abc1-4028-bc9f-62203c512c5f",
+              "name": "message",
+              "value": "Story could not be updated to SCRIPT_REVISION_REQUIRED.",
+              "type": "string"
+            },
+            {
+              "id": "25347a76-e873-4f49-a1bf-49e3b3b3333f",
+              "name": "workflow",
+              "value": "Milo Continuity Approval v0.1",
+              "type": "string"
+            },
+            {
+              "id": "ff9cef4d-bc06-4c56-bb89-910df1a2ed49",
+              "name": "stroyId",
+              "value": "={{ $('Validate Continuity Approval').first().json.storyId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "0313d480-6235-4d78-9524-2d37bd0de4a3",
+              "name": "scriptId",
+              "value": "={{ $('Validate Continuity Approval').first().json.scriptId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "5ff68df5-4428-411f-ab49-88b170abd684",
+              "name": "reviewId",
+              "value": "={{ $('Validate Continuity Approval').first().json.reviewId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "9a04f0ca-1246-4826-8087-56aa5fd53457",
+              "name": "attempt",
+              "value": 0,
+              "type": "number"
+            },
+            {
+              "id": "684b613d-bec6-4180-9416-3bfdea0b9b0d",
+              "name": "failedAt",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        2240,
+        -240
+      ],
+      "id": "3b372410-45f3-481a-b803-49fa8518f246",
+      "name": "Prepare Story Script Revision Update Failure"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "11b09b32-18f9-4224-9ef4-71c5bb395f98",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "161898f1-8984-4bf7-b197-bc6396d5dabc",
+              "name": "errorCode",
+              "value": "CONTINUITY_REVIEW_PROCESSING_FAILED",
+              "type": "string"
+            },
+            {
+              "id": "cb521342-abc1-4028-bc9f-62203c512c5f",
+              "name": "message",
+              "value": "Continuity review could not be marked as processed.",
+              "type": "string"
+            },
+            {
+              "id": "25347a76-e873-4f49-a1bf-49e3b3b3333f",
+              "name": "workflow",
+              "value": "Milo Continuity Approval v0.1",
+              "type": "string"
+            },
+            {
+              "id": "ff9cef4d-bc06-4c56-bb89-910df1a2ed49",
+              "name": "stroyId",
+              "value": "={{ $('Validate Continuity Approval').first().json.storyId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "0313d480-6235-4d78-9524-2d37bd0de4a3",
+              "name": "scriptId",
+              "value": "={{ $('Validate Continuity Approval').first().json.scriptId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "5ff68df5-4428-411f-ab49-88b170abd684",
+              "name": "reviewId",
+              "value": "={{ $('Validate Continuity Approval').first().json.reviewId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "9a04f0ca-1246-4826-8087-56aa5fd53457",
+              "name": "attempt",
+              "value": 0,
+              "type": "number"
+            },
+            {
+              "id": "684b613d-bec6-4180-9416-3bfdea0b9b0d",
+              "name": "failedAt",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        2624,
+        0
+      ],
+      "id": "dd5b2951-179f-4e1b-801c-eb40438186bc",
+      "name": "Prepare Continuity Review Processed Failure"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Start Continuity Approval": {
+      "main": [
+        [
+          {
+            "node": "Read Reviewed Continuity Record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Reviewed Continuity Record": {
+      "main": [
+        [
+          {
+            "node": "Filter Unprocessed Reviewed Records",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter Unprocessed Reviewed Records": {
+      "main": [
+        [
+          {
+            "node": "Validate Continuity Approval",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Continuity Approval": {
+      "main": [
+        [
+          {
+            "node": "Continuity Approval Is Valid",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Continuity Approval Is Valid": {
+      "main": [
+        [
+          {
+            "node": "Read Source Story",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare Invalid Continuity Approval Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Source Story": {
+      "main": [
+        [
+          {
+            "node": "Story Is Ready For Continuity Approval",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Story Is Ready For Continuity Approval": {
+      "main": [
+        [
+          {
+            "node": "Continuity Review Requires Revision",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare Story Not Ready Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Story Already Continuity Approved": {
+      "main": [
+        [
+          {
+            "node": "Mark Continuity Review Processed",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Mark Story Continuity Approved",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mark Story Continuity Approved": {
+      "main": [
+        [
+          {
+            "node": "Mark Continuity Review Processed",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare Story Continuity Approved Update Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mark Story Script Revision Required": {
+      "main": [
+        [
+          {
+            "node": "Mark Continuity Review Processed",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare Story Script Revision Update Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mark Continuity Review Processed": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Prepare Continuity Review Processed Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Invalid Continuity Approval Failure": {
+      "main": [
+        []
+      ]
+    },
+    "Continuity Review Requires Revision": {
+      "main": [
+        [
+          {
+            "node": "Mark Story Script Revision Required",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Story Already Continuity Approved",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "b3a880dc-3334-49d2-85f7-58fe9f007ac6",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "518751276e5752827215acb8c5b0cf3cfc08b92ae0362228eac713048bcb9ab3"
+  },
+  "nodeGroups": [],
+  "id": "B3F4fAc0myVnWUJX",
+  "tags": []
+}
