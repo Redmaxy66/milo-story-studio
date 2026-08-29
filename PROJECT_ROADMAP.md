@@ -2,13 +2,13 @@
 
 ## Current position
 
-**M1–M5 complete.**
+**M1–M6 complete.**
 
 The studio now supports the controlled progression:
 
-`IDEA -> CONCEPT_GENERATED -> CONCEPT_APPROVED -> OUTLINE_GENERATED -> OUTLINE_APPROVED -> SCRIPT_GENERATED -> SCRIPT_APPROVED`
+`IDEA -> CONCEPT_GENERATED -> CONCEPT_APPROVED -> OUTLINE_GENERATED -> OUTLINE_APPROVED -> SCRIPT_GENERATED -> SCRIPT_APPROVED -> CONTINUITY_REVIEWED -> CONTINUITY_APPROVED`
 
-Current milestone: **M6 — Continuity Agent**
+Current milestone: **M7 — Production Package**
 
 ---
 
@@ -134,6 +134,6 @@ Current milestone: **M6 — Continuity Agent**
 - M3 — Complete
 - M4 — Complete
 - M5 — Complete
-- M6 — Not started
+- M6 — Complete
 - M7 — Not started
 - M8 — Not started

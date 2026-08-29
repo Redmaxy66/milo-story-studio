@@ -1,5 +1,17 @@
 ﻿# Changelog
 
+## 0.6.0 — Continuity Agent complete
+
+- Approved Continuity Rules v1.0 and the Continuity Agent specification.
+- Completed Milo Continuity Reviewer v0.1.
+- Completed Milo Continuity Approval v0.1.
+- Added deterministic eligibility validation and version-based duplicate protection.
+- Added structured canon and internal-story assessment with PASS, REVIEW_REQUIRED, and FAIL outcomes.
+- Added open-canon warning handling and evidence-backed findings.
+- Added human approval, revision routing, and approval repair handling.
+- Added structured failure payloads and controlled status progression through CONTINUITY_REVIEWED, CONTINUITY_APPROVED, and SCRIPT_REVISION_REQUIRED.
+- Completed M6: Continuity Agent.
+
 ## 0.5.0 — Script Pipeline complete
 
 - Completed Milo Outline Generator v0.1.
