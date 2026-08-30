@@ -9,4 +9,5 @@ Every workflow should be tested for:
 - external service failure
 - invalid AI output
 - safe human review
+- idempotent approval repair after a partial prior write
 - correct final status

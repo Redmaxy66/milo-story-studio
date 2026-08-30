@@ -206,7 +206,7 @@
             },
             {
               "id": "c65decc7-49ca-4a3e-b8cd-1e199eb59347",
-              "name": "stroyId",
+              "name": "storyId",
               "value": "={{ $json.storyId ?? '' }}",
               "type": "string"
             },

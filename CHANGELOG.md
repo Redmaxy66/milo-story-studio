@@ -10,6 +10,9 @@
 - Documented the retry policy prohibiting automatic Google Sheets append retries.
 - Added deterministic transformation and validation scripts.
 - Left live n8n workflow references, Error Workflow selection, and `FailureLog` tab creation as explicit activation actions.
+- Added the Outline Approval idempotent repair branch for the case where the Story is already `OUTLINE_APPROVED` but the Outline stamp is still blank.
+- Corrected the Script Approval handled-failure payload field from `stroyId` to `storyId`.
+- Verified Script Generator, Outline Generator, and Concept Approval exports contain no retained `TEST-INVALID` pin data.
 
 ## 0.6.0 — Continuity Agent complete
 

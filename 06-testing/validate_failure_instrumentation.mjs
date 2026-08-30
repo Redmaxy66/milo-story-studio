@@ -96,6 +96,33 @@ function validateConnections(workflow) {
   }
 }
 
+function connectionCount(workflow) {
+  let count = 0;
+  for (const connection of Object.values(workflow.connections ?? {})) {
+    for (const branches of Object.values(connection)) {
+      for (const branch of branches) count += branch.length;
+    }
+  }
+  return count;
+}
+
+function targetNames(workflow, source, output = 0, type = 'main') {
+  return (workflow.connections[source]?.[type]?.[output] ?? []).map((target) => target.node);
+}
+
+function singleTarget(workflow, source, output = 0, type = 'main') {
+  const targets = targetNames(workflow, source, output, type);
+  assert(targets.length === 1, `${workflow.name}: expected one ${source} output ${output} target, found ${targets.length}`);
+  return targets[0];
+}
+
+function singleEqualsValue(node) {
+  const conditions = node?.parameters?.conditions?.conditions ?? [];
+  assert(conditions.length === 1, `${node?.name ?? 'unknown node'}: expected one condition`);
+  assert(conditions[0].operator?.operation === 'equals', `${node.name}: expected equals condition`);
+  return conditions[0].rightValue;
+}
+
 function collectCodes(workflow) {
   const codes = new Set();
   for (const node of workflow.nodes) {
@@ -141,6 +168,90 @@ for (const workflow of workflows) {
   assert(calls[0].type === 'n8n-nodes-base.executeWorkflow', `${workflow.name}: wrong handler call node type`);
   assert(calls[0].parameters.workflowId.value === '', `${workflow.name}: live handler ID must not be invented offline`);
   assert(calls[0].parameters.workflowId.cachedResultName === 'Milo Failure Handler v0.1', `${workflow.name}: wrong handler target name`);
+}
+
+const outlineApproval = workflows.find((workflow) => workflow.name === 'Milo Outline Approval v0.1');
+assert(outlineApproval.nodes.length === 16, `Outline Approval: expected 16 nodes, found ${outlineApproval.nodes.length}`);
+assert(connectionCount(outlineApproval) === 20, `Outline Approval: expected 20 connections, found ${connectionCount(outlineApproval)}`);
+
+const outlineReady = outlineApproval.nodes.find((node) => node.name === 'Story Is Ready for Outline Approval');
+const outlineAlreadyApproved = outlineApproval.nodes.find((node) => node.name === 'Story Already Outline Approved');
+const markStoryOutlineApproved = outlineApproval.nodes.find((node) => node.name === 'Mark Story Outline Approved');
+const markStoryValues = markStoryOutlineApproved?.parameters?.columns?.value ?? {};
+assert(outlineReady?.type === 'n8n-nodes-base.if', 'Outline Approval: ready-state node must remain an IF node');
+assert(outlineAlreadyApproved?.type === 'n8n-nodes-base.if', 'Outline Approval: missing already-approved recovery IF node');
+assert(singleEqualsValue(outlineReady) === 'OUTLINE_GENERATED', 'Outline Approval: happy-path state was weakened');
+assert(singleEqualsValue(outlineAlreadyApproved) === 'OUTLINE_APPROVED', 'Outline Approval: recovery state must be OUTLINE_APPROVED only');
+assert(markStoryOutlineApproved?.parameters?.operation === 'update', 'Outline Approval: Story happy path must remain an update');
+assert(markStoryValues.status === 'OUTLINE_APPROVED', 'Outline Approval: Story happy path must set OUTLINE_APPROVED');
+assert(
+  Object.keys(markStoryValues).sort().join(',') === 'createdAt,status,storyId,updatedAt',
+  'Outline Approval: Story update fields changed or include an unrelated lifecycle mutation',
+);
+
+assert(singleTarget(outlineApproval, outlineReady.name, 0) === 'Mark Story Outline Approved', 'Outline Approval: happy path must update Story status');
+assert(singleTarget(outlineApproval, outlineReady.name, 1) === outlineAlreadyApproved.name, 'Outline Approval: non-ready Story must enter recovery check');
+assert(singleTarget(outlineApproval, outlineAlreadyApproved.name, 0) === 'Stamp Outline Approval Processed', 'Outline Approval: repair path must skip Story rewrite and stamp the Outline');
+assert(singleTarget(outlineApproval, outlineAlreadyApproved.name, 1) === 'Prepare Story Not Ready Failure', 'Outline Approval: unrelated Story states must fail');
+assert(singleTarget(outlineApproval, 'Mark Story Outline Approved', 0) === 'Stamp Outline Approval Processed', 'Outline Approval: happy path must stamp after Story update');
+assert(singleTarget(outlineApproval, 'Mark Story Outline Approved', 1) === 'Prepare Story Outline Approval Update Failure', 'Outline Approval: Story update failure route was lost');
+assert(singleTarget(outlineApproval, 'Stamp Outline Approval Processed', 1) === 'Prepare Outline Approval Stamp Failure', 'Outline Approval: stamp failure route was lost');
+
+function simulateOutlineApprovalStoryRoute(status) {
+  const route = [outlineReady.name];
+  if (status === singleEqualsValue(outlineReady)) {
+    const markStory = singleTarget(outlineApproval, outlineReady.name, 0);
+    route.push(markStory, singleTarget(outlineApproval, markStory, 0));
+    return route;
+  }
+  route.push(singleTarget(outlineApproval, outlineReady.name, 1));
+  if (status === singleEqualsValue(outlineAlreadyApproved)) {
+    route.push(singleTarget(outlineApproval, outlineAlreadyApproved.name, 0));
+    return route;
+  }
+  const failure = singleTarget(outlineApproval, outlineAlreadyApproved.name, 1);
+  route.push(failure, singleTarget(outlineApproval, failure, 0));
+  return route;
+}
+
+assert(
+  JSON.stringify(simulateOutlineApprovalStoryRoute('OUTLINE_GENERATED')) === JSON.stringify([
+    'Story Is Ready for Outline Approval',
+    'Mark Story Outline Approved',
+    'Stamp Outline Approval Processed',
+  ]),
+  'Outline Approval: happy-path route is wrong',
+);
+assert(
+  JSON.stringify(simulateOutlineApprovalStoryRoute('OUTLINE_APPROVED')) === JSON.stringify([
+    'Story Is Ready for Outline Approval',
+    'Story Already Outline Approved',
+    'Stamp Outline Approval Processed',
+  ]),
+  'Outline Approval: repair-path route is wrong',
+);
+for (const status of ['', 'IDEA', 'CONCEPT_APPROVED', 'SCRIPT_GENERATED', 'CONTINUITY_APPROVED']) {
+  assert(
+    JSON.stringify(simulateOutlineApprovalStoryRoute(status)) === JSON.stringify([
+      'Story Is Ready for Outline Approval',
+      'Story Already Outline Approved',
+      'Prepare Story Not Ready Failure',
+      'Call Failure Handler',
+    ]),
+    `Outline Approval: invalid Story state escaped failure routing: ${status || '<blank>'}`,
+  );
+}
+
+const scriptApproval = workflows.find((workflow) => workflow.name === 'Milo Script Approval v0.1');
+const invalidScriptFailure = scriptApproval.nodes.find((node) => node.name === 'Prepare Invalid Approved Script Failure');
+const invalidScriptAssignments = invalidScriptFailure?.parameters?.assignments?.assignments ?? [];
+assert(invalidScriptAssignments.some((assignment) => assignment.name === 'storyId'), 'Script Approval: invalid-script payload is missing storyId');
+assert(!invalidScriptAssignments.some((assignment) => assignment.name === 'stroyId'), 'Script Approval: stroyId typo remains in invalid-script payload');
+
+for (const workflowName of ['Milo Script Generator v0.1', 'Milo Outline Generator v0.1', 'Milo Concept Approval v0.1']) {
+  const workflow = workflows.find((candidate) => candidate.name === workflowName);
+  assert(Object.keys(workflow.pinData ?? {}).length === 0, `${workflowName}: unintended pinned data remains`);
+  assert(!JSON.stringify(workflow).includes('TEST-INVALID'), `${workflowName}: TEST-INVALID test data remains`);
 }
 
 const handlerTypes = new Set(handler.nodes.map((node) => node.type));
@@ -253,6 +364,9 @@ assert(unhandled.nodeName === 'Read Source Story', 'Unhandled failing node was n
 assert(unhandled.message === 'Synthetic unhandled crash', 'Unhandled message was not captured');
 
 console.log('PASS JSON parsing and connection integrity: 10 workflows');
+console.log('PASS Outline Approval happy, repair, invalid-state, and failure-handler routes');
+console.log('PASS Script Approval storyId payload spelling');
+console.log('PASS Script Generator and Batch 2 exports contain no retained test pins');
 console.log('PASS local handler routing: 35/35 Prepare Failure nodes');
 console.log('PASS existing error-code preservation: 35/35 baseline codes');
 console.log(`PASS operational error-code register: ${registeredCodes.size}/${observedCodes.size} codes`);

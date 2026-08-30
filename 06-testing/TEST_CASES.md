@@ -70,6 +70,12 @@ Run `node 06-testing/validate_failure_instrumentation.mjs`.
 | FI-005 — No duplicate append retry | No Google Sheets append node has `retryOnFail=true`; repeated normalization yields the same `failureId`. | Passed. |
 | FI-006 — Local code retention | Every baseline code remains in the exports and the handler preserves the supplied code. | Passed, 35 of 35 baseline codes. |
 | FI-007 — Lifecycle isolation | Handler targets only `FailureLog`; local Story/artifact statuses are not emitted or updated. | Passed. |
+| FI-008 — Outline Approval happy path | `OUTLINE_GENERATED` routes to `Mark Story Outline Approved`, then `Stamp Outline Approval Processed`. | Passed by deterministic graph simulation. |
+| FI-009 — Outline Approval repair path | `OUTLINE_APPROVED` skips the Story rewrite and routes directly to `Stamp Outline Approval Processed`. | Passed by deterministic graph simulation. |
+| FI-010 — Outline Approval invalid Story state | Blank or unrelated states route through `Prepare Story Not Ready Failure` to `Call Failure Handler`. | Passed for blank, `IDEA`, `CONCEPT_APPROVED`, `SCRIPT_GENERATED`, and `CONTINUITY_APPROVED`. |
+| FI-011 — Approval failure routing | Story-update and approval-stamp error outputs remain connected to their local failure payloads and shared handler. | Passed. |
+| FI-012 — Script Approval payload spelling | Invalid-script failure payload contains `storyId` and no `stroyId`. | Passed. |
+| FI-013 — Test-pin hygiene | Script Generator, Outline Generator, and Concept Approval have empty `pinData` and no `TEST-INVALID` content. | Passed. |
 
 ### Live acceptance required
 

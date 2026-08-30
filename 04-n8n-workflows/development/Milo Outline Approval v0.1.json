@@ -312,6 +312,40 @@
     },
     {
       "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "ca9d9b98-2f8e-47c4-a05d-cf33e90aa5e1",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "OUTLINE_APPROVED",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1568,
+        0
+      ],
+      "id": "6f4a9c2e-9142-4a32-9a40-2f028eeb7c69",
+      "name": "Story Already Outline Approved"
+    },
+    {
+      "parameters": {
         "assignments": {
           "assignments": [
             {
@@ -329,7 +363,7 @@
             {
               "id": "355f6f34-693a-414d-8b0f-56511d91e1b6",
               "name": "message",
-              "value": "Story is missing or is not in OUTLINE_GENERATED status.",
+              "value": "Story is missing or is not in OUTLINE_GENERATED or OUTLINE_APPROVED status.",
               "type": "string"
             },
             {
@@ -417,8 +451,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        1568,
-        0
+        1792,
+        96
       ],
       "id": "8684e740-a33e-44da-af24-68d5c8aee3a2",
       "name": "Prepare Story Not Ready Failure"
@@ -1336,6 +1370,24 @@
         [
           {
             "node": "Mark Story Outline Approved",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Story Already Outline Approved",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Story Already Outline Approved": {
+      "main": [
+        [
+          {
+            "node": "Stamp Outline Approval Processed",
             "type": "main",
             "index": 0
           }
