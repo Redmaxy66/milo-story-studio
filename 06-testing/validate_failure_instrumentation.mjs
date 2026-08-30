@@ -123,6 +123,28 @@ function singleEqualsValue(node) {
   return conditions[0].rightValue;
 }
 
+function singleCondition(node) {
+  const conditions = node?.parameters?.conditions?.conditions ?? [];
+  assert(conditions.length === 1, `${node?.name ?? 'unknown node'}: expected one condition`);
+  return conditions[0];
+}
+
+function n8nStringToBoolean(value) {
+  const normalized = String(value).toLowerCase();
+  return !['0', 'false', 'no'].includes(normalized);
+}
+
+function evaluateExplicitBooleanExpression(expression, json) {
+  const prefix = '={{ String(';
+  const suffix = ').trim().toLowerCase().toBoolean() }}';
+  assert(expression.startsWith(prefix), 'Boolean expression must explicitly convert with String(...)');
+  assert(expression.endsWith(suffix), 'Boolean expression must trim and use n8n toBoolean() with no literal suffix');
+  const predicate = expression.slice(prefix.length, -suffix.length);
+  const rawResult = new Function('$json', `return (${predicate});`)(structuredClone(json));
+  assert(typeof rawResult === 'boolean', 'Wrapped validation predicate must produce a genuine Boolean');
+  return n8nStringToBoolean(String(rawResult).trim().toLowerCase());
+}
+
 function collectCodes(workflow) {
   const codes = new Set();
   for (const node of workflow.nodes) {
@@ -174,9 +196,24 @@ const outlineApproval = workflows.find((workflow) => workflow.name === 'Milo Out
 assert(outlineApproval.nodes.length === 16, `Outline Approval: expected 16 nodes, found ${outlineApproval.nodes.length}`);
 assert(connectionCount(outlineApproval) === 20, `Outline Approval: expected 20 connections, found ${connectionCount(outlineApproval)}`);
 
+for (const workflow of workflows) {
+  for (const node of workflow.nodes.filter((candidate) => candidate.type === 'n8n-nodes-base.if')) {
+    for (const condition of node.parameters?.conditions?.conditions ?? []) {
+      if (condition.operator?.type !== 'boolean') continue;
+      const expression = String(condition.leftValue ?? '');
+      if (!expression.startsWith('={{')) continue;
+      assert(
+        expression.slice(expression.lastIndexOf('}}') + 2) === '',
+        `${workflow.name} / ${node.name}: Boolean IF expression has a literal suffix`,
+      );
+    }
+  }
+}
+
 const outlineReady = outlineApproval.nodes.find((node) => node.name === 'Story Is Ready for Outline Approval');
 const outlineAlreadyApproved = outlineApproval.nodes.find((node) => node.name === 'Story Already Outline Approved');
 const markStoryOutlineApproved = outlineApproval.nodes.find((node) => node.name === 'Mark Story Outline Approved');
+const approvedOutlineIsValid = outlineApproval.nodes.find((node) => node.name === 'Approved Outline Is Valid');
 const markStoryValues = markStoryOutlineApproved?.parameters?.columns?.value ?? {};
 assert(outlineReady?.type === 'n8n-nodes-base.if', 'Outline Approval: ready-state node must remain an IF node');
 assert(outlineAlreadyApproved?.type === 'n8n-nodes-base.if', 'Outline Approval: missing already-approved recovery IF node');
@@ -196,6 +233,40 @@ assert(singleTarget(outlineApproval, outlineAlreadyApproved.name, 1) === 'Prepar
 assert(singleTarget(outlineApproval, 'Mark Story Outline Approved', 0) === 'Stamp Outline Approval Processed', 'Outline Approval: happy path must stamp after Story update');
 assert(singleTarget(outlineApproval, 'Mark Story Outline Approved', 1) === 'Prepare Story Outline Approval Update Failure', 'Outline Approval: Story update failure route was lost');
 assert(singleTarget(outlineApproval, 'Stamp Outline Approval Processed', 1) === 'Prepare Outline Approval Stamp Failure', 'Outline Approval: stamp failure route was lost');
+
+const approvedOutlineCondition = singleCondition(approvedOutlineIsValid);
+assert(approvedOutlineIsValid?.type === 'n8n-nodes-base.if', 'Outline Approval: validation gate must remain an IF node');
+assert(approvedOutlineIsValid.parameters.conditions?.options?.typeValidation === 'strict', 'Outline Approval: validation gate must retain strict type checking');
+assert(
+  approvedOutlineCondition.operator?.type === 'boolean' && approvedOutlineCondition.operator?.operation === 'true',
+  'Outline Approval: validation gate must test Boolean true',
+);
+const validApprovedOutline = {
+  storyId: 'MILO-001',
+  outlineId: 'MILO-001-O01',
+  conceptId: 'MILO-001-C01',
+  approvalStatus: 'APPROVED',
+  approvalProcessedAt: '',
+  version: 1,
+};
+assert(evaluateExplicitBooleanExpression(approvedOutlineCondition.leftValue, validApprovedOutline) === true, 'Outline Approval: valid outline did not evaluate true');
+assert(evaluateExplicitBooleanExpression(approvedOutlineCondition.leftValue, { ...validApprovedOutline, storyId: 'TEST-INVALID' }) === false, 'Outline Approval: invalid outline did not evaluate false');
+for (const [input, expected] of [['true', true], ['false', false], ['true ', true], ['false ', false]]) {
+  const actual = n8nStringToBoolean(String(input).trim().toLowerCase());
+  assert(actual === expected, `n8n Boolean normalization mismatch for ${JSON.stringify(input)}`);
+}
+assert(singleTarget(outlineApproval, approvedOutlineIsValid.name, 0) === 'Read Source Story', 'Outline Approval: valid outline must route to Read Source Story');
+const invalidOutlineFailure = singleTarget(outlineApproval, approvedOutlineIsValid.name, 1);
+assert(invalidOutlineFailure === 'Prepare Invalid Approved Outline Failure', 'Outline Approval: invalid outline must route to its failure payload');
+assert(singleTarget(outlineApproval, invalidOutlineFailure, 0) === 'Call Failure Handler', 'Outline Approval: invalid outline failure must reach Call Failure Handler');
+
+const outlineGenerator = workflows.find((workflow) => workflow.name === 'Milo Outline Generator v0.1');
+const validateOutlineRecord = outlineGenerator.nodes.find((node) => node.name === 'Validate Outline Record');
+const validateOutlineRecordCondition = singleCondition(validateOutlineRecord);
+assert(validateOutlineRecord?.type === 'n8n-nodes-base.if', 'Outline Generator: record validation gate must remain an IF node');
+assert(validateOutlineRecordCondition.operator?.type === 'boolean', 'Outline Generator: record validation gate must remain Boolean');
+assert(validateOutlineRecordCondition.leftValue.startsWith('={{ String('), 'Outline Generator: matching Boolean defect was not explicitly coerced');
+assert(validateOutlineRecordCondition.leftValue.endsWith(').trim().toLowerCase().toBoolean() }}'), 'Outline Generator: Boolean coercion contract is incomplete');
 
 function simulateOutlineApprovalStoryRoute(status) {
   const route = [outlineReady.name];
@@ -248,7 +319,7 @@ const invalidScriptAssignments = invalidScriptFailure?.parameters?.assignments?.
 assert(invalidScriptAssignments.some((assignment) => assignment.name === 'storyId'), 'Script Approval: invalid-script payload is missing storyId');
 assert(!invalidScriptAssignments.some((assignment) => assignment.name === 'stroyId'), 'Script Approval: stroyId typo remains in invalid-script payload');
 
-for (const workflowName of ['Milo Script Generator v0.1', 'Milo Outline Generator v0.1', 'Milo Concept Approval v0.1']) {
+for (const workflowName of ['Milo Script Generator v0.1', 'Milo Outline Generator v0.1', 'Milo Outline Approval v0.1', 'Milo Concept Approval v0.1']) {
   const workflow = workflows.find((candidate) => candidate.name === workflowName);
   assert(Object.keys(workflow.pinData ?? {}).length === 0, `${workflowName}: unintended pinned data remains`);
   assert(!JSON.stringify(workflow).includes('TEST-INVALID'), `${workflowName}: TEST-INVALID test data remains`);
@@ -364,9 +435,11 @@ assert(unhandled.nodeName === 'Read Source Story', 'Unhandled failing node was n
 assert(unhandled.message === 'Synthetic unhandled crash', 'Unhandled message was not captured');
 
 console.log('PASS JSON parsing and connection integrity: 10 workflows');
+console.log('PASS Boolean IF normalization, strict typing, and literal-suffix audit');
+console.log('PASS Outline Approval valid/invalid predicate branches and invalid failure route');
 console.log('PASS Outline Approval happy, repair, invalid-state, and failure-handler routes');
 console.log('PASS Script Approval storyId payload spelling');
-console.log('PASS Script Generator and Batch 2 exports contain no retained test pins');
+console.log('PASS Script Generator, Outline Approval, and Batch 2 exports contain no retained test pins');
 console.log('PASS local handler routing: 35/35 Prepare Failure nodes');
 console.log('PASS existing error-code preservation: 35/35 baseline codes');
 console.log(`PASS operational error-code register: ${registeredCodes.size}/${observedCodes.size} codes`);

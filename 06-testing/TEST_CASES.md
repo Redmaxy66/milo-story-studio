@@ -76,6 +76,10 @@ Run `node 06-testing/validate_failure_instrumentation.mjs`.
 | FI-011 — Approval failure routing | Story-update and approval-stamp error outputs remain connected to their local failure payloads and shared handler. | Passed. |
 | FI-012 — Script Approval payload spelling | Invalid-script failure payload contains `storyId` and no `stroyId`. | Passed. |
 | FI-013 — Test-pin hygiene | Script Generator, Outline Generator, and Concept Approval have empty `pinData` and no `TEST-INVALID` content. | Passed. |
+| FI-014 — Boolean IF normalization | Outline Approval evaluates valid input as Boolean `true`, invalid input as Boolean `false`, and normalizes `"true"`, `"false"`, `"true "`, and `"false "` deterministically before the strict Boolean comparison. | Passed by n8n-compatible expression-contract simulation. |
+| FI-015 — Invalid-outline failure route | The false output of `Approved Outline Is Valid` routes through `Prepare Invalid Approved Outline Failure` to `Call Failure Handler`; the true output still routes to `Read Source Story`. | Passed. |
+| FI-016 — Boolean expression suffix audit | Every Boolean IF expression has no literal characters after its closing expression delimiter; the identical Outline Generator validation defect is explicitly coerced. | Passed across all source workflow exports. |
+| FI-017 — Outline Approval pin hygiene | Outline Approval has empty `pinData` and no `TEST-INVALID` content in the repository export. | Passed. |
 
 ### Live acceptance required
 

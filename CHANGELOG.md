@@ -13,6 +13,8 @@
 - Added the Outline Approval idempotent repair branch for the case where the Story is already `OUTLINE_APPROVED` but the Outline stamp is still blank.
 - Corrected the Script Approval handled-failure payload field from `stroyId` to `storyId`.
 - Verified Script Generator, Outline Generator, and Concept Approval exports contain no retained `TEST-INVALID` pin data.
+- Made the Outline Approval validation IF explicitly normalize its inline predicate to a Boolean, preventing trailing expression whitespace from becoming a strict-type string error.
+- Corrected the identical Boolean-expression suffix defect in Outline Generator and added repository-wide Boolean IF suffix checks.
 
 ## 0.6.0 — Continuity Agent complete
 
