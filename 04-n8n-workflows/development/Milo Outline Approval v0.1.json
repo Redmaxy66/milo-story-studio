@@ -184,6 +184,42 @@
               "name": "failedAt",
               "value": "={{ $now.toISO() }}",
               "type": "string"
+            },
+            {
+              "id": "63083403-81bf-4b7a-add0-e95bbb49e0de",
+              "name": "workflowName",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "9a358425-6073-4084-82a1-966fb214da13",
+              "name": "workflowId",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "aa941691-c9e2-40ff-ba2c-db939741e82f",
+              "name": "executionId",
+              "value": "={{ $exec.id }}",
+              "type": "string"
+            },
+            {
+              "id": "2a0b25f4-96b3-42c3-98e4-a5e9d99cb467",
+              "name": "sourceType",
+              "value": "HANDLED",
+              "type": "string"
+            },
+            {
+              "id": "159ac260-d2ea-4bdb-8458-5e1a9a0efe04",
+              "name": "nodeName",
+              "value": "Prepare Approved Outline Count Failure",
+              "type": "string"
+            },
+            {
+              "id": "58399838-1bf4-4adf-aec2-8156c8449198",
+              "name": "nodeType",
+              "value": "n8n-nodes-base.set",
+              "type": "string"
             }
           ]
         },
@@ -336,6 +372,42 @@
               "id": "09c256d6-4bbc-42e0-b73f-59e1f9ec7dc8",
               "name": "failedAt",
               "value": "={{ $now.toISO() }}",
+              "type": "string"
+            },
+            {
+              "id": "8b2f0b30-67c9-4af6-9bfc-edbab7c56ee0",
+              "name": "workflowName",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "1e246b8f-36bb-4dd0-bdf8-505a2d724d4b",
+              "name": "workflowId",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "990ab8b4-3f15-462a-bdfb-6ff207c78e7a",
+              "name": "executionId",
+              "value": "={{ $exec.id }}",
+              "type": "string"
+            },
+            {
+              "id": "a5247023-dfa8-4687-8f4f-ec2d72757967",
+              "name": "sourceType",
+              "value": "HANDLED",
+              "type": "string"
+            },
+            {
+              "id": "e7cb28f3-f63d-4b80-9f1b-4a649dc5ffb7",
+              "name": "nodeName",
+              "value": "Prepare Story Not Ready Failure",
+              "type": "string"
+            },
+            {
+              "id": "f28177be-0180-47d1-af8d-a3ce952fd0f8",
+              "name": "nodeType",
+              "value": "n8n-nodes-base.set",
               "type": "string"
             }
           ]
@@ -612,6 +684,42 @@
               "id": "6e82419b-457a-4cd0-8208-917560ed6334",
               "name": "failedAt",
               "value": "={{ $now.toISO() }}",
+              "type": "string"
+            },
+            {
+              "id": "dd94ff21-34c5-41a8-be46-7d995112a9fd",
+              "name": "workflowName",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "46345d8f-7b54-4192-a235-7450ecb56ccd",
+              "name": "workflowId",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "27b8709c-d52a-4d19-8302-8e72f7d99e29",
+              "name": "executionId",
+              "value": "={{ $exec.id }}",
+              "type": "string"
+            },
+            {
+              "id": "f0f01fcf-47cb-4572-a909-399a6453be0b",
+              "name": "sourceType",
+              "value": "HANDLED",
+              "type": "string"
+            },
+            {
+              "id": "a8d13d79-d88f-4249-901a-b205d7e4223f",
+              "name": "nodeName",
+              "value": "Prepare Story Outline Approval Update Failure",
+              "type": "string"
+            },
+            {
+              "id": "62be2ca7-7697-4097-a8be-95afe5ad7754",
+              "name": "nodeType",
+              "value": "n8n-nodes-base.set",
               "type": "string"
             }
           ]
@@ -939,6 +1047,42 @@
               "name": "failedAt",
               "value": "={{ $now.toISO() }}",
               "type": "string"
+            },
+            {
+              "id": "5f21bd8f-4482-4115-bb27-2a5992c327cc",
+              "name": "workflowName",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "de4842ff-4824-4905-b4fd-c827a6714fc5",
+              "name": "workflowId",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "078461fb-62f9-4ef7-8b3a-788d36e4c3b9",
+              "name": "executionId",
+              "value": "={{ $exec.id }}",
+              "type": "string"
+            },
+            {
+              "id": "24753a14-c451-49a2-a24f-5c1d096fa10b",
+              "name": "sourceType",
+              "value": "HANDLED",
+              "type": "string"
+            },
+            {
+              "id": "3d91736d-99f4-4e13-9f7c-35705a231067",
+              "name": "nodeName",
+              "value": "Prepare Outline Approval Stamp Failure",
+              "type": "string"
+            },
+            {
+              "id": "d8720d60-2652-4cc1-ada7-b70c743c4b7b",
+              "name": "nodeType",
+              "value": "n8n-nodes-base.set",
+              "type": "string"
             }
           ]
         },
@@ -1050,6 +1194,42 @@
               "name": "outlineId",
               "value": "={{ $('Exactly One Approved Outline').first().json.outlineId ?? '' }}",
               "type": "string"
+            },
+            {
+              "id": "e970ca33-9a0a-4113-986f-8a3898bb1757",
+              "name": "workflowName",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "9a970654-6b8f-4d03-af99-da340aa52edd",
+              "name": "workflowId",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "7f0bbf1c-704b-41dc-b177-cd48d588d110",
+              "name": "executionId",
+              "value": "={{ $exec.id }}",
+              "type": "string"
+            },
+            {
+              "id": "e5ab2a3d-e4af-440e-82b7-8dd1d9c5b581",
+              "name": "sourceType",
+              "value": "HANDLED",
+              "type": "string"
+            },
+            {
+              "id": "0de1be50-e6d6-4ebe-9929-07dbc56e5704",
+              "name": "nodeName",
+              "value": "Prepare Invalid Approved Outline Failure",
+              "type": "string"
+            },
+            {
+              "id": "d174531f-2932-4dd5-8bc4-0033d91421cd",
+              "name": "nodeType",
+              "value": "n8n-nodes-base.set",
+              "type": "string"
             }
           ]
         },
@@ -1063,6 +1243,28 @@
       ],
       "id": "316c35fe-f31f-4c46-a90e-55928416ac5b",
       "name": "Prepare Invalid Approved Outline Failure"
+    },
+    {
+      "parameters": {
+        "source": "database",
+        "workflowId": {
+          "__rl": true,
+          "value": "",
+          "mode": "list",
+          "cachedResultName": "Milo Failure Handler v0.1"
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        2336,
+        0
+      ],
+      "id": "e705cc9e-def0-43eb-b620-4302939f8088",
+      "name": "Call Failure Handler"
     }
   ],
   "pinData": {},
@@ -1189,6 +1391,61 @@
         [
           {
             "node": "Prepare Invalid Approved Outline Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Approved Outline Count Failure": {
+      "main": [
+        [
+          {
+            "node": "Call Failure Handler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Story Not Ready Failure": {
+      "main": [
+        [
+          {
+            "node": "Call Failure Handler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Story Outline Approval Update Failure": {
+      "main": [
+        [
+          {
+            "node": "Call Failure Handler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Outline Approval Stamp Failure": {
+      "main": [
+        [
+          {
+            "node": "Call Failure Handler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Invalid Approved Outline Failure": {
+      "main": [
+        [
+          {
+            "node": "Call Failure Handler",
             "type": "main",
             "index": 0
           }

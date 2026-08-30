@@ -987,6 +987,42 @@
               "name": "failedAt",
               "value": "={{ $now.toISO() }}",
               "type": "string"
+            },
+            {
+              "id": "07d29cf3-8a24-455e-9c69-2c1d286438be",
+              "name": "workflowName",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "e16e1ca7-48f8-4a1b-b2f5-960129942022",
+              "name": "workflowId",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "2dcd5143-d28c-41c8-95ae-60bba80ccd8b",
+              "name": "executionId",
+              "value": "={{ $exec.id }}",
+              "type": "string"
+            },
+            {
+              "id": "43cfe07e-d05c-4619-b881-7a7768257cf2",
+              "name": "sourceType",
+              "value": "HANDLED",
+              "type": "string"
+            },
+            {
+              "id": "0967e003-d108-4a9a-a0f1-06e924f3b5dd",
+              "name": "nodeName",
+              "value": "Prepare Duplicate Outline Failure",
+              "type": "string"
+            },
+            {
+              "id": "3b4c05c2-82c2-4969-b84d-fe8857713119",
+              "name": "nodeType",
+              "value": "n8n-nodes-base.set",
+              "type": "string"
             }
           ]
         },
@@ -1063,6 +1099,42 @@
               "id": "2621bc03-b520-4718-a322-469c684b4ea2",
               "name": "failedAt",
               "value": "={{ $now.toISO() }}",
+              "type": "string"
+            },
+            {
+              "id": "d6500147-5edc-4d0d-a1aa-19949286ec68",
+              "name": "workflowName",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "e8b4f486-ce60-4976-b205-9078edb792a9",
+              "name": "workflowId",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "f8adb382-07c5-4dd0-bad4-8886646651fc",
+              "name": "executionId",
+              "value": "={{ $exec.id }}",
+              "type": "string"
+            },
+            {
+              "id": "01b9d9d5-786a-4bb2-941f-6c346e88ab37",
+              "name": "sourceType",
+              "value": "HANDLED",
+              "type": "string"
+            },
+            {
+              "id": "ce41248d-c5b2-4f16-a2cd-1d3da4ca4f9f",
+              "name": "nodeName",
+              "value": "Prepare Invalid Outline Failure",
+              "type": "string"
+            },
+            {
+              "id": "100760fe-1b43-4fa8-9ce2-09151f36e3bc",
+              "name": "nodeType",
+              "value": "n8n-nodes-base.set",
               "type": "string"
             }
           ]
@@ -1141,6 +1213,42 @@
               "name": "failedAt",
               "value": "={{ $now.toISO() }}",
               "type": "string"
+            },
+            {
+              "id": "0882a9ec-ff85-4c43-bbe2-c8ff7d9666f6",
+              "name": "workflowName",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "55de7989-d2fc-47e7-8e40-5d4b7131ed2f",
+              "name": "workflowId",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "659c2424-73d9-4719-a47d-eaf6babff2ed",
+              "name": "executionId",
+              "value": "={{ $exec.id }}",
+              "type": "string"
+            },
+            {
+              "id": "c56d7927-af35-425a-9c37-58d16a3fd68c",
+              "name": "sourceType",
+              "value": "HANDLED",
+              "type": "string"
+            },
+            {
+              "id": "92cb3d5d-4a3e-438f-98ba-fb4354f4b239",
+              "name": "nodeName",
+              "value": "Prepare Outline Generation Failure",
+              "type": "string"
+            },
+            {
+              "id": "843e3012-b0dc-4fe3-9a39-9c14bfa179b1",
+              "name": "nodeType",
+              "value": "n8n-nodes-base.set",
+              "type": "string"
             }
           ]
         },
@@ -1218,6 +1326,42 @@
               "name": "storyId",
               "value": "={{ $('Prepare Outline Record').first().json.storyId ?? '' }}",
               "type": "string"
+            },
+            {
+              "id": "43408861-600c-4eb8-b47a-ceb0090f93b6",
+              "name": "workflowName",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "7c233e19-0d94-4bfb-8d69-aa011477b82a",
+              "name": "workflowId",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "e1117b16-1754-42f9-af7b-264c3f5ca481",
+              "name": "executionId",
+              "value": "={{ $exec.id }}",
+              "type": "string"
+            },
+            {
+              "id": "ad3013bb-6f5a-48cf-9d97-b08ab0b0c272",
+              "name": "sourceType",
+              "value": "HANDLED",
+              "type": "string"
+            },
+            {
+              "id": "98d7dedc-d97b-45d7-9252-c8b22f2664f0",
+              "name": "nodeName",
+              "value": "Prepare Outline Save Failure",
+              "type": "string"
+            },
+            {
+              "id": "0f6684b9-7978-4715-95e7-5ad20f6074e4",
+              "name": "nodeType",
+              "value": "n8n-nodes-base.set",
+              "type": "string"
             }
           ]
         },
@@ -1294,6 +1438,42 @@
               "id": "ecdac9a0-1c6c-4ae4-a955-66046b6ca029",
               "name": "storyId",
               "value": "={{ $('Prepare Outline Record').first().json.storyId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "f97cd175-0e83-426c-865e-59217e010cb9",
+              "name": "workflowName",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "26e1dc57-f510-4ec8-b2cd-c4bb7f56dce9",
+              "name": "workflowId",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "9be6e7fc-2e5c-467f-ad24-1b58edca8407",
+              "name": "executionId",
+              "value": "={{ $exec.id }}",
+              "type": "string"
+            },
+            {
+              "id": "9b6e443e-fd26-42f5-8515-a7c67277325b",
+              "name": "sourceType",
+              "value": "HANDLED",
+              "type": "string"
+            },
+            {
+              "id": "d8be5e71-31c6-4ca1-a199-e0cbe36668eb",
+              "name": "nodeName",
+              "value": "Prepare Story Outline Status Failure",
+              "type": "string"
+            },
+            {
+              "id": "7f1d738f-87f3-4b9c-b432-177b428b3260",
+              "name": "nodeType",
+              "value": "n8n-nodes-base.set",
               "type": "string"
             }
           ]
@@ -1407,6 +1587,42 @@
               "name": "failedAt",
               "value": "={{ $now.toISO() }}",
               "type": "string"
+            },
+            {
+              "id": "47b5aca0-9b16-4001-b345-319e00349774",
+              "name": "workflowName",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "6348a6fc-9b4f-430b-acf9-4f7d5b0731e4",
+              "name": "workflowId",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "21839de5-3dbe-49e8-b27c-1986938be57b",
+              "name": "executionId",
+              "value": "={{ $exec.id }}",
+              "type": "string"
+            },
+            {
+              "id": "b127530f-e72f-4d4a-9780-6b4198627fd3",
+              "name": "sourceType",
+              "value": "HANDLED",
+              "type": "string"
+            },
+            {
+              "id": "db8cef04-e25c-4d3b-8f20-7b855a8937c2",
+              "name": "nodeName",
+              "value": "Prepare Approved Concept Count Failure",
+              "type": "string"
+            },
+            {
+              "id": "82d7b6b8-0638-425e-b0dd-3cf1088b8adc",
+              "name": "nodeType",
+              "value": "n8n-nodes-base.set",
+              "type": "string"
             }
           ]
         },
@@ -1420,6 +1636,28 @@
       ],
       "id": "5244963f-3676-4620-a4fa-6874285dbdef",
       "name": "Prepare Approved Concept Count Failure"
+    },
+    {
+      "parameters": {
+        "source": "database",
+        "workflowId": {
+          "__rl": true,
+          "value": "",
+          "mode": "list",
+          "cachedResultName": "Milo Failure Handler v0.1"
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        2736,
+        -352
+      ],
+      "id": "050b2103-bf10-47da-aded-dbb946ad4727",
+      "name": "Call Failure Handler"
     }
   ],
   "pinData": {},
@@ -1657,6 +1895,72 @@
         [
           {
             "node": "Prepare Approved Concept Count Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Duplicate Outline Failure": {
+      "main": [
+        [
+          {
+            "node": "Call Failure Handler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Invalid Outline Failure": {
+      "main": [
+        [
+          {
+            "node": "Call Failure Handler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Outline Generation Failure": {
+      "main": [
+        [
+          {
+            "node": "Call Failure Handler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Outline Save Failure": {
+      "main": [
+        [
+          {
+            "node": "Call Failure Handler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Story Outline Status Failure": {
+      "main": [
+        [
+          {
+            "node": "Call Failure Handler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Approved Concept Count Failure": {
+      "main": [
+        [
+          {
+            "node": "Call Failure Handler",
             "type": "main",
             "index": 0
           }

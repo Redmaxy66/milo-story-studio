@@ -873,6 +873,42 @@
               "name": "failedAt",
               "value": "={{ $now.toISO() }}",
               "type": "string"
+            },
+            {
+              "id": "8d23cc44-1a46-463f-a9ea-9e77bb01b7b5",
+              "name": "workflowName",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "b3ef6cc0-eea9-4e66-9955-c22c4b8f2d61",
+              "name": "workflowId",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "72b33f7f-d91b-4ee0-a5e1-3f1a9d38c8f7",
+              "name": "executionId",
+              "value": "={{ $exec.id }}",
+              "type": "string"
+            },
+            {
+              "id": "7cda6211-3cc1-4203-9d72-49b7f372e31d",
+              "name": "sourceType",
+              "value": "HANDLED",
+              "type": "string"
+            },
+            {
+              "id": "7921c4fb-ee66-47c2-9065-50f670764786",
+              "name": "nodeName",
+              "value": "Prepare Invalid Continuity Approval Failure",
+              "type": "string"
+            },
+            {
+              "id": "45a0a94a-270c-4dd9-97ca-6aac34a12d36",
+              "name": "nodeType",
+              "value": "n8n-nodes-base.set",
+              "type": "string"
             }
           ]
         },
@@ -949,6 +985,42 @@
               "id": "3e7a6c6a-8745-4123-aa7d-fd3e5d33f854",
               "name": "failedAt",
               "value": "",
+              "type": "string"
+            },
+            {
+              "id": "b30b5926-5291-4d89-b465-4beb02fbf133",
+              "name": "workflowName",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "d61c4ea7-87e3-458d-b9ec-b01eba559684",
+              "name": "workflowId",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "96eba13d-98d3-4db0-bdf5-4f2246e8d6df",
+              "name": "executionId",
+              "value": "={{ $exec.id }}",
+              "type": "string"
+            },
+            {
+              "id": "6acf0aed-b03f-42ce-b9fc-df320e12a262",
+              "name": "sourceType",
+              "value": "HANDLED",
+              "type": "string"
+            },
+            {
+              "id": "ccf7f399-13bb-4107-ab93-9b5934aa1572",
+              "name": "nodeName",
+              "value": "Prepare Story Not Ready Failure",
+              "type": "string"
+            },
+            {
+              "id": "98bf10bb-f673-4a7c-b487-60fc35c73813",
+              "name": "nodeType",
+              "value": "n8n-nodes-base.set",
               "type": "string"
             }
           ]
@@ -1055,6 +1127,42 @@
               "name": "ailedAt",
               "value": "={{ $now.toISO() }}",
               "type": "string"
+            },
+            {
+              "id": "53c84e7b-09d3-40c3-8dee-c3f4e5782c31",
+              "name": "workflowName",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "f9c00661-c5f2-477c-a4d9-0e36a0e6a3f8",
+              "name": "workflowId",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "f14dfcf9-df13-435e-92aa-332162d44d29",
+              "name": "executionId",
+              "value": "={{ $exec.id }}",
+              "type": "string"
+            },
+            {
+              "id": "d318b735-3909-46b3-99fb-701919470a17",
+              "name": "sourceType",
+              "value": "HANDLED",
+              "type": "string"
+            },
+            {
+              "id": "0bdffccd-be2f-42e3-83cc-3d129a771203",
+              "name": "nodeName",
+              "value": "Prepare Story Continuity Approved Update Failure",
+              "type": "string"
+            },
+            {
+              "id": "6578dde8-3945-4307-ab52-966000f077b0",
+              "name": "nodeType",
+              "value": "n8n-nodes-base.set",
+              "type": "string"
             }
           ]
         },
@@ -1125,6 +1233,42 @@
               "id": "684b613d-bec6-4180-9416-3bfdea0b9b0d",
               "name": "failedAt",
               "value": "={{ $now.toISO() }}",
+              "type": "string"
+            },
+            {
+              "id": "94962955-0d58-4793-9c6d-e8fab2b8eb1d",
+              "name": "workflowName",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "910544dc-141c-449a-a910-8b62c2f5ef20",
+              "name": "workflowId",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "51f4ff5f-5c85-4ab3-856f-009f95cd5998",
+              "name": "executionId",
+              "value": "={{ $exec.id }}",
+              "type": "string"
+            },
+            {
+              "id": "8e91b744-4a07-4074-9c93-2e71e848552f",
+              "name": "sourceType",
+              "value": "HANDLED",
+              "type": "string"
+            },
+            {
+              "id": "3eff0127-877e-4c12-a189-43da4421bc7e",
+              "name": "nodeName",
+              "value": "Prepare Story Script Revision Update Failure",
+              "type": "string"
+            },
+            {
+              "id": "93d3f2d8-7487-47b6-b58c-0491515ac38e",
+              "name": "nodeType",
+              "value": "n8n-nodes-base.set",
               "type": "string"
             }
           ]
@@ -1197,6 +1341,42 @@
               "name": "failedAt",
               "value": "={{ $now.toISO() }}",
               "type": "string"
+            },
+            {
+              "id": "e12a0a8d-831e-44c5-8737-e23c93e0e060",
+              "name": "workflowName",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "0ac3f90e-4a67-4ba9-a854-6cd998146918",
+              "name": "workflowId",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "971064fb-e596-4e17-98c4-c2f135112254",
+              "name": "executionId",
+              "value": "={{ $exec.id }}",
+              "type": "string"
+            },
+            {
+              "id": "95ce63b8-1b62-404f-89aa-9f4c54b73656",
+              "name": "sourceType",
+              "value": "HANDLED",
+              "type": "string"
+            },
+            {
+              "id": "1bd79406-873c-47d5-98b9-26f5d35ac0c2",
+              "name": "nodeName",
+              "value": "Prepare Continuity Review Processed Failure",
+              "type": "string"
+            },
+            {
+              "id": "7d50c920-ce35-4116-8cb3-01b3971e023a",
+              "name": "nodeType",
+              "value": "n8n-nodes-base.set",
+              "type": "string"
             }
           ]
         },
@@ -1210,6 +1390,28 @@
       ],
       "id": "dd5b2951-179f-4e1b-801c-eb40438186bc",
       "name": "Prepare Continuity Review Processed Failure"
+    },
+    {
+      "parameters": {
+        "source": "database",
+        "workflowId": {
+          "__rl": true,
+          "value": "",
+          "mode": "list",
+          "cachedResultName": "Milo Failure Handler v0.1"
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        2944,
+        176
+      ],
+      "id": "4ee8299b-e5eb-46b5-abca-311448096faa",
+      "name": "Call Failure Handler"
     }
   ],
   "pinData": {},
@@ -1373,7 +1575,13 @@
     },
     "Prepare Invalid Continuity Approval Failure": {
       "main": [
-        []
+        [
+          {
+            "node": "Call Failure Handler",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "Continuity Review Requires Revision": {
@@ -1388,6 +1596,50 @@
         [
           {
             "node": "Story Already Continuity Approved",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Story Not Ready Failure": {
+      "main": [
+        [
+          {
+            "node": "Call Failure Handler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Story Continuity Approved Update Failure": {
+      "main": [
+        [
+          {
+            "node": "Call Failure Handler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Story Script Revision Update Failure": {
+      "main": [
+        [
+          {
+            "node": "Call Failure Handler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Continuity Review Processed Failure": {
+      "main": [
+        [
+          {
+            "node": "Call Failure Handler",
             "type": "main",
             "index": 0
           }

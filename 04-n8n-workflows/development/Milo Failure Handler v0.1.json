@@ -1,0 +1,127 @@
+{
+  "name": "Milo Failure Handler v0.1",
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -480,
+        -80
+      ],
+      "id": "bfc4da35-f540-4896-82a4-7306f5d9522f",
+      "name": "When Called by Another Workflow"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [
+        -480,
+        160
+      ],
+      "id": "91e559b5-9f18-403c-b632-28a7e6b66e54",
+      "name": "On Workflow Error"
+    },
+    {
+      "parameters": {
+        "jsCode": "const FAILURE_LOG_COLUMNS = [\n  'failureId',\n  'occurredAt',\n  'workflowName',\n  'workflowId',\n  'executionId',\n  'sourceType',\n  'storyId',\n  'conceptId',\n  'outlineId',\n  'scriptId',\n  'reviewId',\n  'errorCode',\n  'message',\n  'nodeName',\n  'nodeType',\n  'attempt',\n  'rawError',\n  'status',\n];\n\nfunction firstValue(...values) {\n  return values.find((value) => value !== undefined && value !== null && value !== '');\n}\n\nfunction safeJson(value) {\n  const seen = new WeakSet();\n  let serialized;\n  try {\n    serialized = JSON.stringify(value, (key, current) => {\n      if (typeof current === 'bigint') return current.toString();\n      if (current && typeof current === 'object') {\n        if (seen.has(current)) return '[Circular]';\n        seen.add(current);\n      }\n      return current;\n    });\n  } catch (error) {\n    serialized = JSON.stringify({ serializationError: error.message });\n  }\n  return (serialized ?? '').slice(0, 45000);\n}\n\nfunction fnv1a64(value) {\n  let hash = 0xcbf29ce484222325n;\n  const prime = 0x100000001b3n;\n  for (const byte of new TextEncoder().encode(value)) {\n    hash ^= BigInt(byte);\n    hash = BigInt.asUintN(64, hash * prime);\n  }\n  return hash.toString(16).padStart(16, '0');\n}\n\nreturn $input.all().map((item) => {\n  const raw = item.json ?? {};\n  const error = raw.execution?.error ?? raw.trigger?.error ?? raw.error ?? {};\n  const isUnhandled = raw.sourceType === 'UNHANDLED' || (\n    raw.sourceType !== 'HANDLED' &&\n    typeof raw.workflow === 'object' &&\n    (raw.execution || raw.trigger)\n  );\n  const sourceType = isUnhandled ? 'UNHANDLED' : 'HANDLED';\n  const occurredAt = String(firstValue(\n    raw.occurredAt,\n    raw.failedAt,\n    raw['=failedAt'],\n    raw.ailedAt,\n    raw.execution?.stoppedAt,\n    new Date().toISOString(),\n  ));\n  const workflowName = String(firstValue(\n    isUnhandled ? raw.workflow?.name : raw.workflowName,\n    typeof raw.workflow === 'string' ? raw.workflow : undefined,\n    'Unknown Workflow',\n  ));\n  const workflowId = String(firstValue(\n    isUnhandled ? raw.workflow?.id : raw.workflowId,\n    '',\n  ));\n  const executionId = String(firstValue(\n    isUnhandled ? raw.execution?.id : raw.executionId,\n    $execution.id,\n    '',\n  ));\n  const storyId = String(firstValue(raw.storyId, raw.stroyId, raw['=storyId'], ''));\n  const conceptId = String(firstValue(raw.conceptId, ''));\n  const outlineId = String(firstValue(raw.outlineId, ''));\n  const scriptId = String(firstValue(raw.scriptId, raw.criptId, ''));\n  const reviewId = String(firstValue(raw.reviewId, ''));\n  const errorCode = String(firstValue(\n    raw.errorCode,\n    isUnhandled ? 'UNHANDLED_WORKFLOW_ERROR' : 'HANDLED_FAILURE',\n  ));\n  const message = String(firstValue(raw.message, error.message, 'Workflow failure'));\n  const nodeName = String(firstValue(\n    raw.nodeName,\n    raw.execution?.lastNodeExecuted,\n    error.node?.name,\n    '',\n  ));\n  const nodeType = String(firstValue(raw.nodeType, error.node?.type, error.nodeType, ''));\n  const parsedAttempt = Number(firstValue(raw.attempt, raw.attempts, 0));\n  const attempt = Number.isFinite(parsedAttempt) ? parsedAttempt : 0;\n  const rawError = safeJson(isUnhandled ? error : raw);\n  const identity = [\n    sourceType,\n    workflowId || workflowName,\n    executionId || occurredAt,\n    nodeName,\n    errorCode,\n    storyId,\n    conceptId,\n    outlineId,\n    scriptId,\n    reviewId,\n  ].join('|');\n  const failureId = 'FL-' + (sourceType === 'HANDLED' ? 'H' : 'U') + '-' + fnv1a64(identity);\n  const event = {\n    failureId,\n    occurredAt,\n    workflowName,\n    workflowId,\n    executionId,\n    sourceType,\n    storyId,\n    conceptId,\n    outlineId,\n    scriptId,\n    reviewId,\n    errorCode,\n    message,\n    nodeName,\n    nodeType,\n    attempt,\n    rawError,\n    status: 'OPEN',\n  };\n  if (Object.keys(event).join('|') !== FAILURE_LOG_COLUMNS.join('|')) {\n    throw new Error('FailureLog column contract drift detected');\n  }\n  return { json: event };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -160,
+        40
+      ],
+      "id": "f2b0cfed-7771-4604-820c-5ceb02e6de2d",
+      "name": "Normalize Failure Event"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y",
+          "mode": "list",
+          "cachedResultName": "Milo Story Vault",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "FailureLog",
+          "mode": "name",
+          "cachedResultName": "FailureLog"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        160,
+        40
+      ],
+      "id": "131f8a08-07d5-4a48-8ec6-830110091350",
+      "name": "Append FailureLog",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "QG2OeymCBBUfhfMJ",
+          "name": "Google Sheets account 2"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When Called by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Normalize Failure Event",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "On Workflow Error": {
+      "main": [
+        [
+          {
+            "node": "Normalize Failure Event",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize Failure Event": {
+      "main": [
+        [
+          {
+            "node": "Append FailureLog",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "meta": {},
+  "tags": []
+}

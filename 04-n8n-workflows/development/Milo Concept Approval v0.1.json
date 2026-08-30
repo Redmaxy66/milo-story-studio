@@ -391,6 +391,42 @@
               "name": "approvalStatus",
               "value": "={{ $json.approvalStatus ?? '' }}",
               "type": "string"
+            },
+            {
+              "id": "1423eb40-8dc4-4dae-affd-b6ef1a394617",
+              "name": "workflowName",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "e0130c65-f4c1-49c0-961b-d4c25d89c91c",
+              "name": "workflowId",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "5ab5e143-38a5-4269-b4c6-278c21499ad2",
+              "name": "executionId",
+              "value": "={{ $exec.id }}",
+              "type": "string"
+            },
+            {
+              "id": "e787ec1a-84f5-404f-af8b-9e63627e7767",
+              "name": "sourceType",
+              "value": "HANDLED",
+              "type": "string"
+            },
+            {
+              "id": "538f951d-11ac-417e-bbc4-7fbeefb2bbda",
+              "name": "nodeName",
+              "value": "Prepare Approval Validation Failure",
+              "type": "string"
+            },
+            {
+              "id": "c6fc16df-571b-43e4-b01e-81a20ef56f8b",
+              "name": "nodeType",
+              "value": "n8n-nodes-base.set",
+              "type": "string"
             }
           ]
         },
@@ -781,6 +817,42 @@
               "name": "storyStatus",
               "value": "={{ $json.status ?? '' }}",
               "type": "string"
+            },
+            {
+              "id": "8214cc0e-5a0a-428c-a003-8acf923e1206",
+              "name": "workflowName",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "6c6f9836-c38a-49ec-beda-2e481afd7f0c",
+              "name": "workflowId",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "a0be8fb4-7453-40f7-b13a-9e76402fa92c",
+              "name": "executionId",
+              "value": "={{ $exec.id }}",
+              "type": "string"
+            },
+            {
+              "id": "100bfb41-f116-45bf-9e4b-f6d531ef3851",
+              "name": "sourceType",
+              "value": "HANDLED",
+              "type": "string"
+            },
+            {
+              "id": "14e6a702-8049-42f2-ad58-82a0080507bd",
+              "name": "nodeName",
+              "value": "Prepare Story Not Ready Failure",
+              "type": "string"
+            },
+            {
+              "id": "2ce2559a-7ff8-42b9-9b3c-73f1123adfae",
+              "name": "nodeType",
+              "value": "n8n-nodes-base.set",
+              "type": "string"
             }
           ]
         },
@@ -794,6 +866,28 @@
       ],
       "id": "c4c3137e-6dbf-4f77-abfe-f211f3a1e1bf",
       "name": "Prepare Story Not Ready Failure"
+    },
+    {
+      "parameters": {
+        "source": "database",
+        "workflowId": {
+          "__rl": true,
+          "value": "",
+          "mode": "list",
+          "cachedResultName": "Milo Failure Handler v0.1"
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        2336,
+        224
+      ],
+      "id": "c577f44e-7305-4546-8281-809b67adecf7",
+      "name": "Call Failure Handler"
     }
   ],
   "pinData": {},
@@ -930,6 +1024,28 @@
         [
           {
             "node": "Prepare Story Not Ready Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Approval Validation Failure": {
+      "main": [
+        [
+          {
+            "node": "Call Failure Handler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Story Not Ready Failure": {
+      "main": [
+        [
+          {
+            "node": "Call Failure Handler",
             "type": "main",
             "index": 0
           }

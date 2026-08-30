@@ -514,6 +514,48 @@
               "name": "message",
               "value": "Submission rejected: rawIdea and theme are required, and targetLengthMinutes must be greater than 0",
               "type": "string"
+            },
+            {
+              "id": "5dc9b276-f4fc-4945-a361-070d7fc950fb",
+              "name": "errorCode",
+              "value": "STORY_SUBMISSION_VALIDATION_FAILED",
+              "type": "string"
+            },
+            {
+              "id": "3649b0bd-8f00-4c38-af1d-92925deb8534",
+              "name": "workflowName",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "fefe90d3-e942-42ea-9e4e-1e23b3114ae4",
+              "name": "workflowId",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "aa85c415-6eab-419e-b544-9559aa15ad56",
+              "name": "executionId",
+              "value": "={{ $exec.id }}",
+              "type": "string"
+            },
+            {
+              "id": "536c51f5-7779-467f-b4bb-6fd432b278ef",
+              "name": "sourceType",
+              "value": "HANDLED",
+              "type": "string"
+            },
+            {
+              "id": "db3f264e-9abe-4c09-af3d-c0a4c15530b1",
+              "name": "nodeName",
+              "value": "Prepare Validation Failure",
+              "type": "string"
+            },
+            {
+              "id": "3ea6693c-fc78-4047-a30a-589d9e0e3e2d",
+              "name": "nodeType",
+              "value": "n8n-nodes-base.set",
+              "type": "string"
             }
           ]
         },
@@ -527,6 +569,28 @@
       ],
       "id": "a4644f3a-6159-4085-9763-816886b0d1ad",
       "name": "Prepare Validation Failure"
+    },
+    {
+      "parameters": {
+        "source": "database",
+        "workflowId": {
+          "__rl": true,
+          "value": "",
+          "mode": "list",
+          "cachedResultName": "Milo Failure Handler v0.1"
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        1360,
+        -16
+      ],
+      "id": "7aefc018-a094-4d1d-8c8a-1de5a3c83588",
+      "name": "Call Failure Handler"
     }
   ],
   "pinData": {},
@@ -598,6 +662,17 @@
         [
           {
             "node": "Prepare Validation Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Validation Failure": {
+      "main": [
+        [
+          {
+            "node": "Call Failure Handler",
             "type": "main",
             "index": 0
           }

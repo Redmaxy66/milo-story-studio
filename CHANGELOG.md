@@ -1,5 +1,16 @@
 ﻿# Changelog
 
+## 0.6.5 — Failure instrumentation repository implementation
+
+- Added the shared `Milo Failure Handler v0.1` contract for handled and unhandled failures.
+- Wired all 35 existing local `Prepare ... Failure` nodes to per-workflow handler calls.
+- Added deterministic failure IDs and an 18-column append-only `FailureLog` schema.
+- Added Error Trigger normalization without inventing live workflow IDs or Sheet schema metadata.
+- Added the operational error-code register and separated it from lifecycle states.
+- Documented the retry policy prohibiting automatic Google Sheets append retries.
+- Added deterministic transformation and validation scripts.
+- Left live n8n workflow references, Error Workflow selection, and `FailureLog` tab creation as explicit activation actions.
+
 ## 0.6.0 — Continuity Agent complete
 
 - Approved Continuity Rules v1.0 and the Continuity Agent specification.

@@ -286,6 +286,42 @@
               "name": "scriptId",
               "value": "={{ $json.scriptId ?? '' }}",
               "type": "string"
+            },
+            {
+              "id": "5c361396-7821-4e1b-a108-10048e99a9eb",
+              "name": "workflowName",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "9f367582-fd1a-4743-b724-4728da1d7084",
+              "name": "workflowId",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "fa53c9d2-51d5-4348-a72c-d5c8c53d8180",
+              "name": "executionId",
+              "value": "={{ $exec.id }}",
+              "type": "string"
+            },
+            {
+              "id": "b145e629-c24e-41fd-a5c1-b46f7f590d0b",
+              "name": "sourceType",
+              "value": "HANDLED",
+              "type": "string"
+            },
+            {
+              "id": "f927fb26-b4e4-4e64-b7d4-4ce8c1c85b57",
+              "name": "nodeName",
+              "value": "Prepare Script Already Exists Failure",
+              "type": "string"
+            },
+            {
+              "id": "3ab31884-3a8c-41da-8b95-9445a507d02f",
+              "name": "nodeType",
+              "value": "n8n-nodes-base.set",
+              "type": "string"
             }
           ]
         },
@@ -332,6 +368,42 @@
               "id": "41e8c0a2-9dbc-4eca-af77-c44c64d1d920",
               "name": "StoryStatus",
               "value": "=={{ $json.status ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "bd08ddc8-724e-4112-a971-ac703fc7acb3",
+              "name": "workflowName",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "ecc1326c-2b1f-4629-b8c0-fb6d52e17271",
+              "name": "workflowId",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "9852c833-62a5-45f4-acc9-db96cbb1d866",
+              "name": "executionId",
+              "value": "={{ $exec.id }}",
+              "type": "string"
+            },
+            {
+              "id": "91081b28-930e-4150-8772-71068e65bef9",
+              "name": "sourceType",
+              "value": "HANDLED",
+              "type": "string"
+            },
+            {
+              "id": "5c4f7436-a6ac-4d06-8412-64adef300c5e",
+              "name": "nodeName",
+              "value": "Prepare Story Not Ready Failure",
+              "type": "string"
+            },
+            {
+              "id": "56b6328b-981c-4710-9292-d4304aafe852",
+              "name": "nodeType",
+              "value": "n8n-nodes-base.set",
               "type": "string"
             }
           ]
@@ -984,6 +1056,42 @@
               "name": "scriptId",
               "value": "={{ $json.scriptId ?? '' }}",
               "type": "string"
+            },
+            {
+              "id": "705ede8d-0c6f-40ec-9037-710a983839b6",
+              "name": "workflowName",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "d632a2f1-075c-47e4-9dd4-f482db65fd75",
+              "name": "workflowId",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "e71e5d67-309d-41d6-9970-a38f6eac6f12",
+              "name": "executionId",
+              "value": "={{ $exec.id }}",
+              "type": "string"
+            },
+            {
+              "id": "e041e7dc-4c5c-4f1c-8b18-b083bd296ab1",
+              "name": "sourceType",
+              "value": "HANDLED",
+              "type": "string"
+            },
+            {
+              "id": "ace17374-b399-4801-93f2-d2297bde66b1",
+              "name": "nodeName",
+              "value": "Prepare Invalid Script Failure",
+              "type": "string"
+            },
+            {
+              "id": "e40e34a9-0da8-4abe-9458-e477a177dd0b",
+              "name": "nodeType",
+              "value": "n8n-nodes-base.set",
+              "type": "string"
             }
           ]
         },
@@ -1256,6 +1364,42 @@
               "name": "failedAt",
               "value": "={{ $now.toISO() }}",
               "type": "string"
+            },
+            {
+              "id": "c8c45d34-1f78-4976-992c-6ea111de48dc",
+              "name": "workflowName",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "a3d43e2a-24ce-47a4-b9ed-fb4cc49e2b63",
+              "name": "workflowId",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "7ae117d0-4c7e-4dc8-b075-7e367641e63a",
+              "name": "executionId",
+              "value": "={{ $exec.id }}",
+              "type": "string"
+            },
+            {
+              "id": "94eb11cb-3316-42a0-86ba-e380fdcee55d",
+              "name": "sourceType",
+              "value": "HANDLED",
+              "type": "string"
+            },
+            {
+              "id": "e0493d64-b1e1-4cb9-a810-f0e55c5a994d",
+              "name": "nodeName",
+              "value": "Prepare Script Save Failure",
+              "type": "string"
+            },
+            {
+              "id": "4b5f422e-4f61-441d-b2c9-c17b0d39f612",
+              "name": "nodeType",
+              "value": "n8n-nodes-base.set",
+              "type": "string"
             }
           ]
         },
@@ -1326,6 +1470,42 @@
               "id": "d0e506f3-6ff3-4b89-9fbf-f768c8e84cc6",
               "name": "failedAt",
               "value": "={{ $now.toISO() }}",
+              "type": "string"
+            },
+            {
+              "id": "6770f4b0-2ac6-4a10-99a6-24bcf204d6b2",
+              "name": "workflowName",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "ae080a74-7eed-4db8-a67b-616380f217bd",
+              "name": "workflowId",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "62978dd1-c6dc-46e4-a252-1c340ca60071",
+              "name": "executionId",
+              "value": "={{ $exec.id }}",
+              "type": "string"
+            },
+            {
+              "id": "73dd76e5-b174-4948-8ea0-0b33bff5d79e",
+              "name": "sourceType",
+              "value": "HANDLED",
+              "type": "string"
+            },
+            {
+              "id": "2f721c67-c766-438b-add9-36d6c17be101",
+              "name": "nodeName",
+              "value": "Prepare Story Script Status Failure",
+              "type": "string"
+            },
+            {
+              "id": "3a1302b7-39a8-4605-87f0-5fdf7ec89ab7",
+              "name": "nodeType",
+              "value": "n8n-nodes-base.set",
               "type": "string"
             }
           ]
@@ -1451,6 +1631,42 @@
               "name": "failedAt",
               "value": "={{ $now.toISO() }}",
               "type": "string"
+            },
+            {
+              "id": "0fb349ef-0429-4dc4-85d0-40bb08ec700e",
+              "name": "workflowName",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "7ec5f214-464a-4e85-ab35-5298cd42cd9c",
+              "name": "workflowId",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "d117180c-27d1-414e-840e-ba154f1a24ce",
+              "name": "executionId",
+              "value": "={{ $exec.id }}",
+              "type": "string"
+            },
+            {
+              "id": "c31eb574-d775-4d4c-a67c-cab0569a63c1",
+              "name": "sourceType",
+              "value": "HANDLED",
+              "type": "string"
+            },
+            {
+              "id": "a4746bb9-35c8-45ab-bd81-425de34ddbcb",
+              "name": "nodeName",
+              "value": "Prepare Approved Outline Validation Failure",
+              "type": "string"
+            },
+            {
+              "id": "47d273aa-7f28-4f29-8847-a3b0947ca94d",
+              "name": "nodeType",
+              "value": "n8n-nodes-base.set",
+              "type": "string"
             }
           ]
         },
@@ -1464,6 +1680,28 @@
       ],
       "id": "c0ac47ca-cb27-486c-b003-9838da0fab6f",
       "name": "Prepare Approved Outline Validation Failure"
+    },
+    {
+      "parameters": {
+        "source": "database",
+        "workflowId": {
+          "__rl": true,
+          "value": "",
+          "mode": "list",
+          "cachedResultName": "Milo Failure Handler v0.1"
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        4960,
+        64
+      ],
+      "id": "3197a180-ac39-4ebf-9eab-482c33006701",
+      "name": "Call Failure Handler"
     }
   ],
   "pinData": {},
@@ -1745,6 +1983,72 @@
         [
           {
             "node": "Prepare Approved Outline Validation Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Script Already Exists Failure": {
+      "main": [
+        [
+          {
+            "node": "Call Failure Handler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Story Not Ready Failure": {
+      "main": [
+        [
+          {
+            "node": "Call Failure Handler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Invalid Script Failure": {
+      "main": [
+        [
+          {
+            "node": "Call Failure Handler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Script Save Failure": {
+      "main": [
+        [
+          {
+            "node": "Call Failure Handler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Story Script Status Failure": {
+      "main": [
+        [
+          {
+            "node": "Call Failure Handler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Approved Outline Validation Failure": {
+      "main": [
+        [
+          {
+            "node": "Call Failure Handler",
             "type": "main",
             "index": 0
           }
