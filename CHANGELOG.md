@@ -15,6 +15,7 @@
 - Verified Script Generator, Outline Generator, and Concept Approval exports contain no retained `TEST-INVALID` pin data.
 - Made the Outline Approval validation IF explicitly normalize its inline predicate to a Boolean, preventing trailing expression whitespace from becoming a strict-type string error.
 - Corrected the identical Boolean-expression suffix defect in Outline Generator and added repository-wide Boolean IF suffix checks.
+- Connected Concept Generator's invalid-batch FALSE output to its existing validation-failure payload and shared failure handler.
 
 ## 0.6.0 — Continuity Agent complete
 

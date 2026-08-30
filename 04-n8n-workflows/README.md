@@ -26,4 +26,6 @@ See `02-story-system/FAILURE_INSTRUMENTATION.md` for the schema, contract, retry
 
 The same remediation corrects the Script Approval failure payload field to `storyId`. Repository exports must keep `pinData` empty and must not retain isolated `TEST-INVALID` test records.
 
+`Milo Concept Generator v0.1` routes the FALSE output of `Concept Batch Is Valid` through `Prepare Concept Validation Failure` to the shared failure handler. The TRUE batch path and the separate duplicate-concept protection branch remain unchanged.
+
 Run `node 06-testing/validate_failure_instrumentation.mjs` after changing an instrumented workflow export.

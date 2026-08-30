@@ -1412,6 +1412,13 @@
             "type": "main",
             "index": 0
           }
+        ],
+        [
+          {
+            "node": "Prepare Concept Validation Failure",
+            "type": "main",
+            "index": 0
+          }
         ]
       ]
     },

@@ -110,6 +110,20 @@ function targetNames(workflow, source, output = 0, type = 'main') {
   return (workflow.connections[source]?.[type]?.[output] ?? []).map((target) => target.node);
 }
 
+function incomingSources(workflow, targetName) {
+  const sources = [];
+  for (const [source, connection] of Object.entries(workflow.connections ?? {})) {
+    for (const [type, branches] of Object.entries(connection)) {
+      branches.forEach((branch, output) => {
+        for (const target of branch) {
+          if (target.node === targetName) sources.push({ source, type, output });
+        }
+      });
+    }
+  }
+  return sources;
+}
+
 function singleTarget(workflow, source, output = 0, type = 'main') {
   const targets = targetNames(workflow, source, output, type);
   assert(targets.length === 1, `${workflow.name}: expected one ${source} output ${output} target, found ${targets.length}`);
@@ -182,6 +196,7 @@ for (const { workflow, node } of localFailures) {
   assert(assignments.some((assignment) => assignment.name === 'errorCode'), `${workflow.name} / ${node.name}: missing errorCode`);
   const targets = workflow.connections[node.name]?.main?.[0] ?? [];
   assert(targets.length === 1 && targets[0].node === 'Call Failure Handler', `${workflow.name} / ${node.name}: not durably routed`);
+  assert(incomingSources(workflow, node.name).length > 0, `${workflow.name} / ${node.name}: orphaned failure node`);
 }
 
 for (const workflow of workflows) {
@@ -195,6 +210,31 @@ for (const workflow of workflows) {
 const outlineApproval = workflows.find((workflow) => workflow.name === 'Milo Outline Approval v0.1');
 assert(outlineApproval.nodes.length === 16, `Outline Approval: expected 16 nodes, found ${outlineApproval.nodes.length}`);
 assert(connectionCount(outlineApproval) === 20, `Outline Approval: expected 20 connections, found ${connectionCount(outlineApproval)}`);
+
+const conceptGenerator = workflows.find((workflow) => workflow.name === 'Milo Concept Generator v0.1');
+const conceptBatchGate = conceptGenerator.nodes.find((node) => node.name === 'Concept Batch Is Valid');
+const conceptValidationFailure = conceptGenerator.nodes.find((node) => node.name === 'Prepare Concept Validation Failure');
+const conceptDuplicateGate = conceptGenerator.nodes.find((node) => node.name === 'Concepts Do Not Exist');
+const conceptValidationAssignments = conceptValidationFailure?.parameters?.assignments?.assignments ?? [];
+assert(conceptGenerator.nodes.length === 24, `Concept Generator: expected 24 nodes, found ${conceptGenerator.nodes.length}`);
+assert(connectionCount(conceptGenerator) === 26, `Concept Generator: expected 26 connections, found ${connectionCount(conceptGenerator)}`);
+assert(conceptBatchGate?.type === 'n8n-nodes-base.if', 'Concept Generator: batch validation gate must remain an IF node');
+assert(singleTarget(conceptGenerator, conceptBatchGate.name, 0) === 'Unpack Valid Concept Batch', 'Concept Generator: valid batch happy path changed');
+assert(singleTarget(conceptGenerator, conceptBatchGate.name, 1) === conceptValidationFailure.name, 'Concept Generator: invalid batch must prepare its validation failure');
+assert(singleTarget(conceptGenerator, conceptValidationFailure.name, 0) === 'Call Failure Handler', 'Concept Generator: validation failure must reach Call Failure Handler');
+assert(
+  conceptValidationAssignments.some((assignment) => assignment.name === 'errorCode' && assignment.value === 'CONCEPT_VALIDATION_FAILED'),
+  'Concept Generator: invalid-batch errorCode changed',
+);
+assert(singleTarget(conceptGenerator, conceptDuplicateGate.name, 0) === 'Restore Concept Input', 'Concept Generator: duplicate-protection happy path changed');
+assert(singleTarget(conceptGenerator, conceptDuplicateGate.name, 1) === 'Prepare Concepts Already Exist Failure', 'Concept Generator: duplicate-protection failure path changed');
+assert(singleTarget(conceptGenerator, 'Prepare Concepts Already Exist Failure', 0) === 'Call Failure Handler', 'Concept Generator: duplicate failure must reach Call Failure Handler');
+
+const validateAllConcepts = conceptGenerator.nodes.find((node) => node.name === 'Validate All Concept Options');
+assert(validateAllConcepts?.type === 'n8n-nodes-base.code', 'Concept Generator: deterministic batch validator is missing');
+const runConceptValidator = new Function('$input', validateAllConcepts.parameters.jsCode);
+const invalidConceptBatch = runConceptValidator({ all: () => [{ json: { storyId: 'TEST-INVALID' } }] });
+assert(invalidConceptBatch[0]?.json?.conceptBatchValid === false, 'Concept Generator: invalid batch did not produce false');
 
 for (const workflow of workflows) {
   for (const node of workflow.nodes.filter((candidate) => candidate.type === 'n8n-nodes-base.if')) {
@@ -440,7 +480,8 @@ console.log('PASS Outline Approval valid/invalid predicate branches and invalid 
 console.log('PASS Outline Approval happy, repair, invalid-state, and failure-handler routes');
 console.log('PASS Script Approval storyId payload spelling');
 console.log('PASS Script Generator, Outline Approval, and Batch 2 exports contain no retained test pins');
-console.log('PASS local handler routing: 35/35 Prepare Failure nodes');
+console.log('PASS local failure reachability and handler routing: 35/35 Prepare Failure nodes');
+console.log('PASS Concept Generator valid, invalid-batch, duplicate-protection, and handler routes');
 console.log('PASS existing error-code preservation: 35/35 baseline codes');
 console.log(`PASS operational error-code register: ${registeredCodes.size}/${observedCodes.size} codes`);
 console.log('PASS handled validation normalization and lifecycle isolation');
