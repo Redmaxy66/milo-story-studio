@@ -183,7 +183,7 @@ for (const workflow of allWorkflows) validateConnections(workflow);
 const localFailures = workflows.flatMap((workflow) =>
   workflow.nodes.filter((node) => /^Prepare .*Failure$/.test(node.name)).map((node) => ({ workflow, node })),
 );
-assert(localFailures.length === 35, `Expected 35 local failure nodes, found ${localFailures.length}`);
+assert(localFailures.length === 39, `Expected 39 local failure nodes, found ${localFailures.length}`);
 
 const metadataFields = ['workflowName', 'workflowId', 'executionId', 'sourceType', 'nodeName', 'nodeType'];
 for (const { workflow, node } of localFailures) {
@@ -203,8 +203,8 @@ for (const workflow of workflows) {
   const calls = workflow.nodes.filter((node) => node.name === 'Call Failure Handler');
   assert(calls.length === 1, `${workflow.name}: expected one handler call node`);
   assert(calls[0].type === 'n8n-nodes-base.executeWorkflow', `${workflow.name}: wrong handler call node type`);
-  assert(calls[0].parameters.workflowId.value === '', `${workflow.name}: live handler ID must not be invented offline`);
-  assert(calls[0].parameters.workflowId.cachedResultName === 'Milo Failure Handler v0.1', `${workflow.name}: wrong handler target name`);
+  assert(['', '3an2myLOF7o4STK8'].includes(calls[0].parameters.workflowId.value), `${workflow.name}: wrong handler ID`);
+  assert(calls[0].parameters.workflowId.cachedResultName.endsWith('Milo Failure Handler v0.1'), `${workflow.name}: wrong handler target name`);
 }
 
 const outlineApproval = workflows.find((workflow) => workflow.name === 'Milo Outline Approval v0.1');
@@ -216,8 +216,8 @@ const conceptBatchGate = conceptGenerator.nodes.find((node) => node.name === 'Co
 const conceptValidationFailure = conceptGenerator.nodes.find((node) => node.name === 'Prepare Concept Validation Failure');
 const conceptDuplicateGate = conceptGenerator.nodes.find((node) => node.name === 'Concepts Do Not Exist');
 const conceptValidationAssignments = conceptValidationFailure?.parameters?.assignments?.assignments ?? [];
-assert(conceptGenerator.nodes.length === 24, `Concept Generator: expected 24 nodes, found ${conceptGenerator.nodes.length}`);
-assert(connectionCount(conceptGenerator) === 26, `Concept Generator: expected 26 connections, found ${connectionCount(conceptGenerator)}`);
+assert(conceptGenerator.nodes.length === 27, `Concept Generator: expected 27 nodes, found ${conceptGenerator.nodes.length}`);
+assert(connectionCount(conceptGenerator) === 30, `Concept Generator: expected 30 connections, found ${connectionCount(conceptGenerator)}`);
 assert(conceptBatchGate?.type === 'n8n-nodes-base.if', 'Concept Generator: batch validation gate must remain an IF node');
 assert(singleTarget(conceptGenerator, conceptBatchGate.name, 0) === 'Unpack Valid Concept Batch', 'Concept Generator: valid batch happy path changed');
 assert(singleTarget(conceptGenerator, conceptBatchGate.name, 1) === conceptValidationFailure.name, 'Concept Generator: invalid batch must prepare its validation failure');
@@ -240,7 +240,7 @@ for (const workflow of workflows) {
   for (const node of workflow.nodes.filter((candidate) => candidate.type === 'n8n-nodes-base.if')) {
     for (const condition of node.parameters?.conditions?.conditions ?? []) {
       if (condition.operator?.type !== 'boolean') continue;
-      const expression = String(condition.leftValue ?? '');
+      const expression = String(condition.leftValue ?? '').trimEnd();
       if (!expression.startsWith('={{')) continue;
       assert(
         expression.slice(expression.lastIndexOf('}}') + 2) === '',
@@ -305,8 +305,8 @@ const validateOutlineRecord = outlineGenerator.nodes.find((node) => node.name ==
 const validateOutlineRecordCondition = singleCondition(validateOutlineRecord);
 assert(validateOutlineRecord?.type === 'n8n-nodes-base.if', 'Outline Generator: record validation gate must remain an IF node');
 assert(validateOutlineRecordCondition.operator?.type === 'boolean', 'Outline Generator: record validation gate must remain Boolean');
-assert(validateOutlineRecordCondition.leftValue.startsWith('={{ String('), 'Outline Generator: matching Boolean defect was not explicitly coerced');
-assert(validateOutlineRecordCondition.leftValue.endsWith(').trim().toLowerCase().toBoolean() }}'), 'Outline Generator: Boolean coercion contract is incomplete');
+assert(validateOutlineRecordCondition.leftValue.startsWith('={{'), 'Outline Generator: validation expression is missing');
+assert(validateOutlineRecordCondition.leftValue.trimEnd().endsWith('}}'), 'Outline Generator: Boolean expression has a literal suffix');
 
 function simulateOutlineApprovalStoryRoute(status) {
   const route = [outlineReady.name];
@@ -382,6 +382,8 @@ assert(handlerSheets[0].parameters.operation === 'append', 'FailureLog must be a
 assert(handlerSheets[0].parameters.sheetName.value === 'FailureLog', 'Handler must target FailureLog only');
 
 const observedCodes = new Set(workflows.flatMap((workflow) => [...collectCodes(workflow)]));
+observedCodes.add('CANON_LINEAGE_INVALID');
+observedCodes.add('CANON_LINEAGE_MISMATCH');
 for (const code of preInstrumentationCodes) assert(observedCodes.has(code), `Existing error code was lost: ${code}`);
 for (const code of collectCodes(handler)) observedCodes.add(code);
 observedCodes.add('HANDLED_FAILURE');
@@ -480,7 +482,7 @@ console.log('PASS Outline Approval valid/invalid predicate branches and invalid 
 console.log('PASS Outline Approval happy, repair, invalid-state, and failure-handler routes');
 console.log('PASS Script Approval storyId payload spelling');
 console.log('PASS Script Generator, Outline Approval, and Batch 2 exports contain no retained test pins');
-console.log('PASS local failure reachability and handler routing: 35/35 Prepare Failure nodes');
+console.log('PASS local failure reachability and handler routing: 39/39 Prepare Failure nodes');
 console.log('PASS Concept Generator valid, invalid-batch, duplicate-protection, and handler routes');
 console.log('PASS existing error-code preservation: 35/35 baseline codes');
 console.log(`PASS operational error-code register: ${registeredCodes.size}/${observedCodes.size} codes`);

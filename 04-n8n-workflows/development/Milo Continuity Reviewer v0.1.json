@@ -6,10 +6,10 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        0,
+        -2016,
         384
       ],
-      "id": "0cc053b8-2d54-44b7-b994-3a769d372ea7",
+      "id": "00f82764-6fc9-480c-bc09-2f4d4cfc8b2f",
       "name": "Start Continuity Review"
     },
     {
@@ -41,10 +41,10 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        224,
+        -1792,
         384
       ],
-      "id": "5eafe486-88ab-487f-b339-5b10d90c03e7",
+      "id": "87f11be5-99ea-4b2f-a756-52e314c8afd7",
       "name": "Read Approved Script",
       "alwaysOutputData": true,
       "credentials": {
@@ -61,10 +61,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        448,
+        -1568,
         384
       ],
-      "id": "50be8799-7b00-4bc8-9762-914ec191338a",
+      "id": "98768abe-96cc-42d8-ae3c-ae48f2f906c2",
       "name": "Validate Approved Script"
     },
     {
@@ -95,10 +95,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        672,
+        -1344,
         384
       ],
-      "id": "980bbc4e-38cc-4e88-b9df-dd97f42f2e2d",
+      "id": "c5a2e62b-d9ab-499b-b540-1b18ca51a18d",
       "name": "Approved Script Is Valid"
     },
     {
@@ -130,10 +130,10 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        896,
+        -1120,
         384
       ],
-      "id": "87fd9009-0e4c-4ed5-8569-a033bf130664",
+      "id": "920f14a7-8840-44d9-8ce5-5ff157090978",
       "name": "Read Source Story",
       "alwaysOutputData": true,
       "credentials": {
@@ -170,10 +170,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        1120,
+        -896,
         384
       ],
-      "id": "0bb61650-943d-4636-9bb7-5dd53eeb6608",
+      "id": "d7ca5cd3-c964-4002-86c9-b6a44f26a510",
       "name": "Story Is Ready For Continuity Review"
     },
     {
@@ -205,10 +205,10 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        1344,
+        -672,
         272
       ],
-      "id": "ad6e46a5-6acd-47ee-beac-7a1c3ef1c614",
+      "id": "8034a6d7-7ea8-491b-9e3a-d0313875e0dc",
       "name": "Read Existing Continuity Review",
       "alwaysOutputData": true,
       "credentials": {
@@ -246,10 +246,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        1568,
+        -448,
         272
       ],
-      "id": "d3bee2b6-c089-4d50-aeb7-8f73f3e374a5",
+      "id": "b79cb644-7a7f-41cc-b513-7bfbfd1e3e78",
       "name": "Continuity Review Does Not Exist"
     },
     {
@@ -333,6 +333,18 @@
               "name": "version",
               "value": 1,
               "type": "number"
+            },
+            {
+              "id": "67d07290-225a-40b3-8f8e-952121dbdb03",
+              "name": "canonVersion",
+              "value": "={{ $('Read Source Story').first().json.canonVersion }}",
+              "type": "string"
+            },
+            {
+              "id": "08941ec2-1bad-41d9-96db-4497bf413b89",
+              "name": "canonRef",
+              "value": "={{ $('Read Source Story').first().json.canonRef }}",
+              "type": "string"
             }
           ]
         },
@@ -341,10 +353,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        1792,
+        -224,
         96
       ],
-      "id": "c6d9bc22-b8bb-42a6-b105-d1dd620f0ff8",
+      "id": "6d81e87c-d232-47e4-bce6-50680660e264",
       "name": "Prepare Continuity Input"
     },
     {
@@ -365,15 +377,17 @@
           "cachedResultUrl": "https://github.com/Redmaxy66/milo-story-studio"
         },
         "filePath": "03-prompts/MILO_CANON_CONTEXT.md",
-        "additionalParameters": {}
+        "additionalParameters": {
+          "reference": "={{ $('Read Source Story').first().json.canonRef }}"
+        }
       },
       "type": "n8n-nodes-base.github",
       "typeVersion": 1.1,
       "position": [
-        2016,
+        0,
         192
       ],
-      "id": "559492f6-3753-4afd-a6d3-3b075939a3f9",
+      "id": "a8811316-d659-4c3b-82b1-d8e044772412",
       "name": "Get Milo Canon Context",
       "webhookId": "99e7480d-ae2c-4027-878f-23125597e282",
       "credentials": {
@@ -392,10 +406,10 @@
       "type": "n8n-nodes-base.extractFromFile",
       "typeVersion": 1.1,
       "position": [
-        2240,
+        224,
         192
       ],
-      "id": "02c62e9e-8a79-4bfc-b7e2-5787a907b3a6",
+      "id": "f0c9c50d-fd31-4e61-aae0-6d161cd996de",
       "name": "Extract Canon Context"
     },
     {
@@ -418,15 +432,17 @@
           "cachedResultUrl": "https://github.com/Redmaxy66/milo-story-studio"
         },
         "filePath": "02-story-system/CONTINUITY_RULES.md",
-        "additionalParameters": {}
+        "additionalParameters": {
+          "reference": "={{ $('Read Source Story').first().json.canonRef }}"
+        }
       },
       "type": "n8n-nodes-base.github",
       "typeVersion": 1.1,
       "position": [
-        2016,
+        0,
         0
       ],
-      "id": "49b9caa5-1622-4d1e-bc1c-a8ef55cfcecc",
+      "id": "fcd76d7b-11f9-4125-b5bd-61ed96a07397",
       "name": "Get Continuity Rules",
       "webhookId": "a4f52240-998f-49b7-87b9-1ad46f08bbe6",
       "credentials": {
@@ -445,10 +461,10 @@
       "type": "n8n-nodes-base.extractFromFile",
       "typeVersion": 1.1,
       "position": [
-        2240,
+        224,
         0
       ],
-      "id": "fd1ce12a-9e33-4782-9a4a-7ebecd7ece81",
+      "id": "e027538e-2737-4bfd-a861-60a9dd01647b",
       "name": "Extract Continuity Rules"
     },
     {
@@ -460,10 +476,10 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        2464,
+        448,
         96
       ],
-      "id": "d38a16e8-eecb-40e5-8554-cf9ef9dd5424",
+      "id": "2bb2faf0-eddb-4427-9adc-7979dbefa5ce",
       "name": "Merge Continuity Context"
     },
     {
@@ -475,10 +491,10 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        2688,
+        672,
         128
       ],
-      "id": "9988f6d1-f6ef-4bdc-a73a-27b8381d6d3f",
+      "id": "9c11ce81-9617-48d4-80b7-d3be388ba989",
       "name": "Merge Review Input + Context"
     },
     {
@@ -491,10 +507,10 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.9,
       "position": [
-        2912,
+        896,
         128
       ],
-      "id": "185f22eb-c02c-4dcf-bd42-bbf5a9704cdc",
+      "id": "f7ca1a0c-f734-497c-adf8-3b618d27b503",
       "name": "Review Continuity"
     },
     {
@@ -505,10 +521,10 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        3104,
+        1088,
         352
       ],
-      "id": "6082539c-15b8-417c-ac50-9052120d2179",
+      "id": "2613165c-ca3e-432a-b0d3-802084b29618",
       "name": "Continuity Output Parser"
     },
     {
@@ -524,10 +540,10 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.3,
       "position": [
-        2848,
+        832,
         352
       ],
-      "id": "614caf79-224e-4909-b8bc-8ccf8ac49893",
+      "id": "2fb03d14-2233-40d2-9482-7d232ced9241",
       "name": "OpenAI Chat Model",
       "credentials": {
         "openAiApi": {
@@ -543,10 +559,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        3264,
+        1248,
         128
       ],
-      "id": "d5b75103-ac0a-4192-847d-07c5fa616ee9",
+      "id": "f794e356-9b3e-4fe0-9676-ece58735dac4",
       "name": "Validate Continuity Review"
     },
     {
@@ -577,10 +593,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        3488,
+        1472,
         128
       ],
-      "id": "0d82152f-2a54-43c6-b0e6-b151c9f42812",
+      "id": "34e2b63f-3cee-41c2-a042-bfa72393d903",
       "name": "Continuity Review Is Valid"
     },
     {
@@ -676,6 +692,18 @@
               "name": "version",
               "value": "={{ Number($('Prepare Continuity Input').first().json.version) }}",
               "type": "number"
+            },
+            {
+              "id": "28b9523b-5717-4757-b1ba-50f65d5d158b",
+              "name": "canonVersion",
+              "value": "={{ $('Prepare Continuity Input').first().json.canonVersion }}",
+              "type": "string"
+            },
+            {
+              "id": "44e51b99-d259-4000-a475-b4a28a8b5e6d",
+              "name": "canonRef",
+              "value": "={{ $('Prepare Continuity Input').first().json.canonRef }}",
+              "type": "string"
             }
           ]
         },
@@ -684,10 +712,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        3744,
+        1728,
         128
       ],
-      "id": "cd2c158a-11af-4929-ad9d-49afdcc539f5",
+      "id": "bf409e40-3c84-45c9-8b0f-ae0240cac25d",
       "name": "Prepare Continuity Review Record"
     },
     {
@@ -724,7 +752,9 @@
             "reviewProcessedAt": "={{ $('Prepare Continuity Review Record').first().json.reviewProcessedAt }}",
             "createdAt": "={{ $('Prepare Continuity Review Record').first().json.createdAt }}",
             "updatedAt": "={{ $('Prepare Continuity Review Record').first().json.updatedAt }}",
-            "version": "={{ Number($('Prepare Continuity Review Record').first().json.version) }}"
+            "version": "={{ Number($('Prepare Continuity Review Record').first().json.version) }}",
+            "canonVersion": "={{ $('Prepare Continuity Review Record').first().json.canonVersion }}",
+            "canonRef": "={{ $('Prepare Continuity Review Record').first().json.canonRef }}"
           },
           "matchingColumns": [],
           "schema": [
@@ -862,6 +892,24 @@
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true
+            },
+            {
+              "id": "canonVersion",
+              "displayName": "canonVersion",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "canonRef",
+              "displayName": "canonRef",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
             }
           ],
           "attemptToConvertTypes": false,
@@ -872,10 +920,10 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        3936,
+        1920,
         128
       ],
-      "id": "ccef1257-0e04-4ec9-92f0-a6e677f662fa",
+      "id": "c529da79-c69d-409d-9ed9-ffa51d344364",
       "name": "Save Continuity Review",
       "alwaysOutputData": false,
       "credentials": {
@@ -1072,10 +1120,10 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        4160,
+        2144,
         128
       ],
-      "id": "45bd4ef5-522c-44e2-ad58-5f0ed0b3685c",
+      "id": "fe1fb181-8117-43ba-8656-713ba72692d2",
       "name": "Mark Story Continuity Reviewed",
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -1186,10 +1234,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        3744,
+        1728,
         336
       ],
-      "id": "56f029fd-510f-4f51-a7dd-51ffccff1277",
+      "id": "edad7d4f-cfbd-428f-95f0-57f9598675c6",
       "name": "Prepare Invalid Continuity Review Failure"
     },
     {
@@ -1293,10 +1341,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        1792,
+        -224,
         288
       ],
-      "id": "4520e03f-bcf5-4ad6-a589-f1068b8630e7",
+      "id": "7491a4c6-90f5-478f-a4fe-f6b0db116b9a",
       "name": "Prepare Duplicate Continuity Review Failure"
     },
     {
@@ -1400,10 +1448,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        1344,
+        -672,
         464
       ],
-      "id": "96be4319-c39d-49ea-ad0e-a73247d1de24",
+      "id": "77ef19f7-4919-47ba-8665-70823133e760",
       "name": "Prepare Story Not Ready Failure"
     },
     {
@@ -1501,10 +1549,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        928,
+        -1088,
         592
       ],
-      "id": "ec0a60a6-ac38-4923-9b06-f20b96bb6a36",
+      "id": "253150f7-468f-4d82-8b1e-62a7f39f34e2",
       "name": "Prepare Invalid Approved Script Failure"
     },
     {
@@ -1608,10 +1656,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        4176,
+        2160,
         336
       ],
-      "id": "f0a83f32-44b2-4b8a-bb27-27245d3aa415",
+      "id": "5b600e83-ce7f-4623-b5b2-0f706b57eb3f",
       "name": "Prepare Continuity Review Save Failure"
     },
     {
@@ -1715,20 +1763,28 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        4384,
+        2368,
         224
       ],
-      "id": "85861022-1445-42ed-a874-bf269ba55296",
+      "id": "e8483313-dc8f-4c89-870a-d20418b0eb44",
       "name": "Prepare Story Continuity Status Failure"
     },
     {
       "parameters": {
-        "source": "database",
         "workflowId": {
           "__rl": true,
-          "value": "",
+          "value": "3an2myLOF7o4STK8",
           "mode": "list",
-          "cachedResultName": "Milo Failure Handler v0.1"
+          "cachedResultUrl": "/workflow/3an2myLOF7o4STK8",
+          "cachedResultName": "milo-story-studio — Milo Failure Handler v0.1"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
         },
         "options": {
           "waitForSubWorkflow": true
@@ -1737,11 +1793,165 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.2,
       "position": [
-        4704,
+        2688,
         336
       ],
-      "id": "ca4e5004-690c-47b2-aef6-dc8c65e161e5",
+      "id": "7a0b8efd-1c56-4399-b7a5-d47a70a1ada5",
       "name": "Call Failure Handler"
+    },
+    {
+      "parameters": {
+        "jsCode": "const story = $json;\nconst script = $('Validate Approved Script').first().json;\nconst canonVersion = String(story.canonVersion ?? '').trim();\nconst canonRef = String(story.canonRef ?? '').trim();\nconst storyValid = /^canon-v[0-9]+\\.[0-9]+$/.test(canonVersion) && /^[0-9a-f]{40}$/i.test(canonRef);\nconst scriptVersion = String(script.canonVersion ?? '').trim();\nconst scriptRef = String(script.canonRef ?? '').trim();\nconst downstreamMatches = scriptVersion === canonVersion && scriptRef.toLowerCase() === canonRef.toLowerCase();\nconst canonLineageValid = storyValid && downstreamMatches;\n\nreturn {\n  json: {\n    ...story,\n    canonVersion,\n    canonRef,\n    canonLineageValid,\n    errorCode: !storyValid ? 'CANON_LINEAGE_INVALID' : (downstreamMatches ? '' : 'CANON_LINEAGE_MISMATCH'),\n    message: !storyValid\n      ? 'Authoritative Story canonVersion/canonRef is blank or invalid. Canon retrieval was not attempted.'\n      : (downstreamMatches ? '' : 'Approved Script canon lineage does not match the authoritative Story. Canon retrieval was not attempted.')\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -672,
+        384
+      ],
+      "id": "a7bac003-1f99-4ddb-8834-b1cc3e2dcf63",
+      "name": "Validate Canon Lineage"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "3be51ae3-700d-49df-8b84-1666b8c0b476",
+              "leftValue": "={{ $json.canonLineageValid }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -448,
+        384
+      ],
+      "id": "0ac675cc-172d-4f8e-9e10-5152389c335b",
+      "name": "Canon Lineage Is Valid"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "49581907-135c-4682-9fb9-6433fabba828",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "6ac2089d-5186-4509-bb44-0c2aaf94664a",
+              "name": "errorCode",
+              "value": "={{ $json.errorCode }}",
+              "type": "string"
+            },
+            {
+              "id": "7f42cd94-816c-4436-9209-d402b7ddaafb",
+              "name": "message",
+              "value": "={{ $json.message }}",
+              "type": "string"
+            },
+            {
+              "id": "b4d004bd-401b-4c36-8207-393488c0df08",
+              "name": "storyId",
+              "value": "={{ $json.storyId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "3f18b615-10a1-4f5e-86da-d6201e565210",
+              "name": "conceptId",
+              "value": "={{ $json.conceptId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "36bbd0e1-0b05-474e-895e-757174582546",
+              "name": "outlineId",
+              "value": "={{ $json.outlineId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "d99231ad-7d19-45bb-88f7-10641a9e2ea3",
+              "name": "scriptId",
+              "value": "={{ $json.scriptId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "c4680eb0-8b7e-49dc-b81a-7cd7a0be2592",
+              "name": "attempt",
+              "value": 0,
+              "type": "number"
+            },
+            {
+              "id": "1b0e586d-8731-4ed1-ba0b-616e69006210",
+              "name": "failedAt",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            },
+            {
+              "id": "b76047d7-fdae-4560-af67-fbacf6f7af56",
+              "name": "workflowName",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "8b0253cb-5307-4644-9cd4-bf59e995773a",
+              "name": "workflowId",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "fd332356-79c3-4411-8255-478e6e46131d",
+              "name": "executionId",
+              "value": "={{ $exec.id }}",
+              "type": "string"
+            },
+            {
+              "id": "0e479787-ff2e-4a57-8e8e-8b78ff6f4dfc",
+              "name": "sourceType",
+              "value": "HANDLED",
+              "type": "string"
+            },
+            {
+              "id": "24e98965-7503-457b-a0c4-6ef0fe73478e",
+              "name": "nodeName",
+              "value": "Validate Canon Lineage",
+              "type": "string"
+            },
+            {
+              "id": "b5cc2ba1-6430-4c22-8653-154547b6a514",
+              "name": "nodeType",
+              "value": "n8n-nodes-base.code",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -224,
+        608
+      ],
+      "id": "4704ca5e-8b75-48cf-9ca5-88ae4906b322",
+      "name": "Prepare Canon Lineage Failure"
     }
   ],
   "pinData": {},
@@ -1783,7 +1993,7 @@
       "main": [
         [
           {
-            "node": "Story Is Ready For Continuity Review",
+            "node": "Validate Canon Lineage",
             "type": "main",
             "index": 0
           }
@@ -2110,20 +2320,62 @@
           }
         ]
       ]
+    },
+    "Validate Canon Lineage": {
+      "main": [
+        [
+          {
+            "node": "Canon Lineage Is Valid",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Canon Lineage Is Valid": {
+      "main": [
+        [
+          {
+            "node": "Story Is Ready For Continuity Review",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare Canon Lineage Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Canon Lineage Failure": {
+      "main": [
+        [
+          {
+            "node": "Call Failure Handler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate",
-    "availableInMCP": false
+    "availableInMCP": false,
+    "timeSavedMode": "fixed",
+    "errorWorkflow": "3an2myLOF7o4STK8",
+    "callerPolicy": "workflowsFromSameOwner"
   },
-  "versionId": "7bb8ea9d-5052-4ab9-b3c1-9f83bbe61a38",
+  "versionId": "c43197f6-d269-44d3-bbf5-fb763c3879b7",
   "meta": {
-    "templateCredsSetupCompleted": true,
     "instanceId": "518751276e5752827215acb8c5b0cf3cfc08b92ae0362228eac713048bcb9ab3"
   },
   "nodeGroups": [],
-  "id": "ypGWvJ4q09W7bjut",
+  "id": "K4HP95loWJiNwjlP",
   "tags": []
 }

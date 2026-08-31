@@ -6,10 +6,10 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        0,
-        160
+        -4384,
+        480
       ],
-      "id": "4c27ee1c-78d2-482f-ac28-eba4425f7a1e",
+      "id": "39f2792e-912c-4238-a564-a73b90e28939",
       "name": "Start Script Generation"
     },
     {
@@ -41,10 +41,10 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        224,
-        160
+        -4160,
+        480
       ],
-      "id": "5f0a485b-30e4-44a0-a2a0-dcc45cb3f997",
+      "id": "d3497662-c4f2-4c9d-aca1-9fd338d661d0",
       "name": "Read Approved Outline",
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -81,10 +81,10 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.3,
       "position": [
-        448,
-        160
+        -3936,
+        480
       ],
-      "id": "6abb7c7f-6758-4922-9a04-69bb381df733",
+      "id": "4f646b20-f9a9-43fd-b68c-1192fca57288",
       "name": "Filter Processed Approved Outlines"
     },
     {
@@ -116,10 +116,10 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        1120,
-        64
+        -3264,
+        384
       ],
-      "id": "8aa2a702-550e-47e3-b13e-ec3634f571ff",
+      "id": "75f70d42-eba7-4fbf-ae12-43f146a0f1b8",
       "name": "Read Source Story",
       "alwaysOutputData": true,
       "credentials": {
@@ -157,10 +157,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        1344,
-        64
+        -3040,
+        384
       ],
-      "id": "6c292f3b-9574-4d95-b3c2-c1393116250e",
+      "id": "be5e726b-e6aa-4727-8776-74842daaa2ed",
       "name": "Story Is Ready For Script Generation"
     },
     {
@@ -192,10 +192,10 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        1568,
-        -32
+        -2816,
+        288
       ],
-      "id": "d81a57ca-00e8-4ec9-b9fa-896710810939",
+      "id": "59fe8ccb-5b3f-445c-bc99-9de6b45bec8d",
       "name": "Read Existing Script",
       "alwaysOutputData": true,
       "credentials": {
@@ -233,10 +233,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        1792,
-        -32
+        -2592,
+        288
       ],
-      "id": "a6624885-b783-491e-b118-2e3dcdfacaba",
+      "id": "b437971d-d56a-4e70-a8d1-7a961d5ab7af",
       "name": "Script Does Not Exist",
       "alwaysOutputData": false
     },
@@ -247,10 +247,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2016,
-        -128
+        -2368,
+        192
       ],
-      "id": "d94040a9-8647-480e-ab70-e2769368b81e",
+      "id": "fde22c29-9655-483b-bb09-13ff8d0f22fd",
       "name": "Restore Approved Outline"
     },
     {
@@ -330,10 +330,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        2016,
-        64
+        -2368,
+        384
       ],
-      "id": "e441be21-43a9-4169-a970-31ad5a681632",
+      "id": "325bf65f-5610-45d4-975f-575d982aa190",
       "name": "Prepare Script Already Exists Failure"
     },
     {
@@ -413,10 +413,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        1568,
-        160
+        -2816,
+        480
       ],
-      "id": "8b90ac8e-d0b9-4bbe-becc-437b8df57596",
+      "id": "01e8bb91-27c6-49a9-af05-f576ea1ded42",
       "name": "Prepare Story Not Ready Failure"
     },
     {
@@ -500,6 +500,18 @@
               "name": "version",
               "value": 1,
               "type": "number"
+            },
+            {
+              "id": "9b05131d-6e8d-4187-80e8-e2bd7c38495f",
+              "name": "canonVersion",
+              "value": "={{ $('Read Source Story').first().json.canonVersion }}",
+              "type": "string"
+            },
+            {
+              "id": "7766db1e-3aec-49b7-9730-e36b3beb81ad",
+              "name": "canonRef",
+              "value": "={{ $('Read Source Story').first().json.canonRef }}",
+              "type": "string"
             }
           ]
         },
@@ -508,10 +520,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        2240,
-        -128
+        -2144,
+        192
       ],
-      "id": "2bc2ccb0-bf07-4204-a447-f964a8a056b9",
+      "id": "2a5db193-39c7-4edf-8fa0-565cc276db4c",
       "name": "Prepare Script Input",
       "alwaysOutputData": true
     },
@@ -532,10 +544,10 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.9,
       "position": [
-        3136,
-        -128
+        -1248,
+        192
       ],
-      "id": "a7e4ca57-72ef-4c3e-b233-714cef4de931",
+      "id": "be00afbf-ec19-4ed1-ac86-7f8444951bc6",
       "name": "Generate Script"
     },
     {
@@ -551,10 +563,10 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.3,
       "position": [
-        3144,
-        104
+        -1248,
+        432
       ],
-      "id": "51428227-3d2a-4413-bbaa-3686edb1ac3a",
+      "id": "abd774a5-30ff-46c0-b858-ed330c06905f",
       "name": "OpenAI Chat Model",
       "credentials": {
         "openAiApi": {
@@ -571,10 +583,10 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        3272,
-        104
+        -1120,
+        432
       ],
-      "id": "f7edc3e2-7a98-4c66-a4d7-d5fc8e49cbb3",
+      "id": "8369aa07-505b-47ba-8e61-11a50c58ba90",
       "name": "Structured Output Parser"
     },
     {
@@ -586,10 +598,10 @@
       "type": "n8n-nodes-base.extractFromFile",
       "typeVersion": 1.1,
       "position": [
-        2688,
-        -48
+        -1696,
+        272
       ],
-      "id": "ee38aac3-c42d-46f6-8edd-64028697cb48",
+      "id": "19c43f14-c952-431f-984d-0eb9d6656a35",
       "name": "Extract from File"
     },
     {
@@ -601,10 +613,10 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        2912,
-        -128
+        -1472,
+        192
       ],
-      "id": "39ca06e2-8d09-4261-970f-03ec185d9043",
+      "id": "3d2417fb-df4c-4367-bb5f-3287b3e26bb9",
       "name": "Merge"
     },
     {
@@ -627,15 +639,17 @@
           "cachedResultUrl": "https://github.com/Redmaxy66/milo-story-studio"
         },
         "filePath": "03-prompts/MILO_CANON_CONTEXT.md",
-        "additionalParameters": {}
+        "additionalParameters": {
+          "reference": "={{ $('Read Source Story').first().json.canonRef }}"
+        }
       },
       "type": "n8n-nodes-base.github",
       "typeVersion": 1.1,
       "position": [
-        2464,
-        -48
+        -1920,
+        272
       ],
-      "id": "d43d2304-7c1e-4ea4-8687-32f328268f26",
+      "id": "bf65f2a3-4b6b-4dc7-be6d-14390e50f1a8",
       "name": "Get Script Canon Context",
       "webhookId": "6c0621de-d8a7-4910-ad84-07de2fa302a7",
       "credentials": {
@@ -744,6 +758,18 @@
               "name": "scriptText",
               "value": "={{ $json.output.scriptText }}",
               "type": "string"
+            },
+            {
+              "id": "0eb38b0c-c15e-4c14-a4fd-e85f74871913",
+              "name": "canonVersion",
+              "value": "={{ $('Prepare Script Input').first().json.canonVersion }}",
+              "type": "string"
+            },
+            {
+              "id": "d1e83bb4-fbde-4a6a-942c-82b9fa863c82",
+              "name": "canonRef",
+              "value": "={{ $('Prepare Script Input').first().json.canonRef }}",
+              "type": "string"
             }
           ]
         },
@@ -752,24 +778,24 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        3488,
-        -128
+        -896,
+        192
       ],
-      "id": "22d6152b-f663-47ef-87cd-3130e3aff671",
+      "id": "1fa73ceb-4fa2-4c69-8c0d-46f9e2d028aa",
       "name": "Prepare Script Record",
       "alwaysOutputData": true
     },
     {
       "parameters": {
-        "jsCode": "const s = $json;\n\nconst valid =\n  /^MILO-[0-9]{3}$/.test(s.storyId ?? '') &&\n  s.scriptId === `${s.storyId}-S01` &&\n  s.outlineId === `${s.storyId}-O01` &&\n  /^MILO-[0-9]{3}-C0[1-3]$/.test(s.conceptId ?? '') &&\n  (s.conceptId ?? '').startsWith(`${s.storyId}-`) &&\n  typeof s.title === 'string' &&\n  s.title.trim().length > 0 &&\n  typeof s.scriptText === 'string' &&\n  s.scriptText.trim().length > 0 &&\n  Number.isInteger(Number(s.wordCount)) &&\n  Number(s.wordCount) > 0 &&\n  Number(s.estimatedLengthMinutes) > 0 &&\n  typeof s.theme === 'string' &&\n  s.theme.trim().length > 0 &&\n  typeof s.lesson === 'string' &&\n  s.lesson.trim().length > 0 &&\n  typeof s.canonReferences === 'string' &&\n  s.canonReferences.trim().length > 0 &&\n  s.approvalStatus === 'PENDING_REVIEW' &&\n  String(s.approvalProcessedAt ?? '').trim() === '' &&\n  Number(s.version) === 1 &&\n  typeof s.createdAt === 'string' &&\n  s.createdAt.length > 0 &&\n  typeof s.updatedAt === 'string' &&\n  s.updatedAt.length > 0;\n\nreturn {\n  json: {\n    ...s,\n    scriptRecordValid: valid\n  }\n};"
+        "jsCode": "const s = $json;\n\nconst valid =\n  /^MILO-[0-9]{3}$/.test(s.storyId ?? '') &&\n  s.scriptId === `${s.storyId}-S01` &&\n  s.outlineId === `${s.storyId}-O01` &&\n  /^MILO-[0-9]{3}-C0[1-3]$/.test(s.conceptId ?? '') &&\n  (s.conceptId ?? '').startsWith(`${s.storyId}-`) &&\n  typeof s.title === 'string' &&\n  s.title.trim().length > 0 &&\n  typeof s.scriptText === 'string' &&\n  s.scriptText.trim().length > 0 &&\n  Number.isInteger(Number(s.wordCount)) &&\n  Number(s.wordCount) > 0 &&\n  Number(s.estimatedLengthMinutes) > 0 &&\n  typeof s.theme === 'string' &&\n  s.theme.trim().length > 0 &&\n  typeof s.lesson === 'string' &&\n  s.lesson.trim().length > 0 &&\n  typeof s.canonReferences === 'string' &&\n  s.canonReferences.trim().length > 0 &&\n  /^canon-v[0-9]+\\.[0-9]+$/.test(s.canonVersion ?? '') &&\n  /^[0-9a-f]{40}$/i.test(s.canonRef ?? '') &&\n  s.approvalStatus === 'PENDING_REVIEW' &&\n  String(s.approvalProcessedAt ?? '').trim() === '' &&\n  Number(s.version) === 1 &&\n  typeof s.createdAt === 'string' &&\n  s.createdAt.length > 0 &&\n  typeof s.updatedAt === 'string' &&\n  s.updatedAt.length > 0;\n\nreturn {\n  json: {\n    ...s,\n    scriptRecordValid: valid\n  }\n};"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        3712,
-        -128
+        -672,
+        192
       ],
-      "id": "c914a0a1-b6fa-4ac3-acb9-ad505a0cb290",
+      "id": "b360d703-fc90-49c5-9f5a-dc610d99635e",
       "name": "Validate Script Record"
     },
     {
@@ -800,10 +826,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        3936,
-        -128
+        -448,
+        192
       ],
-      "id": "158d56da-09f8-4b10-9461-ac23fcba8258",
+      "id": "65251d79-a3ae-4311-ad7a-3bb273c3234a",
       "name": "Script Record Is Valid"
     },
     {
@@ -841,7 +867,9 @@
             "approvalProcessedAt": "={{ $json.approvalProcessedAt }}",
             "createdAt": "={{ $json.createdAt }}",
             "updatedAt": "={{ $json.updatedAt }}",
-            "version": "={{ $json.version }}"
+            "version": "={{ $json.version }}",
+            "canonVersion": "={{ $json.canonVersion }}",
+            "canonRef": "={{ $json.canonRef }}"
           },
           "matchingColumns": [],
           "schema": [
@@ -988,6 +1016,24 @@
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true
+            },
+            {
+              "id": "canonVersion",
+              "displayName": "canonVersion",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "canonRef",
+              "displayName": "canonRef",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
             }
           ],
           "attemptToConvertTypes": false,
@@ -998,10 +1044,10 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        4160,
-        -224
+        -224,
+        96
       ],
-      "id": "7fb4aecd-549b-4b74-875f-d4176ca2328b",
+      "id": "9bfb5ec2-be74-4653-bcfc-bd06a3eace2f",
       "name": "Save Script Record",
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -1100,10 +1146,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        4160,
-        -32
+        -224,
+        288
       ],
-      "id": "18450b0d-684f-4f0c-a16d-ec1614a9dedf",
+      "id": "48e0b86c-5a6d-41e7-ace2-621755f034f3",
       "name": "Prepare Invalid Script Failure"
     },
     {
@@ -1294,10 +1340,10 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        4384,
-        -320
+        0,
+        0
       ],
-      "id": "efc63641-e42a-448e-a836-89fb43ec156f",
+      "id": "bbbc74c9-44dc-4e14-bdbc-f623ff014837",
       "name": "Mark Story Script Generated",
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -1408,10 +1454,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        4384,
-        -128
+        0,
+        192
       ],
-      "id": "97606bda-3015-42b0-accf-c644e25ac90e",
+      "id": "6a3495d8-fa69-4f5c-ba7d-c22da4155815",
       "name": "Prepare Script Save Failure"
     },
     {
@@ -1515,10 +1561,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        4640,
-        -272
+        256,
+        48
       ],
-      "id": "93ebb64a-bc3f-4e14-a549-025d0b717061",
+      "id": "fca04a0c-a14d-4755-839d-ce85a44ff8f4",
       "name": "Prepare Story Script Status Failure"
     },
     {
@@ -1528,10 +1574,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        672,
-        160
+        -3712,
+        480
       ],
-      "id": "0471666f-60d1-4e9c-9dc1-a53ea986ce5f",
+      "id": "b5df8ce9-4298-42f1-9395-849cf8d047bf",
       "name": "Validate Approved Outline Batch"
     },
     {
@@ -1562,10 +1608,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        896,
-        160
+        -3488,
+        480
       ],
-      "id": "3a7b2b36-7fb6-4cc3-9474-cabd7dd783c5",
+      "id": "68acb482-ad1c-4c59-bf9e-e3afc7fdd257",
       "name": "Approved Outline Batch Is Valid"
     },
     {
@@ -1675,20 +1721,28 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        1120,
-        256
+        -3264,
+        576
       ],
-      "id": "c0ac47ca-cb27-486c-b003-9838da0fab6f",
+      "id": "cf7d76e0-3a34-435b-9fb2-52170f9061fb",
       "name": "Prepare Approved Outline Validation Failure"
     },
     {
       "parameters": {
-        "source": "database",
         "workflowId": {
           "__rl": true,
-          "value": "",
+          "value": "3an2myLOF7o4STK8",
           "mode": "list",
-          "cachedResultName": "Milo Failure Handler v0.1"
+          "cachedResultUrl": "/workflow/3an2myLOF7o4STK8",
+          "cachedResultName": "milo-story-studio — Milo Failure Handler v0.1"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
         },
         "options": {
           "waitForSubWorkflow": true
@@ -1697,11 +1751,165 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.2,
       "position": [
-        4960,
-        64
+        576,
+        384
       ],
-      "id": "3197a180-ac39-4ebf-9eab-482c33006701",
+      "id": "3d6d350a-8983-42d9-adfe-12418cc7d35d",
       "name": "Call Failure Handler"
+    },
+    {
+      "parameters": {
+        "jsCode": "const story = $json;\nconst outline = $('Validate Approved Outline Batch').first().json;\nconst canonVersion = String(story.canonVersion ?? '').trim();\nconst canonRef = String(story.canonRef ?? '').trim();\nconst storyValid = /^canon-v[0-9]+\\.[0-9]+$/.test(canonVersion) && /^[0-9a-f]{40}$/i.test(canonRef);\nconst outlineVersion = String(outline.canonVersion ?? '').trim();\nconst outlineRef = String(outline.canonRef ?? '').trim();\nconst downstreamMatches = outlineVersion === canonVersion && outlineRef.toLowerCase() === canonRef.toLowerCase();\nconst canonLineageValid = storyValid && downstreamMatches;\n\nreturn {\n  json: {\n    ...story,\n    canonVersion,\n    canonRef,\n    canonLineageValid,\n    errorCode: !storyValid ? 'CANON_LINEAGE_INVALID' : (downstreamMatches ? '' : 'CANON_LINEAGE_MISMATCH'),\n    message: !storyValid\n      ? 'Authoritative Story canonVersion/canonRef is blank or invalid. Canon retrieval was not attempted.'\n      : (downstreamMatches ? '' : 'Approved Outline canon lineage does not match the authoritative Story. Canon retrieval was not attempted.')\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -3040,
+        384
+      ],
+      "id": "d6f4d99c-5c19-4b67-9d8e-5ff6891e2d21",
+      "name": "Validate Canon Lineage"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "e87489a2-b638-45b7-aab2-d0f105aca36b",
+              "leftValue": "={{ $json.canonLineageValid }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -2816,
+        384
+      ],
+      "id": "0f00b82f-0c34-455d-bc66-48200d2abb91",
+      "name": "Canon Lineage Is Valid"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "63a86e8f-e5d9-45d4-8de2-e0b5167a37d8",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "a4b3d146-ebae-4956-9b8b-bc3e9f9f4e83",
+              "name": "errorCode",
+              "value": "={{ $json.errorCode }}",
+              "type": "string"
+            },
+            {
+              "id": "0c98b58e-57d1-4f1f-beac-af2b88c3ee97",
+              "name": "message",
+              "value": "={{ $json.message }}",
+              "type": "string"
+            },
+            {
+              "id": "ff6e88df-b180-4ee1-adeb-4edaff06857a",
+              "name": "storyId",
+              "value": "={{ $json.storyId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "b14faeb9-2008-42ff-a940-b6bd110230c3",
+              "name": "conceptId",
+              "value": "={{ $json.conceptId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "952ea3af-cff5-4abf-a8c7-898402278e47",
+              "name": "outlineId",
+              "value": "={{ $json.outlineId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "904a0cf4-37ba-4e95-a8e7-bb4faf420ded",
+              "name": "scriptId",
+              "value": "={{ $json.scriptId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "912e32f9-ffda-43dd-a9f6-09d6e39a9b63",
+              "name": "attempt",
+              "value": 0,
+              "type": "number"
+            },
+            {
+              "id": "01ddef1f-0d1b-44c7-9b40-83fa2e81a647",
+              "name": "failedAt",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            },
+            {
+              "id": "b8993c54-7521-4eee-87d4-ff0df055573a",
+              "name": "workflowName",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "0d6c4090-6656-4b08-ad7b-54b5ef837fdc",
+              "name": "workflowId",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "bdcf8be7-b978-4bc4-a781-817457fd3aaa",
+              "name": "executionId",
+              "value": "={{ $exec.id }}",
+              "type": "string"
+            },
+            {
+              "id": "f5f90f04-6c0b-49dc-bb74-c199992260fb",
+              "name": "sourceType",
+              "value": "HANDLED",
+              "type": "string"
+            },
+            {
+              "id": "b6cbc348-7f5c-4a36-93be-a94253205b58",
+              "name": "nodeName",
+              "value": "Validate Canon Lineage",
+              "type": "string"
+            },
+            {
+              "id": "cd32886e-d58d-4412-8d5b-f39fdb1a4611",
+              "name": "nodeType",
+              "value": "n8n-nodes-base.code",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2592,
+        608
+      ],
+      "id": "a23a408c-9545-4b66-b8cd-7c53bd189f9f",
+      "name": "Prepare Canon Lineage Failure"
     }
   ],
   "pinData": {},
@@ -1743,7 +1951,7 @@
       "main": [
         [
           {
-            "node": "Story Is Ready For Script Generation",
+            "node": "Validate Canon Lineage",
             "type": "main",
             "index": 0
           }
@@ -2054,20 +2262,62 @@
           }
         ]
       ]
+    },
+    "Validate Canon Lineage": {
+      "main": [
+        [
+          {
+            "node": "Canon Lineage Is Valid",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Canon Lineage Is Valid": {
+      "main": [
+        [
+          {
+            "node": "Story Is Ready For Script Generation",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare Canon Lineage Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Canon Lineage Failure": {
+      "main": [
+        [
+          {
+            "node": "Call Failure Handler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate",
-    "availableInMCP": false
+    "availableInMCP": false,
+    "timeSavedMode": "fixed",
+    "errorWorkflow": "3an2myLOF7o4STK8",
+    "callerPolicy": "workflowsFromSameOwner"
   },
-  "versionId": "a2ffcd0c-7fa8-461a-a254-495859d2d1e0",
+  "versionId": "c88b97b3-cc3c-4f92-b6cc-2bf051b12b4f",
   "meta": {
-    "templateCredsSetupCompleted": true,
     "instanceId": "518751276e5752827215acb8c5b0cf3cfc08b92ae0362228eac713048bcb9ab3"
   },
   "nodeGroups": [],
-  "id": "lnDg88400349GRk5",
+  "id": "cfRT2oHADjTQi6I6",
   "tags": []
 }

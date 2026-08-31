@@ -91,3 +91,21 @@ After the live configuration checklist in `02-story-system/FAILURE_INSTRUMENTATI
 4. Confirm the stored local `errorCode` is unchanged.
 5. Confirm the Story and artifact lifecycle cells did not change.
 6. Confirm the append node made one attempt and has no automatic retry setting.
+
+## Pre-M7 canon-lineage remediation
+
+### Offline validation
+
+Run `node 06-testing/validate_canon_lineage.mjs`.
+
+| Test | Expected result |
+|---|---|
+| CL-001 — Immutable GitHub references | Every affected GitHub file node uses the authoritative Story `canonRef`; no affected node falls back to repository HEAD/default branch. |
+| CL-002 — Pre-fetch lineage gates | Concept, Outline, Script, and Continuity workflows validate canon lineage before any GitHub canon/rules fetch. |
+| CL-003 — Deterministic invalid lineage | Blank or malformed Story lineage emits `CANON_LINEAGE_INVALID` and routes to the shared Failure Handler. |
+| CL-004 — Deterministic mismatch | Concept/Outline/Script lineage mismatch emits `CANON_LINEAGE_MISMATCH` before retrieval. |
+| CL-005 — Persistent lineage | New Concept, Outline, Script, and Continuity Review records carry the authoritative Story canonVersion/canonRef. |
+| CL-006 — Continuity dual-read coherence | Both Continuity Reviewer GitHub reads use the same Story `canonRef`. |
+| CL-007 — Protected workflow wiring | Canonical IDs, Error Workflow settings, Call Failure Handler IDs, credentials, and Story Vault targets remain unchanged. |
+
+No production workflow execution is required for these structural tests.

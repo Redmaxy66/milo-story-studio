@@ -6,10 +6,10 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        112,
-        -64
+        -1344,
+        128
       ],
-      "id": "df2ea9d4-8fd0-435d-aace-adb412f78256",
+      "id": "a4b14a1e-d37a-4e83-b604-d7f5d500cabf",
       "name": "Start Concept Generation"
     },
     {
@@ -43,10 +43,10 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        336,
-        32
+        -1120,
+        224
       ],
-      "id": "c3254503-ac7a-4728-bb92-f88e85141643",
+      "id": "c319f0e6-8645-4d7d-b25a-8e10c0c66965",
       "name": "Read Eligible Story Ideas",
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -112,6 +112,18 @@
               "name": "notes",
               "value": "={{ $json.notes ?? '' }}",
               "type": "string"
+            },
+            {
+              "id": "f649bff5-c6d6-41cf-8048-913560d955a0",
+              "name": "canonVersion",
+              "value": "={{ $json.canonVersion }}",
+              "type": "string"
+            },
+            {
+              "id": "09b6cb28-57dd-4f91-ba52-5b15738a110f",
+              "name": "canonRef",
+              "value": "={{ $json.canonRef }}",
+              "type": "string"
             }
           ]
         },
@@ -120,10 +132,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        560,
-        32
+        -896,
+        224
       ],
-      "id": "45513606-6245-47be-b347-ffad7c75b595",
+      "id": "8d438aae-0758-4c92-9b58-d32d9a417f09",
       "name": "Prepare Concept Input"
     },
     {
@@ -144,10 +156,10 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.9,
       "position": [
-        1680,
-        -192
+        224,
+        0
       ],
-      "id": "099da7a3-38ba-45a8-b9f3-9b660f8baf99",
+      "id": "f02f37c3-b189-44a2-bf8d-bef89a6f9dba",
       "name": "Generate Concept Options"
     },
     {
@@ -158,10 +170,10 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        1816,
-        40
+        368,
+        240
       ],
-      "id": "a0226a53-cc9b-4ac0-8581-707b0eba04df",
+      "id": "4c81f796-bc84-4466-99d2-ef7f5516bdf1",
       "name": "Structured Output Parser"
     },
     {
@@ -177,10 +189,10 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.3,
       "position": [
-        1584,
-        64
+        128,
+        256
       ],
-      "id": "ba5922bf-904a-4ed1-9d34-2b4b39349ac6",
+      "id": "4aadbd66-94b6-4209-bd45-2af15e98128b",
       "name": "OpenAI Chat Model",
       "credentials": {
         "openAiApi": {
@@ -197,10 +209,10 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        2032,
-        -192
+        576,
+        0
       ],
-      "id": "0e994870-a5f5-4a14-9395-63c4a0e34d84",
+      "id": "75eca863-d6e9-40b4-8451-4945e7a8233b",
       "name": "Split Concept Options"
     },
     {
@@ -235,7 +247,9 @@
             "supportingCharacters": "={{ JSON.stringify($json.supportingCharacters) }}",
             "targetLengthMinutes": "={{ Number($json.targetLengthMinutes) }}",
             "canonReferences": "={{ JSON.stringify($json.canonReferences) }}",
-            "approvalStatus": "={{ $json.approvalStatus }}"
+            "approvalStatus": "={{ $json.approvalStatus }}",
+            "canonVersion": "={{ $json.canonVersion }}",
+            "canonRef": "={{ $json.canonRef }}"
           },
           "matchingColumns": [],
           "schema": [
@@ -355,6 +369,24 @@
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true
+            },
+            {
+              "id": "canonVersion",
+              "displayName": "canonVersion",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "canonRef",
+              "displayName": "canonRef",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
             }
           ],
           "attemptToConvertTypes": false,
@@ -365,10 +397,10 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        3152,
-        -16
+        1696,
+        176
       ],
-      "id": "2f67a43e-c81b-410e-a074-c9cf84fa1ed1",
+      "id": "8ef318e9-80bd-48c0-8fef-e944c07e7f89",
       "name": "Save Concepts to Vault",
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -563,10 +595,10 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        3600,
-        -16
+        2144,
+        176
       ],
-      "id": "aa25bf72-4b13-4c97-9c48-d1b5641507a9",
+      "id": "79c013df-fd31-4b95-ad20-6a1409f295cf",
       "name": "Mark Story Concept Generated",
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -584,10 +616,10 @@
       "type": "n8n-nodes-base.removeDuplicates",
       "typeVersion": 2,
       "position": [
-        3376,
-        -16
+        1920,
+        176
       ],
-      "id": "03cba300-b594-4df9-9f9b-4d6419ee72b7",
+      "id": "fb808cee-1adf-4d50-a3d8-06254d5151e5",
       "name": "One Story Update"
     },
     {
@@ -696,10 +728,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        2736,
-        64
+        1280,
+        256
       ],
-      "id": "28a0d636-e352-4034-8eff-38a17b6094b4",
+      "id": "fa74d4ab-6c52-4033-a9f5-fb0f03f71904",
       "name": "Validate Concept Option"
     },
     {
@@ -809,10 +841,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1296,
-        224
+        -160,
+        416
       ],
-      "id": "ad0a0893-2bab-4e02-b131-2982c2febb15",
+      "id": "f499708a-f81c-47df-82ec-0ca3fbc98ef6",
       "name": "Prepare Concept Validation Failure"
     },
     {
@@ -835,15 +867,17 @@
           "cachedResultUrl": "https://github.com/Redmaxy66/milo-story-studio"
         },
         "filePath": "03-prompts/MILO_CANON_CONTEXT.md",
-        "additionalParameters": {}
+        "additionalParameters": {
+          "reference": "={{ $('Validate Canon Lineage').first().json.canonRef }}"
+        }
       },
       "type": "n8n-nodes-base.github",
       "typeVersion": 1.1,
       "position": [
-        336,
-        -160
+        -1120,
+        32
       ],
-      "id": "c078cb0e-64cd-4c0f-9f50-06cf9caeef43",
+      "id": "e129c0c9-17e6-4f78-834f-30022211a4e0",
       "name": "Get a file",
       "webhookId": "201e3479-049d-4a97-8966-067d358b8e99",
       "credentials": {
@@ -862,10 +896,10 @@
       "type": "n8n-nodes-base.extractFromFile",
       "typeVersion": 1.1,
       "position": [
-        560,
-        -160
+        -896,
+        32
       ],
-      "id": "9c0bfb4a-5622-443d-9d21-03bdf6a2a32e",
+      "id": "4aff0c3f-4cbe-430f-9f81-b7431539a776",
       "name": "Extract from File"
     },
     {
@@ -877,10 +911,10 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        784,
-        -64
+        -672,
+        128
       ],
-      "id": "86524fd5-78b9-4038-bbcf-35c20148d711",
+      "id": "b88c181d-9180-4667-afa3-43b4a20b398c",
       "name": "Merge"
     },
     {
@@ -922,6 +956,18 @@
               "name": "approvalStatus",
               "value": "PENDING_REVIEW",
               "type": "string"
+            },
+            {
+              "id": "eca9ca2e-1926-4346-8764-f73740b9a7a3",
+              "name": "canonVersion",
+              "value": "={{ $('Merge').first().json.canonVersion }}",
+              "type": "string"
+            },
+            {
+              "id": "809766ea-fe58-4a0d-a4b8-2fcf0f31454f",
+              "name": "canonRef",
+              "value": "={{ $('Merge').first().json.canonRef }}",
+              "type": "string"
             }
           ]
         },
@@ -931,10 +977,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        2256,
-        -192
+        800,
+        0
       ],
-      "id": "f23ef8fb-7543-4b6a-8d0d-7dacf1f8a8c7",
+      "id": "91b2cc4d-86c0-4a00-99e1-90eaf952444d",
       "name": "Stamp Concept Control Fields"
     },
     {
@@ -944,10 +990,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2480,
-        -192
+        1024,
+        0
       ],
-      "id": "1a0e6a8d-17a3-4b2a-81dd-c99b6b7914e8",
+      "id": "47f64f1a-ad7f-45a8-bc4d-90db36d342d2",
       "name": "Validate All Concept Options"
     },
     {
@@ -978,10 +1024,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        2704,
-        -192
+        1248,
+        0
       ],
-      "id": "d74f7140-2e37-4b3c-a88b-519b9cc3afa2",
+      "id": "807b2832-5ca9-46a1-ae8b-c9c0b63381b9",
       "name": "Concept Batch Is Valid"
     },
     {
@@ -991,10 +1037,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2928,
-        -192
+        1472,
+        0
       ],
-      "id": "7d31af97-5350-48ff-8488-6f6ae108a3cb",
+      "id": "56e26934-1be2-4c10-8ff2-b07464b2b84e",
       "name": "Unpack Valid Concept Batch"
     },
     {
@@ -1026,10 +1072,10 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        1008,
-        -64
+        -448,
+        128
       ],
-      "id": "e23c7c17-dd8c-4655-8cb7-8a08f93dac24",
+      "id": "0f6ebfd3-c0e2-440a-8216-54cddbfe77b8",
       "name": "Check Existing Concepts",
       "alwaysOutputData": true,
       "credentials": {
@@ -1067,10 +1113,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        1232,
-        -64
+        -224,
+        128
       ],
-      "id": "cd7ee883-f6d1-4aa5-89da-fee3eefe7df3",
+      "id": "f7c45303-55ea-4d9a-9e2b-8fa6c45ddfa6",
       "name": "Concepts Do Not Exist",
       "executeOnce": true
     },
@@ -1181,10 +1227,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3152,
-        208
+        1696,
+        400
       ],
-      "id": "dee92a1e-8fd0-4978-9c18-06f57d8ca48c",
+      "id": "95df87f9-bc2e-4134-80d8-18ed95b5fa01",
       "name": "Prepare Concepts Already Exist Failure"
     },
     {
@@ -1196,20 +1242,28 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1456,
-        -192
+        0,
+        0
       ],
-      "id": "1bc11f20-d920-4152-a6ad-d18adc49cc2c",
+      "id": "18893d8a-c536-4bbc-bd74-ee381098bf25",
       "name": "Restore Concept Input"
     },
     {
       "parameters": {
-        "source": "database",
         "workflowId": {
           "__rl": true,
-          "value": "",
+          "value": "3an2myLOF7o4STK8",
           "mode": "list",
-          "cachedResultName": "Milo Failure Handler v0.1"
+          "cachedResultUrl": "/workflow/3an2myLOF7o4STK8",
+          "cachedResultName": "milo-story-studio — Milo Failure Handler v0.1"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
         },
         "options": {
           "waitForSubWorkflow": true
@@ -1218,11 +1272,165 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.2,
       "position": [
-        3920,
-        224
+        2464,
+        416
       ],
-      "id": "90129c1a-8316-4c1c-ad1c-d2f6497b1eff",
+      "id": "37d77da6-dc84-467d-8f16-da2a7a79d8b8",
       "name": "Call Failure Handler"
+    },
+    {
+      "parameters": {
+        "jsCode": "const story = $json;\nconst canonVersion = String(story.canonVersion ?? '').trim();\nconst canonRef = String(story.canonRef ?? '').trim();\nconst canonLineageValid = /^canon-v[0-9]+\\.[0-9]+$/.test(canonVersion) && /^[0-9a-f]{40}$/i.test(canonRef);\n\nreturn {\n  json: {\n    ...story,\n    canonVersion,\n    canonRef,\n    canonLineageValid,\n    errorCode: canonLineageValid ? '' : 'CANON_LINEAGE_INVALID',\n    message: canonLineageValid ? '' : 'Story canonVersion/canonRef is blank or invalid. Canon retrieval was not attempted.'\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -896,
+        32
+      ],
+      "id": "4be00b8e-1af6-48d5-a024-056593af5de2",
+      "name": "Validate Canon Lineage"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "32d15d5f-5ffe-4f57-94b7-d97443589889",
+              "leftValue": "={{ $json.canonLineageValid }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -672,
+        32
+      ],
+      "id": "3359e9cd-2f5d-491b-bf58-c40af9499194",
+      "name": "Canon Lineage Is Valid"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5f650607-bb7e-443d-a31d-d5443f50533b",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "29dbd462-6874-48fb-877c-a5a99b59153c",
+              "name": "errorCode",
+              "value": "={{ $json.errorCode }}",
+              "type": "string"
+            },
+            {
+              "id": "2617472a-d7d1-406d-b517-5143452cc473",
+              "name": "message",
+              "value": "={{ $json.message }}",
+              "type": "string"
+            },
+            {
+              "id": "ce0bc31f-537f-49a2-94c8-dd6dfef7109b",
+              "name": "storyId",
+              "value": "={{ $json.storyId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "a68e4208-6ce5-41f9-bea0-10a4b78f8805",
+              "name": "conceptId",
+              "value": "={{ $json.conceptId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "915c9265-21a6-4fe4-bf26-f274083f73c2",
+              "name": "outlineId",
+              "value": "={{ $json.outlineId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "e0756875-391c-4e93-8767-06adb01d81cd",
+              "name": "scriptId",
+              "value": "={{ $json.scriptId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "42bb483e-90f7-49f3-9246-24c648b14afa",
+              "name": "attempt",
+              "value": 0,
+              "type": "number"
+            },
+            {
+              "id": "a1d32adb-67df-43fa-bd13-a94502a19594",
+              "name": "failedAt",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            },
+            {
+              "id": "fa7ec114-66e1-4ea7-a394-2f8cad2ee6e5",
+              "name": "workflowName",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "f0aff66b-560e-4068-adfe-4ab705900edc",
+              "name": "workflowId",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "52d53e89-e07a-4da6-b572-6af4d1a41992",
+              "name": "executionId",
+              "value": "={{ $exec.id }}",
+              "type": "string"
+            },
+            {
+              "id": "9b1f0df8-f0ff-4fdf-a69d-bd028b1f5de5",
+              "name": "sourceType",
+              "value": "HANDLED",
+              "type": "string"
+            },
+            {
+              "id": "e5405c57-e27f-4f86-8212-9bad08a6a8ed",
+              "name": "nodeName",
+              "value": "Validate Canon Lineage",
+              "type": "string"
+            },
+            {
+              "id": "063a45b2-b0ae-48e4-8826-3215ab61a461",
+              "name": "nodeType",
+              "value": "n8n-nodes-base.code",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -448,
+        -160
+      ],
+      "id": "2847eadb-f819-4732-8188-d2c057a00ee0",
+      "name": "Prepare Canon Lineage Failure"
     }
   ],
   "pinData": {},
@@ -1234,11 +1442,6 @@
             "node": "Read Eligible Story Ideas",
             "type": "main",
             "index": 0
-          },
-          {
-            "node": "Get a file",
-            "type": "main",
-            "index": 0
           }
         ]
       ]
@@ -1247,7 +1450,7 @@
       "main": [
         [
           {
-            "node": "Prepare Concept Input",
+            "node": "Validate Canon Lineage",
             "type": "main",
             "index": 0
           }
@@ -1494,20 +1697,67 @@
           }
         ]
       ]
+    },
+    "Validate Canon Lineage": {
+      "main": [
+        [
+          {
+            "node": "Canon Lineage Is Valid",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Canon Lineage Is Valid": {
+      "main": [
+        [
+          {
+            "node": "Prepare Concept Input",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get a file",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare Canon Lineage Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Canon Lineage Failure": {
+      "main": [
+        [
+          {
+            "node": "Call Failure Handler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate",
-    "availableInMCP": false
+    "availableInMCP": false,
+    "timeSavedMode": "fixed",
+    "errorWorkflow": "3an2myLOF7o4STK8",
+    "callerPolicy": "workflowsFromSameOwner"
   },
-  "versionId": "d84015a7-015d-4b30-9236-5ad09ee71e73",
+  "versionId": "79e9ec30-2f4b-4ec6-b630-4bf582c8fcf4",
   "meta": {
-    "templateCredsSetupCompleted": true,
     "instanceId": "518751276e5752827215acb8c5b0cf3cfc08b92ae0362228eac713048bcb9ab3"
   },
   "nodeGroups": [],
-  "id": "CPC044Q9Gu2EK8V2",
+  "id": "B48dAWnGixCxW2Bp",
   "tags": []
 }

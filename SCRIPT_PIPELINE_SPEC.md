@@ -73,6 +73,8 @@ emotionalArc
 lesson
 targetLengthMinutes
 canonReferences
+canonVersion
+canonRef
 approvalStatus
 approvalProcessedAt
 createdAt
@@ -87,6 +89,8 @@ version
 - approvalProcessedAt stays blank until approval is successfully processed
 - version starts at 1
 - createdAt and updatedAt use ISO 8601 timestamps
+- canonVersion and canonRef must match the authoritative Story lineage
+- runtime canon context is loaded at the Story's validated immutable canonRef, never the moving default branch
 ## Stage 2 — Outline approval
 
 ### Human responsibility
@@ -154,6 +158,8 @@ estimatedLengthMinutes
 theme
 lesson
 canonReferences
+canonVersion
+canonRef
 approvalStatus
 approvalProcessedAt
 createdAt
@@ -168,6 +174,9 @@ version
 - approvalProcessedAt stays blank until approval is successfully processed
 - version starts at 1
 - createdAt and updatedAt use ISO 8601 timestamps
+- canonVersion and canonRef must match the authoritative Story lineage
+- an Outline/Story lineage mismatch fails before runtime canon retrieval
+- runtime canon context is loaded at the Story's validated immutable canonRef, never the moving default branch
 ## Stage 4 — Script approval
 
 ### Human responsibility

@@ -215,6 +215,10 @@ Minimum fields:
 - `createdAt`
 - `updatedAt`
 - `version`
+- `canonVersion`
+- `canonRef`
+
+`canonVersion` and `canonRef` are inherited from the authoritative Story and are written for every new Continuity Review. Existing historical review rows are not silently backfilled.
 
 Recommended review ID:
 
@@ -272,7 +276,8 @@ Responsibilities:
 - read eligible approved Script
 - validate deterministic requirements
 - prevent duplicate review generation
-- load canon context and continuity rules
+- validate the Story's canon lineage and require the approved Script lineage to match it
+- load canon context and continuity rules at the Story's immutable `canonRef`
 - perform structured AI review
 - validate AI output
 - store Continuity Review
@@ -303,6 +308,8 @@ Recommended deterministic error codes:
 - `CONTINUITY_AI_OUTPUT_INVALID`
 - `CONTINUITY_REVIEW_SAVE_FAILED`
 - `STORY_CONTINUITY_STATUS_UPDATE_FAILED`
+- `CANON_LINEAGE_INVALID`
+- `CANON_LINEAGE_MISMATCH`
 - `CONTINUITY_APPROVAL_INVALID`
 - `STORY_NOT_READY_FOR_CONTINUITY_APPROVAL`
 - `CONTINUITY_APPROVAL_STAMP_FAILED`
@@ -416,3 +423,5 @@ M6 is complete when:
 - workflows are exported
 - repository documentation is updated
 - workflows and documentation are committed and pushed
+
+Post-M6 remediation additionally requires both GitHub canon/rules reads to use the same validated Story `canonRef`, and new Continuity Review records to persist matching `canonVersion` and `canonRef`.

@@ -6,10 +6,10 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        -1072,
-        -256
+        -3264,
+        480
       ],
-      "id": "6a0770ec-8489-4df5-9b02-28bc316a45f3",
+      "id": "31fd383e-f138-4993-a4d0-f9812b4014fe",
       "name": "Start Outline Generation"
     },
     {
@@ -43,10 +43,10 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        -848,
-        -256
+        -3040,
+        480
       ],
-      "id": "717d0477-e556-4613-a016-9a11dab2d1c6",
+      "id": "ce2ed17f-b3ef-4ab1-b5d0-c79231a3ad30",
       "name": "Read Eligible Stories",
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -90,10 +90,10 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        -624,
-        -256
+        -2816,
+        480
       ],
-      "id": "3b43b3e5-7de9-46ce-a39e-cedfa50178c5",
+      "id": "8d13c24a-348a-4fcf-bcf3-4036012df5e6",
       "name": "Read Approved Concept",
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -133,10 +133,10 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        48,
-        -368
+        -2144,
+        368
       ],
-      "id": "756dfada-c310-4497-8174-82d24cc1a565",
+      "id": "d220c27f-c3ab-406c-9fc4-8bb154b6bb23",
       "name": "Check Existing Outline",
       "alwaysOutputData": true,
       "credentials": {
@@ -174,10 +174,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        272,
-        -368
+        -1920,
+        368
       ],
-      "id": "8e1fc094-9a0d-4041-a9bf-bc3d99ca79b3",
+      "id": "81e8c14d-16e8-49ba-9788-b8a51a8699a0",
       "name": "Outline Does Not Exist"
     },
     {
@@ -261,6 +261,18 @@
               "name": "ageRange",
               "value": "={{ $('Read Eligible Stories').item.json.ageRange }}",
               "type": "string"
+            },
+            {
+              "id": "a45644b0-98e0-4a11-bfcc-aabcd62ba10c",
+              "name": "canonVersion",
+              "value": "={{ $('Read Eligible Stories').first().json.canonVersion }}",
+              "type": "string"
+            },
+            {
+              "id": "f2abfb23-192b-48dc-8953-e9797312a5d1",
+              "name": "canonRef",
+              "value": "={{ $('Read Eligible Stories').first().json.canonRef }}",
+              "type": "string"
             }
           ]
         },
@@ -269,10 +281,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        720,
-        -352
+        -1472,
+        384
       ],
-      "id": "d1524f61-beb9-40fd-9142-09c1aa5b45ec",
+      "id": "86d999ab-6cff-4c18-bddf-3d01a4ddbe96",
       "name": "Prepare Outline Input"
     },
     {
@@ -292,10 +304,10 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.9,
       "position": [
-        1168,
-        -512
+        -1024,
+        224
       ],
-      "id": "bda2fc0f-aa31-4405-ba5f-31b4949ea7bb",
+      "id": "e16b5c2e-1414-4e5b-b258-143fa357ca14",
       "name": "Generate Outline",
       "retryOnFail": true,
       "maxTries": 2,
@@ -314,10 +326,10 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.3,
       "position": [
-        1120,
-        -304
+        -1072,
+        432
       ],
-      "id": "a4ece9b6-dd85-4e6a-8338-c976a2e24281",
+      "id": "60f032b3-a170-47f9-8e27-5105b7ff9ec8",
       "name": "OpenAI Chat Model",
       "credentials": {
         "openAiApi": {
@@ -334,25 +346,25 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        1312,
-        -304
+        -880,
+        432
       ],
-      "id": "30937a62-2c7f-4355-a8e6-9088b77787e9",
+      "id": "39da967e-ebe1-4f07-8272-0af8d7956951",
       "name": "Structured Output Parser"
     },
     {
       "parameters": {
         "mode": "raw",
-        "jsonOutput": "={{ {\n  storyId: $('Merge').first().json.storyId,\n  outlineId: $('Merge').first().json.storyId + '-O01',\n  conceptId: $('Merge').first().json.conceptId,\n  title: $('Merge').first().json.title,\n\n  opening: $json.output.opening,\n  setup: $json.output.setup,\n  incitingIncident: $json.output.incitingIncident,\n  risingAction: $json.output.risingAction,\n  climax: $json.output.climax,\n  resolution: $json.output.resolution,\n  emotionalArc: $json.output.emotionalArc,\n  lesson: $json.output.lesson,\n\n  targetLengthMinutes: Number($('Merge').first().json.targetLengthMinutes),\n\n  canonReferences: [\n    'MILO_CHARACTER.md',\n    'MILO_BACKSTORY.md',\n    'VOICE_GUIDE.md',\n    'VISUAL_REFERENCE.md',\n    'PERSONALITY_RULES.md'\n  ],\n\n  approvalStatus: 'PENDING_REVIEW',\n  approvalProcessedAt: '',\n  createdAt: $now.toISO(),\n  updatedAt: $now.toISO(),\n  version: 1\n} }}\n",
+        "jsonOutput": "={{ {\n  storyId: $('Merge').first().json.storyId,\n  outlineId: $('Merge').first().json.storyId + '-O01',\n  conceptId: $('Merge').first().json.conceptId,\n  title: $('Merge').first().json.title,\n\n  opening: $json.output.opening,\n  setup: $json.output.setup,\n  incitingIncident: $json.output.incitingIncident,\n  risingAction: $json.output.risingAction,\n  climax: $json.output.climax,\n  resolution: $json.output.resolution,\n  emotionalArc: $json.output.emotionalArc,\n  lesson: $json.output.lesson,\n\n  targetLengthMinutes: Number($('Merge').first().json.targetLengthMinutes),\n\n  canonReferences: [\n    'MILO_CHARACTER.md',\n    'MILO_BACKSTORY.md',\n    'VOICE_GUIDE.md',\n    'VISUAL_REFERENCE.md',\n    'PERSONALITY_RULES.md'\n  ],\n\n  canonVersion: $('Merge').first().json.canonVersion,\n  canonRef: $('Merge').first().json.canonRef,\n\n  approvalStatus: 'PENDING_REVIEW',\n  approvalProcessedAt: '',\n  createdAt: $now.toISO(),\n  updatedAt: $now.toISO(),\n  version: 1\n} }}\n",
         "options": {}
       },
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1520,
-        -544
+        -672,
+        192
       ],
-      "id": "c7d9a623-f199-49fc-a40e-934b73eac36c",
+      "id": "af050d22-6e60-445e-af21-24a211a0fd7f",
       "name": "Prepare Outline Record"
     },
     {
@@ -392,7 +404,9 @@
             "approvalStatus": "={{ $json.approvalStatus }}",
             "createdAt": "={{ $json.createdAt }}",
             "updatedAt": "={{ $json.updatedAt }}",
-            "version": "={{ $json.version }}"
+            "version": "={{ $json.version }}",
+            "canonVersion": "={{ $json.canonVersion }}",
+            "canonRef": "={{ $json.canonRef }}"
           },
           "matchingColumns": [],
           "schema": [
@@ -566,6 +580,24 @@
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true
+            },
+            {
+              "id": "canonVersion",
+              "displayName": "canonVersion",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "canonRef",
+              "displayName": "canonRef",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
             }
           ],
           "attemptToConvertTypes": false,
@@ -576,10 +608,10 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        1968,
-        -640
+        -224,
+        96
       ],
-      "id": "446b0dd4-9fff-45af-a8fe-d51248481e52",
+      "id": "4232430c-9eec-47f0-a06e-14464e7db3d3",
       "name": "Save Outline to Vault",
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -775,10 +807,10 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        2192,
-        -736
+        0,
+        0
       ],
-      "id": "559da746-f9ef-458a-92dc-2cec2ed7fc85",
+      "id": "54436082-61c0-4e76-8f04-7a85972e646c",
       "name": "Mark Story Outline Generated",
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -808,15 +840,17 @@
           "cachedResultUrl": "https://github.com/Redmaxy66/milo-story-studio"
         },
         "filePath": "03-prompts/MILO_CANON_CONTEXT.md",
-        "additionalParameters": {}
+        "additionalParameters": {
+          "reference": "={{ $('Read Eligible Stories').first().json.canonRef }}"
+        }
       },
       "type": "n8n-nodes-base.github",
       "typeVersion": 1.1,
       "position": [
-        496,
-        -544
+        -1696,
+        192
       ],
-      "id": "e8ba9b4c-3f0a-4459-85dc-5aa0642e3c74",
+      "id": "7d8b5334-4b5e-44fa-9768-7f9c29ccaced",
       "name": "Get Outline Canon Context",
       "webhookId": "8d876f83-c2a4-4749-840c-f1034625d8ef",
       "credentials": {
@@ -835,10 +869,10 @@
       "type": "n8n-nodes-base.extractFromFile",
       "typeVersion": 1.1,
       "position": [
-        720,
-        -544
+        -1472,
+        192
       ],
-      "id": "129af0ca-30e7-481d-94a0-77a860d4e40d",
+      "id": "4f155069-76cb-48d5-83c2-f59b219dda9f",
       "name": "Extract Outline Canon Context"
     },
     {
@@ -850,10 +884,10 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        944,
-        -512
+        -1248,
+        224
       ],
-      "id": "d23f07bf-02c8-4041-946d-3deb337ed7f8",
+      "id": "7105ff8b-3bdd-4bfd-99c3-449adc71053f",
       "name": "Merge"
     },
     {
@@ -884,10 +918,10 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.3,
       "position": [
-        -400,
-        -256
+        -2592,
+        480
       ],
-      "id": "bc99d9a2-a70a-400c-a813-b4a639672ec3",
+      "id": "dcbab677-9c23-42ab-9917-738bedcc49f8",
       "name": "Filter Processed Approved Concepts"
     },
     {
@@ -902,7 +936,7 @@
           "conditions": [
             {
               "id": "43118be4-4312-4f0d-a64c-9738f7f69c12",
-              "leftValue": "={{ String(/^MILO-[0-9]{3}$/.test($json.storyId ?? '') && $json.outlineId === (($json.storyId ?? '') + '-O01') && /^MILO-[0-9]{3}-C0[1-3]$/.test($json.conceptId ?? '') && ($json.conceptId ?? '').startsWith(($json.storyId ?? '') + '-') && ['title','opening','setup','incitingIncident','risingAction','climax','resolution','emotionalArc','lesson'].every(field => typeof $json[field] === 'string' && $json[field].trim().length > 0) && Number($json.targetLengthMinutes) > 0 && Array.isArray($json.canonReferences) && JSON.stringify($json.canonReferences) === JSON.stringify(['MILO_CHARACTER.md','MILO_BACKSTORY.md','VOICE_GUIDE.md','VISUAL_REFERENCE.md','PERSONALITY_RULES.md']) && $json.approvalStatus === 'PENDING_REVIEW' && Number($json.version) === 1 && typeof $json.createdAt === 'string' && $json.createdAt.length > 0 && typeof $json.updatedAt === 'string' && $json.updatedAt.length > 0).trim().toLowerCase().toBoolean() }}",
+              "leftValue": "={{ /^MILO-[0-9]{3}$/.test($json.storyId ?? '') && $json.outlineId === (($json.storyId ?? '') + '-O01') && /^MILO-[0-9]{3}-C0[1-3]$/.test($json.conceptId ?? '') && ($json.conceptId ?? '').startsWith(($json.storyId ?? '') + '-') && ['title','opening','setup','incitingIncident','risingAction','climax','resolution','emotionalArc','lesson'].every(field => typeof $json[field] === 'string' && $json[field].trim().length > 0) && Number($json.targetLengthMinutes) > 0 && Array.isArray($json.canonReferences) && JSON.stringify($json.canonReferences) === JSON.stringify(['MILO_CHARACTER.md','MILO_BACKSTORY.md','VOICE_GUIDE.md','VISUAL_REFERENCE.md','PERSONALITY_RULES.md']) && $json.approvalStatus === 'PENDING_REVIEW' && Number($json.version) === 1 && typeof $json.createdAt === 'string' && $json.createdAt.length > 0 && typeof $json.updatedAt === 'string' && $json.updatedAt.length > 0 }}\n",
               "rightValue": "",
               "operator": {
                 "type": "boolean",
@@ -918,10 +952,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        1744,
-        -544
+        -448,
+        192
       ],
-      "id": "20812802-6f69-43ed-bf4f-95a13e7893bc",
+      "id": "85fb22e2-2eb5-4170-a5ae-b0a3c258190a",
       "name": "Validate Outline Record"
     },
     {
@@ -1031,10 +1065,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        496,
-        -208
+        -1696,
+        528
       ],
-      "id": "5863eb29-e92c-4307-a342-82b2e8042c15",
+      "id": "0b8385c1-fab1-40b8-9a15-89c94f4eed34",
       "name": "Prepare Duplicate Outline Failure"
     },
     {
@@ -1144,10 +1178,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        1968,
-        -448
+        -224,
+        288
       ],
-      "id": "59512404-bca2-4cd0-85b4-54e750ad9785",
+      "id": "194a6fb3-d00f-40d8-a5b0-359e4586f5b7",
       "name": "Prepare Invalid Outline Failure"
     },
     {
@@ -1257,10 +1291,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        1520,
-        -352
+        -672,
+        384
       ],
-      "id": "a245ab76-c875-436e-9601-c5436e8fcc55",
+      "id": "5b0eae7d-e149-4a99-9d00-f273553ca10c",
       "name": "Prepare Outline Generation Failure"
     },
     {
@@ -1370,10 +1404,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        2192,
-        -544
+        0,
+        192
       ],
-      "id": "1a5bfd01-ece4-40bb-9db0-972afeb916d2",
+      "id": "f64007f7-2b11-4aed-9180-7c629ec8b05f",
       "name": "Prepare Outline Save Failure"
     },
     {
@@ -1483,10 +1517,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        2416,
-        -736
+        224,
+        0
       ],
-      "id": "65d9825a-a742-492e-9b12-009376642fce",
+      "id": "20b762a8-cd2e-47fc-96d6-d3d14d632ac6",
       "name": "Prepare Story Outline Status Failure"
     },
     {
@@ -1517,10 +1551,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        -176,
-        -256
+        -2368,
+        480
       ],
-      "id": "68b3407d-243d-42fc-99de-a150ae96ab48",
+      "id": "620c8957-1da9-4d16-bad3-f9146cb74971",
       "name": "Exactly One Approved Concept",
       "executeOnce": true
     },
@@ -1631,20 +1665,28 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        48,
-        -176
+        -2144,
+        560
       ],
-      "id": "5244963f-3676-4620-a4fa-6874285dbdef",
+      "id": "66fb4a7e-38d6-48d1-bb8a-38d495c3a7d3",
       "name": "Prepare Approved Concept Count Failure"
     },
     {
       "parameters": {
-        "source": "database",
         "workflowId": {
           "__rl": true,
-          "value": "",
+          "value": "3an2myLOF7o4STK8",
           "mode": "list",
-          "cachedResultName": "Milo Failure Handler v0.1"
+          "cachedResultUrl": "/workflow/3an2myLOF7o4STK8",
+          "cachedResultName": "milo-story-studio — Milo Failure Handler v0.1"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
         },
         "options": {
           "waitForSubWorkflow": true
@@ -1653,11 +1695,165 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.2,
       "position": [
-        2736,
-        -352
+        544,
+        384
       ],
-      "id": "050b2103-bf10-47da-aded-dbb946ad4727",
+      "id": "fa541ea3-72da-4ed0-83e1-83df12092bc6",
       "name": "Call Failure Handler"
+    },
+    {
+      "parameters": {
+        "jsCode": "const concept = $json;\nconst story = $('Read Eligible Stories').first().json;\nconst canonVersion = String(story.canonVersion ?? '').trim();\nconst canonRef = String(story.canonRef ?? '').trim();\nconst storyValid = /^canon-v[0-9]+\\.[0-9]+$/.test(canonVersion) && /^[0-9a-f]{40}$/i.test(canonRef);\nconst conceptVersion = String(concept.canonVersion ?? '').trim();\nconst conceptRef = String(concept.canonRef ?? '').trim();\nconst downstreamMatches = conceptVersion === canonVersion && conceptRef.toLowerCase() === canonRef.toLowerCase();\nconst canonLineageValid = storyValid && downstreamMatches;\n\nreturn {\n  json: {\n    ...concept,\n    canonVersion,\n    canonRef,\n    canonLineageValid,\n    errorCode: !storyValid ? 'CANON_LINEAGE_INVALID' : (downstreamMatches ? '' : 'CANON_LINEAGE_MISMATCH'),\n    message: !storyValid\n      ? 'Authoritative Story canonVersion/canonRef is blank or invalid. Canon retrieval was not attempted.'\n      : (downstreamMatches ? '' : 'Approved Concept canon lineage does not match the authoritative Story. Canon retrieval was not attempted.')\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2144,
+        480
+      ],
+      "id": "e8780f13-e02d-430a-8d6a-6e7f7f64fc76",
+      "name": "Validate Canon Lineage"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "481de4f0-f0b8-400f-b493-8012a28bba5f",
+              "leftValue": "={{ $json.canonLineageValid }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1920,
+        480
+      ],
+      "id": "552d9f36-08a3-4b71-8e31-4d042c13df60",
+      "name": "Canon Lineage Is Valid"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e850f67d-aecf-4917-ac1b-7cc6bfb8601b",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "4f532ca3-c3e6-4136-a242-91d10f5db450",
+              "name": "errorCode",
+              "value": "={{ $json.errorCode }}",
+              "type": "string"
+            },
+            {
+              "id": "95ad0ce9-1185-4004-b566-445537422ece",
+              "name": "message",
+              "value": "={{ $json.message }}",
+              "type": "string"
+            },
+            {
+              "id": "bae69cf1-e312-4e80-9bdd-35eeb7336b53",
+              "name": "storyId",
+              "value": "={{ $json.storyId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "4cd19fa4-ea9b-4ea9-82cb-9240913222ac",
+              "name": "conceptId",
+              "value": "={{ $json.conceptId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "7dad13c7-04ba-4eb6-a46a-b4c3548085dd",
+              "name": "outlineId",
+              "value": "={{ $json.outlineId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "1e0321b0-3ee8-42d7-9b84-a14388c01787",
+              "name": "scriptId",
+              "value": "={{ $json.scriptId ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "9c6d7986-e4da-4ad3-a7e9-6d396541ae3f",
+              "name": "attempt",
+              "value": 0,
+              "type": "number"
+            },
+            {
+              "id": "7de3f336-a67d-4239-a353-6785f1d24c30",
+              "name": "failedAt",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            },
+            {
+              "id": "e9638ed0-6206-4430-8d58-aff82ce966c1",
+              "name": "workflowName",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "cf9cf2cf-25ff-4845-9ed4-b461d85bcd38",
+              "name": "workflowId",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "2f46b94c-8838-4e1f-bdbd-bc03aa653909",
+              "name": "executionId",
+              "value": "={{ $exec.id }}",
+              "type": "string"
+            },
+            {
+              "id": "c6165c44-72a2-4b57-88e7-506e859f07a1",
+              "name": "sourceType",
+              "value": "HANDLED",
+              "type": "string"
+            },
+            {
+              "id": "b926067a-2dee-4480-b07b-a7706ed1e63a",
+              "name": "nodeName",
+              "value": "Validate Canon Lineage",
+              "type": "string"
+            },
+            {
+              "id": "040bcb18-cbe6-4e3e-85e8-4ec2decc4caa",
+              "name": "nodeType",
+              "value": "n8n-nodes-base.code",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1696,
+        672
+      ],
+      "id": "7bb5cd03-fa45-46d9-b0d5-b6baf7cc6a34",
+      "name": "Prepare Canon Lineage Failure"
     }
   ],
   "pinData": {},
@@ -1887,7 +2083,7 @@
       "main": [
         [
           {
-            "node": "Check Existing Outline",
+            "node": "Validate Canon Lineage",
             "type": "main",
             "index": 0
           }
@@ -1966,20 +2162,62 @@
           }
         ]
       ]
+    },
+    "Validate Canon Lineage": {
+      "main": [
+        [
+          {
+            "node": "Canon Lineage Is Valid",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Canon Lineage Is Valid": {
+      "main": [
+        [
+          {
+            "node": "Check Existing Outline",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare Canon Lineage Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Canon Lineage Failure": {
+      "main": [
+        [
+          {
+            "node": "Call Failure Handler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate",
-    "availableInMCP": false
+    "availableInMCP": false,
+    "timeSavedMode": "fixed",
+    "errorWorkflow": "3an2myLOF7o4STK8",
+    "callerPolicy": "workflowsFromSameOwner"
   },
-  "versionId": "6133d873-3767-4464-8eb9-c9649aa12a34",
+  "versionId": "b419da38-9736-4811-82fb-3c5c7a987c1d",
   "meta": {
-    "templateCredsSetupCompleted": true,
     "instanceId": "518751276e5752827215acb8c5b0cf3cfc08b92ae0362228eac713048bcb9ab3"
   },
   "nodeGroups": [],
-  "id": "xN9uY3v25bffLE5j",
+  "id": "SCTO6xUfrlKczeP5",
   "tags": []
 }

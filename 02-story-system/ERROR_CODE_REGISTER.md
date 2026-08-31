@@ -19,6 +19,8 @@ M6.5 adds `STORY_SUBMISSION_VALIDATION_FAILED` to that Story Intake payload and 
 | `APPROVED_OUTLINE_INVALID` | Approved outline identifiers or structure are invalid. |
 | `APPROVED_OUTLINE_VALIDATION_FAILED` | Script Generator fallback for approved-outline validation. |
 | `APPROVED_SCRIPT_INVALID` | Script Approval or Continuity Reviewer rejects an approved script deterministically. |
+| `CANON_LINEAGE_INVALID` | An affected generator/reviewer rejects blank or malformed authoritative Story canonVersion/canonRef before GitHub retrieval. |
+| `CANON_LINEAGE_MISMATCH` | An affected downstream artifact's stored canon lineage does not match the authoritative Story. |
 | `CONCEPTS_ALREADY_EXIST` | Concept Generator duplicate guard. |
 | `CONCEPT_STORY_ID_MISMATCH` | Concept Approval finds a concept that does not belong to its Story. |
 | `CONCEPT_VALIDATION_FAILED` | Generated concept batch fails deterministic validation. |

@@ -61,6 +61,8 @@ After AI generation, n8n attaches these fields deterministically:
 - theme
 - targetLengthMinutes
 - canonReferences
+- canonVersion
+- canonRef
 - approvalStatus
 
 The AI must not generate or choose these control fields.
@@ -79,6 +81,8 @@ The AI must not generate or choose these control fields.
 - supportingCharacters: proposed characters other than Milo
 - targetLengthMinutes: the intended story duration
 - canonReferences: approved Milo canon files used by the generator
+- canonVersion: the authoritative Story canon release identifier
+- canonRef: the authoritative Story immutable Git commit reference used for runtime canon retrieval
 - approvalStatus: the current human-review state
 
 ## 6. Approval states
@@ -128,11 +132,11 @@ A generated concept option is valid only when:
 
 1. Select one eligible Story Vault record.
 2. Confirm the record is allowed to enter M4.
-3. Load the approved `MILO_CANON_CONTEXT.md`.
+3. Validate the Story `canonVersion` and immutable `canonRef`, then load the approved `MILO_CANON_CONTEXT.md` at that exact `canonRef`.
 4. Pass the Story input, optional creative context, and approved canon context to the Concept Generator.
 5. Require AI output containing exactly three creative concept options matching `STORY_CONCEPT_AI_OUTPUT_SCHEMA.json`.
 6. Split the three concept options into individual items.
-7. Attach storyId, conceptId, theme, targetLengthMinutes, canonReferences, and approvalStatus deterministically in n8n.
+7. Attach storyId, conceptId, theme, targetLengthMinutes, canonReferences, canonVersion, canonRef, and approvalStatus deterministically in n8n.
 8. Validate every complete concept option deterministically.
 9. Store valid concept options in the Concepts tab.
 10. Update the source Story status to CONCEPT_GENERATED once.
@@ -155,7 +159,7 @@ The following decisions are not yet approved:
 ## 12. Approved storage decision
 
 - Concept options will be stored in a separate Google Sheets tab named Concepts.
-- The existing Stories tab and its authoritative 14-column schema will not be changed.
+- The Stories tab remains authoritative for Story canon identity; its `canonVersion` and `canonRef` fields are read but not changed by concept generation.
 - Each concept row will retain the original storyId.
 - Each concept option will occupy one row in the Concepts tab.
 
@@ -180,7 +184,7 @@ The Concept Generator may use only these approved Milo Character Bible v1.0 file
 
 README.md is project documentation and is not part of the generator's canon context.
 
-n8n Cloud loads the reviewed `03-prompts/MILO_CANON_CONTEXT.md` from the GitHub repository at runtime, extracts it into `canonContext`, and supplies it to the Concept Generator as a system message.
+n8n Cloud loads the reviewed `03-prompts/MILO_CANON_CONTEXT.md` from the GitHub repository at the Story's validated immutable `canonRef`, extracts it into `canonContext`, and supplies it to the Concept Generator as a system message. Blank or malformed Story lineage fails before the GitHub read.
 
 ## 15. Approved canon delivery decision
 
