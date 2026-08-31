@@ -15,11 +15,11 @@
 
 ## 2. Current Status
 
-**COMPLETE WITH LIVE-STATE EXCEPTIONS**
+**COMPLETE WITH DOCUMENTED EXCEPTIONS AND TWO TECHNICAL BLOCKERS**
 
 M6.5 implementation and production identity cutover are complete. The governance baseline has been verified against repository evidence and a completed read-only inspection of the live n8n Milo Story Studio project and Milo Story Vault.
 
-The live-state exceptions recorded in Section 8 require explicit future assessment and disposition. They do not authorise corrective action or M7 implementation.
+The completed Pre-M7 Exception Disposition assessment identified two governance decisions and two technical M7 blockers. Decisions D-011 and D-012 now close the governance questions concerning the shared Failure Handler publication state and pre-canon legacy records. The remaining technical blockers are recorded in Section 8 and do not authorise remediation or M7 implementation.
 
 M7 has not started.
 
@@ -85,6 +85,7 @@ M7 implementation remains unauthorised.
 - Immutable canon reference: `977755913d9ad41e4f16392d01ea993507af4102`
 - The annotated Git tag `canon-v1.0` resolves to that commit.
 - Decisions D-008, D-009, and D-010 are present in `DECISION_LOG.md`.
+- Decision D-012 classifies blank-lineage records created before formal canon provenance as PRE-CANON LEGACY and makes them ineligible for M7 or later production unless a separately authorised complete-lineage migration establishes valid provenance.
 - The Story record is the authoritative canon-lineage record.
 - Downstream artifacts must inherit matching `canonVersion` and `canonRef` values.
 
@@ -103,7 +104,7 @@ The live `MILO-001` lineage contains:
 - Canonical production names identify the hardened implementations.
 - The nine pre-M6.5 implementations remain available as named rollback copies.
 - The nine canonical workflows are Unpublished.
-- The shared Failure Handler is Published; this is recorded as a live-state exception pending operational assessment.
+- The shared Failure Handler is Published. Decision D-011 accepts this as an explicit handler-specific operational exception; publication is not technically required and does not authorise publication of any other Milo production workflow.
 - The shared Failure Handler and `FailureLog` architecture are live and resolved.
 - No workflow or production data path was executed during governance verification.
 
@@ -122,29 +123,36 @@ The live `MILO-001` lineage contains:
 - Preserve the 18-column FailureLog contract and append retry prohibition.
 - Preserve Story and downstream artifact canon-lineage integrity.
 - Preserve decisions D-008, D-009, and D-010.
+- Preserve decision D-011 and its handler-specific limitation; any future Failure Handler publication-state change requires separate production authority.
+- Preserve decision D-012: blank lineage must not be interpreted as any canon release, and PRE-CANON LEGACY lineages must not progress into M7 or later production without a separately authorised provenance-valid migration.
 
 ---
 
-## 8. Live-State Exceptions / Unresolved Items
+## 8. Governance Dispositions and Remaining Exceptions
 
-These items are recorded for explicit future assessment. No repair or disposition is authorised by this baseline.
+The Pre-M7 Exception Disposition assessment is complete. Governance decisions D-011 and D-012 resolve items 1 and 2 below. Items 3 and 6 are the only current technical M7 blockers. No repair, migration, cleanup, or M7 implementation is authorised by this state record.
 
-1. `Milo Failure Handler v0.1` is currently **Published**. This differs from the previously expected unpublished state. Do not classify this automatically as a defect until its operational requirement is assessed.
-2. Several older Story, Concept, and Outline records have blank `canonVersion` and `canonRef` fields. Their intended legacy treatment is not yet documented.
-3. The live `Continuity Reviews` tab does not currently contain `canonVersion` or `canonRef` columns, despite the stable canon-lineage rule stating that Continuity Reviews inherit canon identity.
-4. Two non-canonical test/legacy workflows remain:
+1. **Governed — not an M7 blocker:** `Milo Failure Handler v0.1` is currently **Published**. Decision D-011 accepts this as an explicitly approved handler-specific operational exception. Publication is not technically required, does not create general permission to publish other Milo workflows, and may be changed only through a separately authorised production action.
+2. **Governed — not an M7 blocker:** Five Stories (`MILO-002` through `MILO-006`), fourteen Concepts, and two Outlines (`MILO-002-O01` and `MILO-003-O01`) have blank `canonVersion` and `canonRef`. Decision D-012 classifies them as PRE-CANON LEGACY records. Blank lineage is not any canon release, and these lineages are ineligible for M7 or later production unless a separately authorised migration establishes valid provenance for the complete Story lineage without fabrication.
+3. **Technical M7 blocker — remediation required:** The live `Continuity Reviews` tab does not contain `canonVersion` or `canonRef` columns, despite D-009, D-010, and the stable canon-lineage rule requiring Continuity Reviews to inherit and match the Story's canon identity.
+4. **Later cleanup — not an M7 blocker:** Two non-canonical test/legacy workflows remain:
    - `Milo Concept Generator v0.1 - M6.5 TEST OLD` — `AKKJLo6NoCOxbHD8`
    - `Milo Outline Approval v0.1 - M6.5 TEST OLD` — `UdeGbGGWIS7nR4Kk`
 
-   Their retention or retirement status is unresolved.
-5. Functional credential execution was not tested because live workflow execution was prohibited.
-6. GitHub workflow runtime canon fetching is not proven to be pinned to `canon-v1.0` or its immutable SHA from visible configuration alone.
+   Their later retirement or cleanup requires separate production authority.
+5. **Accepted as designed — not an M7 blocker:** Existing M6.5 evidence and current resolved credential references are sufficient for pre-M7 assessment. No additional live execution is required before M7; future M7 credential paths remain subject to separately authorised implementation testing.
+6. **Technical M7 blocker — remediation required:** Live and repository workflow configuration shows runtime GitHub canon retrieval has no `Reference` parameter and therefore uses the moving default branch rather than the Story's stored immutable `canonRef`. This conflicts with D-008, D-009, and D-010.
 
 ---
 
 ## 9. Next Authorised Action
 
-Complete governance baseline review and commit. After governance is committed, create a separate pre-M7 work order to assess and disposition the recorded live-state exceptions. M7 implementation remains unauthorised until that work order is completed or the exceptions are explicitly accepted.
+Create and authorise a separate pre-M7 technical-remediation work package for:
+
+1. Continuity Review canon lineage; and
+2. immutable runtime GitHub canon retrieval using the stored Story `canonRef`.
+
+M7 remains NOT STARTED and unauthorised until both technical blockers are remediated and verified or explicitly superseded by an authorised governance decision.
 
 ---
 
