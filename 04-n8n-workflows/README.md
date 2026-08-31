@@ -8,6 +8,39 @@ This folder stores exported Milo Story Studio n8n workflows.
 - tested — workflows that have passed testing
 - archived — previous or discontinued versions
 
+## M7 Production Package
+
+`development/Milo Production Package Generator v0.1.json` is the repository implementation for M7 Phase 2.
+
+It is intentionally inactive/unpublished in repository form and has no live workflow ID. Live import, new Story Vault tab creation, refreshed Google Sheets schemas, credential verification, live execution, and any activation/publication action require separate A3 authority.
+
+Repository responsibilities include:
+
+- `CONTINUITY_APPROVED` eligibility and approved Script/Continuity Review validation
+- PRE-CANON LEGACY exclusion
+- Story-authoritative canon-lineage checks
+- immutable M7 prompt provenance
+- runtime canon/visual/voice/rules reads at Story `canonRef`
+- deterministic package IDs and versions
+- normal duplicate rejection
+- explicit controlled regeneration / upstream revision handling
+- exact approved Script coverage across ordered scene rows
+- planned-asset IDs and manifests only
+- scene append → scene verification → package-header append → package verification → Story-state update ordering
+- status-only and header-only repair paths after partial writes
+- shared Failure Handler and Error Workflow routing
+- no automatic retry on Google Sheets append operations
+
+Run:
+
+```bash
+node 06-testing/validate_production_package.mjs
+```
+
+before any Phase 4 live configuration.
+
+See `02-story-system/PRODUCTION_PACKAGE_SPEC.md` for the M7 contract.
+
 ## M6.5 failure instrumentation
 
 `development/Milo Failure Handler v0.1.json` is the shared durable failure workflow. It accepts both explicit sub-workflow calls and n8n Error Trigger payloads, normalizes them, and appends to the Story Vault `FailureLog` tab.
@@ -28,4 +61,4 @@ The same remediation corrects the Script Approval failure payload field to `stor
 
 `Milo Concept Generator v0.1` routes the FALSE output of `Concept Batch Is Valid` through `Prepare Concept Validation Failure` to the shared failure handler. The TRUE batch path and the separate duplicate-concept protection branch remain unchanged.
 
-Run `node 06-testing/validate_failure_instrumentation.mjs` after changing an instrumented workflow export.
+Run `node 06-testing/validate_failure_instrumentation.mjs` after changing an instrumented M3–M6 workflow export.
