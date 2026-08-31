@@ -1,6 +1,6 @@
 # Operational Error Code Register
 
-- **Scope:** Implemented M3-M6.5 workflow exports
+- **Scope:** Implemented M3-M6.5 workflow exports plus M7 repository implementation
 - **Separation rule:** These are operational failure codes, not Story lifecycle states.
 
 ## Audit baseline
@@ -8,6 +8,8 @@
 At commit `e74ef9b`, the nine exported workflows contained 35 unique explicit error codes across 40 Set/Code definitions or emissions. The previously cited count of 55 is not reproducible from the repository exports. Thirty-four of the 35 local `Prepare ... Failure` nodes emitted `errorCode`; Story Intake emitted only `success` and `message`.
 
 M6.5 adds `STORY_SUBMISSION_VALIDATION_FAILED` to that Story Intake payload and two defensive handler fallbacks: `HANDLED_FAILURE` and `UNHANDLED_WORKFLOW_ERROR`. No baseline code was removed or renamed.
+
+M7 repository implementation adds Production Package-specific codes without renaming or removing earlier codes. M7 live behaviour remains unproven until separately authorised Phase 4+ configuration and testing.
 
 ## Registered codes
 
@@ -53,6 +55,18 @@ M6.5 adds `STORY_SUBMISSION_VALIDATION_FAILED` to that Story Intake payload and 
 | `STORY_SCRIPT_STATUS_UPDATE_FAILED` | Script Generator saves a script but cannot set `SCRIPT_GENERATED`. |
 | `STORY_SUBMISSION_VALIDATION_FAILED` | Story Intake rejects required or invalid submission data. |
 | `UNHANDLED_WORKFLOW_ERROR` | Error Trigger receives an unhandled n8n execution or trigger failure. |
+| `STORY_NOT_READY_FOR_PRODUCTION_PACKAGE` | Story lifecycle state is not eligible for the requested Production Package action. |
+| `PRODUCTION_PACKAGE_INPUT_INVALID` | Script, Continuity Review, identifiers, approvals, or another required M7 input fails deterministic validation. |
+| `PRODUCTION_PACKAGE_ALREADY_EXISTS` | Normal M7 execution finds an existing package and is not authorised to regenerate. |
+| `PRODUCTION_PACKAGE_REGENERATION_INVALID` | Controlled regeneration or upstream-revision request fails package-history, mode, version, or supersession rules. |
+| `PRODUCTION_PACKAGE_GENERATION_FAILED` | M7 AI generation fails technically after the allowed attempts. |
+| `PRODUCTION_PACKAGE_AI_OUTPUT_INVALID` | Generated M7 output fails structured or deterministic package validation, including exact Script coverage. |
+| `PRODUCTION_PACKAGE_SCENE_SAVE_FAILED` | One or more immutable Production Package scene rows cannot be safely persisted. |
+| `PRODUCTION_PACKAGE_SCENE_VERIFY_FAILED` | Persisted Production Package scene rows do not form the exact complete expected scene set. |
+| `PRODUCTION_PACKAGE_SAVE_FAILED` | The immutable Production Package header cannot be safely persisted. |
+| `PRODUCTION_PACKAGE_VERIFY_FAILED` | Persisted Production Package header or package-level provenance fails verification. |
+| `PRODUCTION_PACKAGE_REPAIR_REQUIRED` | Partial or conflicting M7 persistence cannot be safely completed by the deterministic repair path. |
+| `STORY_PRODUCTION_PACKAGE_STATUS_UPDATE_FAILED` | Package persistence is complete but the Story cannot be updated to `PRODUCTION_PACKAGE_GENERATED`. |
 
 ## Governance
 
@@ -60,3 +74,4 @@ M6.5 adds `STORY_SUBMISSION_VALIDATION_FAILED` to that Story Intake payload and 
 - Add a code here when a new operational failure condition is implemented.
 - Do not add operational codes to `STORY_STATUS_MODEL.md`.
 - Do not use `FailureLog.status` values as error codes.
+- M7 package identifiers may remain in the handled raw payload; the protected 18-column FailureLog schema is not expanded for M7.
