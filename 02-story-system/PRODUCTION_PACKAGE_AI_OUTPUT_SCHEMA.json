@@ -1,0 +1,275 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://milo-story-studio.local/schemas/production-package-ai-output-v1.json",
+  "title": "Milo Production Package AI Output v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "scenes",
+    "productionNotes"
+  ],
+  "properties": {
+    "scenes": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 30,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "sourceText",
+          "sceneDescription",
+          "setting",
+          "characters",
+          "visualGuidance",
+          "voiceGuidance",
+          "motionGuidance",
+          "assetRequirements",
+          "productionNotes"
+        ],
+        "properties": {
+          "sourceText": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sceneDescription": {
+            "type": "string",
+            "minLength": 1
+          },
+          "setting": {
+            "type": "string",
+            "minLength": 1
+          },
+          "characters": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "visualGuidance": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "visualPrompt",
+              "charactersPresent",
+              "environment",
+              "moodLighting",
+              "mustInclude",
+              "mustAvoid",
+              "continuityRequirements",
+              "canonReferences",
+              "openCanonConstraints"
+            ],
+            "properties": {
+              "visualPrompt": {
+                "type": "string",
+                "minLength": 1
+              },
+              "charactersPresent": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "environment": {
+                "type": "string",
+                "minLength": 1
+              },
+              "moodLighting": {
+                "type": "string",
+                "minLength": 1
+              },
+              "mustInclude": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "mustAvoid": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "continuityRequirements": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "canonReferences": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "openCanonConstraints": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "voiceGuidance": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "overallTone",
+              "pacingNote",
+              "emotion",
+              "emphasisNotes",
+              "pauseGuidance",
+              "dialogueCues"
+            ],
+            "properties": {
+              "overallTone": {
+                "type": "string",
+                "minLength": 1
+              },
+              "pacingNote": {
+                "type": "string",
+                "minLength": 1
+              },
+              "emotion": {
+                "type": "string",
+                "minLength": 1
+              },
+              "emphasisNotes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "pauseGuidance": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "dialogueCues": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "speaker",
+                    "text",
+                    "deliveryNote"
+                  ],
+                  "properties": {
+                    "speaker": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "text": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "deliveryNote": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "motionGuidance": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "motionPrompt",
+              "characterActions",
+              "environmentMotion",
+              "cameraGuidance",
+              "transitionGuidance",
+              "timingNote",
+              "continuityConstraints"
+            ],
+            "properties": {
+              "motionPrompt": {
+                "type": "string",
+                "minLength": 1
+              },
+              "characterActions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "environmentMotion": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "cameraGuidance": {
+                "type": "string",
+                "minLength": 1
+              },
+              "transitionGuidance": {
+                "type": "string",
+                "minLength": 1
+              },
+              "timingNote": {
+                "type": "string",
+                "minLength": 1
+              },
+              "continuityConstraints": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "assetRequirements": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "assetType",
+                "role",
+                "requirements"
+              ],
+              "properties": {
+                "assetType": {
+                  "type": "string",
+                  "enum": [
+                    "VISUAL",
+                    "VOICE",
+                    "ANIMATION"
+                  ]
+                },
+                "role": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "requirements": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          },
+          "productionNotes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "productionNotes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
