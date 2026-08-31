@@ -9,7 +9,7 @@
         -3264,
         480
       ],
-      "id": "31fd383e-f138-4993-a4d0-f9812b4014fe",
+      "id": "97882e49-c869-4829-8c2a-1fb3c6bde17e",
       "name": "Start Outline Generation"
     },
     {
@@ -46,7 +46,7 @@
         -3040,
         480
       ],
-      "id": "ce2ed17f-b3ef-4ab1-b5d0-c79231a3ad30",
+      "id": "ec9e709a-2aa9-4e8c-9837-242c699c27cc",
       "name": "Read Eligible Stories",
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -93,7 +93,7 @@
         -2816,
         480
       ],
-      "id": "8d13c24a-348a-4fcf-bcf3-4036012df5e6",
+      "id": "f6ae4d43-881c-4167-b2fa-0fc6ae158ea6",
       "name": "Read Approved Concept",
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -136,7 +136,7 @@
         -2144,
         368
       ],
-      "id": "d220c27f-c3ab-406c-9fc4-8bb154b6bb23",
+      "id": "157581a9-418e-40d0-930f-8e5f885d3c20",
       "name": "Check Existing Outline",
       "alwaysOutputData": true,
       "credentials": {
@@ -177,7 +177,7 @@
         -1920,
         368
       ],
-      "id": "81e8c14d-16e8-49ba-9788-b8a51a8699a0",
+      "id": "1cc8d57f-3278-4d1b-aec8-6afac025bd5d",
       "name": "Outline Does Not Exist"
     },
     {
@@ -284,7 +284,7 @@
         -1472,
         384
       ],
-      "id": "86d999ab-6cff-4c18-bddf-3d01a4ddbe96",
+      "id": "6a34d2d5-c829-4ae7-a402-2cd5b49774b5",
       "name": "Prepare Outline Input"
     },
     {
@@ -307,7 +307,7 @@
         -1024,
         224
       ],
-      "id": "e16b5c2e-1414-4e5b-b258-143fa357ca14",
+      "id": "135ff9ea-58c3-426e-a0da-44f2328440bc",
       "name": "Generate Outline",
       "retryOnFail": true,
       "maxTries": 2,
@@ -329,7 +329,7 @@
         -1072,
         432
       ],
-      "id": "60f032b3-a170-47f9-8e27-5105b7ff9ec8",
+      "id": "fcb202b1-d2a3-4775-9007-a1457cb29437",
       "name": "OpenAI Chat Model",
       "credentials": {
         "openAiApi": {
@@ -349,7 +349,7 @@
         -880,
         432
       ],
-      "id": "39da967e-ebe1-4f07-8272-0af8d7956951",
+      "id": "6350fa12-125e-4d9c-8892-be352fe7a626",
       "name": "Structured Output Parser"
     },
     {
@@ -364,7 +364,7 @@
         -672,
         192
       ],
-      "id": "af050d22-6e60-445e-af21-24a211a0fd7f",
+      "id": "6670b0a4-3479-463f-8917-ce06dfb2b90d",
       "name": "Prepare Outline Record"
     },
     {
@@ -611,7 +611,7 @@
         -224,
         96
       ],
-      "id": "4232430c-9eec-47f0-a06e-14464e7db3d3",
+      "id": "578524d4-1cbf-431e-8b3c-07c3b91f50e6",
       "name": "Save Outline to Vault",
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -810,7 +810,7 @@
         0,
         0
       ],
-      "id": "54436082-61c0-4e76-8f04-7a85972e646c",
+      "id": "d7eb1bff-5784-43e7-be2e-0957ae2030ce",
       "name": "Mark Story Outline Generated",
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -850,7 +850,7 @@
         -1696,
         192
       ],
-      "id": "7d8b5334-4b5e-44fa-9768-7f9c29ccaced",
+      "id": "cf355f33-1db1-4cf5-9b2c-056d87e2201e",
       "name": "Get Outline Canon Context",
       "webhookId": "8d876f83-c2a4-4749-840c-f1034625d8ef",
       "credentials": {
@@ -872,7 +872,7 @@
         -1472,
         192
       ],
-      "id": "4f155069-76cb-48d5-83c2-f59b219dda9f",
+      "id": "eb58f927-af13-4241-bc7e-4e54177fd4a8",
       "name": "Extract Outline Canon Context"
     },
     {
@@ -887,7 +887,7 @@
         -1248,
         224
       ],
-      "id": "7105ff8b-3bdd-4bfd-99c3-449adc71053f",
+      "id": "16d5154d-4bcc-44b5-8b52-f26cda039108",
       "name": "Merge"
     },
     {
@@ -921,7 +921,7 @@
         -2592,
         480
       ],
-      "id": "dcbab677-9c23-42ab-9917-738bedcc49f8",
+      "id": "d2227450-9e32-4313-8663-6a42b781a850",
       "name": "Filter Processed Approved Concepts"
     },
     {
@@ -955,7 +955,7 @@
         -448,
         192
       ],
-      "id": "85fb22e2-2eb5-4170-a5ae-b0a3c258190a",
+      "id": "0c7a0e60-cd59-4e56-a551-fe715cc5fcb4",
       "name": "Validate Outline Record"
     },
     {
@@ -1068,7 +1068,7 @@
         -1696,
         528
       ],
-      "id": "0b8385c1-fab1-40b8-9a15-89c94f4eed34",
+      "id": "e7ecc6d5-2354-4c33-a1c0-24e9400d4c3b",
       "name": "Prepare Duplicate Outline Failure"
     },
     {
@@ -1181,7 +1181,7 @@
         -224,
         288
       ],
-      "id": "194a6fb3-d00f-40d8-a5b0-359e4586f5b7",
+      "id": "17660551-b926-45aa-89c6-4b7f8934e565",
       "name": "Prepare Invalid Outline Failure"
     },
     {
@@ -1294,7 +1294,7 @@
         -672,
         384
       ],
-      "id": "5b0eae7d-e149-4a99-9d00-f273553ca10c",
+      "id": "8d2a0451-2624-438c-bb82-b3ab0895a95e",
       "name": "Prepare Outline Generation Failure"
     },
     {
@@ -1407,7 +1407,7 @@
         0,
         192
       ],
-      "id": "f64007f7-2b11-4aed-9180-7c629ec8b05f",
+      "id": "b5664cf4-8381-4482-bfa4-7317ca845466",
       "name": "Prepare Outline Save Failure"
     },
     {
@@ -1520,7 +1520,7 @@
         224,
         0
       ],
-      "id": "20b762a8-cd2e-47fc-96d6-d3d14d632ac6",
+      "id": "00d9a367-b3ad-4768-b175-1cd0be23f7bb",
       "name": "Prepare Story Outline Status Failure"
     },
     {
@@ -1554,7 +1554,7 @@
         -2368,
         480
       ],
-      "id": "620c8957-1da9-4d16-bad3-f9146cb74971",
+      "id": "d46d4a16-e125-492b-a41f-c4f25625c798",
       "name": "Exactly One Approved Concept",
       "executeOnce": true
     },
@@ -1668,7 +1668,7 @@
         -2144,
         560
       ],
-      "id": "66fb4a7e-38d6-48d1-bb8a-38d495c3a7d3",
+      "id": "19aa33d1-2c5e-479f-a6de-f6bb7acd87e6",
       "name": "Prepare Approved Concept Count Failure"
     },
     {
@@ -1698,7 +1698,7 @@
         544,
         384
       ],
-      "id": "fa541ea3-72da-4ed0-83e1-83df12092bc6",
+      "id": "943d5b20-a96a-4ea7-ab68-7cadc590e695",
       "name": "Call Failure Handler"
     },
     {
@@ -1711,7 +1711,7 @@
         -2144,
         480
       ],
-      "id": "e8780f13-e02d-430a-8d6a-6e7f7f64fc76",
+      "id": "22918daa-5093-4916-95e4-9d55e75c5cc2",
       "name": "Validate Canon Lineage"
     },
     {
@@ -1745,7 +1745,7 @@
         -1920,
         480
       ],
-      "id": "552d9f36-08a3-4b71-8e31-4d042c13df60",
+      "id": "0122848c-efbe-4dd0-a88c-a3dc26203ec7",
       "name": "Canon Lineage Is Valid"
     },
     {
@@ -1852,7 +1852,7 @@
         -1696,
         672
       ],
-      "id": "7bb5cd03-fa45-46d9-b0d5-b6baf7cc6a34",
+      "id": "5df43fbe-f9e6-4f49-9acc-e53a781ad22b",
       "name": "Prepare Canon Lineage Failure"
     }
   ],
@@ -2213,7 +2213,7 @@
     "errorWorkflow": "3an2myLOF7o4STK8",
     "callerPolicy": "workflowsFromSameOwner"
   },
-  "versionId": "b419da38-9736-4811-82fb-3c5c7a987c1d",
+  "versionId": "865fc995-a6a5-4ed2-be24-5b3248b598e6",
   "meta": {
     "instanceId": "518751276e5752827215acb8c5b0cf3cfc08b92ae0362228eac713048bcb9ab3"
   },

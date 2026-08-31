@@ -9,7 +9,7 @@
         -4384,
         480
       ],
-      "id": "39f2792e-912c-4238-a564-a73b90e28939",
+      "id": "3a209753-eac5-4bef-906e-759301adc2b6",
       "name": "Start Script Generation"
     },
     {
@@ -44,7 +44,7 @@
         -4160,
         480
       ],
-      "id": "d3497662-c4f2-4c9d-aca1-9fd338d661d0",
+      "id": "1d0c5f26-187a-4b0b-a915-c4a1d9586af1",
       "name": "Read Approved Outline",
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -84,7 +84,7 @@
         -3936,
         480
       ],
-      "id": "4f646b20-f9a9-43fd-b68c-1192fca57288",
+      "id": "9efcc06e-1e28-46c6-b471-65e06681a982",
       "name": "Filter Processed Approved Outlines"
     },
     {
@@ -119,7 +119,7 @@
         -3264,
         384
       ],
-      "id": "75f70d42-eba7-4fbf-ae12-43f146a0f1b8",
+      "id": "0d86e16a-8852-4c0b-90d4-e94e84501aeb",
       "name": "Read Source Story",
       "alwaysOutputData": true,
       "credentials": {
@@ -160,7 +160,7 @@
         -3040,
         384
       ],
-      "id": "be5e726b-e6aa-4727-8776-74842daaa2ed",
+      "id": "b1a22ddf-8131-4354-88a9-bef9cd975684",
       "name": "Story Is Ready For Script Generation"
     },
     {
@@ -195,7 +195,7 @@
         -2816,
         288
       ],
-      "id": "59fe8ccb-5b3f-445c-bc99-9de6b45bec8d",
+      "id": "5712939c-db3f-41bc-90be-8b3886359a44",
       "name": "Read Existing Script",
       "alwaysOutputData": true,
       "credentials": {
@@ -236,7 +236,7 @@
         -2592,
         288
       ],
-      "id": "b437971d-d56a-4e70-a8d1-7a961d5ab7af",
+      "id": "f887e5d0-5735-47a4-a41c-bdb8d36c165d",
       "name": "Script Does Not Exist",
       "alwaysOutputData": false
     },
@@ -250,7 +250,7 @@
         -2368,
         192
       ],
-      "id": "fde22c29-9655-483b-bb09-13ff8d0f22fd",
+      "id": "283c49c3-a06d-4bf2-87a0-f23c153a711b",
       "name": "Restore Approved Outline"
     },
     {
@@ -333,7 +333,7 @@
         -2368,
         384
       ],
-      "id": "325bf65f-5610-45d4-975f-575d982aa190",
+      "id": "ba0a3157-144b-44d3-8118-26374767199e",
       "name": "Prepare Script Already Exists Failure"
     },
     {
@@ -416,7 +416,7 @@
         -2816,
         480
       ],
-      "id": "01e8bb91-27c6-49a9-af05-f576ea1ded42",
+      "id": "4db77ce8-5392-4f31-8221-b08ad191f84a",
       "name": "Prepare Story Not Ready Failure"
     },
     {
@@ -523,7 +523,7 @@
         -2144,
         192
       ],
-      "id": "2a5db193-39c7-4edf-8fa0-565cc276db4c",
+      "id": "b98c4a12-4d13-4c2e-aa2a-79c664c28ef5",
       "name": "Prepare Script Input",
       "alwaysOutputData": true
     },
@@ -547,7 +547,7 @@
         -1248,
         192
       ],
-      "id": "be00afbf-ec19-4ed1-ac86-7f8444951bc6",
+      "id": "b87efd57-4f5b-4d32-9d96-6f96d96739b5",
       "name": "Generate Script"
     },
     {
@@ -566,7 +566,7 @@
         -1248,
         432
       ],
-      "id": "abd774a5-30ff-46c0-b858-ed330c06905f",
+      "id": "b05eda8d-6c1f-4593-8dd4-30d1d5e4c553",
       "name": "OpenAI Chat Model",
       "credentials": {
         "openAiApi": {
@@ -586,7 +586,7 @@
         -1120,
         432
       ],
-      "id": "8369aa07-505b-47ba-8e61-11a50c58ba90",
+      "id": "fa5a1a60-0bfe-45a5-b19b-b75606a4452c",
       "name": "Structured Output Parser"
     },
     {
@@ -601,7 +601,7 @@
         -1696,
         272
       ],
-      "id": "19c43f14-c952-431f-984d-0eb9d6656a35",
+      "id": "a0221aae-bede-4493-b743-e324b3d0e2d9",
       "name": "Extract from File"
     },
     {
@@ -616,7 +616,7 @@
         -1472,
         192
       ],
-      "id": "3d2417fb-df4c-4367-bb5f-3287b3e26bb9",
+      "id": "91007462-ab27-4aa1-9f8a-a36e6ca38243",
       "name": "Merge"
     },
     {
@@ -649,7 +649,7 @@
         -1920,
         272
       ],
-      "id": "bf65f2a3-4b6b-4dc7-be6d-14390e50f1a8",
+      "id": "7218ef66-06a9-4163-b039-f8f6a871dfb4",
       "name": "Get Script Canon Context",
       "webhookId": "6c0621de-d8a7-4910-ad84-07de2fa302a7",
       "credentials": {
@@ -781,7 +781,7 @@
         -896,
         192
       ],
-      "id": "1fa73ceb-4fa2-4c69-8c0d-46f9e2d028aa",
+      "id": "55b99423-6b98-4e04-a7e1-357df355ff11",
       "name": "Prepare Script Record",
       "alwaysOutputData": true
     },
@@ -795,7 +795,7 @@
         -672,
         192
       ],
-      "id": "b360d703-fc90-49c5-9f5a-dc610d99635e",
+      "id": "4108db6f-94d4-4508-9278-2551a86d138f",
       "name": "Validate Script Record"
     },
     {
@@ -829,7 +829,7 @@
         -448,
         192
       ],
-      "id": "65251d79-a3ae-4311-ad7a-3bb273c3234a",
+      "id": "9a468510-c7d0-4639-92dd-4de5faf6d261",
       "name": "Script Record Is Valid"
     },
     {
@@ -1047,7 +1047,7 @@
         -224,
         96
       ],
-      "id": "9bfb5ec2-be74-4653-bcfc-bd06a3eace2f",
+      "id": "c3cd228a-c2f3-41ca-accf-30fa12bf2155",
       "name": "Save Script Record",
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -1149,7 +1149,7 @@
         -224,
         288
       ],
-      "id": "48e0b86c-5a6d-41e7-ace2-621755f034f3",
+      "id": "b8f4f3ea-b71b-4465-99f7-c3808c3f2730",
       "name": "Prepare Invalid Script Failure"
     },
     {
@@ -1343,7 +1343,7 @@
         0,
         0
       ],
-      "id": "bbbc74c9-44dc-4e14-bdbc-f623ff014837",
+      "id": "17b2a74a-ebdd-4b0c-be2a-81b52e955a48",
       "name": "Mark Story Script Generated",
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -1457,7 +1457,7 @@
         0,
         192
       ],
-      "id": "6a3495d8-fa69-4f5c-ba7d-c22da4155815",
+      "id": "fc22e1ec-9868-422a-b679-8d1c5f5584f6",
       "name": "Prepare Script Save Failure"
     },
     {
@@ -1564,7 +1564,7 @@
         256,
         48
       ],
-      "id": "fca04a0c-a14d-4755-839d-ce85a44ff8f4",
+      "id": "b993ea04-5346-403a-880d-5c4168d065e7",
       "name": "Prepare Story Script Status Failure"
     },
     {
@@ -1577,7 +1577,7 @@
         -3712,
         480
       ],
-      "id": "b5df8ce9-4298-42f1-9395-849cf8d047bf",
+      "id": "fba9acef-a88e-40bb-a8f5-87133e8e9ed9",
       "name": "Validate Approved Outline Batch"
     },
     {
@@ -1611,7 +1611,7 @@
         -3488,
         480
       ],
-      "id": "68acb482-ad1c-4c59-bf9e-e3afc7fdd257",
+      "id": "60385254-3171-4aaf-be7c-6a1588a30252",
       "name": "Approved Outline Batch Is Valid"
     },
     {
@@ -1724,7 +1724,7 @@
         -3264,
         576
       ],
-      "id": "cf7d76e0-3a34-435b-9fb2-52170f9061fb",
+      "id": "f872c51a-06c0-4a7a-a204-ac7e5fb870f0",
       "name": "Prepare Approved Outline Validation Failure"
     },
     {
@@ -1754,7 +1754,7 @@
         576,
         384
       ],
-      "id": "3d6d350a-8983-42d9-adfe-12418cc7d35d",
+      "id": "76f2d93e-5322-421f-98c8-6f137b0ad2f7",
       "name": "Call Failure Handler"
     },
     {
@@ -1767,7 +1767,7 @@
         -3040,
         384
       ],
-      "id": "d6f4d99c-5c19-4b67-9d8e-5ff6891e2d21",
+      "id": "5b7e4ca6-e74f-43c9-9f2d-fc5380f16540",
       "name": "Validate Canon Lineage"
     },
     {
@@ -1801,7 +1801,7 @@
         -2816,
         384
       ],
-      "id": "0f00b82f-0c34-455d-bc66-48200d2abb91",
+      "id": "bebb5ef0-4328-42f4-a7b1-449469b57d32",
       "name": "Canon Lineage Is Valid"
     },
     {
@@ -1908,7 +1908,7 @@
         -2592,
         608
       ],
-      "id": "a23a408c-9545-4b66-b8cd-7c53bd189f9f",
+      "id": "783fc7ec-4ea7-4762-ac2f-7f46f31a6b01",
       "name": "Prepare Canon Lineage Failure"
     }
   ],
@@ -2313,7 +2313,7 @@
     "errorWorkflow": "3an2myLOF7o4STK8",
     "callerPolicy": "workflowsFromSameOwner"
   },
-  "versionId": "c88b97b3-cc3c-4f92-b6cc-2bf051b12b4f",
+  "versionId": "08f79af7-0dfa-4681-9ce0-8b75fee78a67",
   "meta": {
     "instanceId": "518751276e5752827215acb8c5b0cf3cfc08b92ae0362228eac713048bcb9ab3"
   },

@@ -6,10 +6,10 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        -1344,
-        128
+        -896,
+        288
       ],
-      "id": "a4b14a1e-d37a-4e83-b604-d7f5d500cabf",
+      "id": "d474e7d5-6111-4f8c-861a-47c732e7f8a2",
       "name": "Start Concept Generation"
     },
     {
@@ -43,10 +43,10 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        -1120,
-        224
+        -672,
+        384
       ],
-      "id": "c319f0e6-8645-4d7d-b25a-8e10c0c66965",
+      "id": "09c8c85f-538c-42bf-9e37-25aed91df294",
       "name": "Read Eligible Story Ideas",
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -132,10 +132,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -896,
-        224
+        -448,
+        384
       ],
-      "id": "8d438aae-0758-4c92-9b58-d32d9a417f09",
+      "id": "16ecf0cf-2d85-46f7-8acb-79bd4dcbace9",
       "name": "Prepare Concept Input"
     },
     {
@@ -156,10 +156,10 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.9,
       "position": [
-        224,
-        0
+        672,
+        160
       ],
-      "id": "f02f37c3-b189-44a2-bf8d-bef89a6f9dba",
+      "id": "7bcf88bb-a09c-49e0-a2b1-23a6d2a1261b",
       "name": "Generate Concept Options"
     },
     {
@@ -170,10 +170,10 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        368,
-        240
+        816,
+        400
       ],
-      "id": "4c81f796-bc84-4466-99d2-ef7f5516bdf1",
+      "id": "b8d66993-ef21-488d-8349-cf3a69dab443",
       "name": "Structured Output Parser"
     },
     {
@@ -189,10 +189,10 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.3,
       "position": [
-        128,
-        256
+        576,
+        416
       ],
-      "id": "4aadbd66-94b6-4209-bd45-2af15e98128b",
+      "id": "514e26f1-d859-48f9-a21e-99d2b4a16667",
       "name": "OpenAI Chat Model",
       "credentials": {
         "openAiApi": {
@@ -209,10 +209,10 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        576,
-        0
+        1024,
+        160
       ],
-      "id": "75eca863-d6e9-40b4-8451-4945e7a8233b",
+      "id": "a88ca279-69ef-4e26-9174-2c13f66a55f0",
       "name": "Split Concept Options"
     },
     {
@@ -397,10 +397,10 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        1696,
-        176
+        2144,
+        336
       ],
-      "id": "8ef318e9-80bd-48c0-8fef-e944c07e7f89",
+      "id": "d0f54faa-4074-40ab-a6fd-05567819587a",
       "name": "Save Concepts to Vault",
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -595,10 +595,10 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        2144,
-        176
+        2592,
+        336
       ],
-      "id": "79c013df-fd31-4b95-ad20-6a1409f295cf",
+      "id": "f8c06bb3-73a2-4864-a218-bd4eabe319a4",
       "name": "Mark Story Concept Generated",
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -616,10 +616,10 @@
       "type": "n8n-nodes-base.removeDuplicates",
       "typeVersion": 2,
       "position": [
-        1920,
-        176
+        2368,
+        336
       ],
-      "id": "fb808cee-1adf-4d50-a3d8-06254d5151e5",
+      "id": "a78da6c8-8ff1-42e3-b039-5f8782402eaa",
       "name": "One Story Update"
     },
     {
@@ -728,10 +728,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        1280,
-        256
+        1728,
+        416
       ],
-      "id": "fa74d4ab-6c52-4033-a9f5-fb0f03f71904",
+      "id": "04cf6e2d-6a1d-4cc0-bd74-eefcdd8f95aa",
       "name": "Validate Concept Option"
     },
     {
@@ -841,10 +841,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -160,
-        416
+        288,
+        576
       ],
-      "id": "f499708a-f81c-47df-82ec-0ca3fbc98ef6",
+      "id": "d1850abf-c474-4b68-8e24-9df7c0612ea7",
       "name": "Prepare Concept Validation Failure"
     },
     {
@@ -874,10 +874,10 @@
       "type": "n8n-nodes-base.github",
       "typeVersion": 1.1,
       "position": [
-        -1120,
-        32
+        -672,
+        192
       ],
-      "id": "e129c0c9-17e6-4f78-834f-30022211a4e0",
+      "id": "e7f1ddb0-3c79-430e-a892-5bea1df2a067",
       "name": "Get a file",
       "webhookId": "201e3479-049d-4a97-8966-067d358b8e99",
       "credentials": {
@@ -896,10 +896,10 @@
       "type": "n8n-nodes-base.extractFromFile",
       "typeVersion": 1.1,
       "position": [
-        -896,
-        32
+        -448,
+        192
       ],
-      "id": "4aff0c3f-4cbe-430f-9f81-b7431539a776",
+      "id": "870beeb6-e9f9-433e-aecb-bc92b491268f",
       "name": "Extract from File"
     },
     {
@@ -911,10 +911,10 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        -672,
-        128
+        -224,
+        288
       ],
-      "id": "b88c181d-9180-4667-afa3-43b4a20b398c",
+      "id": "26ab1b8e-fb7a-4d8a-b3cc-5637fac2d622",
       "name": "Merge"
     },
     {
@@ -977,10 +977,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        800,
-        0
+        1248,
+        160
       ],
-      "id": "91b2cc4d-86c0-4a00-99e1-90eaf952444d",
+      "id": "8109ca78-5b29-43dc-abeb-2d6ec5302312",
       "name": "Stamp Concept Control Fields"
     },
     {
@@ -990,10 +990,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1024,
-        0
+        1472,
+        160
       ],
-      "id": "47f64f1a-ad7f-45a8-bc4d-90db36d342d2",
+      "id": "7913ac14-1bfc-4aed-b903-8be5e21c5c96",
       "name": "Validate All Concept Options"
     },
     {
@@ -1024,10 +1024,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        1248,
-        0
+        1696,
+        160
       ],
-      "id": "807b2832-5ca9-46a1-ae8b-c9c0b63381b9",
+      "id": "0139f4bc-2fb1-4335-afb6-6a9f2efa8943",
       "name": "Concept Batch Is Valid"
     },
     {
@@ -1037,10 +1037,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1472,
-        0
+        1920,
+        160
       ],
-      "id": "56e26934-1be2-4c10-8ff2-b07464b2b84e",
+      "id": "5b396a5b-fd85-4ead-8b0b-d06f7a82fe80",
       "name": "Unpack Valid Concept Batch"
     },
     {
@@ -1072,10 +1072,10 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        -448,
-        128
+        0,
+        288
       ],
-      "id": "0f6ebfd3-c0e2-440a-8216-54cddbfe77b8",
+      "id": "0ca75ee5-819c-41b2-b610-d6b9333063fe",
       "name": "Check Existing Concepts",
       "alwaysOutputData": true,
       "credentials": {
@@ -1113,10 +1113,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        -224,
-        128
+        224,
+        288
       ],
-      "id": "f7c45303-55ea-4d9a-9e2b-8fa6c45ddfa6",
+      "id": "83fdec51-fc69-4b68-85d4-c4d66882abf8",
       "name": "Concepts Do Not Exist",
       "executeOnce": true
     },
@@ -1227,10 +1227,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1696,
-        400
+        2144,
+        560
       ],
-      "id": "95df87f9-bc2e-4134-80d8-18ed95b5fa01",
+      "id": "b33a1868-f9ef-4859-adc9-3e71a80a529f",
       "name": "Prepare Concepts Already Exist Failure"
     },
     {
@@ -1242,10 +1242,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        0,
-        0
+        448,
+        160
       ],
-      "id": "18893d8a-c536-4bbc-bd74-ee381098bf25",
+      "id": "91782c1a-2415-482a-a944-52d37edc94fe",
       "name": "Restore Concept Input"
     },
     {
@@ -1272,10 +1272,10 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.2,
       "position": [
-        2464,
-        416
+        2912,
+        576
       ],
-      "id": "37d77da6-dc84-467d-8f16-da2a7a79d8b8",
+      "id": "6f2c092c-09d1-4604-ba2e-951dad8b51cf",
       "name": "Call Failure Handler"
     },
     {
@@ -1285,10 +1285,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -896,
-        32
+        -448,
+        192
       ],
-      "id": "4be00b8e-1af6-48d5-a024-056593af5de2",
+      "id": "cfc39694-39aa-448c-af8e-440bf1a8d39f",
       "name": "Validate Canon Lineage"
     },
     {
@@ -1319,10 +1319,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        -672,
-        32
+        -224,
+        192
       ],
-      "id": "3359e9cd-2f5d-491b-bf58-c40af9499194",
+      "id": "0345cacf-ce82-4682-aa2c-d3d4b115f613",
       "name": "Canon Lineage Is Valid"
     },
     {
@@ -1426,10 +1426,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -448,
-        -160
+        0,
+        0
       ],
-      "id": "2847eadb-f819-4732-8188-d2c057a00ee0",
+      "id": "2dad8ef6-3842-4048-950f-284cda99f270",
       "name": "Prepare Canon Lineage Failure"
     }
   ],
@@ -1753,7 +1753,7 @@
     "errorWorkflow": "3an2myLOF7o4STK8",
     "callerPolicy": "workflowsFromSameOwner"
   },
-  "versionId": "79e9ec30-2f4b-4ec6-b630-4bf582c8fcf4",
+  "versionId": "afc6e63c-91a2-4eb2-be3c-c65a075cc796",
   "meta": {
     "instanceId": "518751276e5752827215acb8c5b0cf3cfc08b92ae0362228eac713048bcb9ab3"
   },

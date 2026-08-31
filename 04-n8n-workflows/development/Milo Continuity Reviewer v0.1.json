@@ -9,7 +9,7 @@
         -2016,
         384
       ],
-      "id": "00f82764-6fc9-480c-bc09-2f4d4cfc8b2f",
+      "id": "2b13757b-ea61-46ac-aa9d-0063193b8740",
       "name": "Start Continuity Review"
     },
     {
@@ -44,7 +44,7 @@
         -1792,
         384
       ],
-      "id": "87f11be5-99ea-4b2f-a756-52e314c8afd7",
+      "id": "1e68b408-0f5f-4fdf-9bef-2e1bd2b0da57",
       "name": "Read Approved Script",
       "alwaysOutputData": true,
       "credentials": {
@@ -64,7 +64,7 @@
         -1568,
         384
       ],
-      "id": "98768abe-96cc-42d8-ae3c-ae48f2f906c2",
+      "id": "48ee0d9b-bf4d-431f-b49d-ade86df8aebc",
       "name": "Validate Approved Script"
     },
     {
@@ -98,7 +98,7 @@
         -1344,
         384
       ],
-      "id": "c5a2e62b-d9ab-499b-b540-1b18ca51a18d",
+      "id": "b95b3b25-2386-45e9-9b6a-8e31f69b44a8",
       "name": "Approved Script Is Valid"
     },
     {
@@ -133,7 +133,7 @@
         -1120,
         384
       ],
-      "id": "920f14a7-8840-44d9-8ce5-5ff157090978",
+      "id": "c2a826f1-ea70-4932-960c-b66bb64bea12",
       "name": "Read Source Story",
       "alwaysOutputData": true,
       "credentials": {
@@ -173,7 +173,7 @@
         -896,
         384
       ],
-      "id": "d7ca5cd3-c964-4002-86c9-b6a44f26a510",
+      "id": "ae266b68-01f6-4578-8ff0-18a7c92e5515",
       "name": "Story Is Ready For Continuity Review"
     },
     {
@@ -208,7 +208,7 @@
         -672,
         272
       ],
-      "id": "8034a6d7-7ea8-491b-9e3a-d0313875e0dc",
+      "id": "b5039a61-17e0-4bb2-a3bf-963056fe5c82",
       "name": "Read Existing Continuity Review",
       "alwaysOutputData": true,
       "credentials": {
@@ -249,7 +249,7 @@
         -448,
         272
       ],
-      "id": "b79cb644-7a7f-41cc-b513-7bfbfd1e3e78",
+      "id": "67923423-1d37-4af9-9f06-7c2cf33c5b2b",
       "name": "Continuity Review Does Not Exist"
     },
     {
@@ -356,7 +356,7 @@
         -224,
         96
       ],
-      "id": "6d81e87c-d232-47e4-bce6-50680660e264",
+      "id": "b99fbce3-1cef-4b83-8472-7e309e0fc96b",
       "name": "Prepare Continuity Input"
     },
     {
@@ -387,7 +387,7 @@
         0,
         192
       ],
-      "id": "a8811316-d659-4c3b-82b1-d8e044772412",
+      "id": "de297c69-eafb-4a37-ae86-24c578f6ac30",
       "name": "Get Milo Canon Context",
       "webhookId": "99e7480d-ae2c-4027-878f-23125597e282",
       "credentials": {
@@ -409,7 +409,7 @@
         224,
         192
       ],
-      "id": "f0c9c50d-fd31-4e61-aae0-6d161cd996de",
+      "id": "d816e923-6c7b-43a7-8226-d38fa8dd6053",
       "name": "Extract Canon Context"
     },
     {
@@ -442,7 +442,7 @@
         0,
         0
       ],
-      "id": "fcd76d7b-11f9-4125-b5bd-61ed96a07397",
+      "id": "70bf83f5-5239-4013-aa0d-7162d209357f",
       "name": "Get Continuity Rules",
       "webhookId": "a4f52240-998f-49b7-87b9-1ad46f08bbe6",
       "credentials": {
@@ -464,7 +464,7 @@
         224,
         0
       ],
-      "id": "e027538e-2737-4bfd-a861-60a9dd01647b",
+      "id": "a7ffc1da-8144-4b3f-bd30-2534a2c8c002",
       "name": "Extract Continuity Rules"
     },
     {
@@ -479,7 +479,7 @@
         448,
         96
       ],
-      "id": "2bb2faf0-eddb-4427-9adc-7979dbefa5ce",
+      "id": "d70ac6ea-586a-4172-a2ea-430d8d028fc5",
       "name": "Merge Continuity Context"
     },
     {
@@ -494,7 +494,7 @@
         672,
         128
       ],
-      "id": "9c11ce81-9617-48d4-80b7-d3be388ba989",
+      "id": "6abb9438-35e8-485c-8afc-2aa878b42402",
       "name": "Merge Review Input + Context"
     },
     {
@@ -510,7 +510,7 @@
         896,
         128
       ],
-      "id": "f7ca1a0c-f734-497c-adf8-3b618d27b503",
+      "id": "719f946e-da89-403d-a12c-a96b1c6d192e",
       "name": "Review Continuity"
     },
     {
@@ -524,7 +524,7 @@
         1088,
         352
       ],
-      "id": "2613165c-ca3e-432a-b0d3-802084b29618",
+      "id": "422d469c-e3ab-434a-a190-abf67ec5ee50",
       "name": "Continuity Output Parser"
     },
     {
@@ -543,7 +543,7 @@
         832,
         352
       ],
-      "id": "2fb03d14-2233-40d2-9482-7d232ced9241",
+      "id": "5c6da83b-3740-4404-9635-e9a25f9e23c2",
       "name": "OpenAI Chat Model",
       "credentials": {
         "openAiApi": {
@@ -562,7 +562,7 @@
         1248,
         128
       ],
-      "id": "f794e356-9b3e-4fe0-9676-ece58735dac4",
+      "id": "232f3f3b-e7ec-4ce5-a649-8a1c97095d98",
       "name": "Validate Continuity Review"
     },
     {
@@ -596,7 +596,7 @@
         1472,
         128
       ],
-      "id": "34e2b63f-3cee-41c2-a042-bfa72393d903",
+      "id": "bb8637ae-e38b-43db-a606-0a59bfe89861",
       "name": "Continuity Review Is Valid"
     },
     {
@@ -715,7 +715,7 @@
         1728,
         128
       ],
-      "id": "bf409e40-3c84-45c9-8b0f-ae0240cac25d",
+      "id": "9c019155-fde0-47c8-ab72-b9959050d1e7",
       "name": "Prepare Continuity Review Record"
     },
     {
@@ -923,7 +923,7 @@
         1920,
         128
       ],
-      "id": "c529da79-c69d-409d-9ed9-ffa51d344364",
+      "id": "90064268-6732-4b14-9830-f8b24c975660",
       "name": "Save Continuity Review",
       "alwaysOutputData": false,
       "credentials": {
@@ -1123,7 +1123,7 @@
         2144,
         128
       ],
-      "id": "fe1fb181-8117-43ba-8656-713ba72692d2",
+      "id": "baca1a2f-f767-4401-81ee-990c0cbd6cef",
       "name": "Mark Story Continuity Reviewed",
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -1237,7 +1237,7 @@
         1728,
         336
       ],
-      "id": "edad7d4f-cfbd-428f-95f0-57f9598675c6",
+      "id": "2b5ae570-71c9-4cde-b33e-2fcf4a425f8d",
       "name": "Prepare Invalid Continuity Review Failure"
     },
     {
@@ -1344,7 +1344,7 @@
         -224,
         288
       ],
-      "id": "7491a4c6-90f5-478f-a4fe-f6b0db116b9a",
+      "id": "0613e255-18c4-4dad-b934-23d1d173642f",
       "name": "Prepare Duplicate Continuity Review Failure"
     },
     {
@@ -1451,7 +1451,7 @@
         -672,
         464
       ],
-      "id": "77ef19f7-4919-47ba-8665-70823133e760",
+      "id": "9a66a5cc-bab6-4de2-8067-9c6c355164fd",
       "name": "Prepare Story Not Ready Failure"
     },
     {
@@ -1552,7 +1552,7 @@
         -1088,
         592
       ],
-      "id": "253150f7-468f-4d82-8b1e-62a7f39f34e2",
+      "id": "aac3c640-4d24-4705-abfe-1a821c699ed2",
       "name": "Prepare Invalid Approved Script Failure"
     },
     {
@@ -1659,7 +1659,7 @@
         2160,
         336
       ],
-      "id": "5b600e83-ce7f-4623-b5b2-0f706b57eb3f",
+      "id": "82eebae1-3e7d-4c10-bc59-5136f40b6319",
       "name": "Prepare Continuity Review Save Failure"
     },
     {
@@ -1766,7 +1766,7 @@
         2368,
         224
       ],
-      "id": "e8483313-dc8f-4c89-870a-d20418b0eb44",
+      "id": "0dc84d87-4b37-4778-a70a-37b7b69a6a10",
       "name": "Prepare Story Continuity Status Failure"
     },
     {
@@ -1796,7 +1796,7 @@
         2688,
         336
       ],
-      "id": "7a0b8efd-1c56-4399-b7a5-d47a70a1ada5",
+      "id": "10b528e4-839b-4a97-a9c9-e0d68ef6c3ce",
       "name": "Call Failure Handler"
     },
     {
@@ -1809,7 +1809,7 @@
         -672,
         384
       ],
-      "id": "a7bac003-1f99-4ddb-8834-b1cc3e2dcf63",
+      "id": "8818e589-b970-4d82-bf5e-ee0702e2f3ee",
       "name": "Validate Canon Lineage"
     },
     {
@@ -1843,7 +1843,7 @@
         -448,
         384
       ],
-      "id": "0ac675cc-172d-4f8e-9e10-5152389c335b",
+      "id": "86325527-842e-4ee6-9746-8a00bbd48da3",
       "name": "Canon Lineage Is Valid"
     },
     {
@@ -1950,7 +1950,7 @@
         -224,
         608
       ],
-      "id": "4704ca5e-8b75-48cf-9ca5-88ae4906b322",
+      "id": "83e8a9b6-614f-4c7a-b2f5-5432925b2485",
       "name": "Prepare Canon Lineage Failure"
     }
   ],
@@ -2371,7 +2371,7 @@
     "errorWorkflow": "3an2myLOF7o4STK8",
     "callerPolicy": "workflowsFromSameOwner"
   },
-  "versionId": "c43197f6-d269-44d3-bbf5-fb763c3879b7",
+  "versionId": "26a645b8-48f2-442e-83eb-7a41fcc88c30",
   "meta": {
     "instanceId": "518751276e5752827215acb8c5b0cf3cfc08b92ae0362228eac713048bcb9ab3"
   },
