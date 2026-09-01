@@ -19,7 +19,7 @@ node 06-testing/validate_production_package.mjs
 | M7-005 | Append retry prohibition | No Google Sheets append node enables automatic retry. |
 | M7-006 | Immutable references | M7 prompt uses immutable `promptRef`; canon/visual/voice/rules reads use authoritative Story `canonRef`. |
 | M7-007 | Generator provenance | Provider/model and maximum two AI attempts are explicit. |
-| M7-008 | AI/deterministic boundary | Schema/prompt limit AI to scene/guidance generation; deterministic provenance remains outside AI output. |
+| M7-008 | AI/deterministic boundary | Schema exposes only `scenes` and `productionNotes`; the prompt explicitly prohibits package IDs/versions, canon lineage, and publishing schedules from AI output. |
 | M7-009 | Happy-path IDs | Package, scene, and asset IDs are deterministic and correctly formatted. |
 | M7-010 | Invalid input/state and legacy lineage | Invalid Story state/input and blank/malformed authoritative canon lineage fail before generation. |
 | M7-011 | Canon mismatch | Script/Review lineage mismatch fails deterministically. |

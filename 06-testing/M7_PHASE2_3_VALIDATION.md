@@ -16,6 +16,10 @@ The executable offline M7 validation harness completed:
 
 The final committed workflow hardening deltas were then re-inspected directly from the repository after remediation.
 
+### Reconciliation note — 2026-09-01
+
+A later full-suite rerun exposed a brittle M7-008 harness assertion: the approved prompt prohibits human-readable “package IDs” and “package versions”, while the test incorrectly required the camelCase implementation tokens `packageId` and `packageVersion`. The approved prompt, schema, workflow, and immutable `promptRef` were unchanged. The harness now proves the boundary directly by requiring that the schema expose only `scenes` and `productionNotes` and that the prompt explicitly prohibit package IDs/versions, canon lineage, and publishing schedules. The reconciled suite remains `27 / 27 PASS`.
+
 ## Validated areas
 
 - workflow identity, inactive repository state and empty pin data

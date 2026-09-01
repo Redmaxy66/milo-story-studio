@@ -122,8 +122,9 @@ test('M7-007 generator provider/model and two-attempt AI policy', () => {
 test('M7-008 schema and prompt preserve AI/deterministic boundary', () => {
   assert(schema.required.includes('scenes'));
   assert.equal(schema.properties.scenes.minItems, 1);
+  assert.deepEqual(Object.keys(schema.properties).sort(), ['productionNotes','scenes']);
   assert(prompt.includes('preserve the approved Script exactly'));
-  for (const forbidden of ['packageId','packageVersion','canonRef','publishing schedules']) assert(prompt.includes(forbidden));
+  for (const forbidden of ['package IDs','package versions','canonVersion/canonRef','publishing schedules']) assert(prompt.includes(forbidden));
 });
 
 test('M7-009 happy-path identifiers are deterministic', () => {

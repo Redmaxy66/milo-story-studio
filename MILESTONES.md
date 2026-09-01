@@ -8,7 +8,7 @@
 | M4 | Concept Generator | Week 6 | Complete | Milo Concept Generator v0.1 generates, validates, and stores three structured concepts; Milo Concept Approval v0.1 processes human-approved concepts separately; deterministic validation, duplicate protection, approval repair handling, and repeat-processing protection proven. |
 | M5 | Script Pipeline | Week 8 | Complete | Outline Generator, Outline Approval, Script Generator, and Script Approval v0.1 completed, tested, exported, committed, and pushed. End-to-end status progression proven from CONCEPT_APPROVED through OUTLINE_GENERATED, OUTLINE_APPROVED, SCRIPT_GENERATED, and SCRIPT_APPROVED. Deterministic validation, duplicate protection, approval repair paths, Story readiness checks, structured failure payloads, and canon-grounded script generation are working. |
 | M6 | Continuity Agent | Week 10 | Complete | Continuity Reviewer and Continuity Approval v0.1 completed, tested, exported, committed, and pushed. Deterministic validation, version-based duplicate protection, PASS / REVIEW_REQUIRED / FAIL routing, open-canon handling, human approval, approval repair, structured failures, and status progression through CONTINUITY_REVIEWED, CONTINUITY_APPROVED, and SCRIPT_REVISION_REQUIRED are proven. |
-| M7 | Production Package | Week 12 | Not started | Approved script converted into structured scenes, voice guidance, animation prompts, visual prompts, and media-production assets. |
+| M7 | Production Package | Week 12 | In progress | Approved design and D-013 recorded; specification, schema, prompt, lifecycle/error contracts, workflow export, and `27 / 27` offline validation complete. `MILO-007` is `CONTINUITY_APPROVED`; live schema/workflow configuration and controlled M7 acceptance remain pending separate A3 authority. |
 | M8 | Complete Studio | Week 16 | Not started | Tested end-to-end workflow with approvals, publishing preparation, logs, versioning, error handling, and documentation. |
 
 ## M5 closure
@@ -57,7 +57,7 @@ Key M6 implementation commits:
 
 ## Current focus
 
-Next milestone: **M7 — Production Package**
+Current milestone: **M7 — Production Package (Phase 4 pending)**
 
 Primary objective: convert continuity-approved scripts into versioned production packages with scene, visual, voice, animation, and metadata guidance.
 

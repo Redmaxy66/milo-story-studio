@@ -23,6 +23,9 @@ const expectedColumns = [
 const preInstrumentationCodes = [
   'APPROVAL_VALIDATION_FAILED','APPROVED_CONCEPT_COUNT_INVALID','APPROVED_OUTLINE_COUNT_INVALID','APPROVED_OUTLINE_INVALID','APPROVED_OUTLINE_VALIDATION_FAILED','APPROVED_SCRIPT_INVALID','CONCEPTS_ALREADY_EXIST','CONCEPT_STORY_ID_MISMATCH','CONCEPT_VALIDATION_FAILED','CONTINUITY_AI_OUTPUT_INVALID','CONTINUITY_APPROVAL_INVALID','CONTINUITY_REVIEW_ALREADY_EXISTS','CONTINUITY_REVIEW_PROCESSING_FAILED','CONTINUITY_REVIEW_SAVE_FAILED','DUPLICATE_OUTLINE','OUTLINE_APPROVAL_STAMP_FAILED','OUTLINE_GENERATION_FAILED','OUTLINE_SAVE_FAILED','OUTLINE_VALIDATION_FAILED','SCRIPT_ALREADY_EXISTS','SCRIPT_NOT_READY_FOR_CONTINUITY_REVIEW','SCRIPT_SAVE_FAILED','SCRIPT_VALIDATION_FAILED','STORY_CONTINUITY_APPROVED_UPDATE_FAILED','STORY_CONTINUITY_STATUS_UPDATE_FAILED','STORY_ID_MISSING','STORY_NOT_READY_FOR_CONCEPT_APPROVAL','STORY_NOT_READY_FOR_CONTINUITY_APPROVAL','STORY_NOT_READY_FOR_OUTLINE_APPROVAL','STORY_NOT_READY_FOR_SCRIPT_APPROVAL','STORY_NOT_READY_FOR_SCRIPT_GENERATION','STORY_OUTLINE_APPROVAL_UPDATE_FAILED','STORY_OUTLINE_STATUS_UPDATE_FAILED','STORY_SCRIPT_REVISION_UPDATE_FAILED','STORY_SCRIPT_STATUS_UPDATE_FAILED',
 ];
+const m7Codes = [
+  'STORY_NOT_READY_FOR_PRODUCTION_PACKAGE','PRODUCTION_PACKAGE_INPUT_INVALID','PRODUCTION_PACKAGE_ALREADY_EXISTS','PRODUCTION_PACKAGE_REGENERATION_INVALID','PRODUCTION_PACKAGE_GENERATION_FAILED','PRODUCTION_PACKAGE_AI_OUTPUT_INVALID','PRODUCTION_PACKAGE_SCENE_SAVE_FAILED','PRODUCTION_PACKAGE_SCENE_VERIFY_FAILED','PRODUCTION_PACKAGE_SAVE_FAILED','PRODUCTION_PACKAGE_VERIFY_FAILED','PRODUCTION_PACKAGE_REPAIR_REQUIRED','STORY_PRODUCTION_PACKAGE_STATUS_UPDATE_FAILED',
+];
 
 function assert(condition, message) { if (!condition) throw new Error(message); }
 function readJson(relativePath) { return JSON.parse(fs.readFileSync(path.join(repoRoot, relativePath), 'utf8')); }
@@ -103,8 +106,8 @@ const conceptBatchGate=conceptGenerator.nodes.find((node) => node.name==='Concep
 const conceptValidationFailure=conceptGenerator.nodes.find((node) => node.name==='Prepare Concept Validation Failure');
 const conceptDuplicateGate=conceptGenerator.nodes.find((node) => node.name==='Concepts Do Not Exist');
 const conceptValidationAssignments=conceptValidationFailure?.parameters?.assignments?.assignments ?? [];
-assert(conceptGenerator.nodes.length===42, `Concept Generator: expected 42 nodes, found ${conceptGenerator.nodes.length}`);
-assert(connectionCount(conceptGenerator)===52, `Concept Generator: expected 52 connections, found ${connectionCount(conceptGenerator)}`);
+assert(conceptGenerator.nodes.length===44, `Concept Generator: expected 44 nodes, found ${conceptGenerator.nodes.length}`);
+assert(connectionCount(conceptGenerator)===55, `Concept Generator: expected 55 connections, found ${connectionCount(conceptGenerator)}`);
 assert(conceptBatchGate?.type==='n8n-nodes-base.if','Concept Generator: batch validation gate must remain an IF node');
 assert(singleTarget(conceptGenerator,conceptBatchGate.name,0)==='Unpack Valid Concept Batch','Concept Generator: valid batch happy path changed');
 assert(singleTarget(conceptGenerator,conceptBatchGate.name,1)===conceptValidationFailure.name,'Concept Generator: invalid batch must prepare its validation failure');
@@ -113,7 +116,10 @@ assert(conceptValidationAssignments.some((assignment) => assignment.name==='erro
 assert(singleTarget(conceptGenerator,conceptDuplicateGate.name,0)==='Restore Concept Input','Concept Generator: duplicate-protection happy path changed');
 assert(singleTarget(conceptGenerator,conceptDuplicateGate.name,1)==='Prepare Concepts Already Exist Failure','Concept Generator: duplicate-protection failure path changed');
 assert(singleTarget(conceptGenerator,'Prepare Concepts Already Exist Failure',0)==='Call Failure Handler','Concept Generator: duplicate failure must reach Call Failure Handler');
-assert(singleTarget(conceptGenerator,'Read Eligible Story Ideas',0)==='Check Existing Concepts Before Canon','Concept Generator: pre-canon duplicate guard missing');
+assert(singleTarget(conceptGenerator,'Read Eligible Story Ideas',0)==='Select D-014 Eligible Story','Concept Generator: D-014 eligible selector missing');
+assert(singleTarget(conceptGenerator,'Select D-014 Eligible Story',0)==='D-014 Eligible Story Selected','Concept Generator: D-014 selector gate missing');
+assert(singleTarget(conceptGenerator,'D-014 Eligible Story Selected',0)==='Check Existing Concepts Before Canon','Concept Generator: selected Story must reach pre-canon duplicate guard');
+assert(singleTarget(conceptGenerator,'D-014 Eligible Story Selected',1)==='Classify Canon Initialization','Concept Generator: D-014 integrity route changed');
 assert(singleTarget(conceptGenerator,'No Existing Concepts Before Canon',0)==='Restore Eligible Story','Concept Generator: pre-canon duplicate happy path changed');
 assert(singleTarget(conceptGenerator,'No Existing Concepts Before Canon',1)==='Prepare Concepts Already Exist Failure','Concept Generator: pre-canon duplicate failure route changed');
 
@@ -244,8 +250,12 @@ observedCodes.add('HANDLED_FAILURE');
 observedCodes.add('UNHANDLED_WORKFLOW_ERROR');
 const registerText=fs.readFileSync(path.join(repoRoot,'02-story-system/ERROR_CODE_REGISTER.md'),'utf8');
 const registeredCodes=new Set([...registerText.matchAll(/^\| `([A-Z0-9_]+)` \|/gm)].map((match)=>match[1]));
-assert(registeredCodes.size===observedCodes.size, `Error-code register count ${registeredCodes.size} does not match implementation count ${observedCodes.size}`);
+const m7WorkflowText=fs.readFileSync(path.join(repoRoot,'04-n8n-workflows/development/Milo Production Package Generator v0.1.json'),'utf8');
+for (const code of m7Codes) assert(m7WorkflowText.includes(code), `M7 workflow no longer implements registered code: ${code}`);
+const expectedRegisteredCodes=new Set([...observedCodes,...m7Codes]);
+assert(registeredCodes.size===expectedRegisteredCodes.size, `Error-code register count ${registeredCodes.size} does not match implementation count ${expectedRegisteredCodes.size}`);
 for (const code of observedCodes) assert(registeredCodes.has(code), `Implemented error code is not registered: ${code}`);
+for (const code of m7Codes) assert(registeredCodes.has(code), `Implemented M7 error code is not registered: ${code}`);
 
 const normalizeNode=handler.nodes.find((node)=>node.name==='Normalize Failure Event');
 assert(normalizeNode?.type==='n8n-nodes-base.code','Handler normalizer is missing');
@@ -289,7 +299,7 @@ console.log('PASS Script Generator, Outline Approval, and Batch 2 exports contai
 console.log('PASS local failure reachability and handler routing: 43/43 Prepare Failure nodes');
 console.log('PASS Concept Generator D-014 pre-canon duplicate, original duplicate, invalid-batch, and handler routes');
 console.log('PASS existing error-code preservation: 35/35 baseline codes');
-console.log(`PASS operational error-code register: ${registeredCodes.size}/${observedCodes.size} codes`);
+console.log(`PASS operational error-code register: ${registeredCodes.size}/${expectedRegisteredCodes.size} codes`);
 console.log('PASS handled validation normalization and lifecycle isolation');
 console.log('PASS handled Sheets failure branch, normalization, and deterministic failureId');
 console.log('PASS unhandled Error Trigger normalization');

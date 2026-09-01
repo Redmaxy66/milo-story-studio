@@ -1,5 +1,14 @@
 ﻿# Changelog
 
+## 0.7.0 — Production Package repository implementation (in progress)
+
+- Recorded D-013 for immutable, append-versioned Production Package blueprints with child scene rows and separate realised-asset provenance.
+- Added the M7 Production Package specification, structured-output schema, generator prompt, workflow export, lifecycle transition, operational error codes, and deterministic validation suite.
+- Reconciled the M7 offline suite at `27 / 27` without changing the approved prompt or immutable `promptRef`.
+- Reconciled shared failure instrumentation with the governed D-014 Concept Generator topology of 44 nodes / 55 connections.
+- Completed the governed `MILO-007` acceptance lineage through Continuity Review execution `#404` and Continuity Approval execution `#405`; the Story is now `CONTINUITY_APPROVED` with matching immutable canon lineage.
+- Left M7 live Story Vault schema creation, workflow configuration, and controlled Production Package execution pending separate A3 authority.
+
 ## 0.6.5 — Failure instrumentation repository implementation
 
 - Added the shared `Milo Failure Handler v0.1` contract for handled and unhandled failures.

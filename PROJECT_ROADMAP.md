@@ -10,6 +10,8 @@ The studio now supports the controlled progression:
 
 Current milestone: **M7 — Production Package**
 
+M7 status: **In progress.** The approved repository implementation and offline validation are complete; controlled live configuration and acceptance remain pending separate A3 authority.
+
 ---
 
 ## Phase 1 — Foundation and Story Vault
@@ -135,5 +137,5 @@ Current milestone: **M7 — Production Package**
 - M4 — Complete
 - M5 — Complete
 - M6 — Complete
-- M7 — Not started
+- M7 — In progress (repository implementation validated; live configuration pending)
 - M8 — Not started
