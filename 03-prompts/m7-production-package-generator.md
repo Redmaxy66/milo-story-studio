@@ -51,6 +51,8 @@ Return:
 - `canonReferences`
 - `openCanonConstraints`
 
+`charactersPresent`, `mustInclude`, `mustAvoid`, `continuityRequirements`, `canonReferences`, and `openCanonConstraints` must be JSON arrays, including when empty.
+
 Preserve approved visual canon.
 
 Do not turn open canon into permanent facts. In particular, do not invent a canonical global art style, exact body proportions, exact height, exact colour hex values, exact backpack geometry, or other unresolved visual decisions.
@@ -64,7 +66,14 @@ Return:
 - `pauseGuidance`
 - `dialogueCues`
 
-Dialogue cue `text` must quote exact dialogue already present in that scene's `sourceText`.
+`emphasisNotes` and `pauseGuidance` must be JSON arrays, including when empty.
+
+Every `dialogueCues` item must contain all three required string fields:
+- `speaker`
+- `text`
+- `deliveryNote`
+
+Each dialogue cue `text` must be an exact substring of that same scene's `sourceText`, preserving its punctuation and casing exactly. Do not add quotation marks, attribution, or surrounding narration unless those characters are already part of the selected substring.
 
 Milo must remain compatible with the supplied Voice Guide. Use qualitative pacing and pause guidance; do not invent canonical numeric words-per-minute or pause-duration rules.
 
@@ -77,6 +86,8 @@ Return:
 - `transitionGuidance`
 - `timingNote`
 - `continuityConstraints`
+
+`characterActions`, `environmentMotion`, and `continuityConstraints` must be JSON arrays, including when empty.
 
 Motion guidance describes how to produce the approved scene. It must not create new story events, change possession/state, or alter cause/effect.
 
