@@ -297,6 +297,8 @@ Platform-specific publishing metadata is prohibited from the M7 package.
 ### Deterministic/n8n responsibility
 
 - global Story, Script, Continuity Review, Production Package, and scene-table reads execute once per workflow run so upstream item counts cannot multiply authoritative candidate rows
+- every global persistence readback executes once, including both persisted-scene and persisted-header reads
+- every Code node declares its intended execution mode explicitly rather than relying on the n8n default
 - Story selection and state eligibility
 - PRE-CANON LEGACY exclusion
 - identifier validation
@@ -377,12 +379,14 @@ Required order:
 
 1. generate and validate the complete package in memory
 2. persist immutable scene rows
-3. verify the exact complete scene set
+3. verify the exact complete scene set field-for-field against the validated in-memory rows, including parsed JSON payloads, timestamps and canon lineage
 4. persist the immutable package header
-5. verify the package header and complete scene set
+5. verify all 25 package-header fields against the validated or deterministically reconstructed header, using numeric and parsed-JSON equivalence where Google Sheets normalises representation
 6. update Story status to `PRODUCTION_PACKAGE_GENERATED`
 
 Google Sheets append nodes must never enable automatic retry.
+
+Both readback nodes are global reads and must execute once. A successful readback mismatch is a controlled verification failure; it never proceeds to the next write.
 
 ## 16. Repair/recovery
 
@@ -391,13 +395,14 @@ Google Sheets append nodes must never enable automatic retry.
 - do not call AI automatically
 - re-read the expected package scene rows
 - require the complete expected deterministic scene set
-- validate all scene IDs, numbers, provenance and Script coverage
+- validate all scene IDs, numbers, Story/Script/package/canon lineage, required nested JSON payloads, dialogue substring constraints, planned-asset identity, common creation timestamp, and exact ordered Script coverage
 - if complete and coherent, append the missing package header
 - otherwise stop with a controlled repair failure; do not generate a second creative package
 
 ### Header and scenes exist, Story not advanced
 
 - validate complete package
+- require the complete header contract, complete child-scene contract, manifest/scene equivalence and generation provenance
 - do not regenerate
 - update Story only
 

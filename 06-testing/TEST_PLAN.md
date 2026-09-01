@@ -51,6 +51,12 @@ The M7 offline suite must verify at minimum:
 - controlled regeneration and upstream-revision provenance
 - `packageFormatVersion` validation
 - status-repair and header-repair paths
+- explicit Code-node and global-read execution modes, including both persistence readbacks
+- node-reference dominance and branch-specific execution guards
+- exact Switch rule operands/order/output cardinality, terminal no-op and fallback connectivity
+- complete persisted-scene and 25-field header readback equivalence
+- malformed history, conflicting orphan, generation-mode and recovery-payload rejection
+- deterministic simulation of all ten governed INITIAL/repeat/repair/failure/persistence states
 - save/verify ordering before Story lifecycle mutation
 - lifecycle isolation on failure
 - M7 operational error-code registration

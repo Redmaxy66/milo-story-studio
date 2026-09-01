@@ -2,34 +2,34 @@
 ## Milo Story Studio — Current Operational State
 
 **Status date:** 2026-09-01
-**State basis:** Repository evidence, completed M7 Phase 2–3 non-production validation, and completed `MILO-007` live acceptance-lineage verification
-**Authority for this baseline:** A2 repository reconciliation following separately authorised A3 acceptance execution
+**State basis:** Repository evidence, completed M7 full-preflight audit, fresh canonical workflow export, fresh Story Vault reads, and controlled executions through `#414`
+**Authority for this baseline:** A2 consolidated preflight remediation following separately authorised A3 Phase 4–5 executions
 
 ---
 
 ## 1. Current Milestone
 
-**M7 — Production Package — IN PROGRESS; PHASES 1–3 COMPLETE**
+**M7 — Production Package — IN PROGRESS; REPOSITORY PREFLIGHT CERTIFIED, LIVE PATCH/ISOLATED ACCEPTANCE PENDING**
 
 ---
 
 ## 2. Current Status
 
-**M7 REPOSITORY IMPLEMENTATION VALIDATED; LIVE M7 CONFIGURATION NOT STARTED**
+**M7 REPOSITORY IMPLEMENTATION CERTIFIED; CANONICAL LIVE WORKFLOW REQUIRES SURGICAL PARITY PATCH BEFORE FURTHER EXECUTION**
 
 M6.5 implementation, production identity cutover, and pre-M7 technical remediation are complete. The M7 Production Package design passed its approval gate, decision D-013 records the resulting immutable blueprint / child-scene / separate realised-provenance architecture, and the Phase 2 repository implementation is present.
 
-The reconciled M7 Phase 3 offline suite passes `27 / 27`. The shared failure-instrumentation suite also passes after its stale pre-D-014 Concept Generator topology expectation was aligned with the governed 44-node / 55-connection export. The approved M7 prompt, schema, workflow, and immutable `promptRef` were not changed by this reconciliation.
+The consolidated M7 offline suite passes `63 / 63`. The shared failure-instrumentation suite also passes. The approved M7 prompt, authoritative schema, immutable prompt/canon references, 47-node / 57-edge topology, failure architecture and append retry prohibition remain intact.
 
-Controlled executions `#404` and `#405` completed the governed `MILO-007` Continuity Review and human Continuity Approval path. `MILO-007` is now `CONTINUITY_APPROVED` with matching Story, Script, and Review canon lineage and is a valid candidate for later M7 live acceptance.
+Controlled executions through `#411` created and repaired exactly one immutable package `MILO-007-S01-P01` with eight scenes, then advanced `MILO-007` to `PRODUCTION_PACKAGE_GENERATED`. Executions `#412` and `#414` exposed repeat/no-op semantics and live Switch-rule defects without generation, persistence or Story rewrites. The repository now contains the completed-repeat remediation plus full preflight hardening; the canonical live workflow has not received this consolidated patch.
 
 ---
 
 ## 3. Current M7 Phase
 
-**PHASE 4 — CONTROLLED LIVE CONFIGURATION — NOT STARTED**
+**PHASE 5 — ISOLATED ACCEPTANCE — PAUSED FOR CERTIFIED LIVE PARITY PATCH**
 
-No live M7 workflow or Story Vault Production Package schema exists. Phase 4 requires a separate explicit A3 authority package.
+The canonical workflow and both Production Package tabs exist. Further execution is prohibited until a separate A3 package surgically installs the certified repository properties, saves/reloads, and proves live-export parity.
 
 ---
 
@@ -48,7 +48,7 @@ No live M7 workflow or Story Vault Production Package schema exists. Phase 4 req
 - Repository workflow exports and specifications now encode deterministic Story canon-lineage gates, Story `canonRef` GitHub References, downstream canon-lineage persistence, and the additive Continuity Review fields.
 - `06-testing/validate_canon_lineage.mjs` proves valid lineage acceptance, blank/malformed lineage rejection, downstream mismatch rejection, immutable GitHub Reference expressions, Continuity dual-read coherence, and Continuity Review persistence mappings without executing production data paths.
 - The approved M7 Production Package specification, structured-output schema, prompt, workflow export, lifecycle extension, error codes, test cases, and validation evidence are present.
-- `06-testing/validate_production_package.mjs` passes `27 / 27` after reconciliation of its wording-sensitive M7-008 assertion; the approved prompt and immutable prompt reference remain unchanged.
+- `06-testing/validate_production_package.mjs` passes `63 / 63`, including full execution-mode/reference/router/persistence/recovery/failure lint and ten-state deterministic route simulation.
 - `06-testing/validate_failure_instrumentation.mjs` passes against the governed 44-node / 55-connection Concept Generator topology introduced by D-014.
 - Relevant M6.5 repository commits include `628d57daf64e993dc15e441cb973065133d76d9a`, `102ff8f6ba512b96f9e99362ad1a613297c1854f`, `2719ef8dd48b994ae2bcb2575a30cf07942672f9`, and `08ce6104e550df83867270f69726383d19671c3f`.
 
@@ -77,6 +77,11 @@ No live M7 workflow or Story Vault Production Package schema exists. Phase 4 req
 - After explicit human approval, Continuity Approval execution `#405` processed exactly that Review, stamped `reviewProcessedAt=2026-09-01T18:11:09.021+08:00`, and advanced `MILO-007` to `CONTINUITY_APPROVED`.
 - `MILO-007`, `MILO-007-S01`, and `MILO-007-S01-R01` all retain `canonVersion=canon-v1.0` and `canonRef=977755913d9ad41e4f16392d01ea993507af4102`.
 - No duplicate Review, FailureLog event, Production Package record, Production Package tab, unrelated lifecycle write, or PRE-CANON LEGACY mutation resulted from executions `#404` or `#405`.
+- The canonical M7 workflow is `SNnLunczq5mxrXLn`; its fresh live export remains inactive/unpublished with 47 nodes, 57 edges, zero pins and the governed shared Error Workflow.
+- Story Vault contains exactly one header `MILO-007-S01-P01` and exactly eight uniquely numbered scene rows with package version 1, INITIAL generation mode, complete provenance and matching canon lineage.
+- `MILO-007` is `PRODUCTION_PACKAGE_GENERATED`; its lifecycle timestamp was not rewritten by repeat checks.
+- Execution `#414` emitted `NOOP_COMPLETE` but the live fourth Switch rule contained literal `=` instead of `={{ $json.action }}`, causing fallback handling. The live connection indexes already match the repository.
+- No M8 action has occurred.
 
 | Canonical workflow | Verified current workflow ID |
 |---|---|
@@ -123,15 +128,15 @@ The live `MILO-001` lineage contains:
 - The shared Failure Handler is Published. Decision D-011 accepts this as an explicit handler-specific operational exception; publication is not technically required and does not authorise publication of any other Milo production workflow.
 - The shared Failure Handler and `FailureLog` architecture are live and resolved.
 - No workflow or production data path was executed during governance verification.
-- No workflow or production data path was executed during pre-M7 remediation. Validation used live configuration inspection, immutable GitHub reads, Story Vault reads, and deterministic offline simulation.
-- Subsequent controlled Continuity executions `#404` and `#405` completed the `MILO-007` acceptance lineage under separate A3 authority. No M7 Production Package workflow, schema, or data path was configured or executed.
+- Controlled M7 executions `#406`, `#407`, `#409`, `#411`, `#412` and `#414` occurred only under their separate A3 packages. The final durable result is one coherent package and eight scenes; failed/repeat executions did not duplicate production data.
+- The current A2 preflight used read-only live export/Story Vault/execution evidence and deterministic offline simulation. It made no live or Story Vault change.
 
 ---
 
 ## 7. Protected State
 
 - Do not move, recreate, or retarget `canon-v1.0`.
-- Do not begin M7 Phase 4 live configuration or testing without separate explicit A3 authority.
+- Do not execute M7 again until the certified live parity patch is separately authorised, installed and verified.
 - Do not activate or publish production workflows without explicit authority.
 - Do not execute production data paths without explicit authority.
 - Preserve canonical workflow identity mappings.
@@ -148,7 +153,7 @@ The live `MILO-001` lineage contains:
 
 ## 8. Governance Dispositions and Residual Non-Blocking Notes
 
-The Pre-M7 Exception Disposition assessment, technical remediation, M7 Phase 2 repository implementation, Phase 3 offline validation, and governed `MILO-007` acceptance lineage are complete. No recorded repository or upstream-lineage blocker remains. M7 Phase 4 live configuration has not started and requires separate explicit A3 authority.
+The governed upstream lineage, M7 schema/workflow installation, INITIAL persistence and header repair are complete. The consolidated repository implementation is preflight-certified. The remaining blocker is canonical live parity plus separately authorised isolated acceptance; M8 remains prohibited.
 
 1. **Governed — not an M7 blocker:** `Milo Failure Handler v0.1` is currently **Published**. Decision D-011 accepts this as an explicitly approved handler-specific operational exception. Publication is not technically required, does not create general permission to publish other Milo workflows, and may be changed only through a separately authorised production action.
 2. **Governed — not an M7 blocker:** Five Stories (`MILO-002` through `MILO-006`), fourteen Concepts, and two Outlines (`MILO-002-O01` and `MILO-003-O01`) have blank `canonVersion` and `canonRef`. Decision D-012 classifies them as PRE-CANON LEGACY records. Blank lineage is not any canon release, and these lineages are ineligible for M7 or later production unless a separately authorised migration establishes valid provenance for the complete Story lineage without fabrication.
@@ -165,9 +170,9 @@ The Pre-M7 Exception Disposition assessment, technical remediation, M7 Phase 2 r
 
 ## 9. Next Authorised Action
 
-Prepare and review a separately scoped A3 package for M7 Phase 4 controlled live configuration. That package must verify the live baseline before creating the two additive Production Package tabs or importing/configuring the new inactive/unpublished M7 workflow.
+Prepare and review a separately scoped A3 package for the exact surgical properties listed in `06-testing/M7_PREFLIGHT_CERTIFICATION.md`. Save, reload and re-export the canonical workflow before any isolated acceptance invocation.
 
-This state record does not authorise live M7 mutation, Production Package execution, or M8.
+This state record does not authorise live M7 mutation, another Production Package invocation, or M8.
 
 ---
 

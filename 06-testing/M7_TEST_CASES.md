@@ -65,7 +65,17 @@ node 06-testing/validate_production_package.mjs
 | M7-051 | Malformed completed-state rejection | Missing, duplicate, canon-mismatched, or header-missing completed state still fails deterministically. |
 | M7-052 | Existing INITIAL and repair paths | A clean `CONTINUITY_APPROVED` Story still generates, while valid scene-only partial state still selects `HEADER_REPAIR`. |
 | M7-053 | Repeat retry/fallback safety | Append retry remains prohibited and unmatched/invalid actions still use the governed failure fallback. |
+| M7-054 | Explicit execution modes | All 15 Code nodes explicitly run once for all items; all seven global Sheet reads, including both persistence readbacks, enable Execute Once. |
+| M7-055 | Item/context reference lint | Every named node reference exists and is upstream-safe; mutually exclusive header references are action-guarded; `$exec.`, `$items()` and implicit `$item` references are absent. |
+| M7-056 | Router structural lint | Switch rule operands/order, rule count, connection-output count, terminal no-op output and governed fallback are exact; every IF true/false output is connected. |
+| M7-057 | Persistence multiplicity/retry lint | Each append reaches one Execute Once readback; no append retries or failure-route append re-entry exist; only the approved two-attempt AI policy remains. |
+| M7-058 | Exact scene readback | Any persisted scene-field, nested JSON, lineage or creation-timestamp drift fails before header append. |
+| M7-059 | Exact header readback | All 25 persisted header fields must match the validated/reconstructed header before lifecycle mutation. |
+| M7-060 | Strict header repair | Duplicate numbering, wrong lineage, malformed nested JSON or duplicate planned-asset identity rejects orphan-scene promotion. |
+| M7-061 | History/orphan integrity | Incomplete historical children, duplicate headers and conflicting orphan package rows fail before generation. |
+| M7-062 | Ten-state route simulation | Clean INITIAL, completed repeat, both repairs, missing/duplicate/header/lineage failures, malformed AI output and happy persistence resolve deterministically. |
+| M7-063 | Failure-route lint | Every handled failure has one shared-handler entry, runtime execution identity, literal governed IDs and no path back to a write. |
 
-## Phase 4 live acceptance still required
+## Isolated live acceptance still required
 
-These offline tests do not prove the remediated repeat behavior in live n8n. Under separate A3 authority, one final controlled INITIAL repeat must verify `NOOP_COMPLETE`, zero generation/persistence/lifecycle writes, no FailureLog append, and unchanged package/header/scene state before Phase 6/7 closure.
+These offline tests do not mutate or execute live n8n. Under separate A3 authority, the canonical workflow must first receive the exact certified repository properties, be re-exported and compared, and only then enter isolated acceptance testing. The existing governed package must remain unchanged during installation verification.

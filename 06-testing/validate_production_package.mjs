@@ -37,6 +37,50 @@ function packageId(scriptId, version) { return `${scriptId}-P${String(version).p
 function sceneId(pkg, n) { return `${pkg}-SC${String(n).padStart(2, '0')}`; }
 function assetId(pkg, n) { return `${pkg}-A${String(n).padStart(3, '0')}`; }
 
+function nodeReferences(value) {
+  const source = typeof value === 'string' ? value : JSON.stringify(value);
+  return [...source.matchAll(/\$\(['"]([^'"]+)['"]\)/g)].map(match => match[1]);
+}
+
+function graphAnalysis(workflow) {
+  const names = workflow.nodes.map(item => item.name);
+  const predecessors = Object.fromEntries(names.map(name => [name, new Set()]));
+  for (const [source, connection] of Object.entries(workflow.connections)) {
+    for (const output of connection.main ?? []) {
+      for (const target of output) predecessors[target.node].add(source);
+    }
+  }
+  const roots = names.filter(name => predecessors[name].size === 0);
+  const all = new Set(names);
+  const dominators = Object.fromEntries(names.map(name => [name, roots.includes(name) ? new Set([name]) : new Set(all)]));
+  let changed = true;
+  while (changed) {
+    changed = false;
+    for (const name of names.filter(item => !roots.includes(item))) {
+      const preds = [...predecessors[name]];
+      const intersection = preds.length ? new Set([...dominators[preds[0]]].filter(candidate => preds.every(pred => dominators[pred].has(candidate)))) : new Set();
+      intersection.add(name);
+      if (intersection.size !== dominators[name].size || [...intersection].some(item => !dominators[name].has(item))) {
+        dominators[name] = intersection;
+        changed = true;
+      }
+    }
+  }
+  const reachable = (from, to) => {
+    const seen = new Set([from]);
+    const queue = [from];
+    while (queue.length) {
+      const current = queue.shift();
+      if (current === to) return true;
+      for (const output of workflow.connections[current]?.main ?? []) for (const target of output) {
+        if (!seen.has(target.node)) { seen.add(target.node); queue.push(target.node); }
+      }
+    }
+    return false;
+  };
+  return {predecessors, dominators, reachable};
+}
+
 function schemaErrors(value, contract, location = '$') {
   const errors = [];
   const actualType = Array.isArray(value) ? 'array' : value === null ? 'null' : typeof value;
@@ -135,20 +179,31 @@ function makeRichScene(pkg, n, words) {
 }
 
 function makePersistedSceneRows(count = 8, pkg = 'MILO-007-S01-P01') {
-  return Array.from({length:count}, (_, index) => ({
-    packageId:pkg,
-    packageVersion:1,
-    sceneId:sceneId(pkg,index+1),
-    sceneNumber:index+1,
-    storyId:'MILO-007',
-    scriptId:'MILO-007-S01',
-    sourceText:`Scene ${index+1}.`,
-    assetRequirementsJson:JSON.stringify([{assetId:assetId(pkg,index+1),sceneId:sceneId(pkg,index+1),assetType:'VISUAL',role:'SCENE_VISUAL',status:'PLANNED',requirements:`Scene ${index+1} visual`}]),
-    productionNotesJson:JSON.stringify({sceneNotes:[],packageNotes:['Preserve approved Script text.']}),
-    canonVersion:'canon-v1.0',
-    canonRef:'977755913d9ad41e4f16392d01ea993507af4102',
-    createdAt:'2026-09-01T12:27:33.562Z',
-  }));
+  return Array.from({length:count}, (_, index) => {
+    const sourceText = `Scene ${index+1}.`;
+    const scene = makeValidAiScene(sourceText);
+    scene.voiceGuidance.dialogueCues[0].text = 'Scene';
+    return {
+      packageId:pkg,
+      packageVersion:1,
+      sceneId:sceneId(pkg,index+1),
+      sceneNumber:index+1,
+      storyId:'MILO-007',
+      scriptId:'MILO-007-S01',
+      sourceText,
+      sceneDescription:scene.sceneDescription,
+      setting:scene.setting,
+      charactersJson:JSON.stringify(scene.characters),
+      visualGuidanceJson:JSON.stringify(scene.visualGuidance),
+      voiceGuidanceJson:JSON.stringify(scene.voiceGuidance),
+      motionGuidanceJson:JSON.stringify(scene.motionGuidance),
+      assetRequirementsJson:JSON.stringify([{assetId:assetId(pkg,index+1),sceneId:sceneId(pkg,index+1),assetType:'VISUAL',role:'SCENE_VISUAL',status:'PLANNED',requirements:`Scene ${index+1} visual`}]),
+      productionNotesJson:JSON.stringify({sceneNotes:scene.productionNotes,packageNotes:['Preserve approved Script text.']}),
+      canonVersion:'canon-v1.0',
+      canonRef:'977755913d9ad41e4f16392d01ea993507af4102',
+      createdAt:'2026-09-01T12:27:33.562Z',
+    };
+  });
 }
 
 function simulatePersistedSceneRead(inputItems, persistedRows, executeOnce) {
@@ -200,12 +255,27 @@ function makeCompletedPackageFixture() {
     packageVersion:1,
     generationMode:'INITIAL',
     supersedesPackageId:'',
+    packageFormatVersion:'1.0',
+    conceptId:fixture.script.conceptId,
+    outlineId:fixture.script.outlineId,
     scriptId:fixture.script.scriptId,
     scriptVersion:fixture.script.version,
     reviewId:fixture.review.reviewId,
     reviewVersion:fixture.review.version,
+    title:fixture.script.title,
     sceneCount:fixture.orphanScenes.length,
+    productionMetadataJson:JSON.stringify({
+      packageFormatVersion:'1.0',contentType:'STORY_PRODUCTION_PACKAGE',targetAgeRange:fixture.story.ageRange,
+      sourceWordCount:fixture.script.wordCount,sourceEstimatedLengthMinutes:fixture.script.estimatedLengthMinutes,
+      theme:fixture.script.theme,lesson:fixture.script.lesson,sceneCount:fixture.orphanScenes.length,
+      continuityAssessmentResult:fixture.review.assessmentResult,productionNotes:['Preserve approved Script text.'],
+    }),
+    assetManifestJson:JSON.stringify(fixture.orphanScenes.flatMap(row => JSON.parse(row.assetRequirementsJson))),
+    promptVersion:'m7-production-package-v1.0',
+    promptPath,
     promptRef:PROMPT_REF,
+    generatorProvider:'OpenAI',
+    generatorModel:'gpt-5-mini',
     canonVersion:fixture.story.canonVersion,
     canonRef:fixture.story.canonRef,
     createdAt:'2026-09-01T12:27:33.562Z',
@@ -244,13 +314,14 @@ function runHeaderReconstruction(action) {
   })[0].json;
 }
 
-function runHeaderVerification(persistedHeaders, action, repairResult) {
+function runHeaderVerification(persistedHeaders, action, repairResult, packageResult) {
   const verify = new Function('$input', '$', node('Verify Complete Package').parameters.jsCode);
   return verify(
     {all:() => persistedHeaders.map(json => ({json:structuredClone(json)}))},
     name => {
       if (name === 'Resolve M7 Action') return {first:() => ({json:structuredClone(action)})};
       if (name === 'Reconstruct Header From Verified Scenes') return {first:() => ({json:structuredClone(repairResult)})};
+      if (name === 'Build And Validate Complete Package') return {first:() => ({json:structuredClone(packageResult)})};
       throw new Error(`Unexpected header-verification dependency: ${name}`);
     },
   )[0].json;
@@ -710,6 +781,188 @@ test('M7-053 repeat no-op preserves append retry prohibition and deterministic f
   for (const name of ['Append Production Package Scenes','Append Production Package Header']) assert.notEqual(node(name).retryOnFail, true);
   assert.equal(node('Route M7 Action').parameters.options.fallbackOutput, 'extra');
   assert.deepEqual(targets('Route M7 Action',4), ['Prepare M7 Failure']);
+});
+
+test('M7-054 every Code node and global Sheet read has an explicit execution mode', () => {
+  const codeNodes = wf.nodes.filter(item => item.type === 'n8n-nodes-base.code');
+  assert.equal(codeNodes.length, 15);
+  for (const item of codeNodes) assert.equal(item.parameters.mode, 'runOnceForAllItems', `${item.name} relies on the Code-node default mode`);
+  const globalReads = [
+    'Read Stories','Read Scripts','Read Continuity Reviews','Read Existing Production Packages',
+    'Read Existing Production Package Scenes','Read Persisted Scene Set','Read Persisted Package Header',
+  ];
+  for (const name of globalReads) assert.equal(node(name).executeOnce, true, `${name} must execute once`);
+});
+
+test('M7-055 node references are upstream-safe and invalid runtime tokens are absent', () => {
+  const analysis = graphAnalysis(wf);
+  const serialized = JSON.stringify(wf);
+  assert(!/\$exec\s*\./.test(serialized), 'invalid $exec reference remains');
+  assert(!/\$items\s*\(/.test(serialized), 'legacy $items() reference remains');
+  assert(!/\$item\b/.test(serialized), 'implicit $item reference remains');
+  assert(serialized.includes('$execution.id'));
+  for (const name of ['Resolve M7 Action','Validate Status Repair','Reconstruct Header From Verified Scenes']) {
+    assert(node(name).parameters.jsCode.includes('replace(/\\s+/g'), `${name} lost whitespace normalization`);
+    assert(!node(name).parameters.jsCode.includes('replace(/s+/g'), `${name} contains a malformed whitespace regex`);
+  }
+  assert(node('Resolve M7 Action').parameters.jsCode.includes('canon-v[0-9]+\\.[0-9]+'), 'canonVersion regex lost its literal dot');
+  for (const item of wf.nodes) for (const reference of nodeReferences(item.parameters)) {
+    assert(node(reference), `${item.name} references missing node ${reference}`);
+    assert(analysis.reachable(reference, item.name), `${item.name} references non-upstream node ${reference}`);
+    if (!analysis.dominators[item.name].has(reference)) {
+      const guardedHeaderReference = item.name === 'Verify Complete Package' && ['Build And Validate Complete Package','Reconstruct Header From Verified Scenes'].includes(reference);
+      assert(guardedHeaderReference, `${item.name} can run without referenced node ${reference}`);
+      assert(item.parameters.jsCode.includes("action.action==='HEADER_REPAIR'?"), 'header branch references are not action-guarded');
+    }
+  }
+});
+
+test('M7-056 Switch and IF rule/output structures are deterministic', () => {
+  const route = node('Route M7 Action');
+  const rules = route.parameters.rules.values;
+  const outputs = wf.connections['Route M7 Action'].main;
+  assert.deepEqual(rules.map(rule => rule.conditions.conditions[0].leftValue), Array(4).fill('={{ $json.action }}'));
+  assert.deepEqual(rules.map(rule => rule.conditions.conditions[0].rightValue), ['GENERATE','STATUS_REPAIR','HEADER_REPAIR','NOOP_COMPLETE']);
+  assert.equal(outputs.length, rules.length + 1, 'Switch rule count and connection-output count differ');
+  assert.deepEqual(outputs.map(output => output.map(target => target.node)), [
+    ['Get M7 Prompt'],['Validate Status Repair'],['Reconstruct Header From Verified Scenes'],[],['Prepare M7 Failure'],
+  ]);
+  for (const item of wf.nodes.filter(item => item.type === 'n8n-nodes-base.if')) {
+    const itemOutputs = wf.connections[item.name]?.main ?? [];
+    assert.equal(itemOutputs.length, 2, `${item.name} does not expose true and false outputs`);
+    assert(itemOutputs[0].length > 0, `${item.name} true output is unconnected`);
+    assert(itemOutputs[1].length > 0, `${item.name} false output is unconnected`);
+  }
+});
+
+test('M7-057 every append readback executes once and no append can retry or be re-entered', () => {
+  const analysis = graphAnalysis(wf);
+  const pairs = [
+    ['Append Production Package Scenes','Read Persisted Scene Set'],
+    ['Append Production Package Header','Read Persisted Package Header'],
+  ];
+  for (const [append, readback] of pairs) {
+    assert.deepEqual(targets(append,0), [readback]);
+    assert.equal(node(readback).executeOnce, true, `${readback} can multiply an append result`);
+    assert.notEqual(node(append).retryOnFail, true, `${append} enables automatic retry`);
+    assert(!analysis.reachable('Prepare M7 Failure', append), `failure handling can re-enter ${append}`);
+  }
+  assert.equal(node('Generate Production Package').retryOnFail, true);
+  assert.equal(node('Generate Production Package').maxTries, 2);
+});
+
+test('M7-058 persisted scene verification rejects any field, JSON, lineage, or timestamp drift', () => {
+  const rows = makePersistedSceneRows();
+  const packageResult = {packageValid:true,packageId:'MILO-007-S01-P01',sceneRows:rows,header:{storyId:'MILO-007'}};
+  const scriptText = rows.map(row => row.sourceText).join(' ');
+  for (const mutate of [
+    value => { value[0].storyId = 'MILO-999'; },
+    value => { value[0].canonRef = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'; },
+    value => { value[0].sceneDescription = 'changed after append'; },
+    value => { value[0].visualGuidanceJson = JSON.stringify({visualPrompt:'drift'}); },
+    value => { value[0].createdAt = '2026-09-01T00:00:00.000Z'; },
+  ]) {
+    const changed = structuredClone(rows); mutate(changed);
+    assert.equal(runSceneVerification(changed, packageResult, scriptText).sceneSetVerified, false);
+  }
+});
+
+test('M7-059 persisted header verification compares the complete 25-field contract', () => {
+  const output = {scenes:[makeValidAiScene()],productionNotes:['Package note']};
+  const packageResult = runBuild(output);
+  const action = {action:'GENERATE'};
+  assert.equal(runHeaderVerification([packageResult.header], action, undefined, packageResult).packageVerified, true);
+  for (const mutate of [
+    value => { value.generationMode = 'CONTROLLED_REGENERATION'; },
+    value => { value.promptRef = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'; },
+    value => { value.productionMetadataJson = JSON.stringify({sceneCount:1}); },
+    value => { value.assetManifestJson = '[]'; },
+    value => { value.createdAt = '2026-09-01T00:00:00.000Z'; },
+  ]) {
+    const changed = structuredClone(packageResult.header); mutate(changed);
+    assert.equal(runHeaderVerification([changed], action, undefined, packageResult).packageVerified, false);
+  }
+});
+
+test('M7-060 HEADER_REPAIR rejects malformed rows, payload JSON, and asset identity', () => {
+  const fixture = makeHeaderRepairFixture();
+  const action = runResolveForHeaderRepair(fixture);
+  assert.equal(runHeaderReconstruction(action).repairValid, true);
+  for (const mutate of [
+    rows => { rows[1].sceneNumber = 1; },
+    rows => { rows[0].storyId = 'MILO-999'; },
+    rows => { rows[0].visualGuidanceJson = '{bad json'; },
+    rows => { const assets=JSON.parse(rows[1].assetRequirementsJson); assets[0].assetId='MILO-007-S01-P01-A001'; rows[1].assetRequirementsJson=JSON.stringify(assets); },
+  ]) {
+    const changed = structuredClone(action); mutate(changed.orphanScenes);
+    assert.equal(runHeaderReconstruction(changed).repairValid, false);
+  }
+});
+
+test('M7-061 package history and conflicting orphan rows fail before generation', () => {
+  const complete = makeCompletedPackageFixture();
+  const missingPriorScenes = runResolveFixture({...complete,packages:[complete.header],sceneRows:complete.orphanScenes.slice(0,7)});
+  assert.equal(missingPriorScenes.action, 'FAIL');
+  assert.equal(missingPriorScenes.errorCode, 'PRODUCTION_PACKAGE_REGENERATION_INVALID');
+  const clean = makeHeaderRepairFixture();
+  const conflicting = structuredClone(clean.orphanScenes);
+  for (const row of conflicting) row.packageId = 'MILO-007-S01-P02';
+  const conflictResult = runResolveFixture({...clean,packages:[],sceneRows:conflicting});
+  assert.equal(conflictResult.action, 'FAIL');
+  assert.equal(conflictResult.errorCode, 'PRODUCTION_PACKAGE_REGENERATION_INVALID');
+  const duplicateHeader = runResolveFixture({...complete,packages:[complete.header,structuredClone(complete.header)],sceneRows:complete.orphanScenes});
+  assert.equal(duplicateHeader.action, 'FAIL');
+  const wrongManifest = structuredClone(complete.header); wrongManifest.assetManifestJson = '[]';
+  assert.equal(runResolveFixture({...complete,packages:[wrongManifest],sceneRows:complete.orphanScenes}).action, 'FAIL');
+  const wrongCreatedAt = structuredClone(complete.orphanScenes); wrongCreatedAt[0].createdAt = '2026-09-01T00:00:00.000Z';
+  assert.equal(runResolveFixture({...complete,packages:[complete.header],sceneRows:wrongCreatedAt}).action, 'FAIL');
+  const upstreamWithoutPrior = runResolveFixture({...clean,packages:[],sceneRows:[],request:{requestValid:true,generationMode:'UPSTREAM_REVISION',storyId:'MILO-007'}});
+  assert.equal(upstreamWithoutPrior.action, 'FAIL');
+  assert.equal(upstreamWithoutPrior.errorCode, 'PRODUCTION_PACKAGE_REGENERATION_INVALID');
+  assert(node('Resolve M7 Action').parameters.jsCode.includes("i===0?h.generationMode==='INITIAL':h.generationMode!=='INITIAL'"));
+});
+
+test('M7-062 deterministic simulation covers all ten required route states', () => {
+  const clean = makeHeaderRepairFixture();
+  const complete = makeCompletedPackageFixture();
+  const statusRepair = structuredClone(complete); statusRepair.story.status = 'CONTINUITY_APPROVED';
+  const missing = structuredClone(complete.orphanScenes).slice(0,7);
+  const duplicate = [...complete.orphanScenes.slice(0,7), structuredClone(complete.orphanScenes[6])];
+  const duplicateHeaders = [complete.header, structuredClone(complete.header)];
+  const wrongLineage = structuredClone(clean); wrongLineage.script.canonRef = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
+  const matrix = [
+    ['clean INITIAL',runResolveFixture({...clean,packages:[],sceneRows:[]}).action,'GENERATE'],
+    ['completed INITIAL repeat',runResolveFixture({...complete,packages:[complete.header],sceneRows:complete.orphanScenes}).action,'NOOP_COMPLETE'],
+    ['HEADER_REPAIR',runResolveFixture({...clean,packages:[],sceneRows:clean.orphanScenes}).action,'HEADER_REPAIR'],
+    ['STATUS_REPAIR',runResolveFixture({...statusRepair,packages:[statusRepair.header],sceneRows:statusRepair.orphanScenes}).action,'STATUS_REPAIR'],
+    ['partial/missing scenes',runResolveFixture({...complete,packages:[complete.header],sceneRows:missing}).action,'FAIL'],
+    ['duplicate scenes',runResolveFixture({...complete,packages:[complete.header],sceneRows:duplicate}).action,'FAIL'],
+    ['duplicate headers',runResolveFixture({...complete,packages:duplicateHeaders,sceneRows:complete.orphanScenes}).action,'FAIL'],
+    ['lineage mismatch',runResolveFixture({...wrongLineage,packages:[],sceneRows:[]}).action,'FAIL'],
+  ];
+  for (const [label,actual,expected] of matrix) assert.equal(actual, expected, label);
+  const malformed = {scenes:[makeValidAiScene()],productionNotes:[]}; malformed.scenes[0].visualGuidance.continuityRequirements='invalid';
+  assert.equal(runBuild(malformed).packageValid, false, 'malformed AI output');
+  const output = {scenes:[makeValidAiScene()],productionNotes:['Package note']};
+  const packageResult = runBuild(output);
+  const sceneVerified = runSceneVerification(packageResult.sceneRows, packageResult, packageResult.sceneRows.map(row => row.sourceText).join(' '));
+  const headerVerified = runHeaderVerification([packageResult.header], {action:'GENERATE'}, undefined, packageResult);
+  assert.equal(packageResult.packageValid && sceneVerified.sceneSetVerified && headerVerified.packageVerified, true, 'happy-path persistence');
+});
+
+test('M7-063 every handled failure route is single-entry, literal, and zero-write', () => {
+  const analysis = graphAnalysis(wf);
+  const handledPreparers = ['Prepare Generation Failure','Prepare Scene Save Failure','Prepare Header Save Failure','Prepare Story Status Failure'];
+  for (const name of handledPreparers) assert.deepEqual(targets(name), ['Prepare M7 Failure']);
+  assert.deepEqual(incomingSources(wf,'Call Failure Handler').map(item => item.source), ['Prepare M7 Failure']);
+  const failureCode = node('Prepare M7 Failure').parameters.jsCode;
+  assert(failureCode.includes('executionId:$execution.id'));
+  assert(failureCode.includes("sourceType:'HANDLED'"));
+  assert(failureCode.includes("storyId:a.story?.storyId||a.storyId||''"));
+  assert(node('Normalize Generation Request').parameters.jsCode.includes('/^MILO-[0-9]{3}$/'));
+  for (const write of ['Append Production Package Scenes','Append Production Package Header','Mark Story Production Package Generated']) {
+    assert(!analysis.reachable('Prepare M7 Failure',write), `failure route reaches ${write}`);
+  }
 });
 
 let passed=0;

@@ -10,9 +10,9 @@
 
 M7 repository implementation passed the non-production validation gate required before Phase 4.
 
-The executable offline M7 validation harness completed after the structured-output remediation:
+The executable offline M7 validation harness completed after the consolidated preflight remediation:
 
-`38 / 38 PASS`
+`63 / 63 PASS`
 
 The final committed workflow hardening deltas were then re-inspected directly from the repository after remediation.
 
@@ -33,6 +33,14 @@ The runtime parser now embeds the complete authoritative `PRODUCTION_PACKAGE_AI_
 The Phase 5 repeat check proved the persistence safety controls—no model call, scene append, header append, duplicate package, Story rewrite, or M8 action—but exposed an action-resolution semantics defect. INITIAL candidate selection considered only `CONTINUITY_APPROVED`, so the correctly completed `PRODUCTION_PACKAGE_GENERATED` Story was excluded before its coherent existing package could be evaluated. The execution therefore emitted `STORY_NOT_READY_FOR_PRODUCTION_PACKAGE` and created handled FailureLog event `FL-H-73bba6b595e99701` instead of terminating as an expected no-op.
 
 The repository workflow now selects a completed Story only when no clean `CONTINUITY_APPROVED` INITIAL candidate is available, validates the matching latest header and complete unique ordered scene set against Story/Script/Review/package/canon lineage, and emits explicit `NOOP_COMPLETE`. `Route M7 Action` has a dedicated unconnected `NOOP_COMPLETE` output, so the action cannot reach generation, either append, lifecycle mutation, or Failure Handler. Missing, duplicate, partial, conflicting, or lineage-invalid completed state remains a deterministic failure. The complete M7 suite now passes `53 / 53`; the shared failure-instrumentation suite also remains green.
+
+### Full preflight certification note — executions through `#414`
+
+The fresh live export proved that the canonical 47-node / 57-edge graph and repository connections are structurally aligned, but the live fourth Switch rule was not equivalent to the repository: its left operand was persisted as the literal `=` instead of `={{ $json.action }}`. Consequently `NOOP_COMPLETE` fell through to the otherwise correctly connected fallback in execution `#414`. This is a live configuration mismatch, not a repository routing-index defect.
+
+The full preflight audit also exposed three repository verification gaps that earlier happy-path tests did not exercise: persisted scenes were accepted from IDs and Script coverage without full field/JSON/lineage equivalence; persisted headers were accepted from only scene count, canon reference and prompt reference; and header/status repair did not revalidate the complete persisted scene payload and asset identity. The remediation now performs full readback equivalence, validates complete recovery payloads, rejects conflicting orphan/history state, declares all 15 Code-node modes explicitly, and enables Execute Once on the persisted-header global read.
+
+Static lint now certifies execution modes, invalid runtime tokens, node-reference dominance/branch guards, Switch rule operands/order/output cardinality, terminal/fallback connectivity, append/readback multiplicity, parser-schema parity, append retry prohibition and zero-write failure routing. Ten deterministic route states are simulated offline. The complete suite passes `63 / 63`; shared failure instrumentation remains green.
 
 ## Validated areas
 
@@ -88,14 +96,14 @@ Compared with the installed M7 work-order baseline `3a0a8eae12ea988c8b2bc9d12ef1
 
 No M3–M6 workflow export, canon file, shared Failure Handler export, rollback workflow, or unrelated application artifact is changed in the net diff.
 
-## Live acceptance still required
+## Isolated acceptance still required
 
-This evidence does not prove the remediated parser in live n8n or successful Story Vault package persistence. A separate A3 patch and one controlled retry must verify:
+This evidence does not authorise or perform live mutation. A separate A3 package must:
 
-1. surgical replacement of the `Production Package Output Parser` schema and the three immutable prompt-reference occurrences, without changing topology;
-2. preserved credentials, targets, Error Workflow, shared Failure Handler, inactive/unpublished state, zero pins, and five Execute Once global reads;
-3. immutable revised prompt retrieval plus Story-`canonRef` runtime retrieval;
-4. exactly one controlled retry for the still-clean `MILO-007` lineage;
-5. successful package/scene persistence, provenance, duplicate protection, lifecycle transition, and repository/live parity.
+1. surgically align the canonical workflow with the certified Code-node modes, seven Execute Once global reads, strengthened resolver/readback/repair code, and exact four-rule Switch contract;
+2. preserve identity, credentials, targets, Error Workflow, shared Failure Handler, inactive/unpublished state, zero pins and 47-node / 57-edge topology;
+3. save, reload and re-export the canonical workflow, then compare it with the certified repository export while ignoring only normal volatile n8n metadata;
+4. re-confirm that `MILO-007`, its single package header and eight scene rows remain unchanged; and
+5. perform only a separately authorised isolated acceptance sequence, beginning with the zero-write completed-package repeat case.
 
 Do not activate or publish the M7 workflow unless separately explicitly authorised.
