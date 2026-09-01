@@ -39,6 +39,17 @@ node 06-testing/validate_production_package.mjs
 | M7-025 | Storage safety | Rejected `scenesJson` single-cell design is absent. |
 | M7-026 | Asset boundary | M7 asset manifest remains planned-only; realised external-asset fields are absent from generated package construction. |
 | M7-027 | Sheets payload sizing | Realistic rich per-scene JSON child fields remain below the 50,000-character design boundary per cell. |
+| M7-028 | Runtime/authoritative schema parity | The parser's embedded runtime schema is deeply identical to `PRODUCTION_PACKAGE_AI_OUTPUT_SCHEMA.json`. |
+| M7-029 | Nested array rejection | Required visual, voice, and motion guidance arrays reject string values. |
+| M7-030 | Nested array acceptance | Correctly typed required guidance arrays pass the authoritative schema. |
+| M7-031 | Dialogue speaker requirement | A dialogue cue without `speaker` is rejected. |
+| M7-032 | Dialogue delivery requirement | A dialogue cue without `deliveryNote` is rejected. |
+| M7-033 | Exact dialogue substring | Cue text with altered punctuation/casing or other non-exact text is rejected; an exact scene-source substring passes. |
+| M7-034 | Complete ordered Script coverage | Complete ordered normalized coverage passes; reordered or incomplete coverage fails. |
+| M7-035 | Invalid-output isolation | Invalid nested output produces `PRODUCTION_PACKAGE_AI_OUTPUT_INVALID` and reaches Failure Handler without a package, scene, or lifecycle write. |
+| M7-036 | Valid-output persistence entry | Valid output reaches the existing scene-expansion and persistence path. |
+| M7-037 | Manifest/provenance preservation | Planned asset manifest and prompt/provider/model provenance remain populated and unchanged in meaning. |
+| M7-038 | Prompt contract clarity | The immutable runtime prompt explicitly requires JSON arrays, complete dialogue-cue objects, and exact same-scene source substrings with preserved punctuation/casing. |
 
 ## Phase 4 live acceptance still required
 
