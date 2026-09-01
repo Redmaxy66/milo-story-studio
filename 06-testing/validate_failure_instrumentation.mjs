@@ -188,6 +188,16 @@ const invalidScriptAssignments=invalidScriptFailure?.parameters?.assignments?.as
 assert(invalidScriptAssignments.some((assignment)=>assignment.name==='storyId'),'Script Approval: invalid-script payload is missing storyId');
 assert(!invalidScriptAssignments.some((assignment)=>assignment.name==='stroyId'),'Script Approval: stroyId typo remains in invalid-script payload');
 
+const scriptGeneratorWorkflow=workflows.find((workflow)=>workflow.name==='Milo Script Generator v0.1');
+const storyNotReadyFailure=scriptGeneratorWorkflow.nodes.find((node)=>node.name==='Prepare Story Not Ready Failure');
+const storyNotReadyAssignments=storyNotReadyFailure?.parameters?.assignments?.assignments ?? [];
+const scriptFailureStoryId=storyNotReadyAssignments.find((assignment)=>assignment.name==='storyId');
+const scriptFailureStoryStatus=storyNotReadyAssignments.find((assignment)=>assignment.name==='StoryStatus');
+assert(scriptFailureStoryId?.value==="={{ $json.storyId ?? '' }}",'Script Generator: handled failure storyId must be a literal expression');
+assert(!storyNotReadyAssignments.some((assignment)=>assignment.name==='stroyId'),'Script Generator: stroyId typo remains in Story-not-ready payload');
+assert(scriptFailureStoryStatus?.value==="={{ $json.status ?? '' }}",'Script Generator: StoryStatus must not contain a leading formula marker');
+assert(!scriptFailureStoryId.value.startsWith('=='),'Script Generator: storyId payload would be interpreted as a Sheets formula');
+
 for (const workflowName of ['Milo Script Generator v0.1','Milo Outline Generator v0.1','Milo Outline Approval v0.1','Milo Concept Approval v0.1']) {
   const workflow=workflows.find((candidate)=>candidate.name===workflowName);
   assert(Object.keys(workflow.pinData ?? {}).length===0, `${workflowName}: unintended pinned data remains`);

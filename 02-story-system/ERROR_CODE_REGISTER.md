@@ -17,6 +17,8 @@ The D-014 eligible-selection remediation introduces no new operational error cod
 
 The Outline eligible-selection remediation introduces no new operational error code. An all-PRE-CANON LEGACY `CONCEPT_APPROVED` candidate set is a controlled zero-item no-op. A malformed, partial, or marker-conflicting governed candidate routes through the existing `CANON_LINEAGE_INVALID` handling before approved-Concept lookup, duplicate protection, canon retrieval, AI generation, or persistence. PRE-CANON LEGACY rows are excluded and never modified.
 
+The Script eligible-Outline remediation introduces no new operational error code. Historical, ineligible, and PRE-CANON LEGACY-only candidate sets produce a controlled zero-item no-op. Missing or duplicate Story resolution uses `APPROVED_OUTLINE_VALIDATION_FAILED`; malformed or conflicting governed lineage uses `CANON_LINEAGE_INVALID` or `CANON_LINEAGE_MISMATCH`. The handled `STORY_NOT_READY_FOR_SCRIPT_GENERATION` payload now emits a literal `storyId` value rather than a misspelled spreadsheet-formula field.
+
 ## Registered codes
 
 | Code | Primary producer or condition |

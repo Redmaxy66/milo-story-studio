@@ -64,7 +64,7 @@ for (const [fileName, expectedId, githubNodes] of workflows) {
   const invalidInput = workflow.name.includes('Outline Generator') ? story : blankStory;
   const invalid = runValidator(workflow, invalidInput, {
     'Select Eligible Outline Story': blankStory,
-    'Validate Approved Outline Batch': { ...blankStory, outlineId: 'MILO-001-O01' },
+    'Select Eligible Script Outline': { selectedOutline: { ...blankStory, outlineId: 'MILO-001-O01' } },
     'Validate Approved Script': { ...blankStory, scriptId: 'MILO-001-S01' },
   });
   assert.equal(invalid.canonLineageValid, false, `${workflow.name}: blank canonRef was accepted`);
@@ -79,8 +79,8 @@ assert.equal(runValidator(outline, { ...story, conceptId: 'MILO-001-C01' }, { 'S
 assert.equal(runValidator(outline, { ...story, canonRef: 'a'.repeat(40) }, { 'Select Eligible Outline Story': story }).errorCode, 'CANON_LINEAGE_MISMATCH', 'Outline Generator did not reject mismatched lineage');
 
 const script = JSON.parse(fs.readFileSync(path.join(workflowDir, 'Milo Script Generator v0.1.json'), 'utf8'));
-assert.equal(runValidator(script, story, { 'Validate Approved Outline Batch': { ...story, outlineId: 'MILO-001-O01' } }).canonLineageValid, true, 'Script Generator rejected matching lineage');
-assert.equal(runValidator(script, story, { 'Validate Approved Outline Batch': { ...story, canonRef: 'b'.repeat(40) } }).errorCode, 'CANON_LINEAGE_MISMATCH', 'Script Generator did not reject mismatched lineage');
+assert.equal(runValidator(script, story, { 'Select Eligible Script Outline': { selectedOutline: { ...story, outlineId: 'MILO-001-O01' } } }).canonLineageValid, true, 'Script Generator rejected matching lineage');
+assert.equal(runValidator(script, story, { 'Select Eligible Script Outline': { selectedOutline: { ...story, canonRef: 'b'.repeat(40) } } }).errorCode, 'CANON_LINEAGE_MISMATCH', 'Script Generator did not reject mismatched lineage');
 
 const continuity = JSON.parse(fs.readFileSync(path.join(workflowDir, 'Milo Continuity Reviewer v0.1.json'), 'utf8'));
 assert.equal(runValidator(continuity, story, { 'Validate Approved Script': { ...story, scriptId: 'MILO-001-S01' } }).canonLineageValid, true, 'Continuity Reviewer rejected matching lineage');

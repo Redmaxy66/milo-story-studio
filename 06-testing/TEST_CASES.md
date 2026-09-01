@@ -142,3 +142,20 @@ Run `node 06-testing/validate_outline_eligible_selection.mjs`.
 | OUT-SEL-008 — Runtime lineage | Runtime canon retrieval and downstream Story expressions use the selected Story `canonRef`. | Passed offline. |
 | OUT-SEL-009 — D-012 immutability | Candidate classification does not mutate PRE-CANON LEGACY inputs or make them eligible. | Passed offline. |
 | OUT-SEL-010 — Append retry prohibition | No Google Sheets append node gains automatic retry. | Passed offline. |
+
+## Script Generator — Eligible Outline Selection and Failure Payload Remediation
+
+Run `node 06-testing/validate_script_eligible_selection.mjs`.
+
+| Test | Expected result | Repository result |
+|---|---|---|
+| SCR-SEL-001 — Historical before eligible | Earlier historical approved Outline is excluded; governed eligible Outline is selected. | Passed offline. |
+| SCR-SEL-002 — Multiple historical/ineligible | All earlier historical or ineligible candidates are excluded; the eligible governed Outline is selected. | Passed offline. |
+| SCR-SEL-003 — No eligible candidate | Historical, ineligible, and PRE-CANON LEGACY-only input produces no generation item. | Passed offline. |
+| SCR-SEL-004 — Governed integrity failure | Malformed or conflicting governed lineage routes to controlled integrity handling. | Passed offline. |
+| SCR-SEL-005 — Deterministic selection | Numeric Outline `row_number`, then `storyId`, then stable input order selects one eligible candidate. | Passed offline. |
+| SCR-SEL-006 — Story binding | The selected Outline remains bound to its resolved authoritative Story. | Passed offline. |
+| SCR-SEL-007 — Duplicate protection | Existing Script lookup and duplicate rejection remain before persistence. | Passed offline. |
+| SCR-SEL-008 — Runtime lineage | Canon retrieval uses the selected Story's immutable stored `canonRef`. | Passed offline. |
+| SCR-SEL-009 — Literal failure identity | Handled FailureLog payload uses `storyId` and emits `MILO-...` without a leading `=` or `#NAME?`. | Passed offline. |
+| SCR-SEL-010 — Append retry prohibition | No Google Sheets append node gains automatic retry. | Passed offline. |

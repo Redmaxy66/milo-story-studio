@@ -16,6 +16,8 @@ Every workflow should be tested for:
 - deterministic downstream/Story canon-lineage mismatch rejection
 - required downstream canonVersion/canonRef persistence
 - deterministic Outline Generator selection across all `CONCEPT_APPROVED` candidates, excluding PRE-CANON LEGACY rows before one governed Story is taken
+- deterministic Script Generator selection across processed approved Outlines after authoritative Story resolution, excluding historical, ineligible, and PRE-CANON LEGACY candidates
+- literal handled-failure `storyId` values that cannot be interpreted as spreadsheet formulas
 
 ## M7 — Production Package non-production validation
 

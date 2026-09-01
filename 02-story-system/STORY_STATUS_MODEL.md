@@ -45,6 +45,18 @@ The first legitimate governed candidate is selected. If no legitimate candidate 
 
 Approved Concept lookup, duplicate protection, runtime canon retrieval, Outline persistence, and the `CONCEPT_APPROVED -> OUTLINE_GENERATED` transition operate only on the selected governed Story. Outline Generator never assigns, replaces, or repairs Story canon.
 
+## Script Generator eligible-Outline selection contract
+
+Script Generator evaluates the complete processed `APPROVED` Outline candidate set and resolves every candidate to its authoritative Story before one candidate may progress. Candidates are ordered by numeric Outline `row_number`, then `storyId`, then stable input order.
+
+- A candidate whose Story and Outline both have blank lineage and whose Story has a blank canon-initialization marker is PRE-CANON LEGACY and is excluded without mutation.
+- A governed candidate is eligible only when its Story is `OUTLINE_APPROVED`, both records have valid canon lineage, and the Outline lineage exactly matches the Story.
+- A valid governed candidate whose Story is in another lifecycle state is ineligible and excluded.
+- Missing or duplicate Story resolution, malformed governed lineage, and conflicting Story/Outline lineage route through existing controlled validation or canon-lineage failure handling.
+- If every candidate is historical, ineligible, or PRE-CANON LEGACY, selection emits no item and Script generation ends without persistence.
+
+The selected Story remains authoritative. Duplicate Script protection precedes canon retrieval and generation; runtime retrieval uses only the selected Story's immutable stored `canonRef`. Script Generator does not assign or repair canon.
+
 ## M7 lifecycle extension
 
 | State | Meaning | Normal next state or route |

@@ -103,15 +103,9 @@
           "cachedResultName": "Stories",
           "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit#gid=1969258097"
         },
-        "filtersUI": {
-          "values": [
-            {
-              "lookupColumn": "storyId",
-              "lookupValue": "={{ $json.storyId }}"
-            }
-          ]
-        },
-        "options": {}
+        "options": {
+          "returnFirstMatch": false
+        }
       },
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
@@ -120,8 +114,9 @@
         384
       ],
       "id": "0d86e16a-8852-4c0b-90d4-e94e84501aeb",
-      "name": "Read Source Story",
+      "name": "Read Candidate Stories",
       "alwaysOutputData": true,
+      "executeOnce": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
           "id": "QG2OeymCBBUfhfMJ",
@@ -242,7 +237,7 @@
     },
     {
       "parameters": {
-        "jsCode": "return [{\n  json: $('Filter Processed Approved Outlines').first().json\n}];"
+        "jsCode": "return [{\n  json: $('Select Eligible Script Outline').first().json.selectedOutline\n}];"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -360,14 +355,14 @@
             },
             {
               "id": "d9704e2c-8c22-4b86-8f92-a10f28a7d0b5",
-              "name": "stroyId",
-              "value": "=={{ $json.storyId ?? '' }}",
+              "name": "storyId",
+              "value": "={{ $json.storyId ?? '' }}",
               "type": "string"
             },
             {
               "id": "41e8c0a2-9dbc-4eca-af77-c44c64d1d920",
               "name": "StoryStatus",
-              "value": "=={{ $json.status ?? '' }}",
+              "value": "={{ $json.status ?? '' }}",
               "type": "string"
             },
             {
@@ -456,7 +451,7 @@
             {
               "id": "620f1a38-9607-43a2-a2a1-b049d96744a9",
               "name": "theme",
-              "value": "={{ $('Read Source Story').first().json.theme ?? '' }}",
+              "value": "={{ $('Select Eligible Script Outline').first().json.theme ?? '' }}",
               "type": "string"
             },
             {
@@ -504,13 +499,13 @@
             {
               "id": "9b05131d-6e8d-4187-80e8-e2bd7c38495f",
               "name": "canonVersion",
-              "value": "={{ $('Read Source Story').first().json.canonVersion }}",
+              "value": "={{ $('Select Eligible Script Outline').first().json.canonVersion }}",
               "type": "string"
             },
             {
               "id": "7766db1e-3aec-49b7-9730-e36b3beb81ad",
               "name": "canonRef",
-              "value": "={{ $('Read Source Story').first().json.canonRef }}",
+              "value": "={{ $('Select Eligible Script Outline').first().json.canonRef }}",
               "type": "string"
             }
           ]
@@ -640,7 +635,7 @@
         },
         "filePath": "03-prompts/MILO_CANON_CONTEXT.md",
         "additionalParameters": {
-          "reference": "={{ $('Read Source Story').first().json.canonRef }}"
+          "reference": "={{ $('Select Eligible Script Outline').first().json.canonRef }}"
         }
       },
       "type": "n8n-nodes-base.github",
@@ -1759,7 +1754,55 @@
     },
     {
       "parameters": {
-        "jsCode": "const story = $json;\nconst outline = $('Validate Approved Outline Batch').first().json;\nconst canonVersion = String(story.canonVersion ?? '').trim();\nconst canonRef = String(story.canonRef ?? '').trim();\nconst storyValid = /^canon-v[0-9]+\\.[0-9]+$/.test(canonVersion) && /^[0-9a-f]{40}$/i.test(canonRef);\nconst outlineVersion = String(outline.canonVersion ?? '').trim();\nconst outlineRef = String(outline.canonRef ?? '').trim();\nconst downstreamMatches = outlineVersion === canonVersion && outlineRef.toLowerCase() === canonRef.toLowerCase();\nconst canonLineageValid = storyValid && downstreamMatches;\n\nreturn {\n  json: {\n    ...story,\n    canonVersion,\n    canonRef,\n    canonLineageValid,\n    errorCode: !storyValid ? 'CANON_LINEAGE_INVALID' : (downstreamMatches ? '' : 'CANON_LINEAGE_MISMATCH'),\n    message: !storyValid\n      ? 'Authoritative Story canonVersion/canonRef is blank or invalid. Canon retrieval was not attempted.'\n      : (downstreamMatches ? '' : 'Approved Outline canon lineage does not match the authoritative Story. Canon retrieval was not attempted.')\n  }\n};"
+        "mode": "runOnceForAllItems",
+        "jsCode": "const stories = $input.all().map((item, inputIndex) => ({ item, inputIndex }));\nconst outlines = $('Validate Approved Outline Batch').all()\n  .map((item, inputIndex) => ({ item, inputIndex }))\n  .filter(({ item }) => item.json?.valid === true)\n  .sort((a, b) => {\n    const aRow = Number(a.item.json.row_number);\n    const bRow = Number(b.item.json.row_number);\n    const aHasRow = Number.isFinite(aRow);\n    const bHasRow = Number.isFinite(bRow);\n    if (aHasRow && bHasRow && aRow !== bRow) return aRow - bRow;\n    if (aHasRow !== bHasRow) return aHasRow ? -1 : 1;\n    const storyOrder = String(a.item.json.storyId ?? '').localeCompare(String(b.item.json.storyId ?? ''));\n    return storyOrder || a.inputIndex - b.inputIndex;\n  });\n\nconst storiesById = new Map();\nfor (const entry of stories) {\n  const storyId = String(entry.item.json?.storyId ?? '').trim();\n  if (!storyId) continue;\n  const matches = storiesById.get(storyId) ?? [];\n  matches.push(entry);\n  storiesById.set(storyId, matches);\n}\n\nconst classifyCandidate = ({ item, inputIndex }) => {\n  const outline = item.json;\n  const storyId = String(outline.storyId ?? '').trim();\n  const matches = storiesById.get(storyId) ?? [];\n\n  if (matches.length !== 1) {\n    return {\n      inputIndex,\n      outcome: 'INTEGRITY_FAILURE',\n      story: matches[0]?.item.json ?? { storyId },\n      storyInputIndex: matches[0]?.inputIndex ?? 0,\n      outline,\n      errorCode: 'APPROVED_OUTLINE_VALIDATION_FAILED',\n      message: matches.length === 0\n        ? 'Processed approved Outline does not resolve to a Story.'\n        : 'Processed approved Outline resolves to multiple Story rows.'\n    };\n  }\n\n  const story = matches[0].item.json;\n  const marker = String(story.canonInitializationState ?? '').trim();\n  const storyVersion = String(story.canonVersion ?? '').trim();\n  const storyRef = String(story.canonRef ?? '').trim();\n  const outlineVersion = String(outline.canonVersion ?? '').trim();\n  const outlineRef = String(outline.canonRef ?? '').trim();\n  const storyBlank = storyVersion === '' && storyRef === '';\n  const outlineBlank = outlineVersion === '' && outlineRef === '';\n  const storyValid = /^canon-v[0-9]+\\.[0-9]+$/.test(storyVersion) && /^[0-9a-f]{40}$/i.test(storyRef);\n  const outlineValid = /^canon-v[0-9]+\\.[0-9]+$/.test(outlineVersion) && /^[0-9a-f]{40}$/i.test(outlineRef);\n  const lineageMatches = outlineVersion === storyVersion && outlineRef.toLowerCase() === storyRef.toLowerCase();\n\n  if (marker === '' && storyBlank && outlineBlank) {\n    return { inputIndex, outcome: 'PRE_CANON_LEGACY', story, storyInputIndex: matches[0].inputIndex, outline };\n  }\n\n  if (!storyValid || !outlineValid || (marker !== '' && marker !== 'ASSIGNED')) {\n    return {\n      inputIndex,\n      outcome: 'INTEGRITY_FAILURE',\n      story,\n      storyInputIndex: matches[0].inputIndex,\n      outline,\n      errorCode: 'CANON_LINEAGE_INVALID',\n      message: 'Processed approved Outline or authoritative Story canon initialization marker/lineage is malformed. Script generation was not attempted.'\n    };\n  }\n\n  if (!lineageMatches) {\n    return {\n      inputIndex,\n      outcome: 'INTEGRITY_FAILURE',\n      story,\n      storyInputIndex: matches[0].inputIndex,\n      outline,\n      errorCode: 'CANON_LINEAGE_MISMATCH',\n      message: 'Processed approved Outline canon lineage conflicts with the authoritative Story. Script generation was not attempted.'\n    };\n  }\n\n  return {\n    inputIndex,\n    outcome: story.status === 'OUTLINE_APPROVED' ? 'ELIGIBLE' : 'INELIGIBLE',\n    story,\n    storyInputIndex: matches[0].inputIndex,\n    outline\n  };\n};\n\nconst classified = outlines.map(classifyCandidate);\nconst selected =\n  classified.find((candidate) => candidate.outcome === 'ELIGIBLE') ??\n  classified.find((candidate) => candidate.outcome === 'INTEGRITY_FAILURE');\n\nif (!selected) return [];\n\nconst eligible = selected.outcome === 'ELIGIBLE';\nreturn [{\n  json: {\n    ...selected.story,\n    selectedOutline: selected.outline,\n    scriptOutlineEligible: eligible,\n    scriptOutlineCandidateOutcome: selected.outcome,\n    errorCode: eligible ? '' : selected.errorCode,\n    message: eligible ? '' : selected.message,\n    outlineId: selected.outline.outlineId ?? '',\n    conceptId: selected.outline.conceptId ?? '',\n    selectionFailureNode: 'Select Eligible Script Outline',\n    selectionFailureNodeType: 'n8n-nodes-base.code'\n  },\n  pairedItem: { item: selected.storyInputIndex }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -3040,
+        672
+      ],
+      "id": "script-eligible-outline-selector",
+      "name": "Select Eligible Script Outline"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "script-eligible-outline-selected",
+              "leftValue": "={{ $json.scriptOutlineEligible === true }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -2816,
+        672
+      ],
+      "id": "script-eligible-outline-gate",
+      "name": "Script Eligible Outline Selected"
+    },
+    {
+      "parameters": {
+        "jsCode": "const story = $json;\nconst outline = $('Select Eligible Script Outline').first().json.selectedOutline;\nconst canonVersion = String(story.canonVersion ?? '').trim();\nconst canonRef = String(story.canonRef ?? '').trim();\nconst storyValid = /^canon-v[0-9]+\\.[0-9]+$/.test(canonVersion) && /^[0-9a-f]{40}$/i.test(canonRef);\nconst outlineVersion = String(outline.canonVersion ?? '').trim();\nconst outlineRef = String(outline.canonRef ?? '').trim();\nconst downstreamMatches = outlineVersion === canonVersion && outlineRef.toLowerCase() === canonRef.toLowerCase();\nconst canonLineageValid = storyValid && downstreamMatches;\n\nreturn {\n  json: {\n    ...story,\n    canonVersion,\n    canonRef,\n    canonLineageValid,\n    errorCode: !storyValid ? 'CANON_LINEAGE_INVALID' : (downstreamMatches ? '' : 'CANON_LINEAGE_MISMATCH'),\n    message: !storyValid\n      ? 'Authoritative Story canonVersion/canonRef is blank or invalid. Canon retrieval was not attempted.'\n      : (downstreamMatches ? '' : 'Approved Outline canon lineage does not match the authoritative Story. Canon retrieval was not attempted.')\n  }\n};"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -1889,13 +1932,13 @@
             {
               "id": "b6cbc348-7f5c-4a36-93be-a94253205b58",
               "name": "nodeName",
-              "value": "Validate Canon Lineage",
+              "value": "={{ $json.selectionFailureNode ?? 'Validate Canon Lineage' }}",
               "type": "string"
             },
             {
               "id": "cd32886e-d58d-4412-8d5b-f39fdb1a4611",
               "name": "nodeType",
-              "value": "n8n-nodes-base.code",
+              "value": "={{ $json.selectionFailureNodeType ?? 'n8n-nodes-base.code' }}",
               "type": "string"
             }
           ]
@@ -1947,11 +1990,11 @@
         ]
       ]
     },
-    "Read Source Story": {
+    "Read Candidate Stories": {
       "main": [
         [
           {
-            "node": "Validate Canon Lineage",
+            "node": "Select Eligible Script Outline",
             "type": "main",
             "index": 0
           }
@@ -2183,7 +2226,7 @@
       "main": [
         [
           {
-            "node": "Read Source Story",
+            "node": "Read Candidate Stories",
             "type": "main",
             "index": 0
           }
@@ -2257,6 +2300,35 @@
         [
           {
             "node": "Call Failure Handler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Select Eligible Script Outline": {
+      "main": [
+        [
+          {
+            "node": "Script Eligible Outline Selected",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Script Eligible Outline Selected": {
+      "main": [
+        [
+          {
+            "node": "Validate Canon Lineage",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare Canon Lineage Failure",
             "type": "main",
             "index": 0
           }
