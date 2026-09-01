@@ -31,6 +31,48 @@ assert.equal(node('Call Failure Handler').parameters.workflowId.value, handlerId
 assert.deepEqual(workflow.pinData, {});
 assert.equal(workflow.nodes.length, 30);
 assert.equal(Object.keys(workflow.connections).length, 29);
+assert.equal(
+  Object.values(workflow.connections)
+    .flatMap((connection) => Object.values(connection))
+    .flat(2).length,
+  37,
+);
+
+const outlineValidator = node('Validate Outline Record');
+const outlineValidationExpression = outlineValidator.parameters.conditions.conditions[0].leftValue;
+assert.equal(outlineValidator.parameters.conditions.options.typeValidation, 'strict');
+assert.equal(outlineValidationExpression, outlineValidationExpression.trim(), 'Outline validation expression must not have leading or trailing characters');
+assert.match(outlineValidationExpression, /^=\{\{[\s\S]*\}\}$/);
+const evaluateOutlineValidation = new Function(
+  '$json',
+  `return (${outlineValidationExpression.slice(3, -2)});`,
+);
+const validOutline = {
+  storyId: 'MILO-007',
+  outlineId: 'MILO-007-O01',
+  conceptId: 'MILO-007-C01',
+  title: 'The Little Light That Lost Its Way',
+  opening: 'Opening',
+  setup: 'Setup',
+  incitingIncident: 'Inciting incident',
+  risingAction: 'Rising action',
+  climax: 'Climax',
+  resolution: 'Resolution',
+  emotionalArc: 'Emotional arc',
+  lesson: 'Lesson',
+  targetLengthMinutes: 5,
+  canonReferences: ['MILO_CHARACTER.md','MILO_BACKSTORY.md','VOICE_GUIDE.md','VISUAL_REFERENCE.md','PERSONALITY_RULES.md'],
+  approvalStatus: 'PENDING_REVIEW',
+  version: 1,
+  createdAt: '2026-09-01T11:21:30.793+08:00',
+  updatedAt: '2026-09-01T11:21:30.793+08:00',
+};
+const validOutlineResult = evaluateOutlineValidation(validOutline);
+const invalidOutlineResult = evaluateOutlineValidation({ ...validOutline, title: '' });
+assert.equal(typeof validOutlineResult, 'boolean');
+assert.equal(validOutlineResult, true);
+assert.equal(typeof invalidOutlineResult, 'boolean');
+assert.equal(invalidOutlineResult, false);
 
 const reader = node('Read Eligible Stories');
 assert.equal(reader.parameters.options.returnFirstMatch, false);
@@ -175,3 +217,4 @@ console.log('PASS legacy-only no-op, malformed integrity routing, and determinis
 console.log('PASS approved Concept lookup is scoped to the selected governed Story');
 console.log('PASS duplicate protection, selected Story canonRef retrieval, and lineage persistence wiring');
 console.log('PASS PRE-CANON LEGACY immutability and Google Sheets append retry prohibition');
+console.log('PASS strict Outline validation returns booleans with no expression-boundary whitespace');
