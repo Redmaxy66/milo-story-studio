@@ -37,7 +37,7 @@
           ]
         },
         "options": {
-          "returnFirstMatch": true
+          "returnFirstMatch": false
         }
       },
       "type": "n8n-nodes-base.googleSheets",
@@ -54,6 +54,54 @@
           "name": "Google Sheets account 2"
         }
       }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "const ordered = $input.all()\n  .map((item, inputIndex) => ({ item, inputIndex }))\n  .filter(({ item }) => item.json?.status === 'CONCEPT_APPROVED')\n  .sort((a, b) => {\n    const aRow = Number(a.item.json.row_number);\n    const bRow = Number(b.item.json.row_number);\n    const aHasRow = Number.isFinite(aRow);\n    const bHasRow = Number.isFinite(bRow);\n    if (aHasRow && bHasRow && aRow !== bRow) return aRow - bRow;\n    if (aHasRow !== bHasRow) return aHasRow ? -1 : 1;\n    const storyOrder = String(a.item.json.storyId ?? '').localeCompare(String(b.item.json.storyId ?? ''));\n    return storyOrder || a.inputIndex - b.inputIndex;\n  });\n\nconst classifyCandidate = ({ item, inputIndex }) => {\n  const story = item.json;\n  const marker = String(story.canonInitializationState ?? '').trim();\n  const canonVersion = String(story.canonVersion ?? '').trim();\n  const canonRef = String(story.canonRef ?? '').trim();\n  const blankLineage = canonVersion === '' && canonRef === '';\n  const validLineage =\n    /^canon-v[0-9]+\\.[0-9]+$/.test(canonVersion) &&\n    /^[0-9a-f]{40}$/i.test(canonRef);\n\n  let outlineCandidateOutcome = 'INTEGRITY_FAILURE';\n  if (marker === '' && blankLineage) {\n    outlineCandidateOutcome = 'PRE_CANON_LEGACY';\n  } else if (validLineage && (marker === '' || marker === 'ASSIGNED')) {\n    outlineCandidateOutcome = 'ELIGIBLE';\n  }\n\n  return { item, inputIndex, outlineCandidateOutcome };\n};\n\nconst classified = ordered.map(classifyCandidate);\nconst selected =\n  classified.find((candidate) => candidate.outlineCandidateOutcome === 'ELIGIBLE') ??\n  classified.find((candidate) => candidate.outlineCandidateOutcome === 'INTEGRITY_FAILURE');\n\nif (!selected) return [];\n\nconst eligible = selected.outlineCandidateOutcome === 'ELIGIBLE';\nreturn [{\n  json: {\n    ...selected.item.json,\n    outlineCandidateEligible: eligible,\n    outlineCandidateOutcome: selected.outlineCandidateOutcome,\n    errorCode: eligible ? '' : 'CANON_LINEAGE_INVALID',\n    message: eligible\n      ? ''\n      : 'CONCEPT_APPROVED Story canon initialization marker/lineage is malformed or conflicting. Outline generation was not attempted.',\n    selectionFailureNode: 'Select Eligible Outline Story',\n    selectionFailureNodeType: 'n8n-nodes-base.code',\n  },\n  pairedItem: { item: selected.inputIndex },\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2816,
+        288
+      ],
+      "id": "outline-select-eligible-story",
+      "name": "Select Eligible Outline Story"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "outline-eligible-story-selected",
+              "leftValue": "={{ $json.outlineCandidateEligible === true }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -2592,
+        288
+      ],
+      "id": "outline-eligible-story-gate",
+      "name": "Outline Eligible Story Selected"
     },
     {
       "parameters": {
@@ -187,7 +235,7 @@
             {
               "id": "21c73875-aefc-44d2-925c-18053b8743cc",
               "name": "storyId",
-              "value": "={{ $('Read Eligible Stories').item.json.storyId }}",
+              "value": "={{ $('Select Eligible Outline Story').item.json.storyId }}",
               "type": "string"
             },
             {
@@ -259,19 +307,19 @@
             {
               "id": "2d8b7b1a-40aa-43c1-9b37-559d553f382a",
               "name": "ageRange",
-              "value": "={{ $('Read Eligible Stories').item.json.ageRange }}",
+              "value": "={{ $('Select Eligible Outline Story').item.json.ageRange }}",
               "type": "string"
             },
             {
               "id": "a45644b0-98e0-4a11-bfcc-aabcd62ba10c",
               "name": "canonVersion",
-              "value": "={{ $('Read Eligible Stories').first().json.canonVersion }}",
+              "value": "={{ $('Select Eligible Outline Story').first().json.canonVersion }}",
               "type": "string"
             },
             {
               "id": "f2abfb23-192b-48dc-8953-e9797312a5d1",
               "name": "canonRef",
-              "value": "={{ $('Read Eligible Stories').first().json.canonRef }}",
+              "value": "={{ $('Select Eligible Outline Story').first().json.canonRef }}",
               "type": "string"
             }
           ]
@@ -642,7 +690,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "storyId": "={{ $json.storyId }}",
-            "createdAt": "={{ $('Read Eligible Stories').item.json.createdAt }}",
+            "createdAt": "={{ $('Select Eligible Outline Story').item.json.createdAt }}",
             "updatedAt": "={{ $now.toISO() }}",
             "status": "OUTLINE_GENERATED"
           },
@@ -841,7 +889,7 @@
         },
         "filePath": "03-prompts/MILO_CANON_CONTEXT.md",
         "additionalParameters": {
-          "reference": "={{ $('Read Eligible Stories').first().json.canonRef }}"
+          "reference": "={{ $('Select Eligible Outline Story').first().json.canonRef }}"
         }
       },
       "type": "n8n-nodes-base.github",
@@ -1703,7 +1751,7 @@
     },
     {
       "parameters": {
-        "jsCode": "const concept = $json;\nconst story = $('Read Eligible Stories').first().json;\nconst canonVersion = String(story.canonVersion ?? '').trim();\nconst canonRef = String(story.canonRef ?? '').trim();\nconst storyValid = /^canon-v[0-9]+\\.[0-9]+$/.test(canonVersion) && /^[0-9a-f]{40}$/i.test(canonRef);\nconst conceptVersion = String(concept.canonVersion ?? '').trim();\nconst conceptRef = String(concept.canonRef ?? '').trim();\nconst downstreamMatches = conceptVersion === canonVersion && conceptRef.toLowerCase() === canonRef.toLowerCase();\nconst canonLineageValid = storyValid && downstreamMatches;\n\nreturn {\n  json: {\n    ...concept,\n    canonVersion,\n    canonRef,\n    canonLineageValid,\n    errorCode: !storyValid ? 'CANON_LINEAGE_INVALID' : (downstreamMatches ? '' : 'CANON_LINEAGE_MISMATCH'),\n    message: !storyValid\n      ? 'Authoritative Story canonVersion/canonRef is blank or invalid. Canon retrieval was not attempted.'\n      : (downstreamMatches ? '' : 'Approved Concept canon lineage does not match the authoritative Story. Canon retrieval was not attempted.')\n  }\n};"
+        "jsCode": "const concept = $json;\nconst story = $('Select Eligible Outline Story').first().json;\nconst canonVersion = String(story.canonVersion ?? '').trim();\nconst canonRef = String(story.canonRef ?? '').trim();\nconst storyValid = /^canon-v[0-9]+\\.[0-9]+$/.test(canonVersion) && /^[0-9a-f]{40}$/i.test(canonRef);\nconst conceptVersion = String(concept.canonVersion ?? '').trim();\nconst conceptRef = String(concept.canonRef ?? '').trim();\nconst downstreamMatches = conceptVersion === canonVersion && conceptRef.toLowerCase() === canonRef.toLowerCase();\nconst canonLineageValid = storyValid && downstreamMatches;\n\nreturn {\n  json: {\n    ...concept,\n    canonVersion,\n    canonRef,\n    canonLineageValid,\n    errorCode: !storyValid ? 'CANON_LINEAGE_INVALID' : (downstreamMatches ? '' : 'CANON_LINEAGE_MISMATCH'),\n    message: !storyValid\n      ? 'Authoritative Story canonVersion/canonRef is blank or invalid. Canon retrieval was not attempted.'\n      : (downstreamMatches ? '' : 'Approved Concept canon lineage does not match the authoritative Story. Canon retrieval was not attempted.')\n  }\n};"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -1833,13 +1881,13 @@
             {
               "id": "b926067a-2dee-4480-b07b-a7706ed1e63a",
               "name": "nodeName",
-              "value": "Validate Canon Lineage",
+              "value": "={{ $json.selectionFailureNode ?? 'Validate Canon Lineage' }}",
               "type": "string"
             },
             {
               "id": "040bcb18-cbe6-4e3e-85e8-4ec2decc4caa",
               "name": "nodeType",
-              "value": "n8n-nodes-base.code",
+              "value": "={{ $json.selectionFailureNodeType ?? 'n8n-nodes-base.code' }}",
               "type": "string"
             }
           ]
@@ -1873,7 +1921,7 @@
       "main": [
         [
           {
-            "node": "Read Approved Concept",
+            "node": "Select Eligible Outline Story",
             "type": "main",
             "index": 0
           }
@@ -2197,6 +2245,35 @@
         [
           {
             "node": "Call Failure Handler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Select Eligible Outline Story": {
+      "main": [
+        [
+          {
+            "node": "Outline Eligible Story Selected",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Outline Eligible Story Selected": {
+      "main": [
+        [
+          {
+            "node": "Read Approved Concept",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare Canon Lineage Failure",
             "type": "main",
             "index": 0
           }

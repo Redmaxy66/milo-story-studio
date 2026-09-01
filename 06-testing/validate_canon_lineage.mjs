@@ -63,7 +63,7 @@ for (const [fileName, expectedId, githubNodes] of workflows) {
   const blankStory = { ...story, canonRef: '' };
   const invalidInput = workflow.name.includes('Outline Generator') ? story : blankStory;
   const invalid = runValidator(workflow, invalidInput, {
-    'Read Eligible Stories': blankStory,
+    'Select Eligible Outline Story': blankStory,
     'Validate Approved Outline Batch': { ...blankStory, outlineId: 'MILO-001-O01' },
     'Validate Approved Script': { ...blankStory, scriptId: 'MILO-001-S01' },
   });
@@ -75,8 +75,8 @@ const concept = JSON.parse(fs.readFileSync(path.join(workflowDir, 'Milo Concept 
 assert.equal(runValidator(concept, story).canonLineageValid, true, 'Concept Generator rejected valid Story lineage');
 
 const outline = JSON.parse(fs.readFileSync(path.join(workflowDir, 'Milo Outline Generator v0.1.json'), 'utf8'));
-assert.equal(runValidator(outline, { ...story, conceptId: 'MILO-001-C01' }, { 'Read Eligible Stories': story }).canonLineageValid, true, 'Outline Generator rejected matching lineage');
-assert.equal(runValidator(outline, { ...story, canonRef: 'a'.repeat(40) }, { 'Read Eligible Stories': story }).errorCode, 'CANON_LINEAGE_MISMATCH', 'Outline Generator did not reject mismatched lineage');
+assert.equal(runValidator(outline, { ...story, conceptId: 'MILO-001-C01' }, { 'Select Eligible Outline Story': story }).canonLineageValid, true, 'Outline Generator rejected matching lineage');
+assert.equal(runValidator(outline, { ...story, canonRef: 'a'.repeat(40) }, { 'Select Eligible Outline Story': story }).errorCode, 'CANON_LINEAGE_MISMATCH', 'Outline Generator did not reject mismatched lineage');
 
 const script = JSON.parse(fs.readFileSync(path.join(workflowDir, 'Milo Script Generator v0.1.json'), 'utf8'));
 assert.equal(runValidator(script, story, { 'Validate Approved Outline Batch': { ...story, outlineId: 'MILO-001-O01' } }).canonLineageValid, true, 'Script Generator rejected matching lineage');

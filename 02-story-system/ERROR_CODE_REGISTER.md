@@ -15,6 +15,8 @@ D-014 repository remediation adds canon-initialisation-specific failures to the 
 
 The D-014 eligible-selection remediation introduces no new operational error code. An all-PRE-CANON LEGACY `IDEA` candidate set is a controlled zero-item no-op, not a failure. A malformed/conflicting candidate remains governed by `CANON_INITIALIZATION_INTEGRITY_FAILED`; PRE-CANON LEGACY rows are excluded before candidate selection and are not logged or modified.
 
+The Outline eligible-selection remediation introduces no new operational error code. An all-PRE-CANON LEGACY `CONCEPT_APPROVED` candidate set is a controlled zero-item no-op. A malformed, partial, or marker-conflicting governed candidate routes through the existing `CANON_LINEAGE_INVALID` handling before approved-Concept lookup, duplicate protection, canon retrieval, AI generation, or persistence. PRE-CANON LEGACY rows are excluded and never modified.
+
 ## Registered codes
 
 | Code | Primary producer or condition |

@@ -15,6 +15,7 @@ Every workflow should be tested for:
 - deterministic blank/malformed canon-lineage rejection before GitHub retrieval
 - deterministic downstream/Story canon-lineage mismatch rejection
 - required downstream canonVersion/canonRef persistence
+- deterministic Outline Generator selection across all `CONCEPT_APPROVED` candidates, excluding PRE-CANON LEGACY rows before one governed Story is taken
 
 ## M7 — Production Package non-production validation
 

@@ -125,3 +125,20 @@ Run `node 06-testing/validate_canon_initialization.mjs`.
 | D014-SEL-006 — Multiple legitimate candidates | Numeric `row_number`, then `storyId`, then stable input order selects one candidate deterministically. | Passed offline. |
 | D014-SEL-007 — Duplicate guard order | The selected eligible Story reaches `Check Existing Concepts Before Canon` before canon mutation or AI generation. | Passed offline. |
 | D014-SEL-008 — D-012 immutability | Candidate classification does not mutate PRE-CANON LEGACY inputs or make them eligible. | Passed offline. |
+
+## Outline Generator — Eligible Story Selection Remediation
+
+Run `node 06-testing/validate_outline_eligible_selection.mjs`.
+
+| Test | Expected result | Repository result |
+|---|---|---|
+| OUT-SEL-001 — Legacy before governed | Earlier PRE-CANON LEGACY `CONCEPT_APPROVED` Story is excluded; governed Story is selected. | Passed offline. |
+| OUT-SEL-002 — Multiple legacy before governed | All earlier legacy candidates are excluded; the governed Story is selected. | Passed offline. |
+| OUT-SEL-003 — Legacy-only set | No Story is selected and no Outline-generation path receives an item. | Passed offline. |
+| OUT-SEL-004 — Malformed governed candidate | With no legitimate candidate, the malformed Story routes to controlled `CANON_LINEAGE_INVALID` handling. | Passed offline. |
+| OUT-SEL-005 — Multiple governed candidates | Numeric `row_number`, then `storyId`, then stable input order selects one Story deterministically. | Passed offline. |
+| OUT-SEL-006 — Approved Concept scope | Approved Concept lookup receives only the selected governed Story and resolves its approved Concept. | Passed offline. |
+| OUT-SEL-007 — Duplicate protection | The selected Story reaches the existing Outline duplicate guard before canon retrieval or AI generation. | Passed offline. |
+| OUT-SEL-008 — Runtime lineage | Runtime canon retrieval and downstream Story expressions use the selected Story `canonRef`. | Passed offline. |
+| OUT-SEL-009 — D-012 immutability | Candidate classification does not mutate PRE-CANON LEGACY inputs or make them eligible. | Passed offline. |
+| OUT-SEL-010 — Append retry prohibition | No Google Sheets append node gains automatic retry. | Passed offline. |

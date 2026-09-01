@@ -30,6 +30,21 @@ Operational error codes and FailureLog triage values are deliberately excluded. 
 - Canon-initialization failure or repair does not invent or change a lifecycle state.
 - Historical blank-marker / blank-lineage records remain governed by D-012 and are not progressed by canon initialization.
 
+## Outline Generator eligible-Story selection contract
+
+Outline Generator evaluates the complete `CONCEPT_APPROVED` Story candidate set before selecting one Story. It must not rely on Story Vault row order or take the first matching row.
+
+Candidates are ordered deterministically by numeric `row_number`, then `storyId`, then stable input order and classified as follows:
+
+- blank `canonInitializationState` plus blank `canonVersion`/`canonRef` is PRE-CANON LEGACY under D-012 and is excluded without mutation;
+- `ASSIGNED` plus valid Story canon lineage is eligible;
+- blank marker plus valid Story canon lineage remains eligible because marker absence alone does not invalidate existing governed lineage;
+- `PENDING`, unexpected marker values, partial lineage, or malformed lineage on a `CONCEPT_APPROVED` Story is a controlled `CANON_LINEAGE_INVALID` integrity failure and is never repaired by Outline Generator.
+
+The first legitimate governed candidate is selected. If no legitimate candidate exists, the first deterministic malformed/conflicting candidate routes to the existing controlled canon-lineage failure path. If every candidate is PRE-CANON LEGACY, the selector emits no item and Outline generation ends as a controlled no-eligible-story no-op.
+
+Approved Concept lookup, duplicate protection, runtime canon retrieval, Outline persistence, and the `CONCEPT_APPROVED -> OUTLINE_GENERATED` transition operate only on the selected governed Story. Outline Generator never assigns, replaces, or repairs Story canon.
+
 ## M7 lifecycle extension
 
 | State | Meaning | Normal next state or route |
