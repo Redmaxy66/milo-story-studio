@@ -7,100 +7,22 @@
         "formDescription": "Capture a new idea for Milo Moonberry’s Story Vault.\nEnter the idea in your own words. Optional details can be refined later.",
         "formFields": {
           "values": [
-            {
-              "fieldLabel": "Story Idea",
-              "fieldType": "textarea",
-              "fieldName": "rawIdea",
-              "placeholder": "Milo discovers a tiny door hidden beneath an old tree...",
-              "requiredField": true
-            },
-            {
-              "fieldLabel": "Working title",
-              "fieldName": "workingTitle",
-              "placeholder": "Milo and the Hidden Door"
-            },
-            {
-              "fieldLabel": "Main theme",
-              "fieldType": "dropdown",
-              "fieldName": "theme",
-              "fieldOptions": {
-                "values": [
-                  {
-                    "option": "Kindness"
-                  },
-                  {
-                    "option": "Courage"
-                  },
-                  {
-                    "option": "Friendship"
-                  },
-                  {
-                    "option": "Curiosity"
-                  },
-                  {
-                    "option": "Patience"
-                  },
-                  {
-                    "option": "Creativity"
-                  },
-                  {
-                    "option": "Confidence"
-                  },
-                  {
-                    "option": "Honesty"
-                  },
-                  {
-                    "option": "Understanding and managing emotions"
-                  },
-                  {
-                    "option": "Other"
-                  }
-                ]
-              },
-              "requiredField": true
-            },
-            {
-              "fieldLabel": "Possible lesson or takeaway",
-              "fieldType": "textarea",
-              "fieldName": "lesson",
-              "placeholder": "Asking for help can be an act of courage."
-            },
-            {
-              "fieldLabel": "Proposed setting",
-              "fieldName": "setting",
-              "placeholder": "Moonberry Wood"
-            },
-            {
-              "fieldLabel": "Supporting characters",
-              "fieldName": "supportingCharacters",
-              "placeholder": "Granny Bramble, Pip, Luma"
-            },
-            {
-              "fieldLabel": "Target story length in minutes",
-              "fieldType": "number",
-              "fieldName": "targetLengthMinutes",
-              "defaultValue": "5",
-              "requiredField": true
-            },
-            {
-              "fieldLabel": "Additional notes",
-              "fieldType": "textarea",
-              "fieldName": "notes",
-              "placeholder": "Tone, important scenes, visual ideas, or anything else to remember."
-            }
+            {"fieldLabel":"Story Idea","fieldType":"textarea","fieldName":"rawIdea","placeholder":"Milo discovers a tiny door hidden beneath an old tree...","requiredField":true},
+            {"fieldLabel":"Working title","fieldName":"workingTitle","placeholder":"Milo and the Hidden Door"},
+            {"fieldLabel":"Main theme","fieldType":"dropdown","fieldName":"theme","fieldOptions":{"values":[{"option":"Kindness"},{"option":"Courage"},{"option":"Friendship"},{"option":"Curiosity"},{"option":"Patience"},{"option":"Creativity"},{"option":"Confidence"},{"option":"Honesty"},{"option":"Understanding and managing emotions"},{"option":"Other"}]},"requiredField":true},
+            {"fieldLabel":"Possible lesson or takeaway","fieldType":"textarea","fieldName":"lesson","placeholder":"Asking for help can be an act of courage."},
+            {"fieldLabel":"Proposed setting","fieldName":"setting","placeholder":"Moonberry Wood"},
+            {"fieldLabel":"Supporting characters","fieldName":"supportingCharacters","placeholder":"Granny Bramble, Pip, Luma"},
+            {"fieldLabel":"Target story length in minutes","fieldType":"number","fieldName":"targetLengthMinutes","defaultValue":"5","requiredField":true},
+            {"fieldLabel":"Additional notes","fieldType":"textarea","fieldName":"notes","placeholder":"Tone, important scenes, visual ideas, or anything else to remember."}
           ]
         },
         "responseMode": "lastNode",
-        "options": {
-          "path": "milo-story-intake"
-        }
+        "options": {"path":"milo-story-intake"}
       },
       "type": "n8n-nodes-base.formTrigger",
       "typeVersion": 2.6,
-      "position": [
-        -80,
-        -160
-      ],
+      "position": [-80,-160],
       "id": "8e8aa017-6cb2-45aa-88e4-fa8a1006d9c8",
       "name": "On form submission",
       "webhookId": "30cf6696-5c31-45f4-bead-00cb57ee2a55"
@@ -109,588 +31,113 @@
       "parameters": {
         "assignments": {
           "assignments": [
-            {
-              "id": "3a5f3a74-0ff9-460f-bfd3-dc09d0dd4e69",
-              "name": "rawIdea",
-              "value": "={{ $json.rawIdea }}",
-              "type": "string"
-            },
-            {
-              "id": "aebed784-5ef3-48ed-94e6-b0e8a6efbd54",
-              "name": "workingTitle",
-              "value": "={{ $json.workingTitle }}",
-              "type": "string"
-            },
-            {
-              "id": "9610326a-4e60-494b-9934-6c2cb53327c0",
-              "name": "theme",
-              "value": "={{ $json.theme }}",
-              "type": "string"
-            },
-            {
-              "id": "d0121f72-fb4f-4897-adc3-ce469dfee4d6",
-              "name": "lesson",
-              "value": "={{ $json.lesson }}",
-              "type": "string"
-            },
-            {
-              "id": "010989fd-742e-4f27-b238-6efde6d9aa5e",
-              "name": "setting",
-              "value": "={{ $json.setting }}",
-              "type": "string"
-            },
-            {
-              "id": "e87af21a-25d7-4eee-a8ed-1f94de318b6f",
-              "name": "supportingCharacters",
-              "value": "={{ $json.supportingCharacters   ? $json.supportingCharacters       .split(',')       .map(name => name.trim())       .filter(name => name !== '')   : [] }}",
-              "type": "array"
-            },
-            {
-              "id": "d52f9e04-9c82-4f4f-b06b-0f21d5b9473d",
-              "name": "targetLengthMinutes",
-              "value": "={{ Number($json.targetLengthMinutes) }}",
-              "type": "number"
-            },
-            {
-              "id": "f50c0d56-4325-4c06-a782-874e16db3718",
-              "name": "notes",
-              "value": "={{ $json.notes || '' }}",
-              "type": "string"
-            },
-            {
-              "id": "cc0929e0-dcff-4474-a4b9-fd2605012b4e",
-              "name": "status",
-              "value": "IDEA",
-              "type": "string"
-            },
-            {
-              "id": "157f89d3-4319-49f3-8044-3fab880ef4aa",
-              "name": "ageRange",
-              "value": "5-10",
-              "type": "string"
-            },
-            {
-              "id": "a93660d7-d906-4f02-8ac8-e43daeb927a6",
-              "name": "version",
-              "value": 1,
-              "type": "number"
-            },
-            {
-              "id": "657e8e07-c198-4a6b-a9bf-3e0f6ddba959",
-              "name": "createdAt",
-              "value": "={{ $json.submittedAt || $now.toISO() }}",
-              "type": "string"
-            },
-            {
-              "id": "b2843290-54e4-4568-a401-b4ffa00aad25",
-              "name": "updatedAt",
-              "value": "={{ $json.submittedAt || $now.toISO() }}",
-              "type": "string"
-            }
+            {"id":"3a5f3a74-0ff9-460f-bfd3-dc09d0dd4e69","name":"rawIdea","value":"={{ $json.rawIdea }}","type":"string"},
+            {"id":"aebed784-5ef3-48ed-94e6-b0e8a6efbd54","name":"workingTitle","value":"={{ $json.workingTitle }}","type":"string"},
+            {"id":"9610326a-4e60-494b-9934-6c2cb53327c0","name":"theme","value":"={{ $json.theme }}","type":"string"},
+            {"id":"d0121f72-fb4f-4897-adc3-ce469dfee4d6","name":"lesson","value":"={{ $json.lesson }}","type":"string"},
+            {"id":"010989fd-742e-4f27-b238-6efde6d9aa5e","name":"setting","value":"={{ $json.setting }}","type":"string"},
+            {"id":"e87af21a-25d7-4eee-a8ed-1f94de318b6f","name":"supportingCharacters","value":"={{ $json.supportingCharacters   ? $json.supportingCharacters       .split(',')       .map(name => name.trim())       .filter(name => name !== '')   : [] }}","type":"array"},
+            {"id":"d52f9e04-9c82-4f4f-b06b-0f21d5b9473d","name":"targetLengthMinutes","value":"={{ Number($json.targetLengthMinutes) }}","type":"number"},
+            {"id":"f50c0d56-4325-4c06-a782-874e16db3718","name":"notes","value":"={{ $json.notes || '' }}","type":"string"},
+            {"id":"cc0929e0-dcff-4474-a4b9-fd2605012b4e","name":"status","value":"IDEA","type":"string"},
+            {"id":"157f89d3-4319-49f3-8044-3fab880ef4aa","name":"ageRange","value":"5-10","type":"string"},
+            {"id":"a93660d7-d906-4f02-8ac8-e43daeb927a6","name":"version","value":1,"type":"number"},
+            {"id":"657e8e07-c198-4a6b-a9bf-3e0f6ddba959","name":"createdAt","value":"={{ $json.submittedAt || $now.toISO() }}","type":"string"},
+            {"id":"b2843290-54e4-4568-a401-b4ffa00aad25","name":"updatedAt","value":"={{ $json.submittedAt || $now.toISO() }}","type":"string"},
+            {"id":"4a6a83ff-4622-4c20-94ea-d014canoninit01","name":"canonVersion","value":"","type":"string"},
+            {"id":"0c04a4d3-80db-4ba4-91df-d014canoninit02","name":"canonRef","value":"","type":"string"},
+            {"id":"e63c08a1-0c5a-42ef-bcf0-d014canoninit03","name":"canonInitializationState","value":"PENDING","type":"string"}
           ]
         },
         "options": {}
       },
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
-      "position": [
-        96,
-        -16
-      ],
+      "position": [96,-16],
       "id": "5bc90ebb-648c-4c9e-aba8-0627de3bd0aa",
       "name": "Standardise Story Data"
     },
     {
-      "parameters": {
-        "documentId": {
-          "__rl": true,
-          "value": "1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y",
-          "mode": "id"
-        },
-        "sheetName": {
-          "__rl": true,
-          "value": "1969258097",
-          "mode": "id"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.googleSheets",
-      "typeVersion": 4.7,
-      "position": [
-        544,
-        -144
-      ],
-      "id": "5f3c95a1-d2ba-47d7-8dca-cd088622c6a5",
-      "name": "Read Existing Story IDs",
-      "alwaysOutputData": true,
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "cO3n7ugzkBbGHwha",
-          "name": "Google Sheets account"
-        }
-      }
+      "parameters": {"documentId":{"__rl":true,"value":"1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y","mode":"id"},"sheetName":{"__rl":true,"value":"1969258097","mode":"id"},"options":{}},
+      "type":"n8n-nodes-base.googleSheets","typeVersion":4.7,"position":[544,-144],"id":"5f3c95a1-d2ba-47d7-8dca-cd088622c6a5","name":"Read Existing Story IDs","alwaysOutputData":true,
+      "credentials":{"googleSheetsOAuth2Api":{"id":"cO3n7ugzkBbGHwha","name":"Google Sheets account"}}
+    },
+    {
+      "parameters":{"jsCode":"// Read every existing row returned by Google Sheets.\nconst rows = $input.all();\n\n// Extract valid numbers from IDs such as MILO-001 and MILO-027.\nconst existingNumbers = rows\n  .map(item => item.json.storyId)\n  .filter(id => typeof id === 'string' && /^MILO-\\d+$/.test(id))\n  .map(id => Number(id.split('-')[1]));\n\n// If no IDs exist, begin at 1. Otherwise add 1 to the highest number.\nconst nextNumber =\n  existingNumbers.length > 0\n    ? Math.max(...existingNumbers) + 1\n    : 1;\n\n// Format the number with three digits.\nconst storyId = `MILO-${String(nextNumber).padStart(3, '0')}`;\n\n// Retrieve the clean story data created earlier.\nconst storyData = $('Standardise Story Data').first().json;\n\n// Return one complete story record.\nreturn [\n  {\n    json: {\n      storyId,\n      ...storyData,\n    },\n  },\n];"},
+      "type":"n8n-nodes-base.code","typeVersion":2,"position":[688,0],"id":"fbc58511-679e-40bb-9f1b-0a82f0a878bf","name":"Generate Story ID"
+    },
+    {
+      "parameters":{"assignments":{"assignments":[{"id":"20358a41-7233-4d6c-a181-8e93b095f4fe","name":"supportingCharacters","value":"={{ JSON.stringify($json.supportingCharacters) }}","type":"string"}]},"includeOtherFields":true,"options":{}},
+      "type":"n8n-nodes-base.set","typeVersion":3.4,"position":[864,-144],"id":"dae5514a-0934-41d2-90ff-795f9f9324ae","name":"Prepare Sheet Row"
     },
     {
       "parameters": {
-        "jsCode": "// Read every existing row returned by Google Sheets.\nconst rows = $input.all();\n\n// Extract valid numbers from IDs such as MILO-001 and MILO-027.\nconst existingNumbers = rows\n  .map(item => item.json.storyId)\n  .filter(id => typeof id === 'string' && /^MILO-\\d+$/.test(id))\n  .map(id => Number(id.split('-')[1]));\n\n// If no IDs exist, begin at 1. Otherwise add 1 to the highest number.\nconst nextNumber =\n  existingNumbers.length > 0\n    ? Math.max(...existingNumbers) + 1\n    : 1;\n\n// Format the number with three digits.\nconst storyId = `MILO-${String(nextNumber).padStart(3, '0')}`;\n\n// Retrieve the clean story data created earlier.\nconst storyData = $('Standardise Story Data').first().json;\n\n// Return one complete story record.\nreturn [\n  {\n    json: {\n      storyId,\n      ...storyData,\n    },\n  },\n];"
-      },
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        688,
-        0
-      ],
-      "id": "fbc58511-679e-40bb-9f1b-0a82f0a878bf",
-      "name": "Generate Story ID"
+        "operation":"append",
+        "documentId":{"__rl":true,"value":"1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y","mode":"id"},
+        "sheetName":{"__rl":true,"value":"1969258097","mode":"id"},
+        "columns":{"mappingMode":"autoMapInputData","value":{},"matchingColumns":[],"schema":[
+          {"id":"storyId","displayName":"storyId","required":false,"defaultMatch":false,"display":true,"type":"string","canBeUsedToMatch":true,"removed":false},
+          {"id":"createdAt","displayName":"createdAt","required":false,"defaultMatch":false,"display":true,"type":"string","canBeUsedToMatch":true,"removed":false},
+          {"id":"updatedAt","displayName":"updatedAt","required":false,"defaultMatch":false,"display":true,"type":"string","canBeUsedToMatch":true,"removed":false},
+          {"id":"status","displayName":"status","required":false,"defaultMatch":false,"display":true,"type":"string","canBeUsedToMatch":true,"removed":false},
+          {"id":"workingTitle","displayName":"workingTitle","required":false,"defaultMatch":false,"display":true,"type":"string","canBeUsedToMatch":true,"removed":false},
+          {"id":"rawIdea","displayName":"rawIdea","required":false,"defaultMatch":false,"display":true,"type":"string","canBeUsedToMatch":true,"removed":false},
+          {"id":"ageRange","displayName":"ageRange","required":false,"defaultMatch":false,"display":true,"type":"string","canBeUsedToMatch":true,"removed":false},
+          {"id":"theme","displayName":"theme","required":false,"defaultMatch":false,"display":true,"type":"string","canBeUsedToMatch":true,"removed":false},
+          {"id":"lesson","displayName":"lesson","required":false,"defaultMatch":false,"display":true,"type":"string","canBeUsedToMatch":true,"removed":false},
+          {"id":"setting","displayName":"setting","required":false,"defaultMatch":false,"display":true,"type":"string","canBeUsedToMatch":true,"removed":false},
+          {"id":"supportingCharacters","displayName":"supportingCharacters","required":false,"defaultMatch":false,"display":true,"type":"string","canBeUsedToMatch":true,"removed":false},
+          {"id":"targetLengthMinutes","displayName":"targetLengthMinutes","required":false,"defaultMatch":false,"display":true,"type":"string","canBeUsedToMatch":true,"removed":false},
+          {"id":"notes","displayName":"notes","required":false,"defaultMatch":false,"display":true,"type":"string","canBeUsedToMatch":true,"removed":false},
+          {"id":"version","displayName":"version","required":false,"defaultMatch":false,"display":true,"type":"string","canBeUsedToMatch":true,"removed":false},
+          {"id":"canonVersion","displayName":"canonVersion","required":false,"defaultMatch":false,"display":true,"type":"string","canBeUsedToMatch":true,"removed":false},
+          {"id":"canonRef","displayName":"canonRef","required":false,"defaultMatch":false,"display":true,"type":"string","canBeUsedToMatch":true,"removed":false},
+          {"id":"canonInitializationState","displayName":"canonInitializationState","required":false,"defaultMatch":false,"display":true,"type":"string","canBeUsedToMatch":true,"removed":false}
+        ],"attemptToConvertTypes":false,"convertFieldsToString":false},"options":{}},
+      "type":"n8n-nodes-base.googleSheets","typeVersion":4.7,"position":[1040,0],"id":"c2c2b4a7-da2c-43f1-8fb2-b606a7011ebf","name":"Save Story to Vault",
+      "credentials":{"googleSheetsOAuth2Api":{"id":"cO3n7ugzkBbGHwha","name":"Google Sheets account"}}
     },
     {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "20358a41-7233-4d6c-a181-8e93b095f4fe",
-              "name": "supportingCharacters",
-              "value": "={{ JSON.stringify($json.supportingCharacters) }}",
-              "type": "string"
-            }
-          ]
-        },
-        "includeOtherFields": true,
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        864,
-        -144
-      ],
-      "id": "dae5514a-0934-41d2-90ff-795f9f9324ae",
-      "name": "Prepare Sheet Row"
+      "parameters":{"conditions":{"options":{"caseSensitive":true,"leftValue":"","typeValidation":"strict","version":3},"conditions":[
+        {"id":"dd2051d9-175c-49ad-b86b-dea3059a61a5","leftValue":"={{ $json.rawIdea }}","rightValue":"is not empty","operator":{"type":"string","operation":"notEmpty","singleValue":true}},
+        {"id":"0785d33d-d79f-4f1a-af8d-69599e05d12d","leftValue":"={{ $json.theme }}","rightValue":"","operator":{"type":"string","operation":"notEmpty","singleValue":true}},
+        {"id":"2ddc5b8f-b3e0-494b-a9b2-cf8ead689c14","leftValue":"={{ $json.targetLengthMinutes }}","rightValue":0,"operator":{"type":"number","operation":"gt"}}
+      ],"combinator":"and"},"options":{}},
+      "type":"n8n-nodes-base.if","typeVersion":2.3,"position":[240,-160],"id":"98c62f3d-89d2-4e05-baa0-58d6a5317e43","name":"Validate Story Submission"
     },
     {
-      "parameters": {
-        "operation": "append",
-        "documentId": {
-          "__rl": true,
-          "value": "1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y",
-          "mode": "id"
-        },
-        "sheetName": {
-          "__rl": true,
-          "value": "1969258097",
-          "mode": "id"
-        },
-        "columns": {
-          "mappingMode": "autoMapInputData",
-          "value": {},
-          "matchingColumns": [],
-          "schema": [
-            {
-              "id": "storyId",
-              "displayName": "storyId",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "createdAt",
-              "displayName": "createdAt",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "updatedAt",
-              "displayName": "updatedAt",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "status",
-              "displayName": "status",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "workingTitle",
-              "displayName": "workingTitle",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "rawIdea",
-              "displayName": "rawIdea",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "ageRange",
-              "displayName": "ageRange",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "theme",
-              "displayName": "theme",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "lesson",
-              "displayName": "lesson",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "setting",
-              "displayName": "setting",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "supportingCharacters",
-              "displayName": "supportingCharacters",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "targetLengthMinutes",
-              "displayName": "targetLengthMinutes",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "notes",
-              "displayName": "notes",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "version",
-              "displayName": "version",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            }
-          ],
-          "attemptToConvertTypes": false,
-          "convertFieldsToString": false
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.googleSheets",
-      "typeVersion": 4.7,
-      "position": [
-        1040,
-        0
-      ],
-      "id": "c2c2b4a7-da2c-43f1-8fb2-b606a7011ebf",
-      "name": "Save Story to Vault",
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "cO3n7ugzkBbGHwha",
-          "name": "Google Sheets account"
-        }
-      }
+      "parameters":{"assignments":{"assignments":[
+        {"id":"2380018e-1a5b-4329-bad5-b9a840022e3d","name":"success","value":false,"type":"boolean"},
+        {"id":"64119c69-7dcc-4d11-8531-81463542000a","name":"message","value":"Submission rejected: rawIdea and theme are required, and targetLengthMinutes must be greater than 0","type":"string"},
+        {"id":"5dc9b276-f4fc-4945-a361-070d7fc950fb","name":"errorCode","value":"STORY_SUBMISSION_VALIDATION_FAILED","type":"string"},
+        {"id":"3649b0bd-8f00-4c38-af1d-92925deb8534","name":"workflowName","value":"={{ $workflow.name }}","type":"string"},
+        {"id":"fefe90d3-e942-42ea-9e4e-1e23b3114ae4","name":"workflowId","value":"={{ $workflow.id }}","type":"string"},
+        {"id":"aa85c415-6eab-419e-b544-9559aa15ad56","name":"executionId","value":"={{ $exec.id }}","type":"string"},
+        {"id":"536c51f5-7779-467f-b4bb-6fd432b278ef","name":"sourceType","value":"HANDLED","type":"string"},
+        {"id":"db3f264e-9abe-4c09-af3d-c0a4c15530b1","name":"nodeName","value":"Prepare Validation Failure","type":"string"},
+        {"id":"3ea6693c-fc78-4047-a30a-589d9e0e3e2d","name":"nodeType","value":"n8n-nodes-base.set","type":"string"}
+      ]},"options":{}},
+      "type":"n8n-nodes-base.set","typeVersion":3.4,"position":[384,-16],"id":"a4644f3a-6159-4085-9763-816886b0d1ad","name":"Prepare Validation Failure"
     },
     {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 3
-          },
-          "conditions": [
-            {
-              "id": "dd2051d9-175c-49ad-b86b-dea3059a61a5",
-              "leftValue": "={{ $json.rawIdea }}",
-              "rightValue": "is not empty",
-              "operator": {
-                "type": "string",
-                "operation": "notEmpty",
-                "singleValue": true
-              }
-            },
-            {
-              "id": "0785d33d-d79f-4f1a-af8d-69599e05d12d",
-              "leftValue": "={{ $json.theme }}",
-              "rightValue": "",
-              "operator": {
-                "type": "string",
-                "operation": "notEmpty",
-                "singleValue": true
-              }
-            },
-            {
-              "id": "2ddc5b8f-b3e0-494b-a9b2-cf8ead689c14",
-              "leftValue": "={{ $json.targetLengthMinutes }}",
-              "rightValue": 0,
-              "operator": {
-                "type": "number",
-                "operation": "gt"
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.3,
-      "position": [
-        240,
-        -160
-      ],
-      "id": "98c62f3d-89d2-4e05-baa0-58d6a5317e43",
-      "name": "Validate Story Submission"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "2380018e-1a5b-4329-bad5-b9a840022e3d",
-              "name": "success",
-              "value": false,
-              "type": "boolean"
-            },
-            {
-              "id": "64119c69-7dcc-4d11-8531-81463542000a",
-              "name": "message",
-              "value": "Submission rejected: rawIdea and theme are required, and targetLengthMinutes must be greater than 0",
-              "type": "string"
-            },
-            {
-              "id": "5dc9b276-f4fc-4945-a361-070d7fc950fb",
-              "name": "errorCode",
-              "value": "STORY_SUBMISSION_VALIDATION_FAILED",
-              "type": "string"
-            },
-            {
-              "id": "3649b0bd-8f00-4c38-af1d-92925deb8534",
-              "name": "workflowName",
-              "value": "={{ $workflow.name }}",
-              "type": "string"
-            },
-            {
-              "id": "fefe90d3-e942-42ea-9e4e-1e23b3114ae4",
-              "name": "workflowId",
-              "value": "={{ $workflow.id }}",
-              "type": "string"
-            },
-            {
-              "id": "aa85c415-6eab-419e-b544-9559aa15ad56",
-              "name": "executionId",
-              "value": "={{ $exec.id }}",
-              "type": "string"
-            },
-            {
-              "id": "536c51f5-7779-467f-b4bb-6fd432b278ef",
-              "name": "sourceType",
-              "value": "HANDLED",
-              "type": "string"
-            },
-            {
-              "id": "db3f264e-9abe-4c09-af3d-c0a4c15530b1",
-              "name": "nodeName",
-              "value": "Prepare Validation Failure",
-              "type": "string"
-            },
-            {
-              "id": "3ea6693c-fc78-4047-a30a-589d9e0e3e2d",
-              "name": "nodeType",
-              "value": "n8n-nodes-base.set",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        384,
-        -16
-      ],
-      "id": "a4644f3a-6159-4085-9763-816886b0d1ad",
-      "name": "Prepare Validation Failure"
-    },
-    {
-      "parameters": {
-        "source": "database",
-        "workflowId": {
-          "__rl": true,
-          "value": "",
-          "mode": "list",
-          "cachedResultName": "Milo Failure Handler v0.1"
-        },
-        "options": {
-          "waitForSubWorkflow": true
-        }
-      },
-      "type": "n8n-nodes-base.executeWorkflow",
-      "typeVersion": 1.2,
-      "position": [
-        1360,
-        -16
-      ],
-      "id": "7aefc018-a094-4d1d-8c8a-1de5a3c83588",
-      "name": "Call Failure Handler"
+      "parameters":{"source":"database","workflowId":{"__rl":true,"value":"","mode":"list","cachedResultName":"Milo Failure Handler v0.1"},"options":{"waitForSubWorkflow":true}},
+      "type":"n8n-nodes-base.executeWorkflow","typeVersion":1.2,"position":[1360,-16],"id":"7aefc018-a094-4d1d-8c8a-1de5a3c83588","name":"Call Failure Handler"
     }
   ],
   "pinData": {},
   "connections": {
-    "On form submission": {
-      "main": [
-        [
-          {
-            "node": "Standardise Story Data",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Standardise Story Data": {
-      "main": [
-        [
-          {
-            "node": "Validate Story Submission",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Read Existing Story IDs": {
-      "main": [
-        [
-          {
-            "node": "Generate Story ID",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Generate Story ID": {
-      "main": [
-        [
-          {
-            "node": "Prepare Sheet Row",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Prepare Sheet Row": {
-      "main": [
-        [
-          {
-            "node": "Save Story to Vault",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Validate Story Submission": {
-      "main": [
-        [
-          {
-            "node": "Read Existing Story IDs",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Prepare Validation Failure",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Prepare Validation Failure": {
-      "main": [
-        [
-          {
-            "node": "Call Failure Handler",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    }
+    "On form submission":{"main":[[{"node":"Standardise Story Data","type":"main","index":0}]]},
+    "Standardise Story Data":{"main":[[{"node":"Validate Story Submission","type":"main","index":0}]]},
+    "Read Existing Story IDs":{"main":[[{"node":"Generate Story ID","type":"main","index":0}]]},
+    "Generate Story ID":{"main":[[{"node":"Prepare Sheet Row","type":"main","index":0}]]},
+    "Prepare Sheet Row":{"main":[[{"node":"Save Story to Vault","type":"main","index":0}]]},
+    "Validate Story Submission":{"main":[[{"node":"Read Existing Story IDs","type":"main","index":0}],[{"node":"Prepare Validation Failure","type":"main","index":0}]]},
+    "Prepare Validation Failure":{"main":[[{"node":"Call Failure Handler","type":"main","index":0}]]}
   },
   "active": false,
-  "settings": {
-    "executionOrder": "v1",
-    "binaryMode": "separate",
-    "availableInMCP": false
-  },
+  "settings": {"executionOrder":"v1","binaryMode":"separate","availableInMCP":false},
   "versionId": "569df19e-139d-44fa-9173-77792461a77a",
-  "meta": {
-    "templateCredsSetupCompleted": true,
-    "instanceId": "518751276e5752827215acb8c5b0cf3cfc08b92ae0362228eac713048bcb9ab3"
-  },
+  "meta": {"templateCredsSetupCompleted":true,"instanceId":"518751276e5752827215acb8c5b0cf3cfc08b92ae0362228eac713048bcb9ab3"},
   "nodeGroups": [],
   "id": "UmkMV0iuMPbj3jUO",
   "tags": []
