@@ -11,6 +11,8 @@ M6.5 adds `STORY_SUBMISSION_VALIDATION_FAILED` to that Story Intake payload and 
 
 M7 repository implementation adds Production Package-specific codes without renaming or removing earlier codes. M7 live behaviour remains unproven until separately authorised Phase 4+ configuration and testing.
 
+D-014 repository remediation adds canon-initialisation-specific failures to the Concept Generator while retaining `CANON_LINEAGE_INVALID` for the D-012 blank-marker + blank-lineage PRE-CANON LEGACY rejection.
+
 ## Registered codes
 
 | Code | Primary producer or condition |
@@ -21,9 +23,14 @@ M7 repository implementation adds Production Package-specific codes without rena
 | `APPROVED_OUTLINE_INVALID` | Approved outline identifiers or structure are invalid. |
 | `APPROVED_OUTLINE_VALIDATION_FAILED` | Script Generator fallback for approved-outline validation. |
 | `APPROVED_SCRIPT_INVALID` | Script Approval or Continuity Reviewer rejects an approved script deterministically. |
-| `CANON_LINEAGE_INVALID` | An affected generator/reviewer rejects blank or malformed authoritative Story canonVersion/canonRef before GitHub retrieval. |
+| `CANON_LINEAGE_INVALID` | An affected generator/reviewer rejects blank or malformed authoritative Story canonVersion/canonRef before GitHub retrieval. Concept Generator also uses it when blank marker + blank lineage is classified PRE-CANON LEGACY under D-012. |
 | `CANON_LINEAGE_MISMATCH` | An affected downstream artifact's stored canon lineage does not match the authoritative Story. |
-| `CONCEPTS_ALREADY_EXIST` | Concept Generator duplicate guard. |
+| `CANON_INITIALIZATION_INTEGRITY_FAILED` | Concept Generator finds a D-014 marker/canon conflict, malformed partial lineage, unexpected governed lineage, or another state that must not be repaired by overwriting canon. |
+| `CANON_INITIALIZATION_SAVE_FAILED` | Concept Generator cannot safely persist the permitted first assignment or `PENDING -> ASSIGNED` recovery update. |
+| `CANON_INITIALIZATION_VERIFY_FAILED` | Post-write Story reread does not exactly verify the intended immutable canon lineage, `ASSIGNED` marker, Story identity and `IDEA` lifecycle state. |
+| `GOVERNED_CANON_RELEASE_INVALID` | The explicitly configured approved canonVersion/canonRef mapping is missing or malformed before first assignment. |
+| `GOVERNED_CANON_RELEASE_RESOLUTION_FAILED` | The configured immutable approved canonRef cannot retrieve the governed runtime canon file before first assignment/recovery persistence. |
+| `CONCEPTS_ALREADY_EXIST` | Concept Generator duplicate guard, including the pre-canon mutation guard that prevents first assignment when Concepts already exist. |
 | `CONCEPT_STORY_ID_MISMATCH` | Concept Approval finds a concept that does not belong to its Story. |
 | `CONCEPT_VALIDATION_FAILED` | Generated concept batch fails deterministic validation. |
 | `CONTINUITY_AI_OUTPUT_INVALID` | Continuity Reviewer output fails deterministic validation. |
