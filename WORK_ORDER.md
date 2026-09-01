@@ -1,11 +1,11 @@
 # WORK_ORDER.md
 ## Milo Story Studio — M7 Production Package
 
-**Status:** Active — Phase 3 reconciled and complete; Phase 4 pending separate A3 authority
+**Status:** Active — isolated Phase 5 acceptance certified with a non-blocking note; canonical installation and Phase 6 verification pending separate A3 authority
 **Project:** `Redmaxy66/milo-story-studio`  
 **Milestone:** M7 — Production Package  
 **Baseline repository HEAD:** `ee12b3ae0fbe568ee9d25b773681582ac81734fd`  
-**Activation:** Approved and installed as the current M7 work order. Phase 1 design approval and Phase 2–3 repository implementation/validation are complete. Live Phase 4 remains separately gated by A3.
+**Activation:** Approved and installed as the current M7 work order. Phase 1 design approval, Phase 2–3 repository implementation/validation, and isolated Phase 5 acceptance are complete. Canonical installation, final live parity verification, and closure remain separately gated.
 
 ---
 
