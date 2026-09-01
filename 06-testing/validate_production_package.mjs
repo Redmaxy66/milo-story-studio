@@ -89,6 +89,18 @@ test('M7-003 shared Failure Handler and Error Workflow are preserved', () => {
   assert.equal(wf.settings.errorWorkflow, HANDLER_ID);
   assert.equal(node('Call Failure Handler').parameters.workflowId.value, HANDLER_ID);
   assert.deepEqual(targets('Prepare M7 Failure'), ['Call Failure Handler']);
+  const prepareFailure = node('Prepare M7 Failure').parameters.jsCode;
+  assert(prepareFailure.includes('executionId:$execution.id'));
+  assert(!prepareFailure.includes('$exec.id'));
+  const runPrepareFailure = new Function('$json', '$workflow', '$execution', '$', prepareFailure);
+  const prepared = runPrepareFailure(
+    { errorCode:'PRODUCTION_PACKAGE_INPUT_INVALID', message:'test rejection' },
+    { name:wf.name, id:'live-workflow-id' },
+    { id:'live-execution-id' },
+    () => ({ first:() => ({ json:{ action:'FAIL', storyId:'MILO-007' } }) }),
+  );
+  assert.equal(prepared[0].json.executionId, 'live-execution-id');
+  assert.equal(prepared[0].json.sourceType, 'HANDLED');
 });
 
 test('M7-004 approved two-tab storage targets exist in export', () => {
@@ -96,6 +108,17 @@ test('M7-004 approved two-tab storage targets exist in export', () => {
   assert(names.includes('Production Packages'));
   assert(names.includes('Production Package Scenes'));
   assert(names.includes('Stories'));
+  const globalReads = ['Read Stories','Read Scripts','Read Continuity Reviews','Read Existing Production Packages','Read Existing Production Package Scenes'];
+  for (const name of globalReads) assert.equal(node(name).executeOnce, true, `${name} must execute once per workflow run`);
+  const tableRowCounts = { Stories:7, Scripts:2, Reviews:2, Packages:0, Scenes:0 };
+  const runtimeCounts = {
+    Stories:tableRowCounts.Stories,
+    Scripts:node('Read Scripts').executeOnce ? tableRowCounts.Scripts : tableRowCounts.Stories * tableRowCounts.Scripts,
+    Reviews:node('Read Continuity Reviews').executeOnce ? tableRowCounts.Reviews : tableRowCounts.Scripts * tableRowCounts.Reviews,
+  };
+  assert.deepEqual(runtimeCounts, { Stories:7, Scripts:2, Reviews:2 });
+  const approvedScripts = [{storyId:'MILO-001',scriptId:'MILO-001-S01',approvalStatus:'APPROVED'},{storyId:'MILO-007',scriptId:'MILO-007-S01',approvalStatus:'APPROVED'}];
+  assert.deepEqual(approvedScripts.filter(s=>s.storyId==='MILO-007'&&s.approvalStatus==='APPROVED').map(s=>s.scriptId), ['MILO-007-S01']);
 });
 
 test('M7-005 all Google Sheets append nodes prohibit automatic retry', () => {

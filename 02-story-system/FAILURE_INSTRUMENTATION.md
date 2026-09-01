@@ -74,7 +74,7 @@ Every local `Prepare ... Failure` node retains its existing fields and also emit
 
 - `workflowName = $workflow.name`
 - `workflowId = $workflow.id`
-- `executionId = $exec.id`
+- `executionId = $exec.id` in n8n expressions / Set nodes, or `$execution.id` inside Code nodes
 - `sourceType = HANDLED`
 - `nodeName = <local Prepare Failure node name>`
 - `nodeType = n8n-nodes-base.set`

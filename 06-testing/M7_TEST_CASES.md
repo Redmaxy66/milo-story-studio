@@ -14,8 +14,8 @@ node 06-testing/validate_production_package.mjs
 |---|---|---|
 | M7-001 | Workflow identity / inactive state / pins | Correct workflow name, `active=false`, empty `pinData`, no temporary test records. |
 | M7-002 | Graph integrity | Node names are unique and every connection source/target exists. |
-| M7-003 | Failure routing | Shared Failure Handler ID and Error Workflow are preserved. |
-| M7-004 | Storage targets | Export references `Stories`, `Production Packages`, and `Production Package Scenes`. |
+| M7-003 | Failure routing | Shared Failure Handler ID and Error Workflow are preserved; the Code-node handled-failure envelope uses runtime-supported `$execution.id`. |
+| M7-004 | Storage targets and global-read execution | Export references `Stories`, `Scripts`, `Continuity Reviews`, `Production Packages`, and `Production Package Scenes`; every global table read executes once per workflow run so upstream item counts cannot multiply candidate rows. |
 | M7-005 | Append retry prohibition | No Google Sheets append node enables automatic retry. |
 | M7-006 | Immutable references | M7 prompt uses immutable `promptRef`; canon/visual/voice/rules reads use authoritative Story `canonRef`. |
 | M7-007 | Generator provenance | Provider/model and maximum two AI attempts are explicit. |

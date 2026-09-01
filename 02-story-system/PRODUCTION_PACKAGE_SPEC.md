@@ -296,6 +296,7 @@ Platform-specific publishing metadata is prohibited from the M7 package.
 
 ### Deterministic/n8n responsibility
 
+- global Story, Script, Continuity Review, Production Package, and scene-table reads execute once per workflow run so upstream item counts cannot multiply authoritative candidate rows
 - Story selection and state eligibility
 - PRE-CANON LEGACY exclusion
 - identifier validation

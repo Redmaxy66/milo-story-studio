@@ -20,12 +20,16 @@ The final committed workflow hardening deltas were then re-inspected directly fr
 
 A later full-suite rerun exposed a brittle M7-008 harness assertion: the approved prompt prohibits human-readable “package IDs” and “package versions”, while the test incorrectly required the camelCase implementation tokens `packageId` and `packageVersion`. The approved prompt, schema, workflow, and immutable `promptRef` were unchanged. The harness now proves the boundary directly by requiring that the schema expose only `scenes` and `productionNotes` and that the prompt explicitly prohibit package IDs/versions, canon lineage, and publishing schedules. The reconciled suite remains `27 / 27 PASS`.
 
+Controlled live execution `#406` later exposed two narrow runtime defects before AI generation or persistence: chained global Google Sheets reads multiplied downstream candidate rows because they were not configured to execute once, and the Code-node handled-failure envelope used expression-only `$exec.id`. The repository export now marks all five global table reads `executeOnce=true` and uses `$execution.id` inside `Prepare M7 Failure`. M7-003 and M7-004 include executable regression proof for both corrections. The approved prompt, schema, identifiers, persistence ordering, lifecycle model, Error Workflow, shared Failure Handler, and immutable prompt/canon references are unchanged.
+
 ## Validated areas
 
 - workflow identity, inactive repository state and empty pin data
 - graph integrity
 - shared Failure Handler and Error Workflow references
+- runtime-supported handled-failure execution identity in the M7 Code node
 - approved two-tab M7 storage contract
+- execute-once global table reads that preserve authoritative candidate counts
 - no automatic retry on Google Sheets append nodes
 - immutable prompt provenance
 - canon/visual/voice/continuity runtime reads using authoritative Story `canonRef`
