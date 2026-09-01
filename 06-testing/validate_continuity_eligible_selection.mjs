@@ -36,6 +36,11 @@ assert.equal(reader.parameters.options.returnFirstMatch, false);
 assert.equal(reader.parameters.sheetName.cachedResultName, 'Stories');
 assert.equal(reader.credentials.googleSheetsOAuth2Api.id, 'QG2OeymCBBUfhfMJ');
 
+const validator = node('Validate Approved Script');
+assert.equal(validator.parameters.mode, 'runOnceForEachItem');
+const runValidator = new Function('$json', validator.parameters.jsCode);
+const validateScripts = (scripts) => scripts.map((script) => runValidator(structuredClone(script)).json);
+
 const selector = node('Select Eligible Continuity Script');
 assert.equal(selector.parameters.mode, 'runOnceForAllItems');
 const runSelector = new Function('$input', '$', selector.parameters.jsCode);
@@ -94,9 +99,19 @@ const legacyScript = (storyId, rowNumber) => ({
   canonRef: '',
 });
 
+const incomingScripts = [
+  governedScript('MILO-001', 2),
+  governedScript('MILO-007', 3),
+];
+for (const script of incomingScripts) delete script.valid;
+const validatedScripts = validateScripts(incomingScripts);
+assert.equal(validatedScripts.length, 2, 'per-item validation must emit one item for every Script candidate');
+assert.deepEqual(validatedScripts.map((script) => script.scriptId), ['MILO-001-S01', 'MILO-007-S01']);
+assert.deepEqual(validatedScripts.map((script) => script.valid), [true, true]);
+
 let result = select(
   [governedStory('MILO-001', 2, 'SCRIPT_REVISION_REQUIRED'), governedStory('MILO-007', 8)],
-  [governedScript('MILO-001', 2), governedScript('MILO-007', 3)],
+  validatedScripts,
 );
 assert.equal(result.length, 1);
 assert.equal(result[0].storyId, 'MILO-007');
@@ -208,6 +223,7 @@ for (const candidate of workflow.nodes.filter(
   assert.notEqual(candidate.retryOnFail, true, `${candidate.name}: Sheets append must not retry`);
 }
 
+console.log('PASS per-item Script validation emits both historical and governed candidates');
 console.log('PASS Continuity Reviewer selects governed eligible Script over historical candidates');
 console.log('PASS ineligible-only no-op, PRE-CANON exclusion, and controlled integrity failures');
 console.log('PASS deterministic Story binding and duplicate Review guard ordering');

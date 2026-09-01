@@ -56,6 +56,7 @@
     },
     {
       "parameters": {
+        "mode": "runOnceForEachItem",
         "jsCode": "const s = $json;\n\nconst valid =\n  /^MILO-[0-9]{3}$/.test(s.storyId ?? '') &&\n  s.scriptId === `${s.storyId}-S01` &&\n  s.outlineId === `${s.storyId}-O01` &&\n  /^MILO-[0-9]{3}-C0[1-3]$/.test(s.conceptId ?? '') &&\n  (s.conceptId ?? '').startsWith(`${s.storyId}-`) &&\n  s.approvalStatus === 'APPROVED' &&\n  String(s.approvalProcessedAt ?? '').trim() !== '' &&\n  String(s.scriptText ?? '').trim() !== '' &&\n  Number(s.version) >= 1;\n\nreturn {\n  json: {\n    ...s,\n    valid\n  }\n};"
       },
       "type": "n8n-nodes-base.code",

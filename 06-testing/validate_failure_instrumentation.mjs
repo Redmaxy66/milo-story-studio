@@ -199,9 +199,11 @@ assert(scriptFailureStoryStatus?.value==="={{ $json.status ?? '' }}",'Script Gen
 assert(!scriptFailureStoryId.value.startsWith('=='),'Script Generator: storyId payload would be interpreted as a Sheets formula');
 
 const continuityReviewerWorkflow=workflows.find((workflow)=>workflow.name==='Milo Continuity Reviewer v0.1');
+const continuityScriptValidator=continuityReviewerWorkflow.nodes.find((node)=>node.name==='Validate Approved Script');
 const continuityCandidateReader=continuityReviewerWorkflow.nodes.find((node)=>node.name==='Read Candidate Stories');
 const continuitySelector=continuityReviewerWorkflow.nodes.find((node)=>node.name==='Select Eligible Continuity Script');
 const continuityEligibilityGate=continuityReviewerWorkflow.nodes.find((node)=>node.name==='Continuity Eligible Script Selected');
+assert(continuityScriptValidator?.parameters?.mode==='runOnceForEachItem','Continuity Reviewer: every approved Script candidate must be validated independently');
 assert(continuityCandidateReader?.executeOnce===true,'Continuity Reviewer: candidate Story reader must run once');
 assert(continuityCandidateReader?.parameters?.options?.returnFirstMatch===false,'Continuity Reviewer: candidate Story reader must read all Stories');
 assert(continuitySelector?.parameters?.mode==='runOnceForAllItems','Continuity Reviewer: selector must run once for all items');

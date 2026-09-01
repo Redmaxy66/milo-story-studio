@@ -18,6 +18,7 @@ Every workflow should be tested for:
 - deterministic Outline Generator selection across all `CONCEPT_APPROVED` candidates, excluding PRE-CANON LEGACY rows before one governed Story is taken
 - deterministic Script Generator selection across processed approved Outlines after authoritative Story resolution, excluding historical, ineligible, and PRE-CANON LEGACY candidates
 - deterministic Continuity Reviewer selection across processed approved Scripts after authoritative Story resolution, excluding historical, lifecycle-ineligible, and PRE-CANON LEGACY candidates
+- explicit per-item Continuity Script validation so every approved Script candidate reaches eligible-selection classification
 - Continuity Reviewer duplicate protection and both runtime canon reads bound to the selected Story/Script pair and the Story's immutable `canonRef`
 - literal handled-failure `storyId` values that cannot be interpreted as spreadsheet formulas
 

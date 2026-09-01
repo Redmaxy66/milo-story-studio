@@ -176,3 +176,4 @@ Run `node 06-testing/validate_continuity_eligible_selection.mjs`.
 | CONT-SEL-008 — Duplicate protection | Existing Review lookup and duplicate rejection remain before persistence. | Passed offline. |
 | CONT-SEL-009 — Runtime lineage | Both continuity GitHub reads use the selected Story's immutable stored `canonRef`. | Passed offline. |
 | CONT-SEL-010 — Append retry prohibition | No Google Sheets append node gains automatic retry. | Passed offline. |
+| CONT-SEL-011 — Candidate validation execution mode | Two incoming approved Scripts are validated independently and both reach eligible selection; historical `MILO-001-S01` is excluded and governed `MILO-007-S01` is selected. | Passed offline. |
