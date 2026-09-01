@@ -95,7 +95,7 @@ It is not intended as a concurrency-safe production identifier.
 | ageRange | Initial audience range, set to 5-10 |
 | version | Initial record version, set to 1 |
 
-## 7. Google Sheet column order
+## 7. Original Google Sheet column order
 
 1. storyId
 2. createdAt
@@ -111,6 +111,8 @@ It is not intended as a concurrency-safe production identifier.
 12. targetLengthMinutes
 13. notes
 14. version
+
+Later governed canon-provenance changes are additive and are defined in Section 15.
 
 ## 8. Initial theme options
 
@@ -259,3 +261,27 @@ This approach is approved only for the single-user learning prototype.
 
 The identifier method must be reviewed before the system supports multiple
 simultaneous users or higher-volume production.
+
+## 15. Governed canon-provenance extension
+
+D-008 through D-010 make the Story row authoritative for immutable canon lineage. D-012 protects historical blank-lineage records as PRE-CANON LEGACY. D-014 adds an explicit first-assignment control field so new blank-lineage Stories can be distinguished deterministically from those historical records.
+
+The governed additive Story fields are:
+
+15. `canonVersion`
+16. `canonRef`
+17. `canonInitializationState`
+
+`canonInitializationState` has these persisted values:
+
+- `PENDING` — a newly created post-D-014 Story is eligible for first governed canon assignment by Concept Generation;
+- `ASSIGNED` — the Story's first governed canon assignment has completed;
+- blank — permitted only for historical records created before this contract or otherwise governed historical records.
+
+Story Intake is the only normal workflow permitted to create `PENDING`. It does not itself select or assign a canon release.
+
+Concept Generator is the only normal workflow permitted to transition `PENDING` to `ASSIGNED` as part of first canon assignment or deterministic recovery of a partial first assignment.
+
+Absence of the marker does not invalidate a Story that already carries valid governed `canonVersion` and `canonRef`. A blank marker plus blank lineage remains PRE-CANON LEGACY and is never automatically initialized.
+
+Existing valid Story canon lineage is immutable under normal workflow execution and is never automatically replaced.
