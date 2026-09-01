@@ -57,6 +57,18 @@ Script Generator evaluates the complete processed `APPROVED` Outline candidate s
 
 The selected Story remains authoritative. Duplicate Script protection precedes canon retrieval and generation; runtime retrieval uses only the selected Story's immutable stored `canonRef`. Script Generator does not assign or repair canon.
 
+## Continuity Reviewer eligible-Script selection contract
+
+Continuity Reviewer evaluates the complete processed `APPROVED` Script candidate set and resolves every candidate to its authoritative Story before one pair may progress. Candidates are ordered by numeric Script `row_number`, then `storyId`, then stable input order.
+
+- A candidate whose Story and Script both have blank lineage and whose Story has a blank canon-initialization marker is PRE-CANON LEGACY and is excluded without mutation.
+- A governed pair is eligible only when its Story is `SCRIPT_APPROVED`, both records have valid canon lineage, and the Script lineage exactly matches the Story.
+- A valid governed pair whose Story is in another lifecycle state is ineligible and excluded.
+- Missing or duplicate Story resolution, malformed governed lineage, and conflicting Story/Script lineage route through existing controlled validation or canon-lineage failure handling.
+- If every candidate is historical, lifecycle-ineligible, or PRE-CANON LEGACY, selection emits no item and Continuity Review generation ends without persistence.
+
+The selected Story remains authoritative. Duplicate Review protection precedes canon retrieval and review generation; both continuity GitHub reads use only the selected Story's immutable stored `canonRef`. Continuity Reviewer does not assign or repair canon.
+
 ## M7 lifecycle extension
 
 | State | Meaning | Normal next state or route |

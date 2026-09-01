@@ -66,6 +66,7 @@ for (const [fileName, expectedId, githubNodes] of workflows) {
     'Select Eligible Outline Story': blankStory,
     'Select Eligible Script Outline': { selectedOutline: { ...blankStory, outlineId: 'MILO-001-O01' } },
     'Validate Approved Script': { ...blankStory, scriptId: 'MILO-001-S01' },
+    'Select Eligible Continuity Script': { selectedScript: { ...blankStory, scriptId: 'MILO-001-S01' } },
   });
   assert.equal(invalid.canonLineageValid, false, `${workflow.name}: blank canonRef was accepted`);
   assert.equal(invalid.errorCode, 'CANON_LINEAGE_INVALID', `${workflow.name}: wrong blank-lineage error code`);
@@ -83,8 +84,8 @@ assert.equal(runValidator(script, story, { 'Select Eligible Script Outline': { s
 assert.equal(runValidator(script, story, { 'Select Eligible Script Outline': { selectedOutline: { ...story, canonRef: 'b'.repeat(40) } } }).errorCode, 'CANON_LINEAGE_MISMATCH', 'Script Generator did not reject mismatched lineage');
 
 const continuity = JSON.parse(fs.readFileSync(path.join(workflowDir, 'Milo Continuity Reviewer v0.1.json'), 'utf8'));
-assert.equal(runValidator(continuity, story, { 'Validate Approved Script': { ...story, scriptId: 'MILO-001-S01' } }).canonLineageValid, true, 'Continuity Reviewer rejected matching lineage');
-assert.equal(runValidator(continuity, story, { 'Validate Approved Script': { ...story, canonVersion: 'canon-v9.9' } }).errorCode, 'CANON_LINEAGE_MISMATCH', 'Continuity Reviewer did not reject mismatched lineage');
+assert.equal(runValidator(continuity, story, { 'Select Eligible Continuity Script': { selectedScript: { ...story, scriptId: 'MILO-001-S01' } } }).canonLineageValid, true, 'Continuity Reviewer rejected matching lineage');
+assert.equal(runValidator(continuity, story, { 'Select Eligible Continuity Script': { selectedScript: { ...story, canonVersion: 'canon-v9.9' } } }).errorCode, 'CANON_LINEAGE_MISMATCH', 'Continuity Reviewer did not reject mismatched lineage');
 const continuityRefs = ['Get Milo Canon Context', 'Get Continuity Rules'].map((name) => getNode(continuity, name).parameters.additionalParameters.reference);
 assert.equal(continuityRefs[0], continuityRefs[1], 'Continuity Reviewer canon and rules reads must use the same Story canonRef');
 

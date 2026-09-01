@@ -19,6 +19,8 @@ The Outline eligible-selection remediation introduces no new operational error c
 
 The Script eligible-Outline remediation introduces no new operational error code. Historical, ineligible, and PRE-CANON LEGACY-only candidate sets produce a controlled zero-item no-op. Missing or duplicate Story resolution uses `APPROVED_OUTLINE_VALIDATION_FAILED`; malformed or conflicting governed lineage uses `CANON_LINEAGE_INVALID` or `CANON_LINEAGE_MISMATCH`. The handled `STORY_NOT_READY_FOR_SCRIPT_GENERATION` payload now emits a literal `storyId` value rather than a misspelled spreadsheet-formula field.
 
+The Continuity eligible-Script remediation introduces no new operational error code. Historical, lifecycle-ineligible, and PRE-CANON LEGACY-only candidate sets produce a controlled zero-item no-op. Missing or duplicate authoritative Story resolution uses `APPROVED_SCRIPT_INVALID`; malformed or conflicting governed lineage uses `CANON_LINEAGE_INVALID` or `CANON_LINEAGE_MISMATCH`. These checks occur before duplicate Review lookup, canon retrieval, AI review, or persistence.
+
 ## Registered codes
 
 | Code | Primary producer or condition |

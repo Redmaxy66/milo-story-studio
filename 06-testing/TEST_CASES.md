@@ -159,3 +159,20 @@ Run `node 06-testing/validate_script_eligible_selection.mjs`.
 | SCR-SEL-008 — Runtime lineage | Canon retrieval uses the selected Story's immutable stored `canonRef`. | Passed offline. |
 | SCR-SEL-009 — Literal failure identity | Handled FailureLog payload uses `storyId` and emits `MILO-...` without a leading `=` or `#NAME?`. | Passed offline. |
 | SCR-SEL-010 — Append retry prohibition | No Google Sheets append node gains automatic retry. | Passed offline. |
+
+## Continuity Reviewer — Eligible Script Selection Remediation
+
+Run `node 06-testing/validate_continuity_eligible_selection.mjs`.
+
+| Test | Expected result | Repository result |
+|---|---|---|
+| CONT-SEL-001 — Historical before eligible | Earlier historical approved Script is excluded; governed eligible Script/Story pair is selected. | Passed offline. |
+| CONT-SEL-002 — Multiple historical/ineligible | All earlier historical, lifecycle-ineligible, or legacy candidates are excluded; the eligible governed pair is selected. | Passed offline. |
+| CONT-SEL-003 — No eligible candidate | Lifecycle-ineligible or historical-only input produces no review-generation item. | Passed offline. |
+| CONT-SEL-004 — PRE-CANON exclusion | PRE-CANON LEGACY Script/Story candidates are excluded without mutation. | Passed offline. |
+| CONT-SEL-005 — Governed integrity failure | Malformed or conflicting governed lineage routes to controlled integrity handling. | Passed offline. |
+| CONT-SEL-006 — Deterministic selection | Numeric Script `row_number`, then `storyId`, then stable input order selects one eligible pair. | Passed offline. |
+| CONT-SEL-007 — Story binding | The selected Script resolves to and remains bound to its authoritative Story. | Passed offline. |
+| CONT-SEL-008 — Duplicate protection | Existing Review lookup and duplicate rejection remain before persistence. | Passed offline. |
+| CONT-SEL-009 — Runtime lineage | Both continuity GitHub reads use the selected Story's immutable stored `canonRef`. | Passed offline. |
+| CONT-SEL-010 — Append retry prohibition | No Google Sheets append node gains automatic retry. | Passed offline. |

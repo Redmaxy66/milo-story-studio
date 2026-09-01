@@ -198,6 +198,21 @@ assert(!storyNotReadyAssignments.some((assignment)=>assignment.name==='stroyId')
 assert(scriptFailureStoryStatus?.value==="={{ $json.status ?? '' }}",'Script Generator: StoryStatus must not contain a leading formula marker');
 assert(!scriptFailureStoryId.value.startsWith('=='),'Script Generator: storyId payload would be interpreted as a Sheets formula');
 
+const continuityReviewerWorkflow=workflows.find((workflow)=>workflow.name==='Milo Continuity Reviewer v0.1');
+const continuityCandidateReader=continuityReviewerWorkflow.nodes.find((node)=>node.name==='Read Candidate Stories');
+const continuitySelector=continuityReviewerWorkflow.nodes.find((node)=>node.name==='Select Eligible Continuity Script');
+const continuityEligibilityGate=continuityReviewerWorkflow.nodes.find((node)=>node.name==='Continuity Eligible Script Selected');
+assert(continuityCandidateReader?.executeOnce===true,'Continuity Reviewer: candidate Story reader must run once');
+assert(continuityCandidateReader?.parameters?.options?.returnFirstMatch===false,'Continuity Reviewer: candidate Story reader must read all Stories');
+assert(continuitySelector?.parameters?.mode==='runOnceForAllItems','Continuity Reviewer: selector must run once for all items');
+assert(continuityEligibilityGate?.type==='n8n-nodes-base.if','Continuity Reviewer: eligible Script gate is missing');
+assert(singleTarget(continuityReviewerWorkflow,'Approved Script Is Valid',0)==='Read Candidate Stories','Continuity Reviewer: valid Script candidates must feed Story resolution');
+assert(singleTarget(continuityReviewerWorkflow,'Read Candidate Stories',0)==='Select Eligible Continuity Script','Continuity Reviewer: all Stories must feed the selector');
+assert(singleTarget(continuityReviewerWorkflow,'Select Eligible Continuity Script',0)==='Continuity Eligible Script Selected','Continuity Reviewer: selector must feed its eligibility gate');
+assert(singleTarget(continuityReviewerWorkflow,'Continuity Eligible Script Selected',0)==='Validate Canon Lineage','Continuity Reviewer: selected pair must reach canon validation');
+assert(singleTarget(continuityReviewerWorkflow,'Continuity Eligible Script Selected',1)==='Prepare Canon Lineage Failure','Continuity Reviewer: selector integrity failures must reach the controlled failure payload');
+assert(singleTarget(continuityReviewerWorkflow,'Continuity Review Does Not Exist',0)==='Prepare Continuity Input','Continuity Reviewer: duplicate Review guard must precede generation input');
+
 for (const workflowName of ['Milo Script Generator v0.1','Milo Outline Generator v0.1','Milo Outline Approval v0.1','Milo Concept Approval v0.1']) {
   const workflow=workflows.find((candidate)=>candidate.name===workflowName);
   assert(Object.keys(workflow.pinData ?? {}).length===0, `${workflowName}: unintended pinned data remains`);
@@ -267,6 +282,7 @@ console.log('PASS Boolean IF normalization, strict typing, and literal-suffix au
 console.log('PASS Outline Approval valid/invalid predicate branches and invalid failure route');
 console.log('PASS Outline Approval happy, repair, invalid-state, and failure-handler routes');
 console.log('PASS Script Approval storyId payload spelling');
+console.log('PASS Continuity Reviewer candidate-set selection and controlled failure routing');
 console.log('PASS Script Generator, Outline Approval, and Batch 2 exports contain no retained test pins');
 console.log('PASS local failure reachability and handler routing: 43/43 Prepare Failure nodes');
 console.log('PASS Concept Generator D-014 pre-canon duplicate, original duplicate, invalid-batch, and handler routes');

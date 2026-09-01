@@ -117,15 +117,9 @@
           "cachedResultName": "Stories",
           "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pDIH1NBjyuKsbjNu0oMTlVjbI7m2w5SVPIgJzDUtc_Y/edit#gid=1969258097"
         },
-        "filtersUI": {
-          "values": [
-            {
-              "lookupColumn": "storyId",
-              "lookupValue": "={{ $('Validate Approved Script').first().json.storyId }}"
-            }
-          ]
-        },
-        "options": {}
+        "options": {
+          "returnFirstMatch": false
+        }
       },
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
@@ -134,8 +128,9 @@
         384
       ],
       "id": "c2a826f1-ea70-4932-960c-b66bb64bea12",
-      "name": "Read Source Story",
+      "name": "Read Candidate Stories",
       "alwaysOutputData": true,
+      "executeOnce": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
           "id": "QG2OeymCBBUfhfMJ",
@@ -196,7 +191,7 @@
           "values": [
             {
               "lookupColumn": "scriptId",
-              "lookupValue": "={{ $('Validate Approved Script').first().json.scriptId }}"
+              "lookupValue": "={{ $('Select Eligible Continuity Script').first().json.selectedScript.scriptId }}"
             }
           ]
         },
@@ -259,49 +254,49 @@
             {
               "id": "b438f51d-1f48-4b34-b786-7c77dbe15ceb",
               "name": "storyId",
-              "value": "={{ $('Validate Approved Script').first().json.storyId }}",
+              "value": "={{ $('Select Eligible Continuity Script').first().json.selectedScript.storyId }}",
               "type": "string"
             },
             {
               "id": "5b65023a-a53f-44ef-9afa-0f59870b37b2",
               "name": "scriptId",
-              "value": "={{ $('Validate Approved Script').first().json.scriptId }}",
+              "value": "={{ $('Select Eligible Continuity Script').first().json.selectedScript.scriptId }}",
               "type": "string"
             },
             {
               "id": "3ee3f825-e4e9-451c-839d-ec67605c7484",
               "name": "reviewId",
-              "value": "={{ $('Validate Approved Script').first().json.scriptId + '-R01' }}",
+              "value": "={{ $('Select Eligible Continuity Script').first().json.selectedScript.scriptId + '-R01' }}",
               "type": "string"
             },
             {
               "id": "18b3ebe4-5db9-4a73-b364-e230a5728513",
               "name": "scriptVersion",
-              "value": "={{ Number($('Validate Approved Script').first().json.version) }}",
+              "value": "={{ Number($('Select Eligible Continuity Script').first().json.selectedScript.version) }}",
               "type": "number"
             },
             {
               "id": "d5420989-d5fb-4b42-8a43-f260e07590b9",
               "name": "scriptText",
-              "value": "={{ $('Validate Approved Script').first().json.scriptText }}",
+              "value": "={{ $('Select Eligible Continuity Script').first().json.selectedScript.scriptText }}",
               "type": "string"
             },
             {
               "id": "c284b380-cd4a-496b-a839-fe2af4c9b9cc",
               "name": "theme",
-              "value": "={{ $('Validate Approved Script').first().json.theme ?? '' }}",
+              "value": "={{ $('Select Eligible Continuity Script').first().json.selectedScript.theme ?? '' }}",
               "type": "string"
             },
             {
               "id": "abf8d014-308a-4a11-a250-73ede3bf47dc",
               "name": "lesson",
-              "value": "={{ $('Validate Approved Script').first().json.lesson ?? '' }}",
+              "value": "={{ $('Select Eligible Continuity Script').first().json.selectedScript.lesson ?? '' }}",
               "type": "string"
             },
             {
               "id": "0e693bdc-6cfa-4f54-8320-6c931cf3a3fe",
               "name": "canonReferences",
-              "value": "={{ $('Validate Approved Script').first().json.canonReferences ?? '' }}",
+              "value": "={{ $('Select Eligible Continuity Script').first().json.selectedScript.canonReferences ?? '' }}",
               "type": "string"
             },
             {
@@ -337,13 +332,13 @@
             {
               "id": "67d07290-225a-40b3-8f8e-952121dbdb03",
               "name": "canonVersion",
-              "value": "={{ $('Read Source Story').first().json.canonVersion }}",
+              "value": "={{ $('Select Eligible Continuity Script').first().json.canonVersion }}",
               "type": "string"
             },
             {
               "id": "08941ec2-1bad-41d9-96db-4497bf413b89",
               "name": "canonRef",
-              "value": "={{ $('Read Source Story').first().json.canonRef }}",
+              "value": "={{ $('Select Eligible Continuity Script').first().json.canonRef }}",
               "type": "string"
             }
           ]
@@ -378,7 +373,7 @@
         },
         "filePath": "03-prompts/MILO_CANON_CONTEXT.md",
         "additionalParameters": {
-          "reference": "={{ $('Read Source Story').first().json.canonRef }}"
+          "reference": "={{ $('Select Eligible Continuity Script').first().json.canonRef }}"
         }
       },
       "type": "n8n-nodes-base.github",
@@ -433,7 +428,7 @@
         },
         "filePath": "02-story-system/CONTINUITY_RULES.md",
         "additionalParameters": {
-          "reference": "={{ $('Read Source Story').first().json.canonRef }}"
+          "reference": "={{ $('Select Eligible Continuity Script').first().json.canonRef }}"
         }
       },
       "type": "n8n-nodes-base.github",
@@ -955,7 +950,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "storyId": "={{ $json.storyId }}",
-            "createdAt": "={{ $('Read Source Story').first().json.createdAt }}",
+            "createdAt": "={{ $('Select Eligible Continuity Script').first().json.createdAt }}",
             "updatedAt": "={{ $now.toISO() }}",
             "status": "CONTINUITY_REVIEWED"
           },
@@ -1271,19 +1266,19 @@
             {
               "id": "3855043a-6dd5-4d63-86b3-50ccfa01b4ba",
               "name": "storyId",
-              "value": "={{ $('Validate Approved Script').first().json.storyId ?? '' }}",
+              "value": "={{ $('Select Eligible Continuity Script').first().json.selectedScript.storyId ?? '' }}",
               "type": "string"
             },
             {
               "id": "7901e413-ae74-4733-9074-d2b59d8ea7d6",
               "name": "scriptId",
-              "value": "={{ $('Validate Approved Script').first().json.scriptId ?? '' }}",
+              "value": "={{ $('Select Eligible Continuity Script').first().json.selectedScript.scriptId ?? '' }}",
               "type": "string"
             },
             {
               "id": "1299cdba-5c70-4164-b285-823a33e51566",
               "name": "reviewId",
-              "value": "={{ $('Validate Approved Script').first().json.scriptId + '-R01' }}",
+              "value": "={{ $('Select Eligible Continuity Script').first().json.selectedScript.scriptId + '-R01' }}",
               "type": "string"
             },
             {
@@ -1378,13 +1373,13 @@
             {
               "id": "3855043a-6dd5-4d63-86b3-50ccfa01b4ba",
               "name": "storyId",
-              "value": "={{ $('Validate Approved Script').first().json.storyId ?? '' }}",
+              "value": "={{ $('Select Eligible Continuity Script').first().json.selectedScript.storyId ?? '' }}",
               "type": "string"
             },
             {
               "id": "7901e413-ae74-4733-9074-d2b59d8ea7d6",
               "name": "scriptId",
-              "value": "={{ $('Validate Approved Script').first().json.scriptId ?? '' }}",
+              "value": "={{ $('Select Eligible Continuity Script').first().json.selectedScript.scriptId ?? '' }}",
               "type": "string"
             },
             {
@@ -1801,7 +1796,55 @@
     },
     {
       "parameters": {
-        "jsCode": "const story = $json;\nconst script = $('Validate Approved Script').first().json;\nconst canonVersion = String(story.canonVersion ?? '').trim();\nconst canonRef = String(story.canonRef ?? '').trim();\nconst storyValid = /^canon-v[0-9]+\\.[0-9]+$/.test(canonVersion) && /^[0-9a-f]{40}$/i.test(canonRef);\nconst scriptVersion = String(script.canonVersion ?? '').trim();\nconst scriptRef = String(script.canonRef ?? '').trim();\nconst downstreamMatches = scriptVersion === canonVersion && scriptRef.toLowerCase() === canonRef.toLowerCase();\nconst canonLineageValid = storyValid && downstreamMatches;\n\nreturn {\n  json: {\n    ...story,\n    canonVersion,\n    canonRef,\n    canonLineageValid,\n    errorCode: !storyValid ? 'CANON_LINEAGE_INVALID' : (downstreamMatches ? '' : 'CANON_LINEAGE_MISMATCH'),\n    message: !storyValid\n      ? 'Authoritative Story canonVersion/canonRef is blank or invalid. Canon retrieval was not attempted.'\n      : (downstreamMatches ? '' : 'Approved Script canon lineage does not match the authoritative Story. Canon retrieval was not attempted.')\n  }\n};"
+        "mode": "runOnceForAllItems",
+        "jsCode": "const stories = $input.all().map((item, inputIndex) => ({ item, inputIndex }));\nconst scripts = $('Validate Approved Script').all()\n  .map((item, inputIndex) => ({ item, inputIndex }))\n  .filter(({ item }) => item.json?.valid === true)\n  .sort((a, b) => {\n    const aRow = Number(a.item.json.row_number);\n    const bRow = Number(b.item.json.row_number);\n    const aHasRow = Number.isFinite(aRow);\n    const bHasRow = Number.isFinite(bRow);\n    if (aHasRow && bHasRow && aRow !== bRow) return aRow - bRow;\n    if (aHasRow !== bHasRow) return aHasRow ? -1 : 1;\n    const storyOrder = String(a.item.json.storyId ?? '').localeCompare(String(b.item.json.storyId ?? ''));\n    return storyOrder || a.inputIndex - b.inputIndex;\n  });\n\nconst storiesById = new Map();\nfor (const entry of stories) {\n  const storyId = String(entry.item.json?.storyId ?? '').trim();\n  if (!storyId) continue;\n  const matches = storiesById.get(storyId) ?? [];\n  matches.push(entry);\n  storiesById.set(storyId, matches);\n}\n\nconst classifyCandidate = ({ item, inputIndex }) => {\n  const script = item.json;\n  const storyId = String(script.storyId ?? '').trim();\n  const matches = storiesById.get(storyId) ?? [];\n\n  if (matches.length !== 1) {\n    return {\n      inputIndex,\n      outcome: 'INTEGRITY_FAILURE',\n      story: matches[0]?.item.json ?? { storyId },\n      storyInputIndex: matches[0]?.inputIndex ?? 0,\n      script,\n      errorCode: 'APPROVED_SCRIPT_INVALID',\n      message: matches.length === 0\n        ? 'Processed approved Script does not resolve to a Story.'\n        : 'Processed approved Script resolves to multiple Story rows.'\n    };\n  }\n\n  const story = matches[0].item.json;\n  const marker = String(story.canonInitializationState ?? '').trim();\n  const storyVersion = String(story.canonVersion ?? '').trim();\n  const storyRef = String(story.canonRef ?? '').trim();\n  const scriptVersion = String(script.canonVersion ?? '').trim();\n  const scriptRef = String(script.canonRef ?? '').trim();\n  const storyBlank = storyVersion === '' && storyRef === '';\n  const scriptBlank = scriptVersion === '' && scriptRef === '';\n  const storyValid = /^canon-v[0-9]+\\.[0-9]+$/.test(storyVersion) && /^[0-9a-f]{40}$/i.test(storyRef);\n  const scriptValid = /^canon-v[0-9]+\\.[0-9]+$/.test(scriptVersion) && /^[0-9a-f]{40}$/i.test(scriptRef);\n  const lineageMatches = scriptVersion === storyVersion && scriptRef.toLowerCase() === storyRef.toLowerCase();\n\n  if (marker === '' && storyBlank && scriptBlank) {\n    return { inputIndex, outcome: 'PRE_CANON_LEGACY', story, storyInputIndex: matches[0].inputIndex, script };\n  }\n\n  if (!storyValid || !scriptValid || (marker !== '' && marker !== 'ASSIGNED')) {\n    return {\n      inputIndex,\n      outcome: 'INTEGRITY_FAILURE',\n      story,\n      storyInputIndex: matches[0].inputIndex,\n      script,\n      errorCode: 'CANON_LINEAGE_INVALID',\n      message: 'Processed approved Script or authoritative Story canon initialization marker/lineage is malformed. Continuity review was not attempted.'\n    };\n  }\n\n  if (!lineageMatches) {\n    return {\n      inputIndex,\n      outcome: 'INTEGRITY_FAILURE',\n      story,\n      storyInputIndex: matches[0].inputIndex,\n      script,\n      errorCode: 'CANON_LINEAGE_MISMATCH',\n      message: 'Processed approved Script canon lineage conflicts with the authoritative Story. Continuity review was not attempted.'\n    };\n  }\n\n  return {\n    inputIndex,\n    outcome: story.status === 'SCRIPT_APPROVED' ? 'ELIGIBLE' : 'INELIGIBLE',\n    story,\n    storyInputIndex: matches[0].inputIndex,\n    script\n  };\n};\n\nconst classified = scripts.map(classifyCandidate);\nconst selected =\n  classified.find((candidate) => candidate.outcome === 'ELIGIBLE') ??\n  classified.find((candidate) => candidate.outcome === 'INTEGRITY_FAILURE');\n\nif (!selected) return [];\n\nconst eligible = selected.outcome === 'ELIGIBLE';\nreturn [{\n  json: {\n    ...selected.story,\n    selectedScript: selected.script,\n    continuityScriptEligible: eligible,\n    continuityScriptCandidateOutcome: selected.outcome,\n    errorCode: eligible ? '' : selected.errorCode,\n    message: eligible ? '' : selected.message,\n    scriptId: selected.script.scriptId ?? '',\n    outlineId: selected.script.outlineId ?? '',\n    conceptId: selected.script.conceptId ?? '',\n    selectionFailureNode: 'Select Eligible Continuity Script',\n    selectionFailureNodeType: 'n8n-nodes-base.code'\n  },\n  pairedItem: { item: selected.storyInputIndex }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -896,
+        608
+      ],
+      "id": "continuity-eligible-script-selector",
+      "name": "Select Eligible Continuity Script"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "continuity-eligible-script-selected",
+              "leftValue": "={{ $json.continuityScriptEligible === true }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -672,
+        608
+      ],
+      "id": "continuity-eligible-script-gate",
+      "name": "Continuity Eligible Script Selected"
+    },
+    {
+      "parameters": {
+        "jsCode": "const story = $json;\nconst script = $('Select Eligible Continuity Script').first().json.selectedScript;\nconst canonVersion = String(story.canonVersion ?? '').trim();\nconst canonRef = String(story.canonRef ?? '').trim();\nconst storyValid = /^canon-v[0-9]+\\.[0-9]+$/.test(canonVersion) && /^[0-9a-f]{40}$/i.test(canonRef);\nconst scriptVersion = String(script.canonVersion ?? '').trim();\nconst scriptRef = String(script.canonRef ?? '').trim();\nconst downstreamMatches = scriptVersion === canonVersion && scriptRef.toLowerCase() === canonRef.toLowerCase();\nconst canonLineageValid = storyValid && downstreamMatches;\n\nreturn {\n  json: {\n    ...story,\n    canonVersion,\n    canonRef,\n    canonLineageValid,\n    errorCode: !storyValid ? 'CANON_LINEAGE_INVALID' : (downstreamMatches ? '' : 'CANON_LINEAGE_MISMATCH'),\n    message: !storyValid\n      ? 'Authoritative Story canonVersion/canonRef is blank or invalid. Canon retrieval was not attempted.'\n      : (downstreamMatches ? '' : 'Approved Script canon lineage does not match the authoritative Story. Canon retrieval was not attempted.')\n  }\n};"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -1931,13 +1974,13 @@
             {
               "id": "24e98965-7503-457b-a0c4-6ef0fe73478e",
               "name": "nodeName",
-              "value": "Validate Canon Lineage",
+              "value": "={{ $json.selectionFailureNode ?? 'Validate Canon Lineage' }}",
               "type": "string"
             },
             {
               "id": "b5cc2ba1-6430-4c22-8653-154547b6a514",
               "name": "nodeType",
-              "value": "n8n-nodes-base.code",
+              "value": "={{ $json.selectionFailureNodeType ?? 'n8n-nodes-base.code' }}",
               "type": "string"
             }
           ]
@@ -1989,11 +2032,11 @@
         ]
       ]
     },
-    "Read Source Story": {
+    "Read Candidate Stories": {
       "main": [
         [
           {
-            "node": "Validate Canon Lineage",
+            "node": "Select Eligible Continuity Script",
             "type": "main",
             "index": 0
           }
@@ -2051,7 +2094,7 @@
       "main": [
         [
           {
-            "node": "Read Source Story",
+            "node": "Read Candidate Stories",
             "type": "main",
             "index": 0
           }
@@ -2315,6 +2358,35 @@
         [
           {
             "node": "Call Failure Handler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Select Eligible Continuity Script": {
+      "main": [
+        [
+          {
+            "node": "Continuity Eligible Script Selected",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Continuity Eligible Script Selected": {
+      "main": [
+        [
+          {
+            "node": "Validate Canon Lineage",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare Canon Lineage Failure",
             "type": "main",
             "index": 0
           }
