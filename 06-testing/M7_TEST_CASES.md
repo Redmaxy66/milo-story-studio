@@ -50,6 +50,15 @@ node 06-testing/validate_production_package.mjs
 | M7-036 | Valid-output persistence entry | Valid output reaches the existing scene-expansion and persistence path. |
 | M7-037 | Manifest/provenance preservation | Planned asset manifest and prompt/provider/model provenance remain populated and unchanged in meaning. |
 | M7-038 | Prompt contract clarity | The immutable runtime prompt explicitly requires JSON arrays, complete dialogue-cue objects, and exact same-scene source substrings with preserved punctuation/casing. |
+| M7-039 | Persisted-scene read execution count | Eight appended scene items trigger exactly one `Read Persisted Scene Set` execution. |
+| M7-040 | Persisted-scene readback count | The single read returns exactly the eight stored scene rows. |
+| M7-041 | Complete scene verification | `Verify Complete Scene Set` receives exactly eight valid rows and accepts the complete set. |
+| M7-042 | Scene integrity rejection | Missing or duplicate scene rows still fail deterministic verification. |
+| M7-043 | Header write gate | The package header append remains unreachable until scene verification succeeds. |
+| M7-044 | Orphan-scene recovery selection | Eight valid orphan scene rows with no header and a `CONTINUITY_APPROVED` Story resolve to `HEADER_REPAIR`. |
+| M7-045 | Recovery scene-write isolation | `HEADER_REPAIR` reconstructs and appends only the missing header; it does not append the eight scene rows again. |
+| M7-046 | Header-repair completion | A valid repair creates exactly one header, verifies it, and reaches the intended `PRODUCTION_PACKAGE_GENERATED` transition. |
+| M7-047 | Recovery retry safety | Scene/header append nodes remain non-retrying and failure routing cannot re-enter either append. |
 
 ## Phase 4 live acceptance still required
 

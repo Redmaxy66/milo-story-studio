@@ -27,6 +27,8 @@ const errors = read(errorsPath);
 const decisions = read(decisionsPath);
 const node = name => wf.nodes.find(n => n.name === name);
 const targets = (source, output = 0, type = 'main') => (wf.connections[source]?.[type]?.[output] ?? []).map(x => x.node);
+const incomingSources = (workflow, targetName) => Object.entries(workflow.connections).flatMap(([source, connection]) =>
+  Object.values(connection).flatMap(branches => branches.flatMap(branch => branch.filter(target => target.node === targetName).map(() => ({source})))));
 const tests = [];
 const test = (name, fn) => tests.push([name, fn]);
 
@@ -130,6 +132,101 @@ function makeRichScene(pkg, n, words) {
     productionNotesJson: JSON.stringify({sceneNotes:['note'],packageNotes:['package note']}),
     canonVersion:'canon-v1.0',canonRef:'977755913d9ad41e4f16392d01ea993507af4102',createdAt:'2026-09-01T00:00:00.000Z'
   };
+}
+
+function makePersistedSceneRows(count = 8, pkg = 'MILO-007-S01-P01') {
+  return Array.from({length:count}, (_, index) => ({
+    packageId:pkg,
+    packageVersion:1,
+    sceneId:sceneId(pkg,index+1),
+    sceneNumber:index+1,
+    storyId:'MILO-007',
+    scriptId:'MILO-007-S01',
+    sourceText:`Scene ${index+1}.`,
+    assetRequirementsJson:JSON.stringify([{assetId:assetId(pkg,index+1),sceneId:sceneId(pkg,index+1),assetType:'VISUAL',role:'SCENE_VISUAL',status:'PLANNED',requirements:`Scene ${index+1} visual`}]),
+    productionNotesJson:JSON.stringify({sceneNotes:[],packageNotes:['Preserve approved Script text.']}),
+    canonVersion:'canon-v1.0',
+    canonRef:'977755913d9ad41e4f16392d01ea993507af4102',
+    createdAt:'2026-09-01T12:27:33.562Z',
+  }));
+}
+
+function simulatePersistedSceneRead(inputItems, persistedRows, executeOnce) {
+  const invocations = executeOnce ? 1 : inputItems.length;
+  return {
+    invocations,
+    outputItems:Array.from({length:invocations}, () => persistedRows).flat(),
+  };
+}
+
+function runSceneVerification(persistedRows, packageResult, scriptText) {
+  const verify = new Function('$input', '$', node('Verify Complete Scene Set').parameters.jsCode);
+  return verify(
+    {all:() => persistedRows.map(json => ({json:structuredClone(json)}))},
+    name => {
+      if (name === 'Build And Validate Complete Package') return {first:() => ({json:structuredClone(packageResult)})};
+      if (name === 'Resolve M7 Action') return {first:() => ({json:{script:{scriptText}}})};
+      throw new Error(`Unexpected scene-verification dependency: ${name}`);
+    },
+  )[0].json;
+}
+
+function makeHeaderRepairFixture() {
+  const orphanScenes = makePersistedSceneRows();
+  const scriptText = orphanScenes.map(row => row.sourceText).join(' ');
+  const story = {
+    storyId:'MILO-007',status:'CONTINUITY_APPROVED',workingTitle:'Milo repair fixture',ageRange:'5-10',
+    canonVersion:'canon-v1.0',canonRef:'977755913d9ad41e4f16392d01ea993507af4102',
+  };
+  const script = {
+    storyId:story.storyId,scriptId:'MILO-007-S01',outlineId:'MILO-007-O01',conceptId:'MILO-007-C01',title:'Milo repair fixture',
+    approvalStatus:'APPROVED',approvalProcessedAt:'2026-09-01T10:00:00.000Z',scriptText,wordCount:16,estimatedLengthMinutes:1,
+    theme:'Kindness',lesson:'Help others',version:1,canonVersion:story.canonVersion,canonRef:story.canonRef,
+  };
+  const review = {
+    storyId:story.storyId,scriptId:script.scriptId,scriptVersion:1,reviewId:'MILO-007-S01-R01',version:1,
+    reviewStatus:'APPROVED',reviewProcessedAt:'2026-09-01T11:00:00.000Z',assessmentResult:'PASS',
+    canonVersion:story.canonVersion,canonRef:story.canonRef,
+  };
+  return {orphanScenes,scriptText,story,script,review};
+}
+
+function runResolveForHeaderRepair(fixture) {
+  const resolve = new Function('$', '$input', node('Resolve M7 Action').parameters.jsCode);
+  const rows = {
+    'Normalize Generation Request':[{requestValid:true,generationMode:'INITIAL',storyId:''}],
+    'Read Stories':[fixture.story],
+    'Read Scripts':[fixture.script],
+    'Read Continuity Reviews':[fixture.review],
+    'Read Existing Production Packages':[],
+  };
+  return resolve(
+    name => ({
+      first:() => ({json:structuredClone(rows[name][0])}),
+      all:() => rows[name].map(json => ({json:structuredClone(json)})),
+    }),
+    {all:() => fixture.orphanScenes.map(json => ({json:structuredClone(json)}))},
+  )[0].json;
+}
+
+function runHeaderReconstruction(action) {
+  const reconstruct = new Function('$', node('Reconstruct Header From Verified Scenes').parameters.jsCode);
+  return reconstruct(name => {
+    assert.equal(name, 'Resolve M7 Action');
+    return {first:() => ({json:structuredClone(action)})};
+  })[0].json;
+}
+
+function runHeaderVerification(persistedHeaders, action, repairResult) {
+  const verify = new Function('$input', '$', node('Verify Complete Package').parameters.jsCode);
+  return verify(
+    {all:() => persistedHeaders.map(json => ({json:structuredClone(json)}))},
+    name => {
+      if (name === 'Resolve M7 Action') return {first:() => ({json:structuredClone(action)})};
+      if (name === 'Reconstruct Header From Verified Scenes') return {first:() => ({json:structuredClone(repairResult)})};
+      throw new Error(`Unexpected header-verification dependency: ${name}`);
+    },
+  )[0].json;
 }
 
 test('M7-001 workflow identity, inactive state and pin hygiene', () => {
@@ -445,6 +542,83 @@ test('M7-038 prompt explicitly preserves nested array and dialogue substring con
   assert(prompt.includes('must contain all three required string fields'));
   assert(prompt.includes("exact substring of that same scene's `sourceText`"));
   assert(prompt.includes('preserving its punctuation and casing exactly'));
+});
+
+test('M7-039 eight appended scene items trigger one persisted-scene read', () => {
+  const appended = makePersistedSceneRows();
+  assert.equal(node('Read Persisted Scene Set').executeOnce, true);
+  assert.equal(simulatePersistedSceneRead(appended, appended, node('Read Persisted Scene Set').executeOnce).invocations, 1);
+});
+
+test('M7-040 one persisted-scene read returns exactly eight scenes', () => {
+  const appended = makePersistedSceneRows();
+  const readback = simulatePersistedSceneRead(appended, appended, node('Read Persisted Scene Set').executeOnce);
+  assert.equal(readback.outputItems.length, 8);
+  assert.deepEqual(readback.outputItems.map(row => row.sceneId), appended.map(row => row.sceneId));
+});
+
+test('M7-041 complete scene verifier receives and accepts exactly eight scenes', () => {
+  const rows = makePersistedSceneRows();
+  const packageResult = {packageValid:true,packageId:'MILO-007-S01-P01',sceneRows:rows,header:{storyId:'MILO-007'}};
+  const result = runSceneVerification(rows, packageResult, rows.map(row => row.sourceText).join(' '));
+  assert.equal(rows.length, 8);
+  assert.equal(result.sceneSetVerified, true);
+});
+
+test('M7-042 duplicate or missing persisted scenes still fail verification', () => {
+  const rows = makePersistedSceneRows();
+  const packageResult = {packageValid:true,packageId:'MILO-007-S01-P01',sceneRows:rows,header:{storyId:'MILO-007'}};
+  const scriptText = rows.map(row => row.sourceText).join(' ');
+  assert.equal(runSceneVerification(rows.slice(0,7), packageResult, scriptText).sceneSetVerified, false);
+  assert.equal(runSceneVerification([...rows.slice(0,7), structuredClone(rows[6])], packageResult, scriptText).sceneSetVerified, false);
+});
+
+test('M7-043 package header remains gated behind successful scene verification', () => {
+  assert.deepEqual(targets('Scene Set Is Verified',0), ['Prepare Package Header']);
+  assert.deepEqual(targets('Scene Set Is Verified',1), ['Prepare M7 Failure']);
+  assert.deepEqual(incomingSources(wf, 'Append Production Package Header').map(x => x.source).sort(), ['Prepare Package Header','Prepare Repaired Header']);
+});
+
+test('M7-044 current eight-scene orphan state resolves to HEADER_REPAIR', () => {
+  const fixture = makeHeaderRepairFixture();
+  const action = runResolveForHeaderRepair(fixture);
+  assert.equal(action.action, 'HEADER_REPAIR');
+  assert.equal(action.packageId, 'MILO-007-S01-P01');
+  assert.equal(action.packageVersion, 1);
+  assert.equal(action.generationMode, 'INITIAL');
+  assert.equal(action.orphanScenes.length, 8);
+});
+
+test('M7-045 HEADER_REPAIR never re-appends existing scene rows', () => {
+  assert.deepEqual(targets('Route M7 Action',2), ['Reconstruct Header From Verified Scenes']);
+  assert.deepEqual(targets('Reconstruct Header From Verified Scenes'), ['Header Repair Is Valid']);
+  assert.deepEqual(targets('Header Repair Is Valid',0), ['Prepare Repaired Header']);
+  assert.deepEqual(targets('Prepare Repaired Header'), ['Append Production Package Header']);
+  for (const source of ['Route M7 Action','Reconstruct Header From Verified Scenes','Header Repair Is Valid','Prepare Repaired Header']) {
+    assert(!targets(source).includes('Append Production Package Scenes'));
+  }
+});
+
+test('M7-046 successful header repair creates one header then advances lifecycle', () => {
+  const fixture = makeHeaderRepairFixture();
+  const action = runResolveForHeaderRepair(fixture);
+  const repair = runHeaderReconstruction(action);
+  assert.equal(repair.repairValid, true);
+  assert.equal(repair.header.sceneCount, 8);
+  const prepare = new Function('$json', node('Prepare Repaired Header').parameters.jsCode);
+  const appendedHeaders = prepare(repair).map(item => item.json);
+  assert.equal(appendedHeaders.length, 1);
+  const verified = runHeaderVerification(appendedHeaders, action, repair);
+  assert.equal(verified.packageVerified, true);
+  assert.equal(verified.storyId, 'MILO-007');
+  assert.deepEqual(targets('Complete Package Is Verified',0), ['Mark Story Production Package Generated']);
+  assert.equal(node('Mark Story Production Package Generated').parameters.columns.value.status, 'PRODUCTION_PACKAGE_GENERATED');
+});
+
+test('M7-047 recovery preserves the no-append-retry policy', () => {
+  for (const name of ['Append Production Package Scenes','Append Production Package Header']) assert.notEqual(node(name).retryOnFail, true);
+  assert(!targets('Prepare M7 Failure').includes('Append Production Package Scenes'));
+  assert(!targets('Prepare M7 Failure').includes('Append Production Package Header'));
 });
 
 let passed=0;
