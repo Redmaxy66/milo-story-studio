@@ -13,7 +13,7 @@ const promptPath = '03-prompts/m7-production-package-generator.md';
 const statusPath = '02-story-system/STORY_STATUS_MODEL.md';
 const errorsPath = '02-story-system/ERROR_CODE_REGISTER.md';
 const decisionsPath = 'DECISION_LOG.md';
-const PROMPT_REF = 'c895b665d0f80f58808200055fdb58bb18b86ab9';
+const PROMPT_REF = '7947021016f14c84c71421aeb225b80cad990c9d';
 const HANDLER_ID = '3an2myLOF7o4STK8';
 
 const read = p => fs.readFileSync(path.join(root, p), 'utf8');
@@ -34,6 +34,69 @@ function normalize(s) { return String(s ?? '').replace(/\s+/g, ' ').trim(); }
 function packageId(scriptId, version) { return `${scriptId}-P${String(version).padStart(2, '0')}`; }
 function sceneId(pkg, n) { return `${pkg}-SC${String(n).padStart(2, '0')}`; }
 function assetId(pkg, n) { return `${pkg}-A${String(n).padStart(3, '0')}`; }
+
+function schemaErrors(value, contract, location = '$') {
+  const errors = [];
+  const actualType = Array.isArray(value) ? 'array' : value === null ? 'null' : typeof value;
+  if (contract.type && actualType !== contract.type) return [`${location}: expected ${contract.type}, got ${actualType}`];
+  if (contract.enum && !contract.enum.includes(value)) errors.push(`${location}: value is outside enum`);
+  if (contract.type === 'string' && contract.minLength && value.length < contract.minLength) errors.push(`${location}: string is too short`);
+  if (contract.type === 'array') {
+    if (contract.minItems !== undefined && value.length < contract.minItems) errors.push(`${location}: too few items`);
+    if (contract.maxItems !== undefined && value.length > contract.maxItems) errors.push(`${location}: too many items`);
+    if (contract.items) value.forEach((item, index) => errors.push(...schemaErrors(item, contract.items, `${location}[${index}]`)));
+  }
+  if (contract.type === 'object') {
+    for (const key of contract.required ?? []) if (!(key in value)) errors.push(`${location}.${key}: required property missing`);
+    if (contract.additionalProperties === false) {
+      for (const key of Object.keys(value)) if (!(key in (contract.properties ?? {}))) errors.push(`${location}.${key}: additional property`);
+    }
+    for (const [key, childContract] of Object.entries(contract.properties ?? {})) {
+      if (key in value) errors.push(...schemaErrors(value[key], childContract, `${location}.${key}`));
+    }
+  }
+  return errors;
+}
+
+function makeValidAiScene(sourceText = 'Hello explorers.') {
+  return {
+    sourceText,
+    sceneDescription:'Milo warmly greets the explorers.',
+    setting:'Moonberry Wood',
+    characters:['Milo'],
+    visualGuidance:{
+      visualPrompt:'Warm Milo scene',charactersPresent:['Milo'],environment:'Moonberry Wood',moodLighting:'Warm amber',
+      mustInclude:['Milo'],mustAvoid:['unsupported canon'],continuityRequirements:['preserve Milo identity'],
+      canonReferences:['VISUAL_REFERENCE.md'],openCanonConstraints:['keep unresolved details open'],
+    },
+    voiceGuidance:{
+      overallTone:'warm',pacingNote:'gentle',emotion:'welcoming',emphasisNotes:['clear greeting'],pauseGuidance:['brief pause'],
+      dialogueCues:[{speaker:'Milo',text:'Hello',deliveryNote:'warmly'}],
+    },
+    motionGuidance:{
+      motionPrompt:'Milo gives a gentle wave',characterActions:['wave'],environmentMotion:['leaves drift'],cameraGuidance:'slow push',
+      transitionGuidance:'gentle cut',timingNote:'unhurried',continuityConstraints:['preserve approved action'],
+    },
+    assetRequirements:[{assetType:'VISUAL',role:'PRIMARY_SCENE_VISUAL',requirements:'Warm Moonberry Wood scene'}],
+    productionNotes:['Keep the scene gentle'],
+  };
+}
+
+function runBuild(output, scriptText = output.scenes.map(scene => scene.sourceText).join(' ')) {
+  const action = {
+    packageId:'MILO-007-S01-P01',packageVersion:1,generationMode:'INITIAL',supersedesPackageId:'',
+    packageFormatVersion:'1.0',promptVersion:'m7-production-package-v1.0',promptPath,promptRef:PROMPT_REF,
+    generatorProvider:'OpenAI',generatorModel:'gpt-5-mini',
+    story:{storyId:'MILO-007',workingTitle:'Test Story',ageRange:'5-10',canonVersion:'canon-v1.0',canonRef:'977755913d9ad41e4f16392d01ea993507af4102'},
+    script:{storyId:'MILO-007',scriptId:'MILO-007-S01',outlineId:'MILO-007-O01',conceptId:'MILO-007-C01',title:'Test Story',scriptText,wordCount:2,estimatedLengthMinutes:1,theme:'Kindness',lesson:'Help others',version:1},
+    review:{reviewId:'MILO-007-S01-R01',version:1,assessmentResult:'PASS'},
+  };
+  const build = new Function('$json', '$', node('Build And Validate Complete Package').parameters.jsCode);
+  return build({output}, name => {
+    assert.equal(name, 'Resolve M7 Action');
+    return {first:() => ({json:action})};
+  })[0].json;
+}
 
 function validateHistory(rows, scriptId) {
   const h = [...rows].sort((a,b) => a.packageVersion - b.packageVersion);
@@ -78,6 +141,9 @@ test('M7-001 workflow identity, inactive state and pin hygiene', () => {
 
 test('M7-002 graph references unique existing nodes', () => {
   const names = wf.nodes.map(n => n.name);
+  const edgeCount = Object.values(wf.connections).flatMap(connection => Object.values(connection)).flat(2).length;
+  assert.equal(wf.nodes.length, 47);
+  assert.equal(edgeCount, 57);
   assert.equal(new Set(names).size, names.length);
   for (const [source, conn] of Object.entries(wf.connections)) {
     assert(names.includes(source), `missing source ${source}`);
@@ -279,6 +345,106 @@ test('M7-027 realistic child-row JSON fields stay below the 50k design boundary'
   const chunks=Array.from({length:14},(_,i)=>words.slice(i*64, i===13?900:(i+1)*64));
   const rows=chunks.map((w,i)=>makeRichScene('MILO-001-S01-P01',i+1,w));
   for(const row of rows) for(const key of ['sourceText','charactersJson','visualGuidanceJson','voiceGuidanceJson','motionGuidanceJson','assetRequirementsJson','productionNotesJson']) assert(String(row[key]).length < 50000, `${key} exceeds boundary`);
+});
+
+test('M7-028 runtime parser schema exactly matches the authoritative schema', () => {
+  const runtimeSchema = JSON.parse(node('Production Package Output Parser').parameters.inputSchema);
+  assert.deepEqual(runtimeSchema, schema);
+});
+
+test('M7-029 required nested guidance arrays reject string values', () => {
+  const paths = [
+    ['visualGuidance','continuityRequirements'],
+    ['visualGuidance','openCanonConstraints'],
+    ['voiceGuidance','emphasisNotes'],
+    ['voiceGuidance','pauseGuidance'],
+    ['motionGuidance','continuityConstraints'],
+  ];
+  for (const [group, field] of paths) {
+    const output = {scenes:[makeValidAiScene()],productionNotes:[]};
+    output.scenes[0][group][field] = 'incorrect string value';
+    assert(schemaErrors(output, schema).some(error => error.includes(`${group}.${field}: expected array`)), `${group}.${field} accepted a string`);
+  }
+});
+
+test('M7-030 valid nested guidance arrays pass the authoritative schema', () => {
+  const output = {scenes:[makeValidAiScene()],productionNotes:[]};
+  assert.deepEqual(schemaErrors(output, schema), []);
+});
+
+test('M7-031 dialogue cue without speaker is rejected', () => {
+  const output = {scenes:[makeValidAiScene()],productionNotes:[]};
+  delete output.scenes[0].voiceGuidance.dialogueCues[0].speaker;
+  assert(schemaErrors(output, schema).some(error => error.includes('speaker: required property missing')));
+});
+
+test('M7-032 dialogue cue without deliveryNote is rejected', () => {
+  const output = {scenes:[makeValidAiScene()],productionNotes:[]};
+  delete output.scenes[0].voiceGuidance.dialogueCues[0].deliveryNote;
+  assert(schemaErrors(output, schema).some(error => error.includes('deliveryNote: required property missing')));
+});
+
+test('M7-033 dialogue cue text must be an exact sourceText substring', () => {
+  const invalid = {scenes:[makeValidAiScene('Hello explorers.')],productionNotes:[]};
+  invalid.scenes[0].voiceGuidance.dialogueCues[0].text = 'hello';
+  assert.deepEqual(schemaErrors(invalid, schema), []);
+  assert.equal(runBuild(invalid).packageValid, false);
+  const valid = {scenes:[makeValidAiScene('Hello explorers.')],productionNotes:[]};
+  assert.equal(runBuild(valid).packageValid, true);
+});
+
+test('M7-034 exact normalized Script coverage requires complete ordered scenes', () => {
+  const first = makeValidAiScene('Hello explorers.');
+  const second = makeValidAiScene('Welcome home.');
+  first.voiceGuidance.dialogueCues[0].text = 'Hello';
+  second.voiceGuidance.dialogueCues[0].text = 'Welcome';
+  const output = {scenes:[first,second],productionNotes:[]};
+  assert.equal(runBuild(output, 'Hello explorers. Welcome home.').packageValid, true);
+  assert.equal(runBuild(output, 'Welcome home. Hello explorers.').packageValid, false);
+  assert.equal(runBuild({scenes:[first],productionNotes:[]}, 'Hello explorers. Welcome home.').packageValid, false);
+});
+
+test('M7-035 invalid nested output routes to the handled failure path before writes', () => {
+  const output = {scenes:[makeValidAiScene()],productionNotes:[]};
+  output.scenes[0].visualGuidance.continuityRequirements = 'invalid';
+  const result = runBuild(output);
+  assert.equal(result.packageValid, false);
+  assert.equal(result.errorCode, 'PRODUCTION_PACKAGE_AI_OUTPUT_INVALID');
+  assert.deepEqual(targets('Generated Package Is Valid',1), ['Prepare M7 Failure']);
+  assert.deepEqual(targets('Prepare M7 Failure'), ['Call Failure Handler']);
+  for (const writeNode of ['Append Production Package Scenes','Append Production Package Header','Mark Story Production Package Generated']) {
+    assert(!targets('Prepare M7 Failure').includes(writeNode));
+  }
+});
+
+test('M7-036 valid output can enter the existing persistence path', () => {
+  const output = {scenes:[makeValidAiScene()],productionNotes:['Package note']};
+  const result = runBuild(output);
+  assert.equal(result.packageValid, true);
+  assert.equal(result.sceneRows.length, 1);
+  assert.deepEqual(targets('Generated Package Is Valid',0), ['Expand Scene Rows']);
+  assert.deepEqual(targets('Expand Scene Rows'), ['Append Production Package Scenes']);
+});
+
+test('M7-037 asset manifest and generation provenance remain populated', () => {
+  const output = {scenes:[makeValidAiScene()],productionNotes:[]};
+  const result = runBuild(output);
+  const manifest = JSON.parse(result.header.assetManifestJson);
+  assert.equal(manifest.length, 1);
+  assert.equal(manifest[0].status, 'PLANNED');
+  assert.equal(result.header.promptRef, PROMPT_REF);
+  assert.equal(result.header.generatorProvider, 'OpenAI');
+  assert.equal(result.header.generatorModel, 'gpt-5-mini');
+});
+
+test('M7-038 prompt explicitly preserves nested array and dialogue substring contracts', () => {
+  for (const field of ['continuityRequirements','openCanonConstraints','emphasisNotes','pauseGuidance','continuityConstraints']) {
+    assert(prompt.includes(field));
+  }
+  assert(prompt.includes('must be JSON arrays'));
+  assert(prompt.includes('must contain all three required string fields'));
+  assert(prompt.includes("exact substring of that same scene's `sourceText`"));
+  assert(prompt.includes('preserving its punctuation and casing exactly'));
 });
 
 let passed=0;
