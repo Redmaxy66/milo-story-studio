@@ -13,6 +13,8 @@ M7 repository implementation adds Production Package-specific codes without rena
 
 D-014 repository remediation adds canon-initialisation-specific failures to the Concept Generator while retaining `CANON_LINEAGE_INVALID` for the D-012 blank-marker + blank-lineage PRE-CANON LEGACY rejection.
 
+The D-014 eligible-selection remediation introduces no new operational error code. An all-PRE-CANON LEGACY `IDEA` candidate set is a controlled zero-item no-op, not a failure. A malformed/conflicting candidate remains governed by `CANON_INITIALIZATION_INTEGRITY_FAILED`; PRE-CANON LEGACY rows are excluded before candidate selection and are not logged or modified.
+
 ## Registered codes
 
 | Code | Primary producer or condition |

@@ -132,23 +132,28 @@ A generated concept option is valid only when:
 
 ## 9. Workflow sequence
 
-1. Select one eligible Story Vault record in `IDEA`.
-2. Classify its canon-initialisation state under D-014.
-3. If and only if the Story is `PENDING` with blank lineage, prepare the explicitly governed approved canon release for first assignment.
-4. If the Story is `PENDING` with the already valid expected governed lineage, treat it as recoverable partial initialization and complete only the marker transition.
-5. Reject PRE-CANON LEGACY, malformed, conflicting, or impossible marker/lineage states deterministically without overwriting canon.
-6. Persist any permitted first-assignment/recovery Story update and verify the resulting Story record.
-7. Validate the Story `canonVersion` and immutable `canonRef` normally.
-8. Load approved `MILO_CANON_CONTEXT.md` using exactly the validated Story `canonRef`; never use HEAD, the default branch, newest tag, or latest commit.
-9. Pass the Story input, optional creative context, and approved canon context to the Concept Generator.
-10. Require AI output containing exactly three creative concept options matching `STORY_CONCEPT_AI_OUTPUT_SCHEMA.json`.
-11. Split the three concept options into individual items.
-12. Attach storyId, conceptId, theme, targetLengthMinutes, canonReferences, canonVersion, canonRef, and approvalStatus deterministically in n8n.
-13. Validate every complete concept option deterministically.
-14. Store valid concept options in the Concepts tab.
-15. Update the source Story status to CONCEPT_GENERATED once.
-16. Present the stored concept options for human review through the separate approval workflow.
-17. Allow only an APPROVED concept to proceed to M5.
+1. Read the complete Story Vault candidate set matching `status = IDEA`; do not take the first sheet row.
+2. Order candidates deterministically by numeric `row_number`, then `storyId`, then stable input order.
+3. Classify every candidate under the D-014 marker/lineage contract.
+4. Exclude blank-marker + blank-lineage PRE-CANON LEGACY candidates from automatic selection.
+5. Select the first legitimate D-014 candidate. If none is legitimate, surface the first malformed/conflicting candidate through controlled integrity handling; if all candidates are PRE-CANON LEGACY, return a controlled zero-item no-eligible-story outcome.
+6. For the selected eligible Story, check for existing Concepts before any canon mutation or AI generation.
+7. Classify the selected Story's canon-initialisation state under D-014.
+8. If and only if the Story is `PENDING` with blank lineage, prepare the explicitly governed approved canon release for first assignment.
+9. If the Story is `PENDING` with the already valid expected governed lineage, treat it as recoverable partial initialization and complete only the marker transition.
+10. Reject malformed, conflicting, or impossible marker/lineage states deterministically without overwriting canon.
+11. Persist any permitted first-assignment/recovery Story update and verify the resulting Story record.
+12. Validate the Story `canonVersion` and immutable `canonRef` normally.
+13. Load approved `MILO_CANON_CONTEXT.md` using exactly the validated Story `canonRef`; never use HEAD, the default branch, newest tag, or latest commit.
+14. Pass the Story input, optional creative context, and approved canon context to the Concept Generator.
+15. Require AI output containing exactly three creative concept options matching `STORY_CONCEPT_AI_OUTPUT_SCHEMA.json`.
+16. Split the three concept options into individual items.
+17. Attach storyId, conceptId, theme, targetLengthMinutes, canonReferences, canonVersion, canonRef, and approvalStatus deterministically in n8n.
+18. Validate every complete concept option deterministically.
+19. Store valid concept options in the Concepts tab.
+20. Update the source Story status to CONCEPT_GENERATED once.
+21. Present the stored concept options for human review through the separate approval workflow.
+22. Allow only an APPROVED concept to proceed to M5.
 
 ## 10. Open decisions
 
@@ -239,6 +244,8 @@ This release mapping is a governed workflow configuration under D-008/D-014. It 
 A Story with a valid but different lineage is not silently migrated to the current release. Under the current single approved release configuration, it fails the first-assignment integrity check rather than being overwritten.
 
 First assignment is allowed only when Story status is `IDEA` and no Concepts already exist for that Story.
+
+Candidate eligibility is evaluated across the full `IDEA` set before one Story is taken. Earlier PRE-CANON LEGACY rows are excluded and cannot starve a later legitimate candidate. Selection is deterministic by numeric `row_number`, then `storyId`, then stable input order. When only PRE-CANON LEGACY candidates exist, the selector emits no item and the workflow ends as a controlled no-eligible-story no-op. A malformed/conflicting candidate is never made eligible; when no legitimate candidate exists, the first deterministic malformed candidate proceeds only to the existing `CANON_INITIALIZATION_INTEGRITY_FAILED` handling.
 
 ## 17. Failure and recovery contract
 

@@ -23,6 +23,17 @@ The Concept Generator stores this approved release mapping explicitly as governe
 
 Before a first assignment or `PENDING` recovery write, `Verify Governed Canon Release` retrieves `03-prompts/MILO_CANON_CONTEXT.md` using the intended immutable `targetCanonRef`. Normal runtime canon retrieval then continues through the existing `Validate Canon Lineage` path and reads using the Story's stored `canonRef`.
 
+## D-014 eligible Story selection remediation
+
+Concept Generator now reads the complete `status = IDEA` candidate set instead of taking the first matching sheet row. `Select D-014 Eligible Story` orders candidates by numeric `row_number`, then `storyId`, then stable input order; classifies each marker/lineage combination; excludes D-012 PRE-CANON LEGACY rows; and selects one legitimate D-014 candidate.
+
+If no legitimate candidate exists:
+
+- an all-PRE-CANON LEGACY set produces a controlled zero-item no-op;
+- otherwise, the first deterministic malformed/conflicting candidate is routed into the existing `CANON_INITIALIZATION_INTEGRITY_FAILED` path.
+
+`D-014 Eligible Story Selected` routes only a legitimate candidate to `Check Existing Concepts Before Canon`. The false branch routes a malformed candidate directly to the existing canon-initialisation classifier. Duplicate protection therefore remains ahead of canon mutation and AI generation for every selected eligible Story.
+
 ## D-014 deterministic state matrix
 
 Offline deterministic simulation and committed-workflow inspection produced the required outcomes:
@@ -103,9 +114,10 @@ No automatic retry was added to a Google Sheets append operation. Canon initiali
 
 ## Validation performed
 
-1. D-014 state-classifier deterministic simulation: all seven required matrix cases passed, plus an invalid non-`IDEA` recovery case.
-2. Committed workflow static/graph inspection: first-assignment duplicate guard, governed-release verification, Story update, reread/verification, existing canon validator, existing runtime GitHub read, downstream duplicate guard, handler routes and lifecycle update separation were verified.
-3. Read-only GitHub tag verification: annotated `canon-v1.0` still resolves to commit `977755913d9ad41e4f16392d01ea993507af4102`.
+1. D-014 eligible-selection deterministic simulation passed: legacy-before-PENDING, multiple-legacy-before-PENDING, legacy-only no-op, governed-lineage eligibility, malformed-only integrity routing, deterministic multi-eligible ordering, duplicate-guard ordering, and D-012 input immutability.
+2. D-014 state-classifier deterministic simulation: all seven required matrix cases passed, plus an invalid non-`IDEA` recovery case.
+3. Committed workflow static/graph inspection: first-assignment duplicate guard, governed-release verification, Story update, reread/verification, existing canon validator, existing runtime GitHub read, downstream duplicate guard, handler routes and lifecycle update separation were verified.
+4. Read-only GitHub tag verification: annotated `canon-v1.0` still resolves to commit `977755913d9ad41e4f16392d01ea993507af4102`.
 4. Story Intake committed-export inspection: new Stories carry blank lineage plus `PENDING`; the append schema contains all three governed fields.
 5. Failure instrumentation regression contract updated to include the D-014 failure nodes/codes and both duplicate guards.
 6. Dedicated executable repository validator added at `06-testing/validate_canon_initialization.mjs` for repeatable local/CI execution when a repository checkout is available.

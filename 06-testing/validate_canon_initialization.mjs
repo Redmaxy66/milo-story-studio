@@ -40,10 +40,100 @@ assert.ok(intakeSchema.includes('canonInitializationState'));
 assert.ok(intakeSchema.includes('canonVersion'));
 assert.ok(intakeSchema.includes('canonRef'));
 
+const selector = node(concept, 'Select D-014 Eligible Story');
+assert.equal(selector.parameters.mode, 'runOnceForAllItems');
+const runSelector = new Function('$input', selector.parameters.jsCode);
+const selectCandidates = (stories) =>
+  runSelector({ all: () => stories.map((json) => ({ json: structuredClone(json) })) }).map((item) => item.json);
+
 const classifier = node(concept, 'Classify Canon Initialization');
 const runClassifier = new Function('$json', classifier.parameters.jsCode);
 const base = { storyId: 'MILO-999', status: 'IDEA', canonInitializationState: '', canonVersion: '', canonRef: '' };
 const classify = (overrides) => runClassifier({ ...base, ...overrides }).json;
+
+const legacy = (storyId, rowNumber) => ({
+  storyId,
+  row_number: rowNumber,
+  status: 'IDEA',
+  canonInitializationState: '',
+  canonVersion: '',
+  canonRef: '',
+});
+const pending = (storyId, rowNumber) => ({
+  storyId,
+  row_number: rowNumber,
+  status: 'IDEA',
+  canonInitializationState: 'PENDING',
+  canonVersion: '',
+  canonRef: '',
+});
+const assigned = (storyId, rowNumber) => ({
+  storyId,
+  row_number: rowNumber,
+  status: 'IDEA',
+  canonInitializationState: 'ASSIGNED',
+  canonVersion: expectedVersion,
+  canonRef: expectedRef,
+});
+
+let selected = selectCandidates([legacy('MILO-006', 7), pending('MILO-007', 8)]);
+assert.equal(selected.length, 1);
+assert.equal(selected[0].storyId, 'MILO-007');
+assert.equal(selected[0].candidateSelectionOutcome, 'ELIGIBLE');
+
+selected = selectCandidates([
+  legacy('MILO-002', 3),
+  legacy('MILO-004', 5),
+  legacy('MILO-006', 7),
+  pending('MILO-007', 8),
+]);
+assert.equal(selected.length, 1);
+assert.equal(selected[0].storyId, 'MILO-007');
+
+const legacyOnly = [legacy('MILO-002', 3), legacy('MILO-006', 7)];
+const legacySnapshot = structuredClone(legacyOnly);
+selected = selectCandidates(legacyOnly);
+assert.deepEqual(selected, []);
+assert.deepEqual(legacyOnly, legacySnapshot, 'D-012 PRE-CANON LEGACY records must remain untouched');
+
+for (const governed of [
+  assigned('MILO-008', 9),
+  {
+    storyId: 'MILO-009',
+    row_number: 10,
+    status: 'IDEA',
+    canonInitializationState: '',
+    canonVersion: expectedVersion,
+    canonRef: expectedRef,
+  },
+]) {
+  selected = selectCandidates([legacy('MILO-006', 7), governed]);
+  assert.equal(selected.length, 1);
+  assert.equal(selected[0].storyId, governed.storyId);
+  assert.equal(selected[0].candidateSelectionOutcome, 'ELIGIBLE');
+}
+
+selected = selectCandidates([{
+  storyId: 'MILO-010',
+  row_number: 11,
+  status: 'IDEA',
+  canonInitializationState: 'PENDING',
+  canonVersion: expectedVersion,
+  canonRef: 'a'.repeat(40),
+}]);
+assert.equal(selected.length, 1);
+assert.equal(selected[0].storyId, 'MILO-010');
+assert.equal(selected[0].candidateSelectionEligible, false);
+assert.equal(selected[0].candidateSelectionOutcome, 'INTEGRITY_FAILURE');
+assert.equal(classify(selected[0]).errorCode, 'CANON_INITIALIZATION_INTEGRITY_FAILED');
+
+selected = selectCandidates([
+  pending('MILO-012', 13),
+  pending('MILO-011', 12),
+  pending('MILO-013', 12),
+]);
+assert.equal(selected.length, 1);
+assert.equal(selected[0].storyId, 'MILO-011', 'lowest row_number then storyId must win deterministically');
 
 let r = classify({});
 assert.equal(r.canonInitializationValid, false);
@@ -96,7 +186,11 @@ r = classify({ canonInitializationState: 'PENDING', canonVersion: expectedVersio
 assert.equal(r.canonInitializationValid, false);
 assert.equal(r.errorCode, 'CANON_INITIALIZATION_INTEGRITY_FAILED');
 
-assert.deepEqual(targets(concept, 'Read Eligible Story Ideas'), ['Check Existing Concepts Before Canon']);
+assert.equal(node(concept, 'Read Eligible Story Ideas').parameters.options.returnFirstMatch, false);
+assert.deepEqual(targets(concept, 'Read Eligible Story Ideas'), ['Select D-014 Eligible Story']);
+assert.deepEqual(targets(concept, 'Select D-014 Eligible Story'), ['D-014 Eligible Story Selected']);
+assert.deepEqual(targets(concept, 'D-014 Eligible Story Selected', 0), ['Check Existing Concepts Before Canon']);
+assert.deepEqual(targets(concept, 'D-014 Eligible Story Selected', 1), ['Classify Canon Initialization']);
 assert.deepEqual(targets(concept, 'No Existing Concepts Before Canon', 0), ['Restore Eligible Story']);
 assert.deepEqual(targets(concept, 'No Existing Concepts Before Canon', 1), ['Prepare Concepts Already Exist Failure']);
 assert.deepEqual(targets(concept, 'Canon Write Required', 0), ['Verify Governed Canon Release']);
@@ -144,8 +238,32 @@ assert.match(decisions, /absence of the marker does not invalidate/i);
 const duplicateFailure = node(concept, 'Prepare Concepts Already Exist Failure');
 const duplicateCode = duplicateFailure.parameters.assignments.assignments.find((a) => a.name === 'errorCode');
 assert.equal(duplicateCode.value, 'CONCEPTS_ALREADY_EXIST');
+assert.ok(
+  targets(concept, 'D-014 Eligible Story Selected', 0).includes('Check Existing Concepts Before Canon'),
+  'selected eligible Story must reach duplicate protection before canon mutation',
+);
+assert.ok(
+  !targets(concept, 'D-014 Eligible Story Selected', 0).some((name) =>
+    ['Persist Canon Initialization', 'Generate Concept Options'].includes(name)),
+  'selected eligible Story must not bypass duplicate protection',
+);
 assert.ok(targets(concept, 'Merge').includes('Check Existing Concepts'), 'post-canon duplicate guard must remain');
 
+for (const name of [
+  'Check Existing Concepts Before Canon',
+  'Restore Eligible Story',
+  'Prepare Canon Initialization Failure',
+  'Mark Story Concept Generated',
+  'Prepare Concepts Already Exist Failure',
+]) {
+  assert.doesNotMatch(
+    JSON.stringify(node(concept, name).parameters),
+    /\$\('Read Eligible Story Ideas'\)/,
+    `${name}: downstream expressions must reference the selected Story, not the first raw IDEA row`,
+  );
+}
+
+console.log('PASS D-014 eligible Story selection, legacy exclusion, integrity routing, and deterministic ordering');
 console.log('PASS D-014 seven-state canon initialization matrix');
 console.log('PASS Story Intake creates PENDING with blank lineage only for new repository contract');
 console.log('PASS Concept Generator first assignment/recovery preserves lifecycle and never overwrites conflicting canon');

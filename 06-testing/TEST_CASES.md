@@ -109,3 +109,19 @@ Run `node 06-testing/validate_canon_lineage.mjs`.
 | CL-007 — Protected workflow wiring | Canonical IDs, Error Workflow settings, Call Failure Handler IDs, credentials, and Story Vault targets remain unchanged. |
 
 No production workflow execution is required for these structural tests.
+
+
+## D-014 — Eligible Story Selection Remediation
+
+Run `node 06-testing/validate_canon_initialization.mjs`.
+
+| Test | Expected result | Repository result |
+|---|---|---|
+| D014-SEL-001 — Legacy before PENDING | Earlier PRE-CANON LEGACY `IDEA` is excluded; later `PENDING` Story is selected. | Passed offline. |
+| D014-SEL-002 — Multiple legacy before PENDING | All earlier legacy rows are excluded; the `PENDING` Story is selected. | Passed offline. |
+| D014-SEL-003 — Legacy-only set | No Story is selected and no canon assignment path receives an item. | Passed offline. |
+| D014-SEL-004 — Existing governed lineage | `ASSIGNED` or blank marker with exact governed lineage remains eligible without canon replacement. | Passed offline. |
+| D014-SEL-005 — Malformed governed candidate | With no legitimate candidate, the malformed Story routes to deterministic integrity handling. | Passed offline. |
+| D014-SEL-006 — Multiple legitimate candidates | Numeric `row_number`, then `storyId`, then stable input order selects one candidate deterministically. | Passed offline. |
+| D014-SEL-007 — Duplicate guard order | The selected eligible Story reaches `Check Existing Concepts Before Canon` before canon mutation or AI generation. | Passed offline. |
+| D014-SEL-008 — D-012 immutability | Candidate classification does not mutate PRE-CANON LEGACY inputs or make them eligible. | Passed offline. |
