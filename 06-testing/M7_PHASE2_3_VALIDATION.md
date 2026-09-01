@@ -10,9 +10,9 @@
 
 M7 repository implementation passed the non-production validation gate required before Phase 4.
 
-The executable offline M7 validation harness completed:
+The executable offline M7 validation harness completed after the structured-output remediation:
 
-`27 / 27 PASS`
+`38 / 38 PASS`
 
 The final committed workflow hardening deltas were then re-inspected directly from the repository after remediation.
 
@@ -20,7 +20,13 @@ The final committed workflow hardening deltas were then re-inspected directly fr
 
 A later full-suite rerun exposed a brittle M7-008 harness assertion: the approved prompt prohibits human-readable “package IDs” and “package versions”, while the test incorrectly required the camelCase implementation tokens `packageId` and `packageVersion`. The approved prompt, schema, workflow, and immutable `promptRef` were unchanged. The harness now proves the boundary directly by requiring that the schema expose only `scenes` and `productionNotes` and that the prompt explicitly prohibit package IDs/versions, canon lineage, and publishing schedules. The reconciled suite remains `27 / 27 PASS`.
 
-Controlled live execution `#406` later exposed two narrow runtime defects before AI generation or persistence: chained global Google Sheets reads multiplied downstream candidate rows because they were not configured to execute once, and the Code-node handled-failure envelope used expression-only `$exec.id`. The repository export now marks all five global table reads `executeOnce=true` and uses `$execution.id` inside `Prepare M7 Failure`. M7-003 and M7-004 include executable regression proof for both corrections. The approved prompt, schema, identifiers, persistence ordering, lifecycle model, Error Workflow, shared Failure Handler, and immutable prompt/canon references are unchanged.
+Controlled live execution `#406` later exposed two narrow runtime defects before AI generation or persistence: chained global Google Sheets reads multiplied downstream candidate rows because they were not configured to execute once, and the Code-node handled-failure envelope used expression-only `$exec.id`. The repository export now marks all five global table reads `executeOnce=true` and uses `$execution.id` inside `Prepare M7 Failure`. M7-003 and M7-004 include executable regression proof for both corrections. At that remediation point, the approved prompt, schema, identifiers, persistence ordering, lifecycle model, Error Workflow, shared Failure Handler, and immutable prompt/canon references were unchanged.
+
+### Structured-output remediation note — execution `#407`
+
+The next single controlled INITIAL execution proved exact normalized Script coverage (`2761 / 2761`) but correctly routed to `PRODUCTION_PACKAGE_AI_OUTPUT_INVALID` before persistence. The n8n `Production Package Output Parser` embedded only the top-level shape and did not enforce the authoritative nested schema. It therefore allowed string values for required guidance arrays and incomplete dialogue-cue objects to reach `Build And Validate Complete Package`, where deterministic validation rejected them. No package header, scene row, or Story lifecycle write occurred.
+
+The runtime parser now embeds the complete authoritative `PRODUCTION_PACKAGE_AI_OUTPUT_SCHEMA.json` contract without weakening it. The prompt explicitly requires the affected fields to remain JSON arrays, requires every dialogue cue to contain `speaker`, `text`, and `deliveryNote`, and requires cue `text` to be an exact same-scene `sourceText` substring with punctuation and casing preserved. The immutable prompt reference is updated to `7947021016f14c84c71421aeb225b80cad990c9d`. M7-028 through M7-038 prove parser/schema identity, rejected invalid shapes, accepted valid shapes, semantic cue validation, complete ordered coverage, zero-write failure routing, valid-path continuity, and unchanged manifest/provenance behaviour.
 
 ## Validated areas
 
@@ -41,8 +47,10 @@ Controlled live execution `#406` later exposed two narrow runtime defects before
 - PRE-CANON LEGACY / blank-lineage exclusion
 - downstream/Story canon-lineage mismatch rejection
 - exact approved Script coverage across scenes
-- nested visual/voice/motion/asset validation
-- dialogue cues constrained to source scene text
+- exact parser/authoritative-schema identity
+- nested visual/voice/motion/asset validation, including string rejection for required arrays
+- complete dialogue-cue object validation
+- dialogue cues constrained to exact same-scene source-text substrings with punctuation/casing preserved
 - deterministic package, scene and planned-asset IDs
 - contiguous package version history and supersession
 - normal duplicate rejection
@@ -76,15 +84,12 @@ No M3–M6 workflow export, canon file, shared Failure Handler export, rollback 
 
 ## Live acceptance still required
 
-This evidence does not prove live n8n import/configuration or Story Vault persistence. Phase 4 requires separate A3 authority and must verify:
+This evidence does not prove the remediated parser in live n8n or successful Story Vault package persistence. A separate A3 patch and one controlled retry must verify:
 
-1. creation of `Production Packages` and `Production Package Scenes` with the approved exact headers;
-2. import/configuration of `Milo Production Package Generator v0.1` as a new workflow;
-3. credential and target resolution;
-4. Error Workflow and shared Failure Handler binding;
-5. immutable promptRef and Story-canonRef runtime configuration;
-6. controlled live happy-path, duplicate, failure and repair behaviour using an eligible post-remediation Story/Script/Continuity lineage;
-7. live persistence ordering and lifecycle isolation;
-8. re-export and repository/live parity.
+1. surgical replacement of the `Production Package Output Parser` schema and the three immutable prompt-reference occurrences, without changing topology;
+2. preserved credentials, targets, Error Workflow, shared Failure Handler, inactive/unpublished state, zero pins, and five Execute Once global reads;
+3. immutable revised prompt retrieval plus Story-`canonRef` runtime retrieval;
+4. exactly one controlled retry for the still-clean `MILO-007` lineage;
+5. successful package/scene persistence, provenance, duplicate protection, lifecycle transition, and repository/live parity.
 
 Do not activate or publish the M7 workflow unless separately explicitly authorised.
