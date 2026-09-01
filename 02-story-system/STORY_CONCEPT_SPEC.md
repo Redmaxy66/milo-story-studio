@@ -13,12 +13,13 @@ The Story Concept Generator will take an approved Story Vault idea and turn it i
 Version 1 will:
 
 1. Read one eligible Story Vault record.
-2. Use the approved Milo canon as reference.
-3. Generate structured story concept options.
-4. Keep the original storyId attached to every concept option.
-5. Present the options for human review.
-6. Record which concept was approved, rejected, or left undecided.
-7. Prevent any concept from moving to M5 without human approval.
+2. Establish first governed Story canon lineage only when D-014 permits it.
+3. Use the approved Milo canon as reference.
+4. Generate structured story concept options.
+5. Keep the original storyId attached to every concept option.
+6. Present the options for human review.
+7. Record which concept was approved, rejected, or left undecided.
+8. Prevent any concept from moving to M5 without human approval.
 
 ## 3. Outside Version 1 scope
 
@@ -30,7 +31,8 @@ Version 1 will not:
 - change Milo canon
 - publish content
 - move a story into M5 automatically
-- replace the Story Vault schema
+- migrate PRE-CANON LEGACY records
+- replace an already assigned Story canon lineage
 
 ## 4. Structured concept output
 
@@ -128,20 +130,25 @@ A generated concept option is valid only when:
 - canonReferences contains at least one approved canon file
 - approvalStatus is one of the allowed values
 
-## 9. Initial workflow sequence
+## 9. Workflow sequence
 
-1. Select one eligible Story Vault record.
-2. Confirm the record is allowed to enter M4.
-3. Validate the Story `canonVersion` and immutable `canonRef`, then load the approved `MILO_CANON_CONTEXT.md` at that exact `canonRef`.
-4. Pass the Story input, optional creative context, and approved canon context to the Concept Generator.
-5. Require AI output containing exactly three creative concept options matching `STORY_CONCEPT_AI_OUTPUT_SCHEMA.json`.
-6. Split the three concept options into individual items.
-7. Attach storyId, conceptId, theme, targetLengthMinutes, canonReferences, canonVersion, canonRef, and approvalStatus deterministically in n8n.
-8. Validate every complete concept option deterministically.
-9. Store valid concept options in the Concepts tab.
-10. Update the source Story status to CONCEPT_GENERATED once.
-11. Present the stored concept options for human review through the separate approval workflow.
-12. Allow only an APPROVED concept to proceed to M5.
+1. Select one eligible Story Vault record in `IDEA`.
+2. Classify its canon-initialisation state under D-014.
+3. If and only if the Story is `PENDING` with blank lineage, prepare the explicitly governed approved canon release for first assignment.
+4. If the Story is `PENDING` with the already valid expected governed lineage, treat it as recoverable partial initialization and complete only the marker transition.
+5. Reject PRE-CANON LEGACY, malformed, conflicting, or impossible marker/lineage states deterministically without overwriting canon.
+6. Persist any permitted first-assignment/recovery Story update and verify the resulting Story record.
+7. Validate the Story `canonVersion` and immutable `canonRef` normally.
+8. Load approved `MILO_CANON_CONTEXT.md` using exactly the validated Story `canonRef`; never use HEAD, the default branch, newest tag, or latest commit.
+9. Pass the Story input, optional creative context, and approved canon context to the Concept Generator.
+10. Require AI output containing exactly three creative concept options matching `STORY_CONCEPT_AI_OUTPUT_SCHEMA.json`.
+11. Split the three concept options into individual items.
+12. Attach storyId, conceptId, theme, targetLengthMinutes, canonReferences, canonVersion, canonRef, and approvalStatus deterministically in n8n.
+13. Validate every complete concept option deterministically.
+14. Store valid concept options in the Concepts tab.
+15. Update the source Story status to CONCEPT_GENERATED once.
+16. Present the stored concept options for human review through the separate approval workflow.
+17. Allow only an APPROVED concept to proceed to M5.
 
 ## 10. Open decisions
 
@@ -154,12 +161,15 @@ The following decisions are not yet approved:
 - M4 entry status: IDEA
 - Status after concept generation: CONCEPT_GENERATED
 - Status after human approval: CONCEPT_APPROVED
-- Only Alex may approve a concept and trigger the transition to CONCEPT_APPROVED
+- Canon initialization does not introduce a Story lifecycle state.
+- Only Alex may approve a concept and trigger the transition to CONCEPT_APPROVED.
 
 ## 12. Approved storage decision
 
 - Concept options will be stored in a separate Google Sheets tab named Concepts.
-- The Stories tab remains authoritative for Story canon identity; its `canonVersion` and `canonRef` fields are read but not changed by concept generation.
+- The Stories tab remains authoritative for Story canon identity.
+- Concept Generator may write `Stories.canonVersion`, `Stories.canonRef`, and `Stories.canonInitializationState` only for the D-014 first-assignment/recovery transition.
+- Concept Generator never automatically replaces an already valid Story canon lineage.
 - Each concept row will retain the original storyId.
 - Each concept option will occupy one row in the Concepts tab.
 
@@ -184,7 +194,7 @@ The Concept Generator may use only these approved Milo Character Bible v1.0 file
 
 README.md is project documentation and is not part of the generator's canon context.
 
-n8n Cloud loads the reviewed `03-prompts/MILO_CANON_CONTEXT.md` from the GitHub repository at the Story's validated immutable `canonRef`, extracts it into `canonContext`, and supplies it to the Concept Generator as a system message. Blank or malformed Story lineage fails before the GitHub read.
+n8n Cloud loads the reviewed `03-prompts/MILO_CANON_CONTEXT.md` from the GitHub repository at the Story's validated immutable `canonRef`, extracts it into `canonContext`, and supplies it to the Concept Generator as a system message.
 
 ## 15. Approved canon delivery decision
 
@@ -194,3 +204,55 @@ n8n Cloud loads the reviewed `03-prompts/MILO_CANON_CONTEXT.md` from the GitHub 
 - MILO_CANON_CONTEXT.md is a delivery artifact, not a replacement for canon.
 - Alex must review and approve the compiled context before n8n uses it.
 - n8n will receive one reviewed canon context file rather than loading five separate files dynamically.
+
+## 16. D-014 canon-initialisation contract
+
+The controlled Story field is `canonInitializationState`.
+
+Persisted values:
+
+- `PENDING`
+- `ASSIGNED`
+- blank only for historical/governed pre-contract records.
+
+Only Story Intake normally creates `PENDING`. Only Concept Generator normally performs `PENDING -> ASSIGNED`.
+
+The current explicitly governed approved release is:
+
+- `canonVersion = canon-v1.0`
+- `canonRef = 977755913d9ad41e4f16392d01ea993507af4102`
+
+This release mapping is a governed workflow configuration under D-008/D-014. It is not inferred from repository HEAD, the default branch, newest tag, or latest commit. Changing the approved release requires a separately governed repository change.
+
+### Deterministic state matrix
+
+| Marker | Stored lineage | Behaviour |
+|---|---|---|
+| blank | blank | PRE-CANON LEGACY; reject; never initialise |
+| `PENDING` | blank | eligible `IDEA` Story: assign current governed release once, then mark `ASSIGNED` |
+| `PENDING` | exact expected governed lineage | recover partial initialization; preserve canon values and complete marker to `ASSIGNED` |
+| `PENDING` | malformed or conflicting | integrity failure; do not overwrite |
+| `ASSIGNED` | valid expected governed lineage | accept unchanged |
+| `ASSIGNED` | blank, malformed, or conflicting | integrity failure |
+| blank | valid expected governed lineage | accept unchanged; marker absence alone does not make it legacy |
+
+A Story with a valid but different lineage is not silently migrated to the current release. Under the current single approved release configuration, it fails the first-assignment integrity check rather than being overwritten.
+
+First assignment is allowed only when Story status is `IDEA` and no Concepts already exist for that Story.
+
+## 17. Failure and recovery contract
+
+The Concept Generator must fail before creative generation when:
+
+- the governed release configuration is missing or invalid;
+- a `PENDING` or `ASSIGNED` marker conflicts with Story lineage;
+- an eligible first-assignment Story cannot be persisted safely;
+- post-write verification does not produce the exact intended canon/marker state.
+
+A recoverable partial state is only:
+
+`PENDING + exact expected canonVersion/canonRef`
+
+In that case Concept Generator must not replace either canon field. It completes only the marker transition to `ASSIGNED`, re-reads/verifies the Story, then proceeds through ordinary canon-lineage validation.
+
+An ambiguous state is never repaired by overwriting existing canon.
