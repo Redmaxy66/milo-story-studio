@@ -191,22 +191,49 @@ function makeHeaderRepairFixture() {
   return {orphanScenes,scriptText,story,script,review};
 }
 
-function runResolveForHeaderRepair(fixture) {
+function makeCompletedPackageFixture() {
+  const fixture = makeHeaderRepairFixture();
+  fixture.story.status = 'PRODUCTION_PACKAGE_GENERATED';
+  const header = {
+    storyId:fixture.story.storyId,
+    packageId:'MILO-007-S01-P01',
+    packageVersion:1,
+    generationMode:'INITIAL',
+    supersedesPackageId:'',
+    scriptId:fixture.script.scriptId,
+    scriptVersion:fixture.script.version,
+    reviewId:fixture.review.reviewId,
+    reviewVersion:fixture.review.version,
+    sceneCount:fixture.orphanScenes.length,
+    promptRef:PROMPT_REF,
+    canonVersion:fixture.story.canonVersion,
+    canonRef:fixture.story.canonRef,
+    createdAt:'2026-09-01T12:27:33.562Z',
+    updatedAt:'2026-09-01T12:54:48.963Z',
+  };
+  return {...fixture,header};
+}
+
+function runResolveFixture({story,script,review,packages = [],sceneRows = [],request = {requestValid:true,generationMode:'INITIAL',storyId:''}}) {
   const resolve = new Function('$', '$input', node('Resolve M7 Action').parameters.jsCode);
   const rows = {
-    'Normalize Generation Request':[{requestValid:true,generationMode:'INITIAL',storyId:''}],
-    'Read Stories':[fixture.story],
-    'Read Scripts':[fixture.script],
-    'Read Continuity Reviews':[fixture.review],
-    'Read Existing Production Packages':[],
+    'Normalize Generation Request':[request],
+    'Read Stories':[story],
+    'Read Scripts':[script],
+    'Read Continuity Reviews':[review],
+    'Read Existing Production Packages':packages,
   };
   return resolve(
     name => ({
       first:() => ({json:structuredClone(rows[name][0])}),
       all:() => rows[name].map(json => ({json:structuredClone(json)})),
     }),
-    {all:() => fixture.orphanScenes.map(json => ({json:structuredClone(json)}))},
+    {all:() => sceneRows.map(json => ({json:structuredClone(json)}))},
   )[0].json;
+}
+
+function runResolveForHeaderRepair(fixture) {
+  return runResolveFixture({...fixture,sceneRows:fixture.orphanScenes});
 }
 
 function runHeaderReconstruction(action) {
@@ -619,6 +646,70 @@ test('M7-047 recovery preserves the no-append-retry policy', () => {
   for (const name of ['Append Production Package Scenes','Append Production Package Header']) assert.notEqual(node(name).retryOnFail, true);
   assert(!targets('Prepare M7 Failure').includes('Append Production Package Scenes'));
   assert(!targets('Prepare M7 Failure').includes('Append Production Package Header'));
+});
+
+test('M7-048 completed coherent package repeat resolves to NOOP_COMPLETE', () => {
+  const fixture = makeCompletedPackageFixture();
+  const action = runResolveFixture({...fixture,packages:[fixture.header],sceneRows:fixture.orphanScenes});
+  assert.equal(action.action, 'NOOP_COMPLETE');
+  assert.equal(action.packageId, fixture.header.packageId);
+  assert.equal(action.packageVersion, 1);
+  assert.equal(action.generationMode, 'INITIAL');
+  assert.equal(action.existingScenes.length, 8);
+});
+
+test('M7-049 NOOP_COMPLETE terminates without generation, writes, lifecycle mutation, or Failure Handler', () => {
+  const rules = node('Route M7 Action').parameters.rules.values;
+  assert.equal(rules[3].conditions.conditions[0].rightValue, 'NOOP_COMPLETE');
+  assert.deepEqual(targets('Route M7 Action',3), []);
+  assert.deepEqual(targets('Route M7 Action',4), ['Prepare M7 Failure']);
+  for (const prohibited of ['Generate Production Package','Append Production Package Scenes','Append Production Package Header','Mark Story Production Package Generated','Prepare M7 Failure','Call Failure Handler']) {
+    assert(!targets('Route M7 Action',3).includes(prohibited));
+  }
+});
+
+test('M7-050 completed repeat preserves package, scene, version, and timestamp state', () => {
+  const fixture = makeCompletedPackageFixture();
+  const before = structuredClone({story:fixture.story,header:fixture.header,scenes:fixture.orphanScenes});
+  const action = runResolveFixture({...fixture,packages:[fixture.header],sceneRows:fixture.orphanScenes});
+  assert.equal(action.action, 'NOOP_COMPLETE');
+  assert.deepEqual({story:fixture.story,header:fixture.header,scenes:fixture.orphanScenes}, before);
+  assert.equal(fixture.header.packageVersion, 1);
+  assert.equal(fixture.header.updatedAt, '2026-09-01T12:54:48.963Z');
+});
+
+test('M7-051 malformed or partial completed state still fails deterministically', () => {
+  const fixture = makeCompletedPackageFixture();
+  const missing = runResolveFixture({...fixture,packages:[fixture.header],sceneRows:fixture.orphanScenes.slice(0,7)});
+  assert.equal(missing.action, 'FAIL');
+  assert.equal(missing.errorCode, 'PRODUCTION_PACKAGE_REGENERATION_INVALID');
+  const duplicateRows = [...fixture.orphanScenes.slice(0,7), structuredClone(fixture.orphanScenes[6])];
+  const duplicate = runResolveFixture({...fixture,packages:[fixture.header],sceneRows:duplicateRows});
+  assert.equal(duplicate.action, 'FAIL');
+  assert.equal(duplicate.errorCode, 'PRODUCTION_PACKAGE_REGENERATION_INVALID');
+  const wrongCanonRows = structuredClone(fixture.orphanScenes);
+  wrongCanonRows[0].canonRef = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
+  const wrongCanon = runResolveFixture({...fixture,packages:[fixture.header],sceneRows:wrongCanonRows});
+  assert.equal(wrongCanon.action, 'FAIL');
+  assert.equal(wrongCanon.errorCode, 'PRODUCTION_PACKAGE_REGENERATION_INVALID');
+  const headerMissing = runResolveFixture({...fixture,packages:[],sceneRows:fixture.orphanScenes});
+  assert.equal(headerMissing.action, 'FAIL');
+  assert.equal(headerMissing.errorCode, 'PRODUCTION_PACKAGE_REGENERATION_INVALID');
+});
+
+test('M7-052 clean INITIAL generation and scene-only HEADER_REPAIR semantics remain intact', () => {
+  const clean = makeHeaderRepairFixture();
+  const generate = runResolveFixture({...clean,packages:[],sceneRows:[]});
+  assert.equal(generate.action, 'GENERATE');
+  assert.equal(generate.packageId, 'MILO-007-S01-P01');
+  const repair = runResolveFixture({...clean,packages:[],sceneRows:clean.orphanScenes});
+  assert.equal(repair.action, 'HEADER_REPAIR');
+});
+
+test('M7-053 repeat no-op preserves append retry prohibition and deterministic fallback', () => {
+  for (const name of ['Append Production Package Scenes','Append Production Package Header']) assert.notEqual(node(name).retryOnFail, true);
+  assert.equal(node('Route M7 Action').parameters.options.fallbackOutput, 'extra');
+  assert.deepEqual(targets('Route M7 Action',4), ['Prepare M7 Failure']);
 });
 
 let passed=0;

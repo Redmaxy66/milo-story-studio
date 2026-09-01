@@ -348,7 +348,9 @@ Every package header and scene row persists the Story `canonVersion` and `canonR
 
 ## 14. Duplicate and regeneration rules
 
-Normal execution with an existing package for the same `storyId`, `scriptId`, `scriptVersion`, `reviewId`, and `reviewVersion` fails with `PRODUCTION_PACKAGE_ALREADY_EXISTS`.
+A subsequent `INITIAL` invocation for a Story already at `PRODUCTION_PACKAGE_GENERATED` resolves to `NOOP_COMPLETE` only when the matching package header is the coherent latest version and its complete, unique, ordered scene set matches the Story, Script, Review, package version, and authoritative canon lineage. `NOOP_COMPLETE` is an expected terminal no-op: it does not invoke AI, append scenes or a header, update the Story, or call Failure Handler.
+
+Missing, duplicate, partial, malformed, lineage-mismatched, or conflicting completed-package state is not a no-op. It continues through deterministic governed failure/recovery semantics. A normal existing-package condition that is not the coherent completed-repeat case remains protected by `PRODUCTION_PACKAGE_ALREADY_EXISTS` or the more specific regeneration/integrity failure.
 
 A controlled regeneration requires:
 
@@ -367,7 +369,7 @@ An upstream revision requires:
 - coherent prior package history
 - `supersedesPackageId` = immediately preceding package
 
-No normal duplicate execution may be reclassified as regeneration.
+No normal duplicate execution may be reclassified as regeneration. A coherent completed repeat is classified only as `NOOP_COMPLETE`.
 
 ## 15. Persistence and verification order
 

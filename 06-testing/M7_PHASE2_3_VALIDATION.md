@@ -28,6 +28,12 @@ The next single controlled INITIAL execution proved exact normalized Script cove
 
 The runtime parser now embeds the complete authoritative `PRODUCTION_PACKAGE_AI_OUTPUT_SCHEMA.json` contract without weakening it. The prompt explicitly requires the affected fields to remain JSON arrays, requires every dialogue cue to contain `speaker`, `text`, and `deliveryNote`, and requires cue `text` to be an exact same-scene `sourceText` substring with punctuation and casing preserved. The immutable prompt reference is updated to `7947021016f14c84c71421aeb225b80cad990c9d`. M7-028 through M7-038 prove parser/schema identity, rejected invalid shapes, accepted valid shapes, semantic cue validation, complete ordered coverage, zero-write failure routing, valid-path continuity, and unchanged manifest/provenance behaviour.
 
+### Completed-package repeat no-op remediation note — execution `#412`
+
+The Phase 5 repeat check proved the persistence safety controls—no model call, scene append, header append, duplicate package, Story rewrite, or M8 action—but exposed an action-resolution semantics defect. INITIAL candidate selection considered only `CONTINUITY_APPROVED`, so the correctly completed `PRODUCTION_PACKAGE_GENERATED` Story was excluded before its coherent existing package could be evaluated. The execution therefore emitted `STORY_NOT_READY_FOR_PRODUCTION_PACKAGE` and created handled FailureLog event `FL-H-73bba6b595e99701` instead of terminating as an expected no-op.
+
+The repository workflow now selects a completed Story only when no clean `CONTINUITY_APPROVED` INITIAL candidate is available, validates the matching latest header and complete unique ordered scene set against Story/Script/Review/package/canon lineage, and emits explicit `NOOP_COMPLETE`. `Route M7 Action` has a dedicated unconnected `NOOP_COMPLETE` output, so the action cannot reach generation, either append, lifecycle mutation, or Failure Handler. Missing, duplicate, partial, conflicting, or lineage-invalid completed state remains a deterministic failure. The complete M7 suite now passes `53 / 53`; the shared failure-instrumentation suite also remains green.
+
 ## Validated areas
 
 - workflow identity, inactive repository state and empty pin data
@@ -53,7 +59,7 @@ The runtime parser now embeds the complete authoritative `PRODUCTION_PACKAGE_AI_
 - dialogue cues constrained to exact same-scene source-text substrings with punctuation/casing preserved
 - deterministic package, scene and planned-asset IDs
 - contiguous package version history and supersession
-- normal duplicate rejection
+- coherent completed-package repeat no-op with malformed/partial/conflicting completed-state rejection
 - explicit controlled regeneration
 - automatic `UPSTREAM_REVISION` classification when a newer approved Script follows an earlier package
 - `packageFormatVersion` separation from creative package version

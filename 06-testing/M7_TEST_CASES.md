@@ -59,7 +59,13 @@ node 06-testing/validate_production_package.mjs
 | M7-045 | Recovery scene-write isolation | `HEADER_REPAIR` reconstructs and appends only the missing header; it does not append the eight scene rows again. |
 | M7-046 | Header-repair completion | A valid repair creates exactly one header, verifies it, and reaches the intended `PRODUCTION_PACKAGE_GENERATED` transition. |
 | M7-047 | Recovery retry safety | Scene/header append nodes remain non-retrying and failure routing cannot re-enter either append. |
+| M7-048 | Completed repeat action | A coherent `PRODUCTION_PACKAGE_GENERATED` Story/header/scene set resolves to `NOOP_COMPLETE`. |
+| M7-049 | No-op route isolation | `NOOP_COMPLETE` terminates on an unconnected Switch output without generation, persistence, lifecycle, or Failure Handler routing. |
+| M7-050 | No-op immutability | Package/header/scene counts, package version, and timestamps remain unchanged. |
+| M7-051 | Malformed completed-state rejection | Missing, duplicate, canon-mismatched, or header-missing completed state still fails deterministically. |
+| M7-052 | Existing INITIAL and repair paths | A clean `CONTINUITY_APPROVED` Story still generates, while valid scene-only partial state still selects `HEADER_REPAIR`. |
+| M7-053 | Repeat retry/fallback safety | Append retry remains prohibited and unmatched/invalid actions still use the governed failure fallback. |
 
 ## Phase 4 live acceptance still required
 
-These offline tests do not prove live n8n import/configuration or Story Vault persistence. Under separate A3 authority, live acceptance must verify the two new tabs, credential/target binding, real append/verification behaviour, controlled repair, duplicate protection, FailureLog behaviour, and final live/repository parity.
+These offline tests do not prove the remediated repeat behavior in live n8n. Under separate A3 authority, one final controlled INITIAL repeat must verify `NOOP_COMPLETE`, zero generation/persistence/lifecycle writes, no FailureLog append, and unchanged package/header/scene state before Phase 6/7 closure.

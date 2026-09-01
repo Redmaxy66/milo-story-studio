@@ -47,7 +47,7 @@ The M7 offline suite must verify at minimum:
 - exact approved Script coverage across scenes
 - deterministic package, scene, and planned-asset IDs
 - contiguous package versions and supersession
-- normal duplicate rejection
+- coherent completed-package INITIAL repeat as a terminal zero-write `NOOP_COMPLETE`, with malformed/partial/conflicting completed state still rejected
 - controlled regeneration and upstream-revision provenance
 - `packageFormatVersion` validation
 - status-repair and header-repair paths
