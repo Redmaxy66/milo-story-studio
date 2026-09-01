@@ -118,11 +118,11 @@ No automatic retry was added to a Google Sheets append operation. Canon initiali
 2. D-014 state-classifier deterministic simulation: all seven required matrix cases passed, plus an invalid non-`IDEA` recovery case.
 3. Committed workflow static/graph inspection: first-assignment duplicate guard, governed-release verification, Story update, reread/verification, existing canon validator, existing runtime GitHub read, downstream duplicate guard, handler routes and lifecycle update separation were verified.
 4. Read-only GitHub tag verification: annotated `canon-v1.0` still resolves to commit `977755913d9ad41e4f16392d01ea993507af4102`.
-4. Story Intake committed-export inspection: new Stories carry blank lineage plus `PENDING`; the append schema contains all three governed fields.
-5. Failure instrumentation regression contract updated to include the D-014 failure nodes/codes and both duplicate guards.
-6. Dedicated executable repository validator added at `06-testing/validate_canon_initialization.mjs` for repeatable local/CI execution when a repository checkout is available.
+5. Story Intake committed-export inspection: new Stories carry blank lineage plus `PENDING`; the append schema contains all three governed fields.
+6. Failure instrumentation regression contract updated to include the D-014 failure nodes/codes and both duplicate guards.
+7. Dedicated executable repository validator added at `06-testing/validate_canon_initialization.mjs` for repeatable local/CI execution when a repository checkout is available.
 
-The current execution environment did not provide a mounted repository checkout and has no outbound network access, so the committed Node validators could not be launched directly from the container in this session. The repository validator source and committed exports were independently re-read through GitHub, and the D-014 classifier was executed in an isolated deterministic simulation. This limitation does not substitute for the separately required A3 live verification.
+The remediated validator was executed end-to-end against the exact committed workflow, test, decision and error-register contents in a disposable local validation tree. All checks passed. No live n8n workflow, Story Vault row, canon reference, publication state or acceptance-lineage path was modified or executed.
 
 ## A3 boundary
 
