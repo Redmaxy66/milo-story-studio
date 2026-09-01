@@ -20,6 +20,16 @@ Operational error codes and FailureLog triage values are deliberately excluded. 
 | `CONTINUITY_APPROVED` | Continuity review has been approved. | M7 Production Package generation. |
 | `SCRIPT_REVISION_REQUIRED` | Continuity review requires script regeneration or correction. | Controlled script revision path. |
 
+## Canon initialization is not lifecycle
+
+`canonInitializationState` is a Story-level provenance control field governed by D-014. It is not a Story lifecycle state.
+
+- Story Intake creates a new post-D-014 Story as `status=IDEA` with `canonInitializationState=PENDING` and blank canon lineage.
+- Concept Generator may perform the governed `PENDING -> ASSIGNED` first-canon transition while the Story remains `IDEA`.
+- Only successful Concept persistence advances the Story from `IDEA` to `CONCEPT_GENERATED`.
+- Canon-initialization failure or repair does not invent or change a lifecycle state.
+- Historical blank-marker / blank-lineage records remain governed by D-012 and are not progressed by canon initialization.
+
 ## M7 lifecycle extension
 
 | State | Meaning | Normal next state or route |
