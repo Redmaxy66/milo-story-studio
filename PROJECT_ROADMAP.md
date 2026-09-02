@@ -2,15 +2,17 @@
 
 ## Current position
 
-**M1–M6 complete.**
+**M1–M7 complete.**
 
 The studio now supports the controlled progression:
 
-`IDEA -> CONCEPT_GENERATED -> CONCEPT_APPROVED -> OUTLINE_GENERATED -> OUTLINE_APPROVED -> SCRIPT_GENERATED -> SCRIPT_APPROVED -> CONTINUITY_REVIEWED -> CONTINUITY_APPROVED`
+`IDEA -> CONCEPT_GENERATED -> CONCEPT_APPROVED -> OUTLINE_GENERATED -> OUTLINE_APPROVED -> SCRIPT_GENERATED -> SCRIPT_APPROVED -> CONTINUITY_REVIEWED -> CONTINUITY_APPROVED -> PRODUCTION_PACKAGE_GENERATED`
 
-Current milestone: **M7 — Production Package**
+Current milestone: **M7 — Production Package — Complete**
 
-M7 status: **In progress.** The approved repository implementation and offline validation are complete; controlled live configuration and acceptance remain pending separate A3 authority.
+M7 status: **Complete.** Canonical workflow `SNnLunczq5mxrXLn` passed the controlled terminal no-op verification in execution `#432`; repository/live parity, persistence, provenance, lifecycle isolation, recovery, failure safety, and the `63 / 63` offline suite all pass.
+
+Next milestone readiness: **READY FOR M8.** M8 remains separately gated, unauthorised, and not started.
 
 ---
 
@@ -137,5 +139,5 @@ M7 status: **In progress.** The approved repository implementation and offline v
 - M4 — Complete
 - M5 — Complete
 - M6 — Complete
-- M7 — In progress (repository implementation validated; live configuration pending)
+- M7 — Complete
 - M8 — Not started

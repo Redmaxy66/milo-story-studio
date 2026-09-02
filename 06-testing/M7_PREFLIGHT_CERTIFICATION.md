@@ -134,7 +134,7 @@ The M7 validator now automatically rejects:
 | Malformed AI output | `PRODUCTION_PACKAGE_AI_OUTPUT_INVALID` | any persistence/lifecycle write | PASS |
 | Happy-path persistence | build → exact scene verify → exact header verify | lifecycle before both verification gates | PASS |
 
-## Exact A3 live patch required
+## Exact A3 live patch required at preflight exit
 
 Do not import the workflow. Under separate A3 authority, surgically apply only the certified repository values for:
 
@@ -152,3 +152,7 @@ Preserve the existing live connections, because the fresh export proves they alr
 The first later acceptance invocation must be separately authorised and isolated. No M8 action is permitted.
 
 `M7 PREFLIGHT CERTIFICATION: READY FOR ISOLATED ACCEPTANCE`
+
+## Subsequent status — 2026-09-02
+
+This preflight package was completed under separate A3 authority. The certified definition was installed and reconciled without workflow replacement; the final four Switch operands are exact, and canonical execution `#432` passed terminal `NOOP_COMPLETE` with zero writes. See `M7_CANONICAL_VERIFICATION.md`.

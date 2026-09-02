@@ -7,9 +7,9 @@ production-ready children's content package.
 
 - Phase: 3 — Continuity and Production
 - Current milestone: M7 — Production Package
-- Overall progress: 75%
-- Current week: Week 11 of 16
-- Status: In progress — repository implementation validated; live configuration pending A3
+- Overall progress: 87.5%
+- Current week: Week 12 of 16
+- Status: Complete — canonical verification passed; M8 remains separately gated and has not started
 
 ## This week's objective
 
@@ -17,12 +17,14 @@ production-ready children's content package.
 - [x] Confirm required scene, visual, voice, animation, and metadata fields.
 - [x] Define deterministic validation, versioning, and approval controls.
 - [x] Build and validate the repository M7 workflow export.
-- [ ] Configure and test M7 live under separate A3 authority.
+- [x] Configure and verify canonical M7 under separate A3 authority.
+- [x] Reconcile the verified workflow, evidence, and governance state.
 
 ## Current build
 
-Eight canonical live n8n workflows:
+Ten canonical stage workflows now cover Story Intake through Production Package:
 
+- `Milo Story Intake v0.1`
 - `Milo Concept Generator v0.1`
 - `Milo Concept Approval v0.1`
 - `Milo Outline Generator v0.1`
@@ -31,16 +33,17 @@ Eight canonical live n8n workflows:
 - `Milo Script Approval v0.1`
 - `Milo Continuity Reviewer v0.1`
 - `Milo Continuity Approval v0.1`
+- `Milo Production Package Generator v0.1`
 
-The repository also contains the validated, inactive/unpublished `Milo Production Package Generator v0.1` export for later A3 live configuration.
+The shared `Milo Failure Handler v0.1` remains the governed handled/unhandled failure sink. The canonical Production Package workflow is `SNnLunczq5mxrXLn`; it remains inactive/unpublished and its repository export matches the verified live definition after normalization of volatile n8n metadata.
 
 ## Latest achievement
 
-Completed the governed `MILO-007` acceptance lineage through Continuity Review execution `#404` and Continuity Approval execution `#405`. The Story is `CONTINUITY_APPROVED` with matching immutable canon lineage. M7 repository validation is reconciled at `27 / 27`.
+Completed M7 canonical verification through execution `#432`. The resolver returned `NOOP_COMPLETE`, `Route M7 Action` emitted one item on terminal output 3, and no generation, append, Story update, failure preparation, Failure Handler, retry, or M8 action occurred. The governed package remains one header plus eight scenes, and the complete M7 offline suite passes `63 / 63`.
 
 ## Current blocker
 
-No repository or upstream-lineage blocker. M7 live schema/workflow configuration requires a separately authorised A3 package.
+No M7 completion blocker remains. The D-015 optional-identifier `"undefined"` issue remains parked as post-M7 hardening debt. The project is `READY FOR M8`, but M8 requires a new, separately authorised work order and has not started.
 
 ## Main links
 
@@ -48,4 +51,5 @@ No repository or upstream-lineage blocker. M7 live schema/workflow configuration
 - [Milestone tracker](MILESTONES.md)
 - [Learning log](LEARNING_LOG.md)
 - [Decision log](DECISION_LOG.md)
+- [M7 canonical verification](06-testing/M7_CANONICAL_VERIFICATION.md)
 - [Claude Code instructions](CLAUDE.md)

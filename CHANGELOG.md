@@ -1,13 +1,18 @@
 ﻿# Changelog
 
-## 0.7.0 — Production Package repository implementation (in progress)
+## 0.7.0 — Production Package complete
 
 - Recorded D-013 for immutable, append-versioned Production Package blueprints with child scene rows and separate realised-asset provenance.
 - Added the M7 Production Package specification, structured-output schema, generator prompt, workflow export, lifecycle transition, operational error codes, and deterministic validation suite.
-- Reconciled the M7 offline suite at `27 / 27` without changing the approved prompt or immutable `promptRef`.
+- Reconciled and hardened the complete M7 offline suite to `63 / 63` without weakening the approved schema, prompt, immutable `promptRef`, lineage, persistence, or safety contracts.
 - Reconciled shared failure instrumentation with the governed D-014 Concept Generator topology of 44 nodes / 55 connections.
 - Completed the governed `MILO-007` acceptance lineage through Continuity Review execution `#404` and Continuity Approval execution `#405`; the Story is now `CONTINUITY_APPROVED` with matching immutable canon lineage.
-- Left M7 live Story Vault schema creation, workflow configuration, and controlled Production Package execution pending separate A3 authority.
+- Added `Production Packages` and `Production Package Scenes` persistence and created one verified `MILO-007-S01-P01` version-1 `INITIAL` package containing eight unique scenes with matching canon and prompt provenance.
+- Completed isolated acceptance across generation, terminal no-op, header repair, status repair, and representative deterministic failure states.
+- Surgically reconciled canonical workflow `SNnLunczq5mxrXLn` without changing its identity, 47-node / 57-edge topology, credentials, targets, failure bindings, retry controls, or inactive/unpublished state.
+- Passed canonical terminal no-op verification in execution `#432`: resolver `NOOP_COMPLETE`, Switch output 3, and zero generation, append, Story update, failure, FailureLog, retry, or M8 activity.
+- Retained D-015 optional-identifier `"undefined"` normalization as explicit non-blocking post-M7 hardening debt.
+- Completed M7 and recorded `READY FOR M8`; M8 remains separately gated and has not started.
 
 ## 0.6.5 — Failure instrumentation repository implementation
 

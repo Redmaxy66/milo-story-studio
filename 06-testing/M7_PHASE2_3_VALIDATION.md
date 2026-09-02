@@ -96,7 +96,7 @@ Compared with the installed M7 work-order baseline `3a0a8eae12ea988c8b2bc9d12ef1
 
 No M3–M6 workflow export, canon file, shared Failure Handler export, rollback workflow, or unrelated application artifact is changed in the net diff.
 
-## Isolated acceptance still required
+## Acceptance requirement at Phase 3 exit
 
 This evidence does not authorise or perform live mutation. A separate A3 package must:
 
@@ -107,3 +107,7 @@ This evidence does not authorise or perform live mutation. A separate A3 package
 5. perform only a separately authorised isolated acceptance sequence, beginning with the zero-write completed-package repeat case.
 
 Do not activate or publish the M7 workflow unless separately explicitly authorised.
+
+## Subsequent canonical status — 2026-09-02
+
+The separately authorised isolated and canonical acceptance phases have completed. Canonical workflow `SNnLunczq5mxrXLn` is normalized-equivalent to the certified repository export and remains inactive/unpublished. Execution `#432` passed terminal `NOOP_COMPLETE` on Switch output 3 with zero writes. See `M7_CANONICAL_VERIFICATION.md` for final evidence and Phase 7 completion.

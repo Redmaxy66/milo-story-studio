@@ -10,9 +10,9 @@ This folder stores exported Milo Story Studio n8n workflows.
 
 ## M7 Production Package
 
-`development/Milo Production Package Generator v0.1.json` is the repository implementation for M7 Phase 2.
+`development/Milo Production Package Generator v0.1.json` is the final verified repository definition for M7.
 
-It is intentionally inactive/unpublished in repository form and has no live workflow ID. Live import, new Story Vault tab creation, refreshed Google Sheets schemas, credential verification, live execution, and any activation/publication action require separate A3 authority.
+It is intentionally inactive/unpublished in repository form and has no live workflow ID. After normalization of legitimate volatile n8n metadata, it matches canonical workflow `SNnLunczq5mxrXLn`, verified by terminal zero-write execution `#432`. Future live mutation, execution, or activation/publication still requires separate A3 authority.
 
 Repository responsibilities include:
 
@@ -31,13 +31,13 @@ Repository responsibilities include:
 - shared Failure Handler and Error Workflow routing
 - no automatic retry on Google Sheets append operations
 
-Run:
+Run after any change to the export and before any future live configuration:
 
 ```bash
 node 06-testing/validate_production_package.mjs
 ```
 
-before any Phase 4 live configuration.
+The complete M7 suite passes `63 / 63`. Canonical installation, save/reload parity, and terminal `NOOP_COMPLETE` verification are recorded in `06-testing/M7_CANONICAL_VERIFICATION.md`.
 
 See `02-story-system/PRODUCTION_PACKAGE_SPEC.md` for the M7 contract.
 

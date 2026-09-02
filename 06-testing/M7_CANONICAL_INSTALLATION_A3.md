@@ -5,8 +5,9 @@
 **Certified implementation:** `da976ed5e686335ee7d3962f4763fcd1e707476a`  
 **Import prohibited:** Yes  
 **M8 prohibited:** Yes
+**Execution status:** Completed successfully on 2026-09-02; see `M7_CANONICAL_VERIFICATION.md`
 
-This document prepares the next A3 package. Its presence in the repository does not authorise live mutation or execution.
+This document records the completed A3 package. Its presence in the repository does not authorise any further live mutation or execution.
 
 ## Objective
 
@@ -145,3 +146,7 @@ Stop immediately on any mismatch. Do not retry.
 If parity and the canonical no-op check pass, report the live export comparison, execution ID, actual Switch output, forbidden-node proof, before/after row counts, Story timestamp, FailureLog count, workflow state, and rollback position. Then stop for A2 Phase 7 repository/state reconciliation.
 
 `M7 CANONICAL VERIFICATION: PASS`
+
+## Recorded result
+
+The canonical package was executed under separate A3 authority. Execution `#432` resolved `NOOP_COMPLETE`, emitted one item on terminal Switch output 3, and produced zero package, scene, Story, FailureLog, retry, or M8 writes/actions. Phase 7 reconciliation is recorded in `M7_CANONICAL_VERIFICATION.md`.

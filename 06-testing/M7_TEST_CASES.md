@@ -76,6 +76,6 @@ node 06-testing/validate_production_package.mjs
 | M7-062 | Ten-state route simulation | Clean INITIAL, completed repeat, both repairs, missing/duplicate/header/lineage failures, malformed AI output and happy persistence resolve deterministically. |
 | M7-063 | Failure-route lint | Every handled failure has one shared-handler entry, runtime execution identity, literal governed IDs and no path back to a write. |
 
-## Isolated live acceptance still required
+## Canonical acceptance status
 
-These offline tests do not mutate or execute live n8n. Under separate A3 authority, the canonical workflow must first receive the exact certified repository properties, be re-exported and compared, and only then enter isolated acceptance testing. The existing governed package must remain unchanged during installation verification.
+These offline tests do not mutate or execute live n8n. The separately authorised canonical installation and zero-write verification have now passed: execution `#432` resolved `NOOP_COMPLETE` on terminal output 3 while the existing governed package remained unchanged. See `M7_CANONICAL_VERIFICATION.md`.
