@@ -2,20 +2,24 @@
 ## Milo Story Studio — Current Operational State
 
 **Status date:** 2026-09-02
-**State basis:** Repository evidence, complete applicable offline validation, isolated acceptance executions `#416`–`#428`, canonical verification execution `#432`, normalized repository/live workflow parity, and governed Story Vault/FailureLog before-and-after reads
-**Authority for this baseline:** A2 Phase 7 repository/state reconciliation following separately authorised A3 canonical installation and verification
+**State basis:** Repository evidence, complete applicable M7 validation and acceptance evidence, approved `MILO_M8_DESIGN_APPROVAL_PACKAGE.md` revision 1.1, and the completed A2 M8 Phase 1 governance installation
+**Authority for this baseline:** A2 — M8 Phase 1 governance installation following explicit approval of design revision 1.1
 
 ---
 
 ## 1. Current Milestone
 
-**M7 — Production Package — COMPLETE WITH NON-BLOCKING D-015 NOTE**
+**M8 — Complete Studio — DESIGN APPROVED; GOVERNANCE INSTALLED; IMPLEMENTATION NOT STARTED**
 
 ---
 
 ## 2. Current Status
 
-**M7 COMPLETE; CANONICAL VERIFICATION PASSED; READY FOR M8 UNDER A SEPARATE AUTHORISED WORK ORDER**
+**M8 DESIGN REVISION 1.1 APPROVED; PHASE 1 GOVERNANCE INSTALLED; IMPLEMENTATION NOT STARTED**
+
+The approved M8 design baseline is `MILO_M8_DESIGN_APPROVAL_PACKAGE.md` revision 1.1, SHA-256 `6934b997f79e3d5aa7ff5b9405926abb8c9e401a1a539a31e16b1c32dac0d8a2`. Decision D-016 records M8-D01 through M8-D13 and the four incorporated amendments.
+
+Installation of the M8 work order is governance-only. It authorises neither M8 Phase 2 repository implementation nor any A3 activity. Every later phase requires a separate explicit instruction.
 
 M6.5 implementation, production identity cutover, and pre-M7 technical remediation are complete. The M7 Production Package design passed its approval gate, decision D-013 records the resulting immutable blueprint / child-scene / separate realised-provenance architecture, and the Phase 2 repository implementation is present.
 
@@ -27,11 +31,11 @@ The certified repository export was first proven in temporary workflow `xuzK7QTs
 
 ---
 
-## 3. Current M7 Phase
+## 3. Current M8 Phase
 
-**PHASE 7 — REPOSITORY/STATE RECONCILIATION COMPLETE**
+**PHASE 1 — GOVERNANCE INSTALLATION COMPLETE; PHASE 2 NOT AUTHORISED**
 
-The approved specification, schema, prompt, workflow, storage, lifecycle, failure, recovery, isolated-acceptance, canonical-verification, offline-validation, and repository/live-parity requirements all pass. No M7 implementation or verification action remains. M8 has not started and requires a new separately authorised work order.
+The approved replacement `WORK_ORDER.md`, decision D-016, and current governance-state records are installed. No M8 contract, schema, validator, workflow export, fixture, test, or other implementation artifact has been created or modified. M8 Phase 2 repository contracts require a new explicit A2 instruction. The A3 n8n/OpenArt connectivity proof remains unauthorised.
 
 ---
 
@@ -39,6 +43,9 @@ The approved specification, schema, prompt, workflow, storage, lifecycle, failur
 
 ### Repository-verified
 
+- The M8 replacement `WORK_ORDER.md` is installed as governance-only and explicitly grants no implementation authority.
+- Decision D-016 records approval of M8-D01 through M8-D13 and all four amendments.
+- The approved M8 design baseline is revision 1.1 with SHA-256 `6934b997f79e3d5aa7ff5b9405926abb8c9e401a1a539a31e16b1c32dac0d8a2`.
 - M6 Continuity Agent is recorded complete.
 - M6.5 failure-instrumentation contracts and implementation artifacts are committed.
 - `Milo Failure Handler v0.1` exists as a repository workflow export.
@@ -96,7 +103,7 @@ The approved specification, schema, prompt, workflow, storage, lifecycle, failur
 - Isolated executions `#416`–`#419` passed the `GENERATE`, `NOOP_COMPLETE`, `HEADER_REPAIR`, and `STATUS_REPAIR` routes with exact expected persistence and lifecycle effects.
 - Isolated executions `#420`, `#422`, `#424`, `#426`, and `#428` each produced one correct handled error code/message/execution context and zero unsafe package, scene, or lifecycle writes.
 - The optional-identifier `"undefined"` normalization observation is classified by D-015 as non-blocking post-M7 hardening debt.
-- No M8 action has occurred.
+- No M8 implementation or live-system action has occurred.
 
 | Canonical workflow | Verified current workflow ID |
 |---|---|
@@ -145,7 +152,8 @@ The live `MILO-001` lineage contains:
 - The shared Failure Handler and `FailureLog` architecture are live and resolved.
 - No workflow or production data path was executed during governance verification.
 - Controlled M7 executions `#406`, `#407`, `#409`, `#411`, `#412`, `#414`, `#430`, and `#432` occurred only under separate A3 packages. The final durable result is one coherent package and eight scenes; failed/repeat executions did not duplicate production data. Execution `#431` was a non-mutating partial resolver snapshot.
-- The current A2 Phase 7 package used repository, saved-definition, Story Vault, FailureLog, and execution evidence plus deterministic offline validation. It made no n8n, Story Vault, FailureLog, canon, publication, activation, or workflow-execution change.
+- The A2 Phase 7 package used repository, saved-definition, Story Vault, FailureLog, and execution evidence plus deterministic offline validation. It made no n8n, Story Vault, FailureLog, canon, publication, activation, or workflow-execution change.
+- The A2 M8 Phase 1 package changed governance documentation only. It made no n8n, Story Vault, FailureLog, canon, credential, OpenArt, Google Drive durable-store, generation, assembly, activation, execution, deployment, or publication change.
 
 ---
 
@@ -164,12 +172,15 @@ The live `MILO-001` lineage contains:
 - Preserve decisions D-008, D-009, and D-010.
 - Preserve decision D-011 and its handler-specific limitation; any future Failure Handler publication-state change requires separate production authority.
 - Preserve decision D-012: blank lineage must not be interpreted as any canon release, and PRE-CANON LEGACY lineages must not progress into M7 or later production without a separately authorised provenance-valid migration.
+- Preserve decision D-016 and the approved M8 revision 1.1 design baseline.
+- Do not begin M8 Phase 2 without a separate explicit A2 instruction.
+- Do not begin the n8n/OpenArt connectivity proof or any other A3 activity without a separate explicit A3 instruction.
 
 ---
 
 ## 8. Governance Dispositions and Residual Non-Blocking Notes
 
-The governed upstream lineage, M7 schema/workflow installation, INITIAL persistence, repair paths, isolated acceptance, canonical parity/no-op verification, and Phase 7 reconciliation are complete. No M7 blocker remains. M8 is technically ready but remains separately gated, unauthorised, and not started.
+The governed upstream lineage and M7 completion evidence remain unchanged. M8 design revision 1.1 is approved and its Phase 1 governance baseline is installed. M8 implementation remains not started; Phase 2 repository contracts and every A3 activity remain separately gated and unauthorised.
 
 1. **Governed — not an M7 blocker:** `Milo Failure Handler v0.1` is currently **Published**. Decision D-011 accepts this as an explicitly approved handler-specific operational exception. Publication is not technically required, does not create general permission to publish other Milo workflows, and may be changed only through a separately authorised production action.
 2. **Governed — not an M7 blocker:** Five Stories (`MILO-002` through `MILO-006`), fourteen Concepts, and two Outlines (`MILO-002-O01` and `MILO-003-O01`) have blank `canonVersion` and `canonRef`. Decision D-012 classifies them as PRE-CANON LEGACY records. Blank lineage is not any canon release, and these lineages are ineligible for M7 or later production unless a separately authorised migration establishes valid provenance for the complete Story lineage without fabrication.
@@ -187,9 +198,11 @@ The governed upstream lineage, M7 schema/workflow installation, INITIAL persiste
 
 ## 9. Next Authorised Action
 
-**READY FOR M8.** Prepare and explicitly authorise a new M8 work order before any M8 design, repository implementation, live-system mutation, or execution begins.
+**AWAITING A SEPARATE M8 PHASE 2 A2 INSTRUCTION.**
 
-This state record does not authorise M8, another Production Package invocation, canon changes, D-015 remediation, or legacy/test-workflow cleanup.
+The next possible work package is M8 Phase 2 repository contracts: schemas, lifecycle/error registers, adapter interfaces, validators, workflow skeletons, and deterministic offline tests. This state records readiness only and does not authorise that work.
+
+The A3 n8n/OpenArt connectivity proof remains unauthorised. This state record also does not authorise n8n activity, Story Vault changes, OpenArt activity, credential changes, paid generation, durable-media writes, assembly execution, activation, publication, canon changes, D-015 remediation, or legacy/test-workflow cleanup.
 
 ---
 
