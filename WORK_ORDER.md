@@ -1,7 +1,7 @@
 # WORK_ORDER.md
 ## Milo Story Studio — M8 Complete Studio
 
-**Status:** Active — Phase 2 repository contracts complete; Phase 3 and all A3 activity remain separately gated
+**Status:** Active — Phase 3 complete; isolated OpenArt A3 proof passed with notes and evidence is reconciled; `REFSHEET01`, Phase 4 and all further A3 activity remain separately gated
 **Project:** Redmaxy66/milo-story-studio  
 **Milestone:** M8 — Complete Studio  
 **Design basis:** MILO_M8_DESIGN_APPROVAL_PACKAGE.md revision 1.1  
@@ -77,7 +77,7 @@ The approved visual-reference pack is a derived canon-controlled production arti
 1. Verify entry state.
 2. Obtain a separate explicit A2 instruction, then install repository contracts, schemas, error/lifecycle definitions, and deterministic tests.
 3. Pass offline validation and M3–M7 regression.
-4. Obtain separate A3 authority and pass the isolated n8n/OpenArt connectivity proof.
+4. Obtain separate A3 authority and pass the isolated n8n/OpenArt connectivity proof. **Completed with notes; repository evidence reconciled under A2.**
 5. Obtain separate A3 authority for additive Story Vault and inactive workflow installation.
 6. Obtain separate A3 authority with a distinct evidence-based pilot cap, then prove one-scene generation, durable retrieval, cost, revision, and approval.
 7. Prove voice/audio/lip-sync capability or approve the fallback.
@@ -87,6 +87,8 @@ The approved visual-reference pack is a derived canon-controlled production arti
 11. Obtain a separate A2 instruction to reconcile repository/live state and close M8.
 
 No phase inherits authority from a prior phase.
+
+The next operational gate is a separate, narrowly scoped A3 instruction for `REFSHEET01`. Decision D-017 limits an initial sheet to 15 credits, the five-sheet initial stage to 75 credits, and any separately approved single revision to 15 credits per sheet, with a 150-credit absolute maximum for five initial sheets plus five revisions. These are governance ceilings, not spend authority. Every paid operation requires fresh pricing, unit-cap and remaining-stage-cap confirmation, sequential human review, no automatic retry, and immediate stop when cost cannot be bounded.
 
 ## 9. Protected invariants
 

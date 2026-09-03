@@ -9,7 +9,7 @@
 | M5 | Script Pipeline | Week 8 | Complete | Outline Generator, Outline Approval, Script Generator, and Script Approval v0.1 completed, tested, exported, committed, and pushed. End-to-end status progression proven from CONCEPT_APPROVED through OUTLINE_GENERATED, OUTLINE_APPROVED, SCRIPT_GENERATED, and SCRIPT_APPROVED. Deterministic validation, duplicate protection, approval repair paths, Story readiness checks, structured failure payloads, and canon-grounded script generation are working. |
 | M6 | Continuity Agent | Week 10 | Complete | Continuity Reviewer and Continuity Approval v0.1 completed, tested, exported, committed, and pushed. Deterministic validation, version-based duplicate protection, PASS / REVIEW_REQUIRED / FAIL routing, open-canon handling, human approval, approval repair, structured failures, and status progression through CONTINUITY_REVIEWED, CONTINUITY_APPROVED, and SCRIPT_REVISION_REQUIRED are proven. |
 | M7 | Production Package | Week 12 | Complete | Approved design and D-013 recorded; specification, schema, prompt, lifecycle/error contracts, two-tab persistence, workflow export, repair/no-op controls, and `63 / 63` offline validation complete. Canonical workflow `SNnLunczq5mxrXLn` passed terminal zero-write verification in execution `#432`; one version-1 `INITIAL` header and eight scenes remain intact with matching canon and prompt provenance. |
-| M8 | Complete Studio | Week 16 | In progress | Design revision 1.1 and D-016 govern the milestone. Phases 1–3 are complete; AP01–AP06 are approved with explicit conditions. The five-sheet reference proposal remains unexecuted and cost-blocked. No media, Phase 4 or live/A3 phase has begun. |
+| M8 | Complete Studio | Week 16 | In progress | Design revision 1.1, D-016 and D-017 govern the milestone. Phases 1–3 are complete and AP01–AP06 are approved with explicit conditions. The isolated OpenArt A3 connectivity/capability/cost proof passed with notes and its sanitized evidence is reconciled. Governance ceilings are 15 credits per initial sheet, 75 credits for five initial sheets, one separately approved revision per sheet at up to 15 credits, and 150 credits absolute for five initial sheets plus five revisions; they confer no spend authority. `REFSHEET01`, Phase 4 and production activity remain unauthorised and unstarted. |
 
 ## M5 closure
 
@@ -57,7 +57,7 @@ Key M6 implementation commits:
 
 ## Current focus
 
-Current milestone: **M8 — Complete Studio (Phase 3 complete; AP01–AP06 approved with conditions)**
+Current milestone: **M8 — Complete Studio (Phase 3 complete; OpenArt A3 proof reconciled; `REFSHEET01` not authorised)**
 
 M8 governance evidence:
 
@@ -82,6 +82,14 @@ M8 Phase 3 evidence:
 - The five-sheet proposal permits only finite candidate counts and records unknown costs/null caps as blocking; it grants no generation or spending authority.
 - Phase 3 validation passes `120 / 120`; Phase 2 and M3–M7 regressions pass; no media, live approval, provider call, assembly or publication exists.
 
+M8 isolated OpenArt A3 proof evidence:
+
+- Status: `PASS WITH NOTES`; isolated workflow `EL5LzYxiIUeOK2nf` remained inactive, unpublished and unpinned.
+- Read-only execution `#434` and paid execution `#435` succeeded. One neutral non-Milo Seedream 5 Lite `text2image` request returned one 2848×1600 PNG after an initial `PENDING` response and read-only retrieval.
+- Credits reconciled exactly from 3,463 to 3,448: 15 credits, zero retries.
+- D-017 accepts the route as technically proven, requires governed read-only status retrieval, and records planning ceilings that do not grant spend authority.
+- The proof does not establish Milo fidelity, multiview or character consistency, or production suitability.
+
 M7 closure evidence:
 
 - Canonical workflow: `SNnLunczq5mxrXLn`, inactive/unpublished, 47 nodes, 57 edges, zero pins.
@@ -90,7 +98,7 @@ M7 closure evidence:
 - Repository/live parity: passed against the certified workflow export, excluding only volatile n8n metadata.
 - Residual note: D-015 remains non-blocking post-M7 hardening debt.
 
-Next gate: **SEPARATELY AUTHORISED A3 CONNECTIVITY/CAPABILITY/COST PROOF WITH NO MILO REFERENCE GENERATION.** The existing 75-credit connectivity ceiling is not a reference-generation budget. Reference generation and Phase 4 remain unauthorised and unstarted.
+Next gate: **SEPARATELY AUTHORISED, NARROWLY SCOPED A3 INSTRUCTION FOR `REFSHEET01`.** Fresh pricing and all D-017 unit/stage controls remain mandatory. The approved ceilings do not constitute spend authority. Reference generation and Phase 4 remain unauthorised and unstarted.
 
 ## Status values
 

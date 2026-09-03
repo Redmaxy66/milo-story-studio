@@ -8,11 +8,11 @@ The studio now supports the controlled progression:
 
 `IDEA -> CONCEPT_GENERATED -> CONCEPT_APPROVED -> OUTLINE_GENERATED -> OUTLINE_APPROVED -> SCRIPT_GENERATED -> SCRIPT_APPROVED -> CONTINUITY_REVIEWED -> CONTINUITY_APPROVED -> PRODUCTION_PACKAGE_GENERATED`
 
-Current milestone: **M8 — Complete Studio — Phase 3 complete; AP01–AP06 approved with conditions**
+Current milestone: **M8 — Complete Studio — Phase 3 complete; OpenArt A3 proof reconciled; `REFSHEET01` not authorised**
 
 M7 status: **Complete.** Canonical workflow `SNnLunczq5mxrXLn` passed the controlled terminal no-op verification in execution `#432`; repository/live parity, persistence, provenance, lifecycle isolation, recovery, failure safety, and the `63 / 63` offline suite all pass.
 
-M8 status: **IN PROGRESS — PHASE 3 COMPLETE; AP01–AP06 APPROVED WITH CONDITIONS.** Phase 1 governance, Phase 2 repository contracts and Phase 3 reference/production-intent preparation are complete. The immutable `MILO-007-S01-P01` source is bound to derived non-canon reference governance, Film Director briefs, an approved-with-conditions text storyboard, animation manifest and provider-neutral prompt bundle, plus a cost-blocked unexecuted reference proposal. No media, Phase 4 or live/A3 activity occurred.
+M8 status: **IN PROGRESS — PHASE 3 COMPLETE; OPENART A3 PROOF PASSED WITH NOTES AND IS RECONCILED.** Phase 1 governance, Phase 2 repository contracts and Phase 3 reference/production-intent preparation are complete. The immutable `MILO-007-S01-P01` source is bound to derived non-canon reference governance, Film Director briefs, an approved-with-conditions text storyboard, animation manifest and provider-neutral prompt bundle. The isolated proof established OAuth, MCP discovery, one read-only account check, asynchronous `PENDING` handling, retrieval of one neutral non-Milo 2848×1600 PNG, and an exact 15-credit charge with zero retries. D-017 records governance ceilings of 15 credits per initial sheet, 75 credits for five initial sheets, one separately approved revision per sheet at up to 15 credits, and 150 credits absolute; these confer no spend authority. `REFSHEET01`, all Milo reference generation, production implementation and Phase 4 remain unauthorised and unstarted.
 
 ---
 
@@ -140,4 +140,4 @@ M8 status: **IN PROGRESS — PHASE 3 COMPLETE; AP01–AP06 APPROVED WITH CONDITI
 - M5 — Complete
 - M6 — Complete
 - M7 — Complete
-- M8 — In progress (Phase 3 complete; AP01–AP06 approved with conditions; reference generation, Phase 4 and all A3 activity separately gated)
+- M8 — In progress (Phase 3 complete; OpenArt A3 proof reconciled; `REFSHEET01`, Phase 4 and all further A3 activity separately gated)

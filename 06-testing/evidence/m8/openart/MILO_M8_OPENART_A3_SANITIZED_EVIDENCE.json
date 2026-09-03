@@ -1,0 +1,95 @@
+{
+  "evidenceVersion": "m8-openart-a3-proof-v1",
+  "sanitized": true,
+  "outcome": "PASS_WITH_NOTES",
+  "governedEntry": {
+    "repository": "Redmaxy66/milo-story-studio",
+    "branch": "main",
+    "head": "20a7ece80e7126c6d35eae7e8aec3dce47b46e84",
+    "parent": "432136deda6707f8c7ece8cc77cd0cc46dbe0c6e",
+    "tree": "48e39d4cdd0864ace4db58f9a9ef2c7c043c5514",
+    "subject": "Approve M8 Phase 3 production intent package",
+    "mutation": false
+  },
+  "connection": {
+    "provider": "OpenArt",
+    "route": "MCP_HTTP_STREAMABLE_OAUTH2",
+    "endpoint": "https://mcp.openart.ai/mcp",
+    "credentialAlias": "M8 OpenArt Proof OAuth - ISOLATED",
+    "credentialDomainRestriction": "mcp.openart.ai",
+    "secretMaterialIncluded": false
+  },
+  "workflow": {
+    "id": "EL5LzYxiIUeOK2nf",
+    "name": "Milo M8 OpenArt Connectivity Proof - ISOLATED TEST",
+    "trigger": "manual",
+    "active": false,
+    "published": false,
+    "nodes": 5,
+    "connections": 4,
+    "pins": 0,
+    "automaticRetries": 0,
+    "nodeNames": [
+      "When clicking ‘Execute workflow’",
+      "Prepare Non-Milo Test Request",
+      "OpenArt Text-to-Image via MCP",
+      "Normalize Response and Cost",
+      "Terminal Proof Result"
+    ]
+  },
+  "readOnlyCheck": {
+    "executionId": 434,
+    "operation": "openart_account_get",
+    "status": "SUCCEEDED",
+    "durationSeconds": 1.86,
+    "creditsObserved": 3463
+  },
+  "paidExecution": {
+    "executionId": 435,
+    "status": "SUCCEEDED",
+    "durationSeconds": 4.35,
+    "paidSubmissionCount": 1,
+    "retryCount": 0,
+    "operation": "openart_generate_image",
+    "model": "byte-plus-seedream-5-lite",
+    "modelDisplayName": "Seedream 5 Lite",
+    "mode": "text2image",
+    "settings": {
+      "resolution": "2K",
+      "aspectRatio": "16:9",
+      "imageCount": 1,
+      "autoEnhancePrompt": false,
+      "referenceCount": 0,
+      "promptClassification": "NON_MILO_DISPOSABLE_MULTI_VIEW_REFERENCE_SHEET"
+    },
+    "initialProviderStatus": "PENDING",
+    "finalProviderStatus": "COMPLETED",
+    "historyId": "QwRJzFT9RJNUMxtSMhFe",
+    "resource": {
+      "id": "NDWfnk61R0ZYkn68XCJv",
+      "mediaType": "image",
+      "format": "png",
+      "width": 2848,
+      "height": 1600,
+      "retrievable": true
+    }
+  },
+  "cost": {
+    "currency": "OpenArt credits",
+    "quotedMaximum": 15,
+    "absoluteA3Ceiling": 75,
+    "before": 3463,
+    "after": 3448,
+    "spent": 15
+  },
+  "protectedInvariants": {
+    "productionWorkflowMutation": false,
+    "productionWorkflowExecution": false,
+    "repositoryMutation": false,
+    "storyVaultMutation": false,
+    "driveMutation": false,
+    "canonMutation": false,
+    "miloContentSubmitted": false,
+    "referencePromotion": false
+  }
+}

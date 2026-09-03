@@ -1,0 +1,87 @@
+# M8 OpenArt A3 Evidence Reconciliation
+
+**Result:** PASS WITH NOTES
+**Validation date:** 2026-09-03
+**Authority:** A2 — M8 OpenArt A3 Proof Evidence Reconciliation
+**Entry remote `main`:** `20a7ece80e7126c6d35eae7e8aec3dce47b46e84`
+**Entry parent:** `432136deda6707f8c7ece8cc77cd0cc46dbe0c6e`
+**Entry tree:** `48e39d4cdd0864ace4db58f9a9ef2c7c043c5514`
+**Entry subject:** `Approve M8 Phase 3 production intent package`
+
+## Installed evidence and integrity
+
+| Artifact | Supplied SHA-256 | Repository SHA-256 | Result |
+|---|---|---|---|
+| `MILO_M8_OPENART_A3_EVIDENCE_REPORT.md` | `2e27bbf769ded0c16bfe1e554e4659d9257d4390b06f1a70ab70e503e4774254` | `2e27bbf769ded0c16bfe1e554e4659d9257d4390b06f1a70ab70e503e4774254` | Byte-identical |
+| `MILO_M8_OPENART_A3_SANITIZED_EVIDENCE.json` | `053b99185265149ce3a4f3807bfbafd5f219c4e90e3bf4206b6f29a632a737b4` | `053b99185265149ce3a4f3807bfbafd5f219c4e90e3bf4206b6f29a632a737b4` | Byte-identical |
+
+The sanitized JSON parses successfully. Secret-pattern inspection found no OAuth token, access token, refresh token, client secret, authorization header, cookie, session value, private key or unsanitized provider response. Credential names and the restricted provider domain are identifiers only; no credential value is present.
+
+## Proven A3 result
+
+- Status: `PASS WITH NOTES`.
+- Isolated workflow: `EL5LzYxiIUeOK2nf`, inactive, unpublished and unpinned.
+- Read-only execution `#434`: succeeded using `openart_account_get`.
+- Paid execution `#435`: succeeded using `openart_generate_image` with Seedream 5 Lite, `text2image`, one 2K 16:9 output.
+- Initial response: `PENDING`; completed through governed read-only status retrieval.
+- Final output: one PNG at 2848×1600; history ID `QwRJzFT9RJNUMxtSMhFe`; resource ID `NDWfnk61R0ZYkn68XCJv`.
+- Credits: 3,463 before, 3,448 after, exactly 15 credits charged.
+- Retries: zero.
+- Prompt and output were neutral and non-Milo.
+- No production workflow, Story Vault, Google Drive, canon, approved reference pack or repository mutation occurred during the proof.
+
+The proof establishes OpenArt OAuth authentication from n8n, MCP capability discovery, read-only account access, one bounded image submission, asynchronous history-ID receipt, completed-resource retrieval and exact charge reconciliation for the tested configuration. It does not establish Milo visual fidelity, multiview consistency, character consistency or production suitability.
+
+## Governance reconciliation
+
+Decision D-017:
+
+1. accepts the OpenArt MCP route as technically proven for M8 subject to its recorded conditions;
+2. requires production handling of an initial `PENDING` response through governed read-only status retrieval;
+3. retains earlier OAuth popup and browser failures as non-blocking operational evidence;
+4. limits an initial reference sheet to 15 credits, five initial sheets to 75 credits, one separately approved revision per sheet to 15 credits, and five initial sheets plus five revisions to an absolute 150 credits;
+5. requires separate explicit authority, fresh pricing, unit-cap and remaining-stage-cap confirmation, sequential human review, no automatic retry and immediate stop if cost cannot be bounded; and
+6. confirms that these ceilings are governance limits only, confer no spend authority, leave `REFSHEET01` unauthorised, and leave M8 Phase 4 unauthorised and not started.
+
+## Validation
+
+| Suite | Result |
+|---|---:|
+| M8 contract validation | PASS — 36 / 36 |
+| M8 lifecycle validation | PASS — 93 / 93 |
+| M8 hashing validation | PASS — 19 / 19 |
+| M8 OpenArt adapter validation | PASS — 29 / 29 |
+| M8 Story Vault schema validation | PASS — 33 / 33 |
+| M8 workflow skeleton validation | PASS — 14 / 14 |
+| M8 Phase 2 aggregate | PASS — 9 / 9 |
+| M8 Phase 3 validation | PASS — 120 / 120 |
+| Applicable M3–M7 regressions | PASS; M7 remains 63 / 63 |
+| Module syntax checks | PASS |
+| Evidence SHA-256 and JSON parse gates | PASS |
+| Decision uniqueness and sequence | PASS — D-017 follows D-016 |
+| Secret/token scan | PASS |
+| Repository formatting and changed-path checks | PASS |
+
+All validation was offline and repository-only. This reconciliation caused zero additional OpenArt credits and no n8n, OpenArt, credential, Story Vault, Google Sheets, Google Drive, canon, media, assembly, activation, publication or deployment activity.
+
+## Issue disposition
+
+### CRITICAL NOW
+
+- None.
+
+### MATERIAL BEFORE NEXT RELEVANT GATE
+
+- `REFSHEET01` requires a separate narrowly scoped A3 instruction and fresh preflight pricing within both the 15-credit unit ceiling and remaining 75-credit initial-stage ceiling.
+- Production implementation must handle initial `PENDING` responses through governed read-only status retrieval and must not infer completion from submission success.
+- Milo fidelity, multiview consistency, character consistency and production suitability remain unproven and require sequential human review of exact generated bytes.
+
+### PARKABLE AT NO CURRENT RISK
+
+- Earlier OAuth 502 and blank-popup failures remain useful non-blocking operational evidence because the credential was subsequently connected and authenticated successfully.
+- Execution `#433` remains a non-billing pre-proof configuration error, as documented in the sanitized evidence report.
+- D-015 and unrelated legacy/test-workflow cleanup remain unchanged and outside this reconciliation.
+
+## Disposition
+
+M8 Phase 3 remains complete. The isolated OpenArt A3 proof is reconciled with notes. `REFSHEET01`, every additional paid operation, production implementation and Phase 4 remain unauthorised.
