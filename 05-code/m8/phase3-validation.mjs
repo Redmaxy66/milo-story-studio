@@ -261,16 +261,61 @@ export function validatePhase3Repository(root) {
       assert(x.assetDependencies.includes(voiceId)); assert(x.assemblyHandoff.requiredInputs.includes(voiceId));
     });
   });
+  const animationById=new Map(animation.content.shots.map(x=>[x.shotId,x]));
+  const playbackClaimText=shot => JSON.stringify([
+    shot.storyBeat,
+    shot.motionChoreography.primaryAction,
+    shot.motionChoreography.reaction,
+    shot.motionChoreography.settle,
+    shot.motionChoreography.endPose,
+    shot.rendererNeutralPrompt,
+    shot.voiceDialogueSound.sfx,
+    shot.voiceDialogueSound.productionNotes,
+  ]);
+  check('animation:no-playback-semantic-silence', () => {
+    const voiceId=animation.content.audioPlan.narrationSourceBinding.voiceAssetId;
+    animation.content.shots.filter(x=>x.voiceDialogueSound.narrationPlayback.playbackState==='NO_PLAYBACK_VISUAL_HOLD').forEach(shot => {
+      assert.equal(shot.voiceDialogueSound.dialogueCues.length,0);
+      assert(!shot.assetDependencies.includes(voiceId));
+      assert(!shot.assemblyHandoff.requiredInputs.includes(voiceId));
+      assert(!/\b(?:says?|speaks?|spoken|hears?|heard|hums?|hummed|audible)\b/i.test(playbackClaimText(shot)));
+    });
+  });
+  check('animation:sc04-count-cue-isolation', () => {
+    const cues=animation.content.shots.flatMap(shot=>shot.voiceDialogueSound.dialogueCues.map(cue=>({shotId:shot.shotId,text:cue.text})));
+    assert.deepEqual(cues.filter(cue=>cue.text==='"One,"'),[{shotId:'MILO-007-S01-P01-SC04-SH02',text:'"One,"'}]);
+    const hold=animationById.get('MILO-007-S01-P01-SC04-SH03');
+    assert.equal(hold.voiceDialogueSound.narrationPlayback.playbackState,'NO_PLAYBACK_VISUAL_HOLD');
+    assert(/patient silent hold/.test(hold.motionChoreography.primaryAction));
+  });
+  check('animation:sc05-clap-isolation', () => {
+    for (const shotId of ['MILO-007-S01-P01-SC05-SH01','MILO-007-S01-P01-SC05-SH02']) {
+      const shot=animationById.get(shotId);
+      assert(!/clap/i.test(JSON.stringify([shot.rendererNeutralPrompt,shot.voiceDialogueSound.sfx,shot.voiceDialogueSound.productionNotes])));
+    }
+    const success=animationById.get('MILO-007-S01-P01-SC05-SH03');
+    assert(/returning glow, and only then Milo gives one soft muted clap/.test(success.motionChoreography.primaryAction));
+    assert(/clap/i.test(JSON.stringify([success.rendererNeutralPrompt,success.voiceDialogueSound.sfx,success.voiceDialogueSound.productionNotes])));
+  });
+  check('animation:sc08-closing-cue-isolation', () => {
+    const cues=animation.content.shots.flatMap(shot=>shot.voiceDialogueSound.dialogueCues.map(cue=>({shotId:shot.shotId,text:cue.text})));
+    assert.deepEqual(cues.filter(cue=>cue.text==='"Moonberries and moonbeams!"'),[{shotId:'MILO-007-S01-P01-SC08-SH02',text:'"Moonberries and moonbeams!"'}]);
+    const hold=animationById.get('MILO-007-S01-P01-SC08-SH03');
+    assert.equal(hold.voiceDialogueSound.narrationPlayback.playbackState,'NO_PLAYBACK_VISUAL_HOLD');
+    assert(/silently resumes his left-to-right/.test(hold.motionChoreography.primaryAction));
+    assert(/final visual fade/.test(hold.storyBeat));
+    assert(!/(humm?ed phrase|final hum line|audible)/i.test(playbackClaimText(hold)));
+  });
   check('animation:targeted-action-order', () => {
     const byId=new Map(animation.content.shots.map(x=>[x.shotId,x]));
     assert(/listens without interrupting/.test(byId.get('MILO-007-S01-P01-SC02-SH03').motionChoreography.primaryAction));
     assert(/quiet decision/.test(byId.get('MILO-007-S01-P01-SC03-SH03').motionChoreography.primaryAction));
-    assert(/without clapping/.test(byId.get('MILO-007-S01-P01-SC05-SH02').motionChoreography.primaryAction));
+    assert(/withholds celebration/.test(byId.get('MILO-007-S01-P01-SC05-SH02').motionChoreography.primaryAction));
     assert(/only then Milo gives one soft muted clap/.test(byId.get('MILO-007-S01-P01-SC05-SH03').motionChoreography.primaryAction));
     assert(/Milo holds still with no touch or prompting/.test(byId.get('MILO-007-S01-P01-SC07-SH03').motionChoreography.primaryAction));
     assert(/without waving or departing yet/.test(byId.get('MILO-007-S01-P01-SC08-SH01').motionChoreography.reaction));
     assert(/does not depart yet/.test(byId.get('MILO-007-S01-P01-SC08-SH02').motionChoreography.primaryAction));
-    assert(/Only after the reunion and wave/.test(byId.get('MILO-007-S01-P01-SC08-SH03').motionChoreography.primaryAction));
+    assert(/Only after the reunion, wave, and closing cue/.test(byId.get('MILO-007-S01-P01-SC08-SH03').motionChoreography.primaryAction));
   });
   check('animation:audio-semantics-separated', () => animation.content.shots.forEach(x => {
     assert(Array.isArray(x.voiceDialogueSound.ambience)); assert(Array.isArray(x.voiceDialogueSound.dialogueCues));
@@ -300,6 +345,16 @@ export function validatePhase3Repository(root) {
     assert.equal(x.positiveRequirements[1],shot.rendererNeutralPrompt);
     assert(x.exactSourceArtifactReferences.some(ref=>ref.artifactId===animation.artifactId && ref.contentHash===animation.contentHash));
   }));
+  check('prompt:authoritative-manifest-hash', () => {
+    const topLevel=prompt.content.sourceArtifacts.find(ref=>ref.artifactId===animation.artifactId);
+    assert(topLevel);
+    assert.equal(topLevel.contentHash,animation.contentHash);
+    prompt.content.prompts.forEach(item => {
+      const refs=item.exactSourceArtifactReferences.filter(ref=>ref.artifactId===animation.artifactId);
+      assert.equal(refs.length,1);
+      assert.equal(refs[0].contentHash,animation.contentHash);
+    });
+  });
   check('prompt:duration-mapping-unresolved', () => prompt.content.prompts.forEach(x => {
     assert.equal(x.providerProjection.durationMapping.requestedDurationSeconds,x.requestedSettings.durationSeconds);
     assert.equal(x.providerProjection.durationMapping.status,'UNRESOLVED_PENDING_A3_CAPABILITY_EVIDENCE');

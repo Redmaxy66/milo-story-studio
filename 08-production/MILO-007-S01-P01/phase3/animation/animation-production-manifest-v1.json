@@ -33,7 +33,7 @@
       "immutable": true
     }
   ],
-  "contentHash": "8e2bc4ba60e2c53ebda2b3a782a53edc6ae1dfae818bfa0254186111b23879f7",
+  "contentHash": "61738427c0f063c29f84595578e8e09006a49677ae0d30e43689581a06bf234c",
   "content": {
     "specialist": "Animation Production Director",
     "specialistInstructionReadInFull": true,
@@ -1695,8 +1695,8 @@
         "motionChoreography": {
           "startPose": "Match the preceding shot’s end pose and eyeline.",
           "anticipation": "One restrained breath, gaze shift, or light pulse before the primary action.",
-          "primaryAction": "He raises one finger or shows a single-hand count gesture as he says \"One,\"",
-          "reaction": "Hold a small readable response without anticipating later beats.",
+          "primaryAction": "He keeps one finger raised in a patient silent hold after the preceding count, with no mouth movement or additional vocalisation",
+          "reaction": "Milo waits patiently without adding another cue or gesture.",
           "settle": "Ease motion to stillness before the edit.",
           "endPose": "Provide the approved scene exit image and clean direction into the next scene.",
           "performanceRequirements": [
@@ -1745,7 +1745,7 @@
           },
           "productionNotes": [
             "Direction should prioritise small, controlled movements to support the scene's calmness.",
-            "When recording voice, instruct actor to maintain consistent mic distance during quiet lines to preserve intimacy."
+            "No dialogue or narration playback occurs in this shot; hold a relaxed closed-mouth expression."
           ],
           "musicStatus": "NOT_CREATED",
           "voiceAssetId": "MILO-007-S01-P01-P3A-VOICE001-V01",
@@ -1785,7 +1785,7 @@
           "inputChecksumRequirement": "Every later approved durable asset must be write-restricted and SHA-256 revalidated immediately before assembly.",
           "outputStatus": "NOT_GENERATED"
         },
-        "rendererNeutralPrompt": "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Close beside the fern on the mossy path, Hold the single count and patient silence., Close, careful gestures: Milo sits, bends close, reaches into his backpack, offers a treat, and demonstrates counting with a hand gesture., gentle track, hold, or release motivated by the action, 65mm patient close, 288 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution"
+        "rendererNeutralPrompt": "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Close beside the fern on the mossy path, Hold the single count and patient silence., Milo keeps one finger raised in a patient silent hold after the preceding count, with a relaxed closed-mouth expression and no additional vocalisation., gentle track, hold, or release motivated by the action, 65mm patient close, 288 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution"
       },
       {
         "shotId": "MILO-007-S01-P01-SC05-SH01",
@@ -1806,8 +1806,8 @@
           "settle": "Ease motion to stillness before the edit.",
           "endPose": "Maintain position and screen side for the following shot.",
           "performanceRequirements": [
-            "Soft encouragement with gentle celebratory warmth at the small success.",
-            "Patience turning to quiet joy.",
+            "Soft, steady encouragement with no celebration yet.",
+            "Patient attention during the fragile first flicker.",
             "Milo remains non-coercive and emotionally safe."
           ]
         },
@@ -1840,8 +1840,7 @@
           ],
           "sfx": [
             "Soft leaf rustle",
-            "Almost inaudible exhale",
-            "Soft muted clap only after the returning glow"
+            "Almost inaudible exhale"
           ],
           "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
           "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED",
@@ -1855,7 +1854,7 @@
           },
           "productionNotes": [
             "Keep sound design minimal and supportive—soft leaf rustle and an almost inaudible exhale will enhance intimacy.",
-            "Clap should be soft and muted to avoid startling a young audience."
+            "Hold the reaction neutral; celebration is reserved for the later success beat."
           ],
           "musicStatus": "NOT_CREATED",
           "voiceAssetId": "MILO-007-S01-P01-P3A-VOICE001-V01",
@@ -1895,7 +1894,7 @@
           "inputChecksumRequirement": "Every later approved durable asset must be write-restricted and SHA-256 revalidated immediately before assembly.",
           "outputStatus": "NOT_GENERATED"
         },
-        "rendererNeutralPrompt": "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Very close to the fern on the mossy ground; intimate close-up sequence, Catch the nearly secret first flicker., Tiny, delicate motion sequence: subtle fern movement, a hesitant glow, Milo's steady breathing, and a soft clap., gentle track, hold, or release motivated by the action, 100mm macro, 264 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution"
+        "rendererNeutralPrompt": "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Very close to the fern on the mossy ground; intimate close-up sequence, Catch the nearly secret first flicker., Tiny, delicate motion sequence: subtle fern movement, a hesitant glow, Milo's steady breathing, and a restrained still response., gentle track, hold, or release motivated by the action, 100mm macro, 264 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution"
       },
       {
         "shotId": "MILO-007-S01-P01-SC05-SH02",
@@ -1911,13 +1910,13 @@
         "motionChoreography": {
           "startPose": "Match the preceding shot’s end pose and eyeline.",
           "anticipation": "One restrained breath, gaze shift, or light pulse before the primary action.",
-          "primaryAction": "A mild breeze shakes the fern and the firefly hides its light; Milo stays calm, breathes slowly, and softly counts without clapping",
+          "primaryAction": "A mild breeze shakes the fern and the firefly hides its light; Milo stays calm, breathes slowly, softly counts, and withholds celebration",
           "reaction": "Milo does not startle, reach, or celebrate during the setback.",
           "settle": "The fern settles while Milo preserves a quiet, patient hold.",
           "endPose": "Milo remains relaxed and the firefly stays sheltered for the recovery beat.",
           "performanceRequirements": [
-            "Soft encouragement with gentle celebratory warmth at the small success.",
-            "Patience turning to quiet joy.",
+            "Soft, steady encouragement with no celebration yet.",
+            "Patient attention through the breeze and retreat.",
             "Milo remains non-coercive and emotionally safe."
           ]
         },
@@ -1962,8 +1961,7 @@
           ],
           "sfx": [
             "Soft leaf rustle",
-            "Almost inaudible exhale",
-            "Soft muted clap only after the returning glow"
+            "Almost inaudible exhale"
           ],
           "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
           "lipSyncClassification": "VOICE_FIRST_DIALOGUE_PRESENT_LIP_SYNC_CAPABILITY_UNPROVEN_USE_APPROVED_FALLBACK",
@@ -1977,7 +1975,7 @@
           },
           "productionNotes": [
             "Keep sound design minimal and supportive—soft leaf rustle and an almost inaudible exhale will enhance intimacy.",
-            "Clap should be soft and muted to avoid startling a young audience."
+            "Reserve celebration for the subsequent successful glow beat."
           ],
           "musicStatus": "NOT_CREATED",
           "voiceAssetId": "MILO-007-S01-P01-P3A-VOICE001-V01",
@@ -2017,7 +2015,7 @@
           "inputChecksumRequirement": "Every later approved durable asset must be write-restricted and SHA-256 revalidated immediately before assembly.",
           "outputStatus": "NOT_GENERATED"
         },
-        "rendererNeutralPrompt": "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Very close to the fern on the mossy ground; intimate close-up sequence, Let a mild breeze move the fern and the firefly hide while Milo stays calm., A mild breeze moves the fern and the firefly hides; Milo stays calm, breathes slowly, and softly counts with no clap during the setback., slow, eased push or restrained focus transfer, 50mm reaction, 288 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution"
+        "rendererNeutralPrompt": "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Very close to the fern on the mossy ground; intimate close-up sequence, Let a mild breeze move the fern and the firefly hide while Milo stays calm., A mild breeze moves the fern and the firefly hides; Milo stays calm, breathes slowly, softly counts, and withholds celebration during the setback., slow, eased push or restrained focus transfer, 50mm reaction, 288 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution"
       },
       {
         "shotId": "MILO-007-S01-P01-SC05-SH03",
@@ -3017,11 +3015,11 @@
         "durationSeconds": 6,
         "sourceText": "At the place where the lanterns make a soft circle, the firefly reunites with its family and they glow together like a tiny, warm constellation. Milo watches happily, waves, and continues his evening walk with a warm smile. He celebrates the courage of one small light and quietly hums, \"Moonberries and moonbeams!\"",
         "sourceTextHash": "9a2c65085926464506dd213e0d09b640bd9563c5213274ca016a3b1d663105b1",
-        "storyBeat": "Track Milo onward and close on the exact hummed phrase.",
+        "storyBeat": "Track Milo onward in silence and close on the final visual fade.",
         "motionChoreography": {
           "startPose": "Match the preceding shot’s end pose and eyeline.",
           "anticipation": "One restrained breath, gaze shift, or light pulse before the primary action.",
-          "primaryAction": "Only after the reunion and wave, Milo resumes his left-to-right evening stroll with a warm smile",
+          "primaryAction": "Only after the reunion, wave, and closing cue are complete, Milo silently resumes his left-to-right evening stroll with a warm smile",
           "reaction": "The family remains visible as a small warm constellation behind him.",
           "settle": "Ease the stroll and camera track into the final fade.",
           "endPose": "Milo continues safely along the path as the episode closes.",
@@ -3070,8 +3068,8 @@
             "timingStatus": "PROVISIONAL_PENDING_VOICE_TIMING"
           },
           "productionNotes": [
-            "End with a calm, satisfying visual and audio cue to leave the audience comforted.",
-            "Ensure the final hum line is clearly audible but soft; do not overdub loud music under the close."
+            "End with a calm, satisfying final image that leaves the audience comforted.",
+            "No dialogue or narration playback occurs; carry only ambience and optional underscore into the fade."
           ],
           "musicStatus": "NOT_CREATED",
           "voiceAssetId": "MILO-007-S01-P01-P3A-VOICE001-V01",
@@ -3109,7 +3107,7 @@
           "inputChecksumRequirement": "Every later approved durable asset must be write-restricted and SHA-256 revalidated immediately before assembly.",
           "outputStatus": "NOT_GENERATED"
         },
-        "rendererNeutralPrompt": "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Small clearing or path circle formed by lantern pools, Track Milo onward and close on the exact hummed phrase., After the reunion and wave are complete, Milo resumes his left-to-right evening stroll with a warm smile and eases into the final fade., gentle track, hold, or release motivated by the action, 40mm departing wide, 144 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution"
+        "rendererNeutralPrompt": "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Small clearing or path circle formed by lantern pools, Track Milo onward in silence and close on the final visual fade., Only after the reunion, wave, and closing cue are complete, Milo silently resumes his left-to-right evening stroll with a warm smile and eases into the final fade., gentle track, hold, or release motivated by the action, 40mm departing wide, 144 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution"
       }
     ],
     "audioPlan": {

@@ -33,7 +33,7 @@
       "immutable": true
     }
   ],
-  "contentHash": "0b016b0d07da023f3c51ff2b78dcc07cb669a6f24bb4ecc1588016ce40cce91d",
+  "contentHash": "39aad2f785cd8a90e6f45f5c7e5a34b9f5b2d8333dcfc3046df099d613016dba",
   "content": {
     "purpose": "Provider-neutral future projection of human-approved shot intent; this bundle is not generation authority.",
     "sourceArtifacts": [
@@ -47,7 +47,7 @@
       },
       {
         "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
-        "contentHash": "ace496163aa11c9988186a0a9721fab60db361fb0cd10ed0f24ae8ddc59b38e8"
+        "contentHash": "61738427c0f063c29f84595578e8e09006a49677ae0d30e43689581a06bf234c"
       }
     ],
     "providerNeutrality": {
@@ -72,7 +72,7 @@
         "exactSourceArtifactReferences": [
           {
             "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
-            "contentHash": "8e2bc4ba60e2c53ebda2b3a782a53edc6ae1dfae818bfa0254186111b23879f7"
+            "contentHash": "61738427c0f063c29f84595578e8e09006a49677ae0d30e43689581a06bf234c"
           },
           {
             "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
@@ -202,7 +202,7 @@
         "exactSourceArtifactReferences": [
           {
             "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
-            "contentHash": "8e2bc4ba60e2c53ebda2b3a782a53edc6ae1dfae818bfa0254186111b23879f7"
+            "contentHash": "61738427c0f063c29f84595578e8e09006a49677ae0d30e43689581a06bf234c"
           },
           {
             "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
@@ -332,7 +332,7 @@
         "exactSourceArtifactReferences": [
           {
             "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
-            "contentHash": "8e2bc4ba60e2c53ebda2b3a782a53edc6ae1dfae818bfa0254186111b23879f7"
+            "contentHash": "61738427c0f063c29f84595578e8e09006a49677ae0d30e43689581a06bf234c"
           },
           {
             "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
@@ -462,7 +462,7 @@
         "exactSourceArtifactReferences": [
           {
             "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
-            "contentHash": "8e2bc4ba60e2c53ebda2b3a782a53edc6ae1dfae818bfa0254186111b23879f7"
+            "contentHash": "61738427c0f063c29f84595578e8e09006a49677ae0d30e43689581a06bf234c"
           },
           {
             "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
@@ -592,7 +592,7 @@
         "exactSourceArtifactReferences": [
           {
             "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
-            "contentHash": "8e2bc4ba60e2c53ebda2b3a782a53edc6ae1dfae818bfa0254186111b23879f7"
+            "contentHash": "61738427c0f063c29f84595578e8e09006a49677ae0d30e43689581a06bf234c"
           },
           {
             "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
@@ -722,7 +722,7 @@
         "exactSourceArtifactReferences": [
           {
             "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
-            "contentHash": "8e2bc4ba60e2c53ebda2b3a782a53edc6ae1dfae818bfa0254186111b23879f7"
+            "contentHash": "61738427c0f063c29f84595578e8e09006a49677ae0d30e43689581a06bf234c"
           },
           {
             "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
@@ -852,7 +852,7 @@
         "exactSourceArtifactReferences": [
           {
             "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
-            "contentHash": "8e2bc4ba60e2c53ebda2b3a782a53edc6ae1dfae818bfa0254186111b23879f7"
+            "contentHash": "61738427c0f063c29f84595578e8e09006a49677ae0d30e43689581a06bf234c"
           },
           {
             "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
@@ -982,7 +982,7 @@
         "exactSourceArtifactReferences": [
           {
             "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
-            "contentHash": "8e2bc4ba60e2c53ebda2b3a782a53edc6ae1dfae818bfa0254186111b23879f7"
+            "contentHash": "61738427c0f063c29f84595578e8e09006a49677ae0d30e43689581a06bf234c"
           },
           {
             "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
@@ -1112,7 +1112,7 @@
         "exactSourceArtifactReferences": [
           {
             "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
-            "contentHash": "8e2bc4ba60e2c53ebda2b3a782a53edc6ae1dfae818bfa0254186111b23879f7"
+            "contentHash": "61738427c0f063c29f84595578e8e09006a49677ae0d30e43689581a06bf234c"
           },
           {
             "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
@@ -1242,7 +1242,7 @@
         "exactSourceArtifactReferences": [
           {
             "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
-            "contentHash": "8e2bc4ba60e2c53ebda2b3a782a53edc6ae1dfae818bfa0254186111b23879f7"
+            "contentHash": "61738427c0f063c29f84595578e8e09006a49677ae0d30e43689581a06bf234c"
           },
           {
             "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
@@ -1372,7 +1372,7 @@
         "exactSourceArtifactReferences": [
           {
             "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
-            "contentHash": "8e2bc4ba60e2c53ebda2b3a782a53edc6ae1dfae818bfa0254186111b23879f7"
+            "contentHash": "61738427c0f063c29f84595578e8e09006a49677ae0d30e43689581a06bf234c"
           },
           {
             "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
@@ -1502,7 +1502,7 @@
         "exactSourceArtifactReferences": [
           {
             "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
-            "contentHash": "8e2bc4ba60e2c53ebda2b3a782a53edc6ae1dfae818bfa0254186111b23879f7"
+            "contentHash": "61738427c0f063c29f84595578e8e09006a49677ae0d30e43689581a06bf234c"
           },
           {
             "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
@@ -1511,7 +1511,7 @@
         ],
         "positiveRequirements": [
           "Hold the single count and patient silence.",
-          "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Close beside the fern on the mossy path, Hold the single count and patient silence., Close, careful gestures: Milo sits, bends close, reaches into his backpack, offers a treat, and demonstrates counting with a hand gesture., gentle track, hold, or release motivated by the action, 65mm patient close, 288 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution",
+          "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Close beside the fern on the mossy path, Hold the single count and patient silence., Milo keeps one finger raised in a patient silent hold after the preceding count, with a relaxed closed-mouth expression and no additional vocalisation., gentle track, hold, or release motivated by the action, 65mm patient close, 288 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution",
           "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
           "Match Milo's proportions, locomotion presentation, episode colour values, and backpack geometry to the exact approved future episode reference; these episode-specific choices do not become canon.",
           "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
@@ -1632,7 +1632,7 @@
         "exactSourceArtifactReferences": [
           {
             "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
-            "contentHash": "8e2bc4ba60e2c53ebda2b3a782a53edc6ae1dfae818bfa0254186111b23879f7"
+            "contentHash": "61738427c0f063c29f84595578e8e09006a49677ae0d30e43689581a06bf234c"
           },
           {
             "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
@@ -1641,7 +1641,7 @@
         ],
         "positiveRequirements": [
           "Catch the nearly secret first flicker.",
-          "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Very close to the fern on the mossy ground; intimate close-up sequence, Catch the nearly secret first flicker., Tiny, delicate motion sequence: subtle fern movement, a hesitant glow, Milo's steady breathing, and a soft clap., gentle track, hold, or release motivated by the action, 100mm macro, 264 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution",
+          "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Very close to the fern on the mossy ground; intimate close-up sequence, Catch the nearly secret first flicker., Tiny, delicate motion sequence: subtle fern movement, a hesitant glow, Milo's steady breathing, and a restrained still response., gentle track, hold, or release motivated by the action, 100mm macro, 264 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution",
           "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
           "Match Milo's proportions, locomotion presentation, episode colour values, and backpack geometry to the exact approved future episode reference; these episode-specific choices do not become canon.",
           "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
@@ -1762,7 +1762,7 @@
         "exactSourceArtifactReferences": [
           {
             "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
-            "contentHash": "8e2bc4ba60e2c53ebda2b3a782a53edc6ae1dfae818bfa0254186111b23879f7"
+            "contentHash": "61738427c0f063c29f84595578e8e09006a49677ae0d30e43689581a06bf234c"
           },
           {
             "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
@@ -1771,7 +1771,7 @@
         ],
         "positiveRequirements": [
           "Let a mild breeze move the fern and the firefly hide while Milo stays calm.",
-          "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Very close to the fern on the mossy ground; intimate close-up sequence, Let a mild breeze move the fern and the firefly hide while Milo stays calm., A mild breeze moves the fern and the firefly hides; Milo stays calm, breathes slowly, and softly counts with no clap during the setback., slow, eased push or restrained focus transfer, 50mm reaction, 288 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution",
+          "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Very close to the fern on the mossy ground; intimate close-up sequence, Let a mild breeze move the fern and the firefly hide while Milo stays calm., A mild breeze moves the fern and the firefly hides; Milo stays calm, breathes slowly, softly counts, and withholds celebration during the setback., slow, eased push or restrained focus transfer, 50mm reaction, 288 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution",
           "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
           "Match Milo's proportions, locomotion presentation, episode colour values, and backpack geometry to the exact approved future episode reference; these episode-specific choices do not become canon.",
           "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
@@ -1892,7 +1892,7 @@
         "exactSourceArtifactReferences": [
           {
             "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
-            "contentHash": "8e2bc4ba60e2c53ebda2b3a782a53edc6ae1dfae818bfa0254186111b23879f7"
+            "contentHash": "61738427c0f063c29f84595578e8e09006a49677ae0d30e43689581a06bf234c"
           },
           {
             "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
@@ -2022,7 +2022,7 @@
         "exactSourceArtifactReferences": [
           {
             "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
-            "contentHash": "8e2bc4ba60e2c53ebda2b3a782a53edc6ae1dfae818bfa0254186111b23879f7"
+            "contentHash": "61738427c0f063c29f84595578e8e09006a49677ae0d30e43689581a06bf234c"
           },
           {
             "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
@@ -2152,7 +2152,7 @@
         "exactSourceArtifactReferences": [
           {
             "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
-            "contentHash": "8e2bc4ba60e2c53ebda2b3a782a53edc6ae1dfae818bfa0254186111b23879f7"
+            "contentHash": "61738427c0f063c29f84595578e8e09006a49677ae0d30e43689581a06bf234c"
           },
           {
             "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
@@ -2282,7 +2282,7 @@
         "exactSourceArtifactReferences": [
           {
             "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
-            "contentHash": "8e2bc4ba60e2c53ebda2b3a782a53edc6ae1dfae818bfa0254186111b23879f7"
+            "contentHash": "61738427c0f063c29f84595578e8e09006a49677ae0d30e43689581a06bf234c"
           },
           {
             "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
@@ -2412,7 +2412,7 @@
         "exactSourceArtifactReferences": [
           {
             "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
-            "contentHash": "8e2bc4ba60e2c53ebda2b3a782a53edc6ae1dfae818bfa0254186111b23879f7"
+            "contentHash": "61738427c0f063c29f84595578e8e09006a49677ae0d30e43689581a06bf234c"
           },
           {
             "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
@@ -2542,7 +2542,7 @@
         "exactSourceArtifactReferences": [
           {
             "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
-            "contentHash": "8e2bc4ba60e2c53ebda2b3a782a53edc6ae1dfae818bfa0254186111b23879f7"
+            "contentHash": "61738427c0f063c29f84595578e8e09006a49677ae0d30e43689581a06bf234c"
           },
           {
             "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
@@ -2672,7 +2672,7 @@
         "exactSourceArtifactReferences": [
           {
             "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
-            "contentHash": "8e2bc4ba60e2c53ebda2b3a782a53edc6ae1dfae818bfa0254186111b23879f7"
+            "contentHash": "61738427c0f063c29f84595578e8e09006a49677ae0d30e43689581a06bf234c"
           },
           {
             "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
@@ -2802,7 +2802,7 @@
         "exactSourceArtifactReferences": [
           {
             "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
-            "contentHash": "8e2bc4ba60e2c53ebda2b3a782a53edc6ae1dfae818bfa0254186111b23879f7"
+            "contentHash": "61738427c0f063c29f84595578e8e09006a49677ae0d30e43689581a06bf234c"
           },
           {
             "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
@@ -2932,7 +2932,7 @@
         "exactSourceArtifactReferences": [
           {
             "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
-            "contentHash": "8e2bc4ba60e2c53ebda2b3a782a53edc6ae1dfae818bfa0254186111b23879f7"
+            "contentHash": "61738427c0f063c29f84595578e8e09006a49677ae0d30e43689581a06bf234c"
           },
           {
             "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
@@ -3062,7 +3062,7 @@
         "exactSourceArtifactReferences": [
           {
             "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
-            "contentHash": "8e2bc4ba60e2c53ebda2b3a782a53edc6ae1dfae818bfa0254186111b23879f7"
+            "contentHash": "61738427c0f063c29f84595578e8e09006a49677ae0d30e43689581a06bf234c"
           },
           {
             "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
@@ -3070,8 +3070,8 @@
           }
         ],
         "positiveRequirements": [
-          "Track Milo onward and close on the exact hummed phrase.",
-          "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Small clearing or path circle formed by lantern pools, Track Milo onward and close on the exact hummed phrase., After the reunion and wave are complete, Milo resumes his left-to-right evening stroll with a warm smile and eases into the final fade., gentle track, hold, or release motivated by the action, 40mm departing wide, 144 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution",
+          "Track Milo onward in silence and close on the final visual fade.",
+          "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Small clearing or path circle formed by lantern pools, Track Milo onward in silence and close on the final visual fade., Only after the reunion, wave, and closing cue are complete, Milo silently resumes his left-to-right evening stroll with a warm smile and eases into the final fade., gentle track, hold, or release motivated by the action, 40mm departing wide, 144 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution",
           "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
           "Match Milo's proportions, locomotion presentation, episode colour values, and backpack geometry to the exact approved future episode reference; these episode-specific choices do not become canon.",
           "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",

@@ -56,17 +56,17 @@
     },
     {
       "path": "08-production/MILO-007-S01-P01/phase3/animation/animation-production-manifest-v1.json",
-      "byteSha256": "fd5fbe18528ce0674379d58536b21dd993de23a2bf7c9e41ae4194969554689c",
-      "contentHash": "8e2bc4ba60e2c53ebda2b3a782a53edc6ae1dfae818bfa0254186111b23879f7"
+      "byteSha256": "7ef17427adcb1e629009336baf72b48fc23fa50885beb55b64418d38dc04cea6",
+      "contentHash": "61738427c0f063c29f84595578e8e09006a49677ae0d30e43689581a06bf234c"
     },
     {
       "path": "03-prompts/m8/MILO-007-S01-P01/provider-neutral-prompt-bundle-v1.json",
-      "byteSha256": "a57cccd81c6a8166cdb6935f02a41e390ccd8db88095669309ce4c7f1bc45648",
-      "contentHash": "0b016b0d07da023f3c51ff2b78dcc07cb669a6f24bb4ecc1588016ce40cce91d"
+      "byteSha256": "7b474b992b806d74ab02faf511a0e492646f6c9c79cf491d06c0fbd93f23d53d",
+      "contentHash": "39aad2f785cd8a90e6f45f5c7e5a34b9f5b2d8333dcfc3046df099d613016dba"
     },
     {
       "path": "08-production/MILO-007-S01-P01/phase3/approval/phase3-approval-record-templates-v1.json",
-      "byteSha256": "ae4fbd977bc69e3550061fbfb44d13f59fcf9abb818c8a70bdcc8d4be00fbbc0",
+      "byteSha256": "00f53d1e16c73983927f2d8c532ea5b1cbc6fc11dc3288248630c68d28d52e90",
       "contentHash": null
     },
     {
