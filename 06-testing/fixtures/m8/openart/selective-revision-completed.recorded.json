@@ -1,0 +1,4 @@
+{
+  "fixtureMetadata":{"fixtureType":"recorded","historical":true,"nonCallable":true,"sanitized":true,"sourceArtifact":"Approved OpenArt Integration Spike Report","sourceArtifactRevision":"2026-09-02 evidence incorporated by M8 design revision 1.1","fixtureSchemaVersion":"openart-fixture-v0.1"},
+  "adapterVersion":"openart-adapter-v0.1","provider":"OpenArt","canonicalCapability":"SELECTIVE_REVISION","requestedMode":"Selective revision","submittedMode":"reference-aware revision","observedMode":"SELECTIVE_REVISION","providerDisplayModeRaw":"Selective revision","providerStatusRaw":"completed","normalizedStatus":"COMPLETED","historyId":"6X4ZYr3WZBezgWvT3iBN","resourceId":"WwWUJpYkR3LLtMJcc2gj","requestedSettingsJson":{},"actualSettingsJson":{},"estimateCost":null,"actualCost":"202","costUnit":"PROVIDER_CREDIT","outputCountExpected":1,"outputCountObserved":1,"failureCode":null,"failureMessage":null
+}

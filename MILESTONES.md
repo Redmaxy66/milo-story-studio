@@ -9,7 +9,7 @@
 | M5 | Script Pipeline | Week 8 | Complete | Outline Generator, Outline Approval, Script Generator, and Script Approval v0.1 completed, tested, exported, committed, and pushed. End-to-end status progression proven from CONCEPT_APPROVED through OUTLINE_GENERATED, OUTLINE_APPROVED, SCRIPT_GENERATED, and SCRIPT_APPROVED. Deterministic validation, duplicate protection, approval repair paths, Story readiness checks, structured failure payloads, and canon-grounded script generation are working. |
 | M6 | Continuity Agent | Week 10 | Complete | Continuity Reviewer and Continuity Approval v0.1 completed, tested, exported, committed, and pushed. Deterministic validation, version-based duplicate protection, PASS / REVIEW_REQUIRED / FAIL routing, open-canon handling, human approval, approval repair, structured failures, and status progression through CONTINUITY_REVIEWED, CONTINUITY_APPROVED, and SCRIPT_REVISION_REQUIRED are proven. |
 | M7 | Production Package | Week 12 | Complete | Approved design and D-013 recorded; specification, schema, prompt, lifecycle/error contracts, two-tab persistence, workflow export, repair/no-op controls, and `63 / 63` offline validation complete. Canonical workflow `SNnLunczq5mxrXLn` passed terminal zero-write verification in execution `#432`; one version-1 `INITIAL` header and eight scenes remain intact with matching canon and prompt provenance. |
-| M8 | Complete Studio | Week 16 | Not started | Design revision 1.1 approved; M8-D01 through M8-D13 and four amendments recorded in D-016; governance-only work order installed. Implementation remains not started and Phase 2 requires separate A2 authority. |
+| M8 | Complete Studio | Week 16 | In progress | Design revision 1.1 and D-016 govern the milestone. Phase 1 governance and Phase 2 repository contracts are complete: schemas, lifecycle/error controls, OpenArt adapter boundary, proposed Story Vault schema, inert skeleton exports, offline fixtures/validators, and M3–M7 regressions pass. No live/A3 phase has begun. |
 
 ## M5 closure
 
@@ -57,7 +57,7 @@ Key M6 implementation commits:
 
 ## Current focus
 
-Current milestone: **M8 — Complete Studio (design approved; governance installed; implementation not started)**
+Current milestone: **M8 — Complete Studio (Phase 2 repository contracts complete)**
 
 M8 governance evidence:
 
@@ -65,6 +65,14 @@ M8 governance evidence:
 - Approved design SHA-256: `6934b997f79e3d5aa7ff5b9405926abb8c9e401a1a539a31e16b1c32dac0d8a2`.
 - Decision D-016 records M8-D01 through M8-D13 and all four amendments.
 - Replacement `WORK_ORDER.md` is installed for governance only; it grants no implementation or A3 authority.
+
+M8 Phase 2 evidence:
+
+- All 12 provider-neutral contracts, lifecycle/controlled values, error codes, hashing, and idempotency foundations are defined.
+- The OpenArt adapter boundary and sanitized offline fixtures contain no live target/configuration data.
+- The proposed Story Vault schema specifies 12 authoritative contract tabs plus derived read-only `StudioControl`; M8 failures continue to use the unchanged shared `FailureLog`.
+- Thirteen workflow skeleton exports are inactive, empty-node, and free of credentials, triggers, live targets, and executable configuration.
+- `06-testing/M8_PHASE2_VALIDATION.md` records all M8 suites passing, the aggregate at `9 / 9`, and complete applicable M3–M7 regression protection.
 
 M7 closure evidence:
 
@@ -74,7 +82,7 @@ M7 closure evidence:
 - Repository/live parity: passed against the certified workflow export, excluding only volatile n8n metadata.
 - Residual note: D-015 remains non-blocking post-M7 hardening debt.
 
-Next phase readiness: **READY FOR A SEPARATELY AUTHORISED M8 PHASE 2 A2 WORK PACKAGE**. M8 implementation remains not started; the A3 connectivity proof remains unauthorised.
+Next phase readiness: **PHASE 2 COMPLETE; AWAITING THE NEXT SEPARATELY AUTHORISED PHASE.** The A3 n8n/OpenArt connectivity proof remains unauthorised and has not begun.
 
 ## Status values
 

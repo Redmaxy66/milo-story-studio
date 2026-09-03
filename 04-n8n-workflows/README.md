@@ -8,6 +8,18 @@ This folder stores exported Milo Story Studio n8n workflows.
 - tested — workflows that have passed testing
 - archived — previous or discontinued versions
 
+## M8 Phase 2 skeleton exports
+
+The 13 `development/Milo M8 ... v0.1.json` / `development/Milo OpenArt Adapter v0.1.json` files are repository-only design skeletons. Each is inactive, contains an empty node and connection set, has no trigger, credentials, target, live identifier, endpoint, pin data, or executable configuration, and must not be imported or activated under Phase 2.
+
+They reserve the approved functional boundaries for production intent, reference approval, request approval, generation, OpenArt adaptation, reconciliation, asset approval, revision, assembly, publishing packages/approvals, and derived studio reconciliation. They are not implementations and convey no A3 authority.
+
+Run:
+
+```bash
+node 06-testing/validate_m8_workflow_skeletons.mjs
+```
+
 ## M7 Production Package
 
 `development/Milo Production Package Generator v0.1.json` is the final verified repository definition for M7.

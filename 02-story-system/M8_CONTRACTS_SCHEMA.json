@@ -1,0 +1,386 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://milo-story-studio.local/contracts/m8-contracts-v1.json",
+  "title": "Milo M8 provider-neutral contracts v1.0",
+  "oneOf": [
+    {"$ref": "#/$defs/ProductionIntentArtifact"},
+    {"$ref": "#/$defs/ProductionAssetRequest"},
+    {"$ref": "#/$defs/GenerationAttempt"},
+    {"$ref": "#/$defs/GeneratedAsset"},
+    {"$ref": "#/$defs/AssetReference"},
+    {"$ref": "#/$defs/RevisionRequest"},
+    {"$ref": "#/$defs/AssetApproval"},
+    {"$ref": "#/$defs/CostRecord"},
+    {"$ref": "#/$defs/EpisodeAssembly"},
+    {"$ref": "#/$defs/AssemblyApproval"},
+    {"$ref": "#/$defs/PublishingPackage"},
+    {"$ref": "#/$defs/PublishingApproval"}
+  ],
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "gitSha": {"type": "string", "pattern": "^[a-f0-9]{40}$"},
+    "nullableSha256": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "nullableTimestamp": {"type": ["string", "null"], "format": "date-time"},
+    "nullableString": {"type": ["string", "null"]},
+    "decimal": {"type": "string", "pattern": "^(0|[1-9][0-9]*)(\\.[0-9]+)?$"},
+    "extensions": {
+      "type": "object",
+      "propertyNames": {"pattern": "^[a-z][a-z0-9]*$"},
+      "additionalProperties": {"type": "object"}
+    },
+    "commonEnvelope": {
+      "type": "object",
+      "required": ["schemaVersion", "recordType", "recordId", "storyId", "packageId", "packageVersion", "sceneId", "shotId", "plannedAssetId", "canonVersion", "canonRef", "createdAt", "createdBy", "updatedAt", "workflowExecutionId", "recordVersion", "supersedesId", "validationStatus", "validationErrors", "extensionsJson"],
+      "properties": {
+        "schemaVersion": {"const": "m8-contracts-v1.0"},
+        "recordType": {"type": "string"},
+        "recordId": {"type": "string", "minLength": 1},
+        "storyId": {"type": "string", "pattern": "^MILO-[0-9]{3}$"},
+        "packageId": {"type": "string", "pattern": "^MILO-[0-9]{3}-S[0-9]{2}-P[0-9]{2}$"},
+        "packageVersion": {"type": "integer", "minimum": 1},
+        "sceneId": {"type": ["string", "null"], "pattern": "^MILO-[0-9]{3}-S[0-9]{2}-P[0-9]{2}-SC[0-9]{2}$"},
+        "shotId": {"type": ["string", "null"], "pattern": "^MILO-[0-9]{3}-S[0-9]{2}-P[0-9]{2}-SC[0-9]{2}-SH[0-9]{2}$"},
+        "plannedAssetId": {"type": ["string", "null"], "pattern": "^MILO-[0-9]{3}-S[0-9]{2}-P[0-9]{2}-A[0-9]{3}$"},
+        "canonVersion": {"type": "string", "pattern": "^canon-v[0-9]+\\.[0-9]+(?:-fixture)?$"},
+        "canonRef": {"$ref": "#/$defs/gitSha"},
+        "createdAt": {"$ref": "#/$defs/timestamp"},
+        "createdBy": {"type": "string", "minLength": 1},
+        "updatedAt": {"$ref": "#/$defs/timestamp"},
+        "workflowExecutionId": {"$ref": "#/$defs/nullableString"},
+        "recordVersion": {"type": "integer", "minimum": 1},
+        "supersedesId": {"$ref": "#/$defs/nullableString"},
+        "validationStatus": {"enum": ["VALID", "INVALID", "PENDING"]},
+        "validationErrors": {"type": "array", "items": {"type": "object"}},
+        "extensionsJson": {"$ref": "#/$defs/extensions"}
+      }
+    },
+    "approvalCore": {
+      "type": "object",
+      "required": ["decision", "approvedBy", "approvedAt", "reviewNotes"],
+      "properties": {
+        "decision": {"enum": ["APPROVED", "REJECTED", "CHANGES_REQUESTED", "VOIDED"]},
+        "approvedBy": {"type": "string", "minLength": 1},
+        "approvedAt": {"$ref": "#/$defs/timestamp"},
+        "reviewNotes": {"type": "string"}
+      }
+    },
+    "ProductionIntentArtifact": {
+      "allOf": [
+        {"$ref": "#/$defs/commonEnvelope"},
+        {"type": "object", "required": ["artifactType", "artifactVersion", "contentHash", "sourceRefs", "productionIntent", "status", "approvalRefs"], "properties": {
+          "recordType": {"const": "ProductionIntentArtifact"},
+          "artifactType": {"enum": ["DIRECTOR_BRIEF", "STORYBOARD", "ANIMATION_MANIFEST", "PROMPT_BUNDLE", "VISUAL_REFERENCE_PACK"]},
+          "artifactVersion": {"type": "integer", "minimum": 1},
+          "contentHash": {"$ref": "#/$defs/sha256"},
+          "sourceRefs": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+          "productionIntent": {"type": "object"},
+          "status": {"enum": ["DRAFT", "AWAITING_APPROVAL", "APPROVED", "REJECTED", "SUPERSEDED"]},
+          "approvalRefs": {"type": "array", "items": {"type": "string"}}
+        }}
+      ],
+      "unevaluatedProperties": false
+    },
+    "ProductionAssetRequest": {
+      "allOf": [
+        {"$ref": "#/$defs/commonEnvelope"},
+        {"type": "object", "required": ["requestRevision", "requestType", "purpose", "acceptanceCriteria", "requiredOutputs", "sourceProductionIntentArtifactIds", "promptVersion", "promptRef", "promptTextHash", "promptTextRef", "referenceIds", "canonicalCapability", "requestedSettingsJson", "budgetStage", "maximumCost", "costUnit", "idempotencyKey", "idempotencyScope", "status", "approvalRequired", "approvedBy", "approvedAt", "retryPolicyId", "failurePolicyId"], "properties": {
+          "recordType": {"const": "ProductionAssetRequest"},
+          "requestRevision": {"type": "integer", "minimum": 1},
+          "requestType": {"enum": ["STILL", "SHOT_PLAN", "VIDEO", "VOICE", "MUSIC", "SFX", "LIP_SYNC", "CAPTION", "OTHER"]},
+          "purpose": {"type": "string", "minLength": 1},
+          "acceptanceCriteria": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+          "requiredOutputs": {"type": "integer", "minimum": 1},
+          "sourceProductionIntentArtifactIds": {"type": "array", "items": {"type": "string"}},
+          "promptVersion": {"type": "string", "minLength": 1},
+          "promptRef": {"$ref": "#/$defs/gitSha"},
+          "promptTextHash": {"$ref": "#/$defs/sha256"},
+          "promptTextRef": {"type": "string", "minLength": 1},
+          "referenceIds": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["referenceId", "role", "required"], "properties": {"referenceId": {"type": "string"}, "role": {"type": "string"}, "required": {"type": "boolean"}}}},
+          "canonicalCapability": {"type": "string"},
+          "requestedSettingsJson": {"type": "object"},
+          "budgetStage": {"enum": ["CONNECTIVITY", "ONE_SCENE_PILOT", "EPISODE_PREVIEW", "FINAL_RESOLUTION"]},
+          "maximumCost": {"$ref": "#/$defs/decimal"},
+          "costUnit": {"enum": ["PROVIDER_CREDIT", "USD"]},
+          "idempotencyKey": {"$ref": "#/$defs/sha256"},
+          "idempotencyScope": {"type": "string", "minLength": 1},
+          "status": {"enum": ["DRAFT", "AWAITING_APPROVAL", "APPROVED", "REJECTED", "SUBMISSION_PENDING", "SATISFIED", "FAILED", "CANCELLED"]},
+          "approvalRequired": {"type": "boolean"},
+          "approvedBy": {"$ref": "#/$defs/nullableString"},
+          "approvedAt": {"$ref": "#/$defs/nullableTimestamp"},
+          "retryPolicyId": {"type": "string"},
+          "failurePolicyId": {"type": "string"}
+        }}
+      ],
+      "unevaluatedProperties": false
+    },
+    "GenerationAttempt": {
+      "allOf": [
+        {"$ref": "#/$defs/commonEnvelope"},
+        {"type": "object", "required": ["productionAssetRequestId", "attemptNumber", "idempotencyKey", "provider", "adapterName", "adapterVersion", "providerModel", "requestedMode", "submittedMode", "observedMode", "providerDisplayModeRaw", "providerPayloadHash", "providerRequestRef", "providerRequestRefClass", "requestedSettingsJson", "actualSettingsJson", "status", "providerStatusRaw", "pollCount", "submittedAt", "lastPolledAt", "nextPollAt", "timeoutAt", "outputCountExpected", "outputCountObserved", "estimateCostRecordId", "actualCostRecordId", "retryOfAttemptId", "retryReason", "failureCode", "failureMessage", "rawEvidenceRef", "rawEvidenceHash", "completedAt", "reconciledAt"], "properties": {
+          "recordType": {"const": "GenerationAttempt"},
+          "productionAssetRequestId": {"type": "string"},
+          "attemptNumber": {"type": "integer", "minimum": 1},
+          "idempotencyKey": {"$ref": "#/$defs/sha256"},
+          "provider": {"type": "string"},
+          "adapterName": {"type": "string"},
+          "adapterVersion": {"type": "string"},
+          "providerModel": {"type": "string"},
+          "requestedMode": {"type": "string"},
+          "submittedMode": {"$ref": "#/$defs/nullableString"},
+          "observedMode": {"$ref": "#/$defs/nullableString"},
+          "providerDisplayModeRaw": {"$ref": "#/$defs/nullableString"},
+          "providerPayloadHash": {"$ref": "#/$defs/sha256"},
+          "providerRequestRef": {"$ref": "#/$defs/nullableString"},
+          "providerRequestRefClass": {"enum": ["SYNTHETIC", "HISTORICAL_NON_CALLABLE", "LIVE_CONFIGURATION_PROHIBITED"]},
+          "requestedSettingsJson": {"type": "object"},
+          "actualSettingsJson": {"type": "object"},
+          "status": {"type": "string"},
+          "providerStatusRaw": {"$ref": "#/$defs/nullableString"},
+          "pollCount": {"type": "integer", "minimum": 0},
+          "submittedAt": {"$ref": "#/$defs/nullableTimestamp"},
+          "lastPolledAt": {"$ref": "#/$defs/nullableTimestamp"},
+          "nextPollAt": {"$ref": "#/$defs/nullableTimestamp"},
+          "timeoutAt": {"$ref": "#/$defs/nullableTimestamp"},
+          "outputCountExpected": {"type": "integer", "minimum": 0},
+          "outputCountObserved": {"type": "integer", "minimum": 0},
+          "estimateCostRecordId": {"$ref": "#/$defs/nullableString"},
+          "actualCostRecordId": {"$ref": "#/$defs/nullableString"},
+          "retryOfAttemptId": {"$ref": "#/$defs/nullableString"},
+          "retryReason": {"$ref": "#/$defs/nullableString"},
+          "failureCode": {"$ref": "#/$defs/nullableString"},
+          "failureMessage": {"$ref": "#/$defs/nullableString"},
+          "rawEvidenceRef": {"$ref": "#/$defs/nullableString"},
+          "rawEvidenceHash": {"$ref": "#/$defs/nullableSha256"},
+          "completedAt": {"$ref": "#/$defs/nullableTimestamp"},
+          "reconciledAt": {"$ref": "#/$defs/nullableTimestamp"}
+        }}
+      ],
+      "unevaluatedProperties": false
+    },
+    "GeneratedAsset": {
+      "allOf": [
+        {"$ref": "#/$defs/commonEnvelope"},
+        {"type": "object", "required": ["generationAttemptId", "outputIndex", "outputRole", "mediaType", "mimeType", "durationSeconds", "frameRate", "width", "height", "audioPresent", "providerResourceRef", "providerHistoryRef", "providerReferenceClass", "providerRetrievalObservedAt", "durableStorageProvider", "durableFileId", "durablePath", "byteSize", "sha256", "writeRestricted", "sourceReferenceIds", "parentGeneratedAssetId", "status", "rightsStatus", "safetyReviewStatus", "approvalSummary", "retrievedAt"], "properties": {
+          "recordType": {"const": "GeneratedAsset"},
+          "generationAttemptId": {"type": "string"},
+          "outputIndex": {"type": "integer", "minimum": 0},
+          "outputRole": {"type": "string"},
+          "mediaType": {"type": "string"},
+          "mimeType": {"type": "string"},
+          "durationSeconds": {"type": ["string", "null"]},
+          "frameRate": {"type": ["string", "null"]},
+          "width": {"type": ["integer", "null"], "minimum": 1},
+          "height": {"type": ["integer", "null"], "minimum": 1},
+          "audioPresent": {"type": ["boolean", "null"]},
+          "providerResourceRef": {"type": "string"},
+          "providerHistoryRef": {"type": "string"},
+          "providerReferenceClass": {"enum": ["SYNTHETIC", "HISTORICAL_NON_CALLABLE", "LIVE_CONFIGURATION_PROHIBITED"]},
+          "providerRetrievalObservedAt": {"$ref": "#/$defs/timestamp"},
+          "durableStorageProvider": {"type": "string"},
+          "durableFileId": {"type": "string"},
+          "durablePath": {"type": "string"},
+          "byteSize": {"type": "integer", "minimum": 0},
+          "sha256": {"$ref": "#/$defs/sha256"},
+          "writeRestricted": {"type": "boolean"},
+          "sourceReferenceIds": {"type": "array", "items": {"type": "string"}},
+          "parentGeneratedAssetId": {"$ref": "#/$defs/nullableString"},
+          "status": {"type": "string"},
+          "rightsStatus": {"type": "string"},
+          "safetyReviewStatus": {"type": "string"},
+          "approvalSummary": {"type": "object"},
+          "retrievedAt": {"$ref": "#/$defs/timestamp"}
+        }}
+      ],
+      "unevaluatedProperties": false
+    },
+    "AssetReference": {
+      "allOf": [
+        {"$ref": "#/$defs/commonEnvelope"},
+        {"type": "object", "required": ["referencePackId", "referencePackVersion", "referenceType", "subjectId", "classification", "sourceCanonPaths", "sourceAssetId", "storageId", "sha256", "usePermissions", "licenceSource", "expiresAt", "territory", "restrictions", "approvedUses", "disallowedUses", "approvalDecision", "approvedBy", "approvedAt", "activeFrom", "retiredAt", "supersededByReferenceId"], "properties": {
+          "recordType": {"const": "AssetReference"},
+          "referencePackId": {"type": "string"},
+          "referencePackVersion": {"type": "integer", "minimum": 1},
+          "referenceType": {"type": "string"},
+          "subjectId": {"type": "string"},
+          "classification": {"enum": ["CANON_FACT_DERIVATION", "APPROVED_PRODUCTION_CHOICE", "APPROVED_NON_CANON_REFERENCE"]},
+          "sourceCanonPaths": {"type": "array", "items": {"type": "string"}},
+          "sourceAssetId": {"$ref": "#/$defs/nullableString"},
+          "storageId": {"type": "string"},
+          "sha256": {"$ref": "#/$defs/sha256"},
+          "usePermissions": {"type": "string"},
+          "licenceSource": {"type": "string"},
+          "expiresAt": {"$ref": "#/$defs/nullableTimestamp"},
+          "territory": {"type": "string"},
+          "restrictions": {"type": "array", "items": {"type": "string"}},
+          "approvedUses": {"type": "array", "items": {"type": "string"}},
+          "disallowedUses": {"type": "array", "items": {"type": "string"}},
+          "approvalDecision": {"enum": ["APPROVED", "REJECTED", "CHANGES_REQUESTED", "VOIDED"]},
+          "approvedBy": {"type": "string"},
+          "approvedAt": {"$ref": "#/$defs/timestamp"},
+          "activeFrom": {"$ref": "#/$defs/timestamp"},
+          "retiredAt": {"$ref": "#/$defs/nullableTimestamp"},
+          "supersededByReferenceId": {"$ref": "#/$defs/nullableString"}
+        }}
+      ],
+      "unevaluatedProperties": false
+    },
+    "RevisionRequest": {
+      "allOf": [
+        {"$ref": "#/$defs/commonEnvelope"},
+        {"type": "object", "required": ["parentGeneratedAssetId", "parentChecksum", "revisionNumber", "revisionType", "allowedChanges", "preservedInvariants", "expectedObservableResult", "maximumNewAttempts", "budgetStage", "revisionCostCap", "costUnit", "reusePriorInputs", "status", "approvedBy", "approvedAt", "newProductionAssetRequestId"], "properties": {
+          "recordType": {"const": "RevisionRequest"},
+          "parentGeneratedAssetId": {"type": "string"},
+          "parentChecksum": {"$ref": "#/$defs/sha256"},
+          "revisionNumber": {"type": "integer", "minimum": 1},
+          "revisionType": {"type": "string"},
+          "allowedChanges": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+          "preservedInvariants": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+          "expectedObservableResult": {"type": "string"},
+          "maximumNewAttempts": {"type": "integer", "minimum": 1},
+          "budgetStage": {"enum": ["CONNECTIVITY", "ONE_SCENE_PILOT", "EPISODE_PREVIEW", "FINAL_RESOLUTION"]},
+          "revisionCostCap": {"$ref": "#/$defs/decimal"},
+          "costUnit": {"enum": ["PROVIDER_CREDIT", "USD"]},
+          "reusePriorInputs": {"type": "boolean"},
+          "status": {"type": "string"},
+          "approvedBy": {"$ref": "#/$defs/nullableString"},
+          "approvedAt": {"$ref": "#/$defs/nullableTimestamp"},
+          "newProductionAssetRequestId": {"$ref": "#/$defs/nullableString"}
+        }}
+      ],
+      "unevaluatedProperties": false
+    },
+    "AssetApproval": {
+      "allOf": [
+        {"$ref": "#/$defs/commonEnvelope"}, {"$ref": "#/$defs/approvalCore"},
+        {"type": "object", "required": ["generatedAssetId", "assetRecordVersion", "reviewedChecksum", "rightsConfirmed", "safetyConfirmed", "supersedesApprovalId"], "properties": {
+          "recordType": {"const": "AssetApproval"},
+          "generatedAssetId": {"type": "string"},
+          "assetRecordVersion": {"type": "integer", "minimum": 1},
+          "reviewedChecksum": {"$ref": "#/$defs/sha256"},
+          "rightsConfirmed": {"type": "boolean"},
+          "safetyConfirmed": {"type": "boolean"},
+          "supersedesApprovalId": {"$ref": "#/$defs/nullableString"}
+        }}
+      ],
+      "unevaluatedProperties": false
+    },
+    "CostRecord": {
+      "allOf": [
+        {"$ref": "#/$defs/commonEnvelope"},
+        {"type": "object", "required": ["requestId", "attemptId", "budgetStage", "eventType", "unit", "quantity", "unitPrice", "total", "providerBalanceBefore", "providerBalanceAfter", "costSource", "providerCostRef", "occurredAt", "recordedAt", "varianceAgainstEstimate", "reason", "evidenceRef", "adjustsCostRecordId"], "properties": {
+          "recordType": {"const": "CostRecord"},
+          "requestId": {"type": "string"},
+          "attemptId": {"$ref": "#/$defs/nullableString"},
+          "budgetStage": {"enum": ["CONNECTIVITY", "ONE_SCENE_PILOT", "EPISODE_PREVIEW", "FINAL_RESOLUTION"]},
+          "eventType": {"enum": ["ESTIMATE", "RESERVATION", "ACTUAL", "REFUND", "ADJUSTMENT"]},
+          "unit": {"enum": ["PROVIDER_CREDIT", "USD"]},
+          "quantity": {"$ref": "#/$defs/decimal"},
+          "unitPrice": {"type": ["string", "null"], "pattern": "^(0|[1-9][0-9]*)(\\.[0-9]+)?$"},
+          "total": {"$ref": "#/$defs/decimal"},
+          "providerBalanceBefore": {"type": ["string", "null"]},
+          "providerBalanceAfter": {"type": ["string", "null"]},
+          "costSource": {"enum": ["PROVIDER_ESTIMATE", "PROVIDER_CHARGE", "OPERATOR_ENTRY", "RECONCILIATION"]},
+          "providerCostRef": {"$ref": "#/$defs/nullableString"},
+          "occurredAt": {"$ref": "#/$defs/timestamp"},
+          "recordedAt": {"$ref": "#/$defs/timestamp"},
+          "varianceAgainstEstimate": {"type": ["string", "null"]},
+          "reason": {"type": "string"},
+          "evidenceRef": {"$ref": "#/$defs/nullableString"},
+          "adjustsCostRecordId": {"$ref": "#/$defs/nullableString"}
+        }}
+      ],
+      "unevaluatedProperties": false
+    },
+    "EpisodeAssembly": {
+      "allOf": [
+        {"$ref": "#/$defs/commonEnvelope"},
+        {"type": "object", "required": ["assemblyVersion", "assemblyProfile", "inputAssets", "timelineManifest", "timelineManifestHash", "audioManifest", "captionRefs", "creditsRef", "provenanceManifestRef", "rendererName", "rendererVersion", "buildImageVersion", "commandConfigHash", "outputFileId", "outputChecksum", "status", "technicalQa", "creativeQaStatus", "rebuildOfAssemblyId"], "properties": {
+          "recordType": {"const": "EpisodeAssembly"},
+          "assemblyVersion": {"type": "integer", "minimum": 1},
+          "assemblyProfile": {"type": "string"},
+          "inputAssets": {"type": "array", "minItems": 1, "items": {"type": "object", "additionalProperties": false, "required": ["generatedAssetId", "sha256", "assetApprovalId", "writeRestricted", "preAssemblyHashVerified"], "properties": {"generatedAssetId": {"type": "string"}, "sha256": {"$ref": "#/$defs/sha256"}, "assetApprovalId": {"type": "string"}, "writeRestricted": {"const": true}, "preAssemblyHashVerified": {"const": true}}}},
+          "timelineManifest": {"type": "object"},
+          "timelineManifestHash": {"$ref": "#/$defs/sha256"},
+          "audioManifest": {"type": "object"},
+          "captionRefs": {"type": "array", "items": {"type": "string"}},
+          "creditsRef": {"type": "string"},
+          "provenanceManifestRef": {"type": "string"},
+          "rendererName": {"type": "string"},
+          "rendererVersion": {"type": "string"},
+          "buildImageVersion": {"type": "string"},
+          "commandConfigHash": {"$ref": "#/$defs/sha256"},
+          "outputFileId": {"$ref": "#/$defs/nullableString"},
+          "outputChecksum": {"$ref": "#/$defs/nullableSha256"},
+          "status": {"type": "string"},
+          "technicalQa": {"type": "object"},
+          "creativeQaStatus": {"enum": ["PENDING", "APPROVED", "REJECTED", "REVIEW_REQUIRED"]},
+          "rebuildOfAssemblyId": {"$ref": "#/$defs/nullableString"}
+        }}
+      ],
+      "unevaluatedProperties": false
+    },
+    "AssemblyApproval": {
+      "allOf": [
+        {"$ref": "#/$defs/commonEnvelope"}, {"$ref": "#/$defs/approvalCore"},
+        {"type": "object", "required": ["episodeAssemblyId", "assemblyVersion", "reviewedChecksum", "qaEvidenceRefs", "supersedesApprovalId"], "properties": {
+          "recordType": {"const": "AssemblyApproval"},
+          "episodeAssemblyId": {"type": "string"},
+          "assemblyVersion": {"type": "integer", "minimum": 1},
+          "reviewedChecksum": {"$ref": "#/$defs/sha256"},
+          "qaEvidenceRefs": {"type": "array", "items": {"type": "string"}},
+          "supersedesApprovalId": {"$ref": "#/$defs/nullableString"}
+        }}
+      ],
+      "unevaluatedProperties": false
+    },
+    "PublishingPackage": {
+      "allOf": [
+        {"$ref": "#/$defs/commonEnvelope"},
+        {"type": "object", "required": ["platform", "profileId", "profileVersion", "sourceAssemblyId", "sourceAssemblyChecksum", "mediaFileId", "mediaChecksum", "coverFileId", "coverChecksum", "captionFileIds", "title", "description", "tags", "creditsRef", "provenanceRefs", "audienceSetting", "safetySetting", "releaseIntent", "requestedSchedule", "status", "validationEvidenceRefs", "manifestHash"], "properties": {
+          "recordType": {"const": "PublishingPackage"},
+          "platform": {"enum": ["YOUTUBE", "INSTAGRAM"]},
+          "profileId": {"enum": ["YT_EPISODE_16X9_V1", "IG_REEL_PROMO_9X16_V1", "YT_SHORT_PROMO_9X16_V1"]},
+          "profileVersion": {"type": "integer", "minimum": 1},
+          "sourceAssemblyId": {"type": "string"},
+          "sourceAssemblyChecksum": {"$ref": "#/$defs/sha256"},
+          "mediaFileId": {"type": "string"},
+          "mediaChecksum": {"$ref": "#/$defs/sha256"},
+          "coverFileId": {"type": "string"},
+          "coverChecksum": {"$ref": "#/$defs/sha256"},
+          "captionFileIds": {"type": "array", "items": {"type": "string"}},
+          "title": {"type": "string"},
+          "description": {"type": "string"},
+          "tags": {"type": "array", "items": {"type": "string"}},
+          "creditsRef": {"type": "string"},
+          "provenanceRefs": {"type": "array", "items": {"type": "string"}},
+          "audienceSetting": {"type": "string", "minLength": 1},
+          "safetySetting": {"type": "string", "minLength": 1},
+          "releaseIntent": {"enum": ["MANUAL", "SCHEDULE_INTENT_ONLY", "HOLD"]},
+          "requestedSchedule": {"$ref": "#/$defs/nullableTimestamp"},
+          "status": {"type": "string"},
+          "validationEvidenceRefs": {"type": "array", "items": {"type": "string"}},
+          "manifestHash": {"$ref": "#/$defs/sha256"}
+        }}
+      ],
+      "unevaluatedProperties": false
+    },
+    "PublishingApproval": {
+      "allOf": [
+        {"$ref": "#/$defs/commonEnvelope"}, {"$ref": "#/$defs/approvalCore"},
+        {"type": "object", "required": ["publishingPackageId", "publishingPackageVersion", "reviewedManifestHash", "audienceDecision", "safetyDecision", "releaseIntent", "releaseConstraints", "supersedesApprovalId"], "properties": {
+          "recordType": {"const": "PublishingApproval"},
+          "publishingPackageId": {"type": "string"},
+          "publishingPackageVersion": {"type": "integer", "minimum": 1},
+          "reviewedManifestHash": {"$ref": "#/$defs/sha256"},
+          "audienceDecision": {"type": "string", "minLength": 1},
+          "safetyDecision": {"type": "string", "minLength": 1},
+          "releaseIntent": {"enum": ["MANUAL", "SCHEDULE_INTENT_ONLY", "HOLD"]},
+          "releaseConstraints": {"type": "array", "items": {"type": "string"}},
+          "supersedesApprovalId": {"$ref": "#/$defs/nullableString"}
+        }}
+      ],
+      "unevaluatedProperties": false
+    }
+  }
+}

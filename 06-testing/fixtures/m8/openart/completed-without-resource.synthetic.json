@@ -1,0 +1,4 @@
+{
+  "fixtureMetadata":{"fixtureType":"synthetic","historical":false,"nonCallable":true,"sanitized":true,"sourceArtifact":"M8 Phase 2 synthetic test design","sourceArtifactRevision":"v1","fixtureSchemaVersion":"openart-fixture-v0.1"},
+  "adapterVersion":"openart-adapter-v0.1","provider":"OpenArt","canonicalCapability":"TEXT_TO_IMAGE","requestedMode":"SYNTHETIC_TEXT_TO_IMAGE","submittedMode":"SYNTHETIC_TEXT_TO_IMAGE","observedMode":"SYNTHETIC_TEXT_TO_IMAGE","providerDisplayModeRaw":"Synthetic","providerStatusRaw":"completed","normalizedStatus":"RECONCILIATION_REQUIRED","historyId":"SYNTHETIC-HISTORY-NO-RESOURCE","resourceId":null,"requestedSettingsJson":{"fixture":true},"actualSettingsJson":{},"estimateCost":"10","actualCost":"10","costUnit":"PROVIDER_CREDIT","outputCountExpected":1,"outputCountObserved":0,"failureCode":"OPENART_COMPLETED_WITHOUT_ASSET","failureMessage":"Synthetic completion without resource"
+}

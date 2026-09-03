@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://milo-story-studio.local/adapters/openart-adapter-fixture-v0.1.json",
+  "title": "OpenArt adapter offline fixture v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["fixtureMetadata", "adapterVersion", "provider", "canonicalCapability", "requestedMode", "submittedMode", "observedMode", "providerDisplayModeRaw", "providerStatusRaw", "normalizedStatus", "historyId", "resourceId", "requestedSettingsJson", "actualSettingsJson", "estimateCost", "actualCost", "costUnit", "outputCountExpected", "outputCountObserved", "failureCode", "failureMessage"],
+  "properties": {
+    "fixtureMetadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fixtureType", "historical", "nonCallable", "sanitized", "sourceArtifact", "sourceArtifactRevision", "fixtureSchemaVersion"],
+      "properties": {
+        "fixtureType": {"enum": ["recorded", "synthetic"]},
+        "historical": {"type": "boolean"},
+        "nonCallable": {"const": true},
+        "sanitized": {"const": true},
+        "sourceArtifact": {"type": "string"},
+        "sourceArtifactRevision": {"type": "string"},
+        "fixtureSchemaVersion": {"const": "openart-fixture-v0.1"}
+      }
+    },
+    "adapterVersion": {"const": "openart-adapter-v0.1"},
+    "provider": {"const": "OpenArt"},
+    "canonicalCapability": {"enum": ["SHOT_PLAN", "TEXT_TO_IMAGE", "REFERENCE_IMAGE", "IMAGE_TO_VIDEO", "ELEMENT_TO_VIDEO", "SELECTIVE_REVISION", "LIP_SYNC"]},
+    "requestedMode": {"type": "string"},
+    "submittedMode": {"type": ["string", "null"]},
+    "observedMode": {"type": ["string", "null"]},
+    "providerDisplayModeRaw": {"type": ["string", "null"]},
+    "providerStatusRaw": {"type": ["string", "null"]},
+    "normalizedStatus": {"enum": ["CREATED", "SUBMITTED", "RUNNING", "COMPLETED", "COMPLETED_PARTIAL", "RECONCILIATION_REQUIRED", "FAILED", "TIMED_OUT", "CANCELLED"]},
+    "historyId": {"type": ["string", "null"]},
+    "resourceId": {"type": ["string", "null"]},
+    "requestedSettingsJson": {"type": "object"},
+    "actualSettingsJson": {"type": "object"},
+    "estimateCost": {"type": ["string", "null"], "pattern": "^(0|[1-9][0-9]*)(\\.[0-9]+)?$"},
+    "actualCost": {"type": ["string", "null"], "pattern": "^(0|[1-9][0-9]*)(\\.[0-9]+)?$"},
+    "costUnit": {"enum": ["PROVIDER_CREDIT", "USD"]},
+    "outputCountExpected": {"type": "integer", "minimum": 0},
+    "outputCountObserved": {"type": "integer", "minimum": 0},
+    "failureCode": {"type": ["string", "null"]},
+    "failureMessage": {"type": ["string", "null"]}
+  }
+}

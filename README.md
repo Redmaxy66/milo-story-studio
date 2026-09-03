@@ -5,20 +5,21 @@ production-ready children's content package.
 
 ## Current position
 
-- Phase: 3 — Continuity and Production
-- Current milestone: M7 — Production Package
-- Overall progress: 87.5%
-- Current week: Week 12 of 16
-- Status: Complete — canonical verification passed; M8 remains separately gated and has not started
+- Phase: 4 — Publishing and Hardening
+- Current milestone: M8 — Complete Studio
+- Overall progress: M8 in progress
+- Current week: Week 13 of 16
+- Status: Phase 2 repository contracts complete; all live and later phases remain separately gated
 
-## This week's objective
+## Current M8 objective
 
-- [x] Define the Production Package contract and storage schema.
-- [x] Confirm required scene, visual, voice, animation, and metadata fields.
-- [x] Define deterministic validation, versioning, and approval controls.
-- [x] Build and validate the repository M7 workflow export.
-- [x] Configure and verify canonical M7 under separate A3 authority.
-- [x] Reconcile the verified workflow, evidence, and governance state.
+- [x] Install the approved M8 design governance baseline.
+- [x] Define provider-neutral M8 contracts, lifecycle values, error codes, hashing, and idempotency.
+- [x] Define the OpenArt adapter interface and sanitized offline fixtures.
+- [x] Specify the proposed Story Vault schema without creating live tabs.
+- [x] Add inert workflow skeleton exports and deterministic offline validators.
+- [x] Pass the M8 Phase 2 suite and complete applicable M3–M7 regression protection.
+- [ ] Obtain a separate instruction before any later repository or A3 phase.
 
 ## Current build
 
@@ -37,13 +38,15 @@ Ten canonical stage workflows now cover Story Intake through Production Package:
 
 The shared `Milo Failure Handler v0.1` remains the governed handled/unhandled failure sink. The canonical Production Package workflow is `SNnLunczq5mxrXLn`; it remains inactive/unpublished and its repository export matches the verified live definition after normalization of volatile n8n metadata.
 
+M8 Phase 2 adds repository-only provider-neutral schemas, validators, hashing/idempotency modules, an offline OpenArt adapter boundary, proposed Story Vault schemas, sanitized fixtures, and 13 empty-node workflow skeleton exports. These artifacts contain no live configuration and authorize no external execution.
+
 ## Latest achievement
 
-Completed M7 canonical verification through execution `#432`. The resolver returned `NOOP_COMPLETE`, `Route M7 Action` emitted one item on terminal output 3, and no generation, append, Story update, failure preparation, Failure Handler, retry, or M8 action occurred. The governed package remains one header plus eight scenes, and the complete M7 offline suite passes `63 / 63`.
+Completed the M8 Phase 2 repository contract gate. All seven M8 validators pass, including the `9 / 9` aggregate, and the full applicable M3–M7 regression collection remains green, including M7 at `63 / 63`.
 
 ## Current blocker
 
-No M7 completion blocker remains. The D-015 optional-identifier `"undefined"` issue remains parked as post-M7 hardening debt. The project is `READY FOR M8`, but M8 requires a new, separately authorised work order and has not started.
+No Phase 2 acceptance blocker remains. The A3 n8n/OpenArt connectivity proof and every later M8 phase still require separate explicit authority. D-015 remains parked as post-M7 hardening debt.
 
 ## Main links
 
@@ -52,4 +55,5 @@ No M7 completion blocker remains. The D-015 optional-identifier `"undefined"` is
 - [Learning log](LEARNING_LOG.md)
 - [Decision log](DECISION_LOG.md)
 - [M7 canonical verification](06-testing/M7_CANONICAL_VERIFICATION.md)
+- [M8 Phase 2 validation](06-testing/M8_PHASE2_VALIDATION.md)
 - [Claude Code instructions](CLAUDE.md)

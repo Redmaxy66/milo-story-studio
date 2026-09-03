@@ -1,6 +1,6 @@
 # Operational Error Code Register
 
-- **Scope:** Implemented M3-M6.5 workflow exports plus M7 repository implementation
+- **Scope:** Implemented M3-M6.5 workflow exports, M7 implementation, and M8 Phase 2 repository definitions
 - **Separation rule:** These are operational failure codes, not Story lifecycle states.
 
 ## Audit baseline
@@ -10,6 +10,8 @@ At commit `e74ef9b`, the nine exported workflows contained 35 unique explicit er
 M6.5 adds `STORY_SUBMISSION_VALIDATION_FAILED` to that Story Intake payload and two defensive handler fallbacks: `HANDLED_FAILURE` and `UNHANDLED_WORKFLOW_ERROR`. No baseline code was removed or renamed.
 
 M7 repository implementation adds Production Package-specific codes without renaming or removing earlier codes. M7 live behaviour remains unproven until separately authorised Phase 4+ configuration and testing.
+
+M8 Phase 2 defines future repository error contracts but does not implement or emit them from a live workflow. Future M8 failures remain assigned to the existing shared Failure Handler and existing 18-column `FailureLog`. Phase 2 creates no `M8Errors` tab or separate error store and does not change the `FailureLog` schema.
 
 D-014 repository remediation adds canon-initialisation-specific failures to the Concept Generator while retaining `CANON_LINEAGE_INVALID` for the D-012 blank-marker + blank-lineage PRE-CANON LEGACY rejection.
 
@@ -83,6 +85,50 @@ The Continuity eligible-Script remediation introduces no new operational error c
 | `PRODUCTION_PACKAGE_REPAIR_REQUIRED` | Partial or conflicting M7 persistence cannot be safely completed by the deterministic repair path. |
 | `STORY_PRODUCTION_PACKAGE_STATUS_UPDATE_FAILED` | Package persistence is complete but the Story cannot be updated to `PRODUCTION_PACKAGE_GENERATED`. |
 
+## M8 Phase 2 repository definitions
+
+These definitions are not counted as implemented workflow emissions until a later authorised workflow phase. `Retry` means policy eligibility after reconciliation and a new record; it never means blind repeat of an append or ambiguous provider submission.
+
+| Class | Code | Meaning | Detection point | Retry | Record impact | Required evidence | Operator response |
+|---|---|---|---|---|---|---|---|
+| Core | `M8_CONTRACT_INVALID` | An M8 record fails its strict contract. | Contract validator | No | No dependent mutation | Validation paths/messages | Correct input or create a new record version. |
+| Core | `M8_CONTROLLED_VALUE_INVALID` | A value or lifecycle transition is outside the controlled register. | Enum/transition validator | No | No state change | Value, source/target state | Correct through an authorised record/version. |
+| Core | `M8_LINEAGE_INVALID` | Required Story/package/asset lineage is missing or malformed. | Pre-mutation lineage check | No | No provider/build action | Record IDs and lineage fields | Repair provenance under separate authority. |
+| Core | `M8_LINEAGE_MISMATCH` | Related records do not share exact governed lineage. | Cross-contract validator | No | No dependent mutation | Compared record IDs/fields | Reconcile the conflicting record set. |
+| Core | `M8_IDEMPOTENCY_KEY_INVALID` | The stored key differs from deterministic request material. | Request validation | No | Request blocked | Canonical material and recomputed key | Create a corrected request revision. |
+| Core | `M8_DUPLICATE_SUBMISSION_RISK` | A matching non-terminal or ambiguous attempt may already exist. | Pre-submission guard | Only after reconciliation | No new attempt submitted | Key, attempts, costs, provider evidence | Reconcile before authorising a new attempt. |
+| Core | `M8_APPROVAL_REQUIRED` | An exact required human approval is absent or does not bind the current hash/version. | Approval gate | No | Requested action blocked | Target hash/version and approvals | Obtain a new explicit approval record. |
+| Core | `M8_STAGE_BUDGET_NOT_APPROVED` | The applicable stage cap is absent. | Budget gate | No | Submission/build blocked | Stage and current approval record | Approve the stage cap at its separate gate. |
+| Core | `M8_CROSS_STAGE_BUDGET_TRANSFER_PROHIBITED` | Allowance from another stage is being applied. | Budget gate | No | Submission blocked | Source/target stage and totals | Use only the separately approved target-stage cap. |
+| Core | `M8_COST_CAP_EXCEEDED` | Estimated or actual cost exceeds an applicable approved cap. | Estimate/reconciliation gate | No automatic retry | Further spend blocked | Estimate, actuals, cap, ledger | Reduce scope or obtain separate budget approval. |
+| Core | `M8_RIGHTS_PROVENANCE_INVALID` | Rights, licence, consent, or provenance is missing/invalid. | Reference/asset/package validation | No | Approval/use blocked | Rights source and restrictions | Resolve rights and append corrected evidence. |
+| Core | `M8_DURABLE_COPY_REQUIRED` | A selected provider result lacks a verified durable copy. | Asset readiness check | Retrieval may be retried if safe | Assembly eligibility blocked | Provider result and durable-copy fields | Retrieve under later authority and verify bytes. |
+| Core | `M8_DURABLE_CHECKSUM_MISMATCH` | Recomputed bytes differ from the approved SHA-256. | Retrieval or immediate pre-assembly check | No | Asset quarantined; assembly blocked | Expected/actual SHA-256 and file locator | Preserve evidence and reconcile; never overwrite. |
+| Core | `M8_DURABLE_FILE_NOT_WRITE_RESTRICTED` | Approved bytes remain modifiable by an unauthorised identity. | Approval/assembly readiness check | No | Approval/use blocked | File ACL/readback evidence | Apply approved write restriction under A3. |
+| Core | `M8_IN_PLACE_REPLACEMENT_PROHIBITED` | New bytes are proposed for an approved durable file ID. | Storage/lineage validation | No | Write blocked | Existing/new hashes and file ID | Create a new file and new asset record. |
+| Core | `M8_ASSET_NOT_APPROVED` | An asset lacks an exact-checksum approval. | Assembly/package input check | No | Input rejected | Asset/checksum/approval records | Obtain approval or select an approved asset. |
+| Core | `M8_REVISION_SCOPE_INVALID` | A revision exceeds its bounded approved changes or omits invariants. | Revision validator | No | New request blocked | Parent checksum and revision scope | Submit a corrected revision for approval. |
+| Core | `M8_ASSEMBLY_INPUT_INVALID` | An assembly input fails lineage, approval, rights, hash, or readiness checks. | Assembly preflight | No | Build blocked | Input manifest and failed rule | Correct the input selection or evidence. |
+| Core | `M8_ASSEMBLY_BUILD_FAILED` | The deterministic worker reports a classified build failure. | Build reconciliation | New version only | Assembly version terminal failed/QA state | Tool version, manifest, logs, hashes | Diagnose and create a new build version. |
+| Core | `M8_ASSEMBLY_NONDETERMINISTIC` | Rebuild differences exceed the approved normalisation rule. | Rebuild validation | No automatic retry | Assembly approval blocked | Both builds and comparison evidence | Reconcile tool/input/config variance. |
+| Core | `M8_PUBLISHING_PACKAGE_INVALID` | A package/profile/metadata/hash requirement fails. | Package validator | New version only | Approval blocked | Profile version and validation output | Correct through a new package version. |
+| Core | `M8_AUDIENCE_SAFETY_DECISION_REQUIRED` | Human audience or safety decision is missing. | Publishing approval gate | No | Approval blocked | Package and decision fields | Obtain the named human decision. |
+| Core | `M8_MANUAL_RECOVERY_REQUIRED` | Safe deterministic recovery cannot continue automatically. | Reconciler/validator | No | Record held for operator review | Full correlation, lineage, cost, provider evidence | Record operator reason and perform separately authorised recovery. |
+| OpenArt | `OPENART_AUTHENTICATION_FAILED` | Provider authentication is rejected. | Future adapter boundary | After credential review only | Attempt not submitted or held | Redacted error and execution context | Stop; verify managed credential under A3. |
+| OpenArt | `OPENART_CAPABILITY_UNAVAILABLE` | Required discovered capability/schema is unavailable. | Future discovery/validation | No | Request blocked | Discovery response reference | Select an approved supported route or stop. |
+| OpenArt | `OPENART_REQUEST_INVALID` | Adapter projection is rejected before/at submission. | Adapter/provider validation | Corrected request only | Attempt failed before safe completion | Payload hash and redacted response | Correct request via new revision/attempt. |
+| OpenArt | `OPENART_COST_ESTIMATE_FAILED` | Exact current estimate cannot be obtained. | Estimate gate | Safe read may retry | No submission | Estimate request/result evidence | Stop spend until an estimate exists. |
+| OpenArt | `OPENART_COST_CAP_EXCEEDED` | Provider estimate exceeds the approved request/stage cap. | Estimate gate | No | No submission | Estimate, cap, stage | Reduce scope or obtain new approval. |
+| OpenArt | `OPENART_SUBMISSION_FAILED` | Submission failed with no provider ID and no observed charge. | Submit boundary | Only after evidence proves no charge/job | Attempt failed/held | Redacted response, history/cost check | Reconcile before a new attempt. |
+| OpenArt | `OPENART_STATUS_POLL_FAILED` | A read-only status poll fails. | Poller | Safe bounded poll retry | Attempt remains non-terminal | Poll number/time/error | Retry within policy or enter reconciliation. |
+| OpenArt | `OPENART_GENERATION_FAILED` | Provider reports terminal failure. | Status normaliser | New approved attempt only | Attempt terminal failed | Raw/normalised status and cost | Reconcile cost; decide on new attempt. |
+| OpenArt | `OPENART_GENERATION_TIMED_OUT` | Local timeout occurs before reconciled terminal state. | Poll timeout | No resubmit | Attempt timed out then reconciliation required | Poll history and timeout | Reconcile provider history/cost. |
+| OpenArt | `OPENART_COMPLETED_WITHOUT_ASSET` | Provider reports success but no usable resource exists. | Output reconciliation | No resubmit | Reconciliation required | Status, output list, cost | Inspect history/resource evidence. |
+| OpenArt | `OPENART_PARTIAL_RESULT` | Fewer usable outputs exist than promised. | Output reconciliation | No blind retry | Actual assets recorded; attempt partial | Expected/observed counts and IDs | Preserve outputs and decide bounded recovery. |
+| OpenArt | `OPENART_RESOURCE_RETRIEVAL_FAILED` | Resource metadata or bytes cannot be retrieved. | Retrieval boundary | Safe read may retry | Asset remains provider-only/retrieval-failed | History/resource IDs and redacted failure | Retry retrieval within policy; do not regenerate. |
+| OpenArt | `OPENART_COST_RECONCILIATION_FAILED` | Estimate, returned charge, and balance evidence cannot be reconciled. | Cost reconciler | No new spend | Attempt held; further spend blocked | Complete cost ledger/evidence | Manually reconcile before continuing. |
+| OpenArt | `OPENART_MODE_METADATA_MISMATCH` | Provider raw display mode differs from requested/submitted/observed semantics. | Adapter normaliser | No | Attempt held or completed with note | All four mode fields | Preserve raw label and reconcile capability mapping. |
+
 ## Governance
 
 - Preserve the most specific existing code at the local failure source.
@@ -90,3 +136,5 @@ The Continuity eligible-Script remediation introduces no new operational error c
 - Do not add operational codes to `STORY_STATUS_MODEL.md`.
 - Do not use `FailureLog.status` values as error codes.
 - M7 package identifiers may remain in the handled raw payload; the protected 18-column FailureLog schema is not expanded for M7.
+- Future M8 identifiers remain in redacted `rawError` until a separately approved FailureLog schema change; Phase 2 does not change the protected 18 columns.
+- M8 defines no `M8Errors` store. `StudioControl` may later derive failure counts but never stores failure events.

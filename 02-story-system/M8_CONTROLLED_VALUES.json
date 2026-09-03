@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://milo-story-studio.local/contracts/m8-controlled-values-v1.json",
+  "version": "m8-controlled-values-v1.0",
+  "recordTypes": [
+    "ProductionIntentArtifact",
+    "ProductionAssetRequest",
+    "GenerationAttempt",
+    "GeneratedAsset",
+    "AssetReference",
+    "RevisionRequest",
+    "AssetApproval",
+    "CostRecord",
+    "EpisodeAssembly",
+    "AssemblyApproval",
+    "PublishingPackage",
+    "PublishingApproval"
+  ],
+  "artifactTypes": ["DIRECTOR_BRIEF", "STORYBOARD", "ANIMATION_MANIFEST", "PROMPT_BUNDLE", "VISUAL_REFERENCE_PACK"],
+  "requestTypes": ["STILL", "SHOT_PLAN", "VIDEO", "VOICE", "MUSIC", "SFX", "LIP_SYNC", "CAPTION", "OTHER"],
+  "referenceClassifications": ["CANON_FACT_DERIVATION", "APPROVED_PRODUCTION_CHOICE", "APPROVED_NON_CANON_REFERENCE"],
+  "canonicalCapabilities": ["SHOT_PLAN", "TEXT_TO_IMAGE", "REFERENCE_IMAGE", "IMAGE_TO_VIDEO", "ELEMENT_TO_VIDEO", "SELECTIVE_REVISION", "VOICE_GENERATION", "MUSIC_GENERATION", "SFX_GENERATION", "LIP_SYNC", "CAPTION_GENERATION", "OTHER"],
+  "validationStatuses": ["VALID", "INVALID", "PENDING"],
+  "approvalDecisions": ["APPROVED", "REJECTED", "CHANGES_REQUESTED", "VOIDED"],
+  "costEventTypes": ["ESTIMATE", "RESERVATION", "ACTUAL", "REFUND", "ADJUSTMENT"],
+  "costUnits": ["PROVIDER_CREDIT", "USD"],
+  "costSources": ["PROVIDER_ESTIMATE", "PROVIDER_CHARGE", "OPERATOR_ENTRY", "RECONCILIATION"],
+  "budgetStages": ["CONNECTIVITY", "ONE_SCENE_PILOT", "EPISODE_PREVIEW", "FINAL_RESOLUTION"],
+  "budgetPolicy": {
+    "CONNECTIVITY": {"approvedCap": "75", "unit": "PROVIDER_CREDIT"},
+    "ONE_SCENE_PILOT": {"approvedCap": null, "unit": null},
+    "EPISODE_PREVIEW": {"approvedCap": null, "unit": null},
+    "FINAL_RESOLUTION": {"approvedCap": null, "unit": null},
+    "crossStageTransferAllowed": false
+  },
+  "outputRoles": ["PRIMARY_VISUAL", "ALTERNATE_VISUAL", "VIDEO_CLIP", "VOICE_TAKE", "MUSIC_TRACK", "SFX_CLIP", "CAPTION_FILE", "EPISODE_MASTER", "PLATFORM_DERIVATIVE", "OTHER"],
+  "rightsStatuses": ["PENDING", "APPROVED", "REJECTED", "EXPIRED", "NOT_APPLICABLE"],
+  "safetyStatuses": ["PENDING", "APPROVED", "REJECTED", "REVIEW_REQUIRED", "NOT_APPLICABLE"],
+  "releaseIntents": ["MANUAL", "SCHEDULE_INTENT_ONLY", "HOLD"],
+  "providerReferenceClasses": ["SYNTHETIC", "HISTORICAL_NON_CALLABLE", "LIVE_CONFIGURATION_PROHIBITED"],
+  "productionRequestStates": ["DRAFT", "AWAITING_APPROVAL", "APPROVED", "REJECTED", "SUBMISSION_PENDING", "SATISFIED", "FAILED", "CANCELLED"],
+  "generationAttemptStates": ["CREATED", "SUBMITTING", "SUBMITTED", "RUNNING", "COMPLETED", "COMPLETED_PARTIAL", "RECONCILIATION_REQUIRED", "FAILED", "TIMED_OUT", "CANCELLED", "ABANDONED"],
+  "generatedAssetStates": ["PROVIDER_ONLY", "RETRIEVING", "AVAILABLE", "AWAITING_REVIEW", "APPROVED", "RETRIEVAL_FAILED", "VALIDATION_FAILED", "REJECTED", "SUPERSEDED", "RETIRED", "QUARANTINED"],
+  "revisionRequestStates": ["DRAFT", "AWAITING_APPROVAL", "APPROVED", "REQUEST_CREATED", "SATISFIED", "REJECTED", "CANCELLED", "FAILED"],
+  "assemblyStates": ["DRAFT", "BUILD_QUEUED", "BUILDING", "BUILT", "QA_FAILED", "AWAITING_APPROVAL", "APPROVED", "REJECTED", "SUPERSEDED", "CANCELLED"],
+  "publishingPackageStates": ["DRAFT", "VALIDATING", "READY_FOR_REVIEW", "APPROVED", "REJECTED", "SUPERSEDED", "HOLD"],
+  "publicationReadinessStates": ["NOT_READY", "ASSETS_PENDING", "ASSEMBLY_PENDING", "PUBLISHING_REVIEW_PENDING", "READY", "BLOCKED"],
+  "transitions": {
+    "ProductionAssetRequest": {
+      "DRAFT": ["AWAITING_APPROVAL", "CANCELLED"],
+      "AWAITING_APPROVAL": ["APPROVED", "REJECTED", "CANCELLED"],
+      "APPROVED": ["SUBMISSION_PENDING", "CANCELLED"],
+      "SUBMISSION_PENDING": ["SATISFIED", "FAILED", "CANCELLED"],
+      "REJECTED": [], "SATISFIED": [], "FAILED": [], "CANCELLED": []
+    },
+    "GenerationAttempt": {
+      "CREATED": ["SUBMITTING", "CANCELLED"],
+      "SUBMITTING": ["SUBMITTED", "FAILED", "RECONCILIATION_REQUIRED", "CANCELLED"],
+      "SUBMITTED": ["RUNNING", "COMPLETED", "COMPLETED_PARTIAL", "RECONCILIATION_REQUIRED", "FAILED", "TIMED_OUT", "CANCELLED"],
+      "RUNNING": ["COMPLETED", "COMPLETED_PARTIAL", "RECONCILIATION_REQUIRED", "FAILED", "TIMED_OUT", "CANCELLED"],
+      "TIMED_OUT": ["RECONCILIATION_REQUIRED"],
+      "RECONCILIATION_REQUIRED": ["COMPLETED", "COMPLETED_PARTIAL", "FAILED", "ABANDONED"],
+      "COMPLETED": [], "COMPLETED_PARTIAL": [], "FAILED": [], "CANCELLED": [], "ABANDONED": []
+    },
+    "GeneratedAsset": {
+      "PROVIDER_ONLY": ["RETRIEVING", "QUARANTINED"],
+      "RETRIEVING": ["AVAILABLE", "RETRIEVAL_FAILED", "VALIDATION_FAILED", "QUARANTINED"],
+      "AVAILABLE": ["AWAITING_REVIEW", "VALIDATION_FAILED", "QUARANTINED"],
+      "AWAITING_REVIEW": ["APPROVED", "REJECTED", "QUARANTINED"],
+      "APPROVED": ["SUPERSEDED", "RETIRED", "QUARANTINED"],
+      "RETRIEVAL_FAILED": ["QUARANTINED"], "VALIDATION_FAILED": ["QUARANTINED"],
+      "REJECTED": ["RETIRED"], "SUPERSEDED": ["RETIRED"], "RETIRED": [], "QUARANTINED": []
+    },
+    "RevisionRequest": {
+      "DRAFT": ["AWAITING_APPROVAL", "CANCELLED"],
+      "AWAITING_APPROVAL": ["APPROVED", "REJECTED", "CANCELLED"],
+      "APPROVED": ["REQUEST_CREATED", "CANCELLED"],
+      "REQUEST_CREATED": ["SATISFIED", "FAILED"],
+      "SATISFIED": [], "REJECTED": [], "CANCELLED": [], "FAILED": []
+    },
+    "EpisodeAssembly": {
+      "DRAFT": ["BUILD_QUEUED", "CANCELLED"],
+      "BUILD_QUEUED": ["BUILDING", "CANCELLED"],
+      "BUILDING": ["BUILT", "QA_FAILED", "CANCELLED"],
+      "BUILT": ["AWAITING_APPROVAL", "QA_FAILED"],
+      "AWAITING_APPROVAL": ["APPROVED", "REJECTED", "QA_FAILED"],
+      "APPROVED": ["SUPERSEDED"], "QA_FAILED": [], "REJECTED": [], "SUPERSEDED": [], "CANCELLED": []
+    },
+    "PublishingPackage": {
+      "DRAFT": ["VALIDATING", "HOLD"],
+      "VALIDATING": ["READY_FOR_REVIEW", "HOLD"],
+      "READY_FOR_REVIEW": ["APPROVED", "REJECTED", "HOLD"],
+      "APPROVED": ["SUPERSEDED"], "REJECTED": [], "SUPERSEDED": [], "HOLD": []
+    }
+  }
+}

@@ -8,11 +8,11 @@ The studio now supports the controlled progression:
 
 `IDEA -> CONCEPT_GENERATED -> CONCEPT_APPROVED -> OUTLINE_GENERATED -> OUTLINE_APPROVED -> SCRIPT_GENERATED -> SCRIPT_APPROVED -> CONTINUITY_REVIEWED -> CONTINUITY_APPROVED -> PRODUCTION_PACKAGE_GENERATED`
 
-Current milestone: **M8 — Complete Studio — Design approved; governance installed; implementation not started**
+Current milestone: **M8 — Complete Studio — Phase 2 repository contracts complete**
 
 M7 status: **Complete.** Canonical workflow `SNnLunczq5mxrXLn` passed the controlled terminal no-op verification in execution `#432`; repository/live parity, persistence, provenance, lifecycle isolation, recovery, failure safety, and the `63 / 63` offline suite all pass.
 
-M8 governance status: **DESIGN REVISION 1.1 APPROVED; PHASE 1 GOVERNANCE INSTALLED.** Decision D-016 records M8-D01 through M8-D13 and all four amendments. M8 implementation remains not started. Phase 2 repository contracts require a separate A2 instruction, and the n8n/OpenArt connectivity proof requires separate A3 authority.
+M8 status: **IN PROGRESS — PHASE 1 GOVERNANCE AND PHASE 2 REPOSITORY CONTRACTS COMPLETE.** Decision D-016 records M8-D01 through M8-D13 and all four amendments. Provider-neutral contracts, lifecycle/error controls, hashing/idempotency, the offline OpenArt adapter boundary, proposed Story Vault schemas, inert workflow skeletons, fixtures, validators, and regression evidence are installed. The n8n/OpenArt connectivity proof and every live phase require separate A3 authority.
 
 ---
 
@@ -140,4 +140,4 @@ M8 governance status: **DESIGN REVISION 1.1 APPROVED; PHASE 1 GOVERNANCE INSTALL
 - M5 — Complete
 - M6 — Complete
 - M7 — Complete
-- M8 — Not started (design approved; governance installed; Phase 2 requires separate A2 authority)
+- M8 — In progress (Phase 2 repository contracts complete; later phases separately gated)

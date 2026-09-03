@@ -1,5 +1,16 @@
 ﻿# Changelog
 
+## 0.8.0 — M8 repository contracts foundation
+
+- Added provider-neutral schemas and specifications for all 12 approved M8 contracts.
+- Added controlled lifecycle values, M8 error codes, deterministic canonical JSON, content hashing, and idempotency rules.
+- Added the offline OpenArt adapter interface plus sanitized recorded fixtures labelled historical/non-callable and inert synthetic fixtures.
+- Added the proposed 12-tab authoritative Story Vault schema and derived, read-only, non-authoritative `StudioControl`; preserved the existing shared `FailureLog` and created no separate M8 error store.
+- Added 13 inactive empty-node workflow skeleton exports with no credentials, targets, triggers, IDs, endpoints, or executable configuration.
+- Added deterministic validators and Phase 2 evidence; all M8 suites pass, including the `9 / 9` aggregate.
+- Preserved complete applicable M3–M7 regression coverage, including M7 at `63 / 63`.
+- Made no live-system, credential, canon, media-generation, assembly, activation, publication, or A3 change.
+
 ## 0.7.0 — Production Package complete
 
 - Recorded D-013 for immutable, append-versioned Production Package blueprints with child scene rows and separate realised-asset provenance.

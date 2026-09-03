@@ -1,0 +1,4 @@
+{
+  "fixtureMetadata":{"fixtureType":"synthetic","historical":false,"nonCallable":true,"sanitized":true,"sourceArtifact":"M8 Phase 2 synthetic test design","sourceArtifactRevision":"v1","fixtureSchemaVersion":"openart-fixture-v0.1"},
+  "adapterVersion":"openart-adapter-v0.1","provider":"OpenArt","canonicalCapability":"TEXT_TO_IMAGE","requestedMode":"SYNTHETIC_TEXT_TO_IMAGE","submittedMode":"SYNTHETIC_TEXT_TO_IMAGE","observedMode":"SYNTHETIC_TEXT_TO_IMAGE","providerDisplayModeRaw":"Synthetic","providerStatusRaw":"completed","normalizedStatus":"COMPLETED_PARTIAL","historyId":"SYNTHETIC-HISTORY-PARTIAL","resourceId":"SYNTHETIC-RESOURCE-PARTIAL-001","requestedSettingsJson":{"fixture":true},"actualSettingsJson":{"fixture":true},"estimateCost":"20","actualCost":"20","costUnit":"PROVIDER_CREDIT","outputCountExpected":2,"outputCountObserved":1,"failureCode":"OPENART_PARTIAL_RESULT","failureMessage":"Synthetic partial result"
+}

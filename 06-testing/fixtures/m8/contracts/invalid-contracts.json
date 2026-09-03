@@ -1,0 +1,8 @@
+[
+  {"caseId":"M8-P2-C-NEG-001","description":"Missing required recordId","mutation":{"remove":"recordId"},"expectedCode":"M8_CONTRACT_INVALID"},
+  {"caseId":"M8-P2-C-NEG-002","description":"Additional property","mutation":{"set":{"unexpectedField":true}},"expectedCode":"M8_CONTRACT_INVALID"},
+  {"caseId":"M8-P2-C-NEG-003","description":"Unknown record type","mutation":{"set":{"recordType":"UnknownContract"}},"expectedCode":"M8_CONTROLLED_VALUE_INVALID"},
+  {"caseId":"M8-P2-C-NEG-004","description":"Malformed Story ID","mutation":{"set":{"storyId":"LIVE-STORY"}},"expectedCode":"M8_LINEAGE_INVALID"},
+  {"caseId":"M8-P2-C-NEG-005","description":"Malformed SHA-256","mutation":{"set":{"contentHash":"not-a-hash"}},"expectedCode":"M8_CONTRACT_INVALID"},
+  {"caseId":"M8-P2-C-NEG-006","description":"Approved asset not write restricted","targetType":"GeneratedAsset","mutation":{"set":{"writeRestricted":false}},"expectedCode":"M8_DURABLE_FILE_NOT_WRITE_RESTRICTED"}
+]

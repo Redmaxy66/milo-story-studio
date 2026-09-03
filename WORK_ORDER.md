@@ -1,7 +1,7 @@
 # WORK_ORDER.md
 ## Milo Story Studio — M8 Complete Studio
 
-**Status:** Approved and installed — governance only; M8 implementation not authorised  
+**Status:** Active — Phase 2 repository contracts complete; Phase 3 and all A3 activity remain separately gated
 **Project:** Redmaxy66/milo-story-studio  
 **Milestone:** M8 — Complete Studio  
 **Design basis:** MILO_M8_DESIGN_APPROVAL_PACKAGE.md revision 1.1  

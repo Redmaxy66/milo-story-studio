@@ -1,7 +1,7 @@
 # Story Status Model
 
 - **Scope:** Story lifecycle only
-- **Implementation baseline:** M7 repository design; live M7 state not yet configured
+- **Implementation baseline:** M7 complete; M8 Phase 2 repository definitions only
 
 Operational error codes and FailureLog triage values are deliberately excluded. See `ERROR_CODE_REGISTER.md` and `FAILURE_INSTRUMENTATION.md`.
 
@@ -96,7 +96,27 @@ Controlled package regeneration may operate on an already `PRODUCTION_PACKAGE_GE
 - A partial multi-write transition must use an explicit repair path; it must not invent a new lifecycle state.
 - Approval and continuity outcomes remain separate from operational failure logging.
 - M7 adds only `PRODUCTION_PACKAGE_GENERATED`.
-- M8 states are not added under M7 authority.
+- M8 states are not added under M7 authority. The M8 states below are separate Phase 2 repository definitions; no live Story Vault validation or workflow is changed.
+
+## M8 repository-only lifecycle extension
+
+| State | Meaning | Normal next state or route |
+|---|---|---|
+| `EPISODE_ASSEMBLED` | One exact episode assembly version has passed technical/creative QA and has an immutable human approval bound to its output checksum. | Required publishing packages may be prepared and reviewed. |
+| `PUBLISHING_PACKAGE_READY` | The required `YT_EPISODE_16X9_V1` and `IG_REEL_PROMO_9X16_V1` package versions have passed validation and immutable human approval, including audience and safety decisions. | Human-controlled release preparation only; publication remains outside M8. |
+
+Approved M8 progression:
+
+`PRODUCTION_PACKAGE_GENERATED -> EPISODE_ASSEMBLED -> PUBLISHING_PACKAGE_READY`
+
+Rules:
+
+- `EPISODE_ASSEMBLED` requires an approved assembly bound to the exact master SHA-256.
+- `PUBLISHING_PACKAGE_READY` requires both approved M8 v1 publishing profiles and explicit human audience/safety decisions.
+- Asset production progress is derived; M8 does not add `PRODUCTION_IN_PROGRESS`.
+- M8 does not add `PUBLISHED`.
+- Failures, waits, revisions, and `StudioControl` never invent or directly drive Story lifecycle states.
+- These definitions do not change live Story Vault validation or any n8n workflow. Live installation requires separate A3 authority.
 
 ## Separate operational concepts
 
