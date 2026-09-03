@@ -8,11 +8,11 @@ The studio now supports the controlled progression:
 
 `IDEA -> CONCEPT_GENERATED -> CONCEPT_APPROVED -> OUTLINE_GENERATED -> OUTLINE_APPROVED -> SCRIPT_GENERATED -> SCRIPT_APPROVED -> CONTINUITY_REVIEWED -> CONTINUITY_APPROVED -> PRODUCTION_PACKAGE_GENERATED`
 
-Current milestone: **M8 — Complete Studio — AP01–AP04 conditionally approved; AP05/AP06 review pending**
+Current milestone: **M8 — Complete Studio — Phase 3 complete; AP01–AP06 approved with conditions**
 
 M7 status: **Complete.** Canonical workflow `SNnLunczq5mxrXLn` passed the controlled terminal no-op verification in execution `#432`; repository/live parity, persistence, provenance, lifecycle isolation, recovery, failure safety, and the `63 / 63` offline suite all pass.
 
-M8 status: **IN PROGRESS — AP01–AP04 CONDITIONALLY APPROVED; AP05/AP06 REVIEW PENDING.** Phase 1 governance and Phase 2 repository contracts remain complete. The immutable `MILO-007-S01-P01` source is bound to derived non-canon reference governance, Film Director briefs, an approved-with-conditions text storyboard, a remediated pending animation manifest, a remediated pending provider-neutral prompt bundle, and a cost-blocked unexecuted reference proposal. No media or live/A3 activity occurred.
+M8 status: **IN PROGRESS — PHASE 3 COMPLETE; AP01–AP06 APPROVED WITH CONDITIONS.** Phase 1 governance, Phase 2 repository contracts and Phase 3 reference/production-intent preparation are complete. The immutable `MILO-007-S01-P01` source is bound to derived non-canon reference governance, Film Director briefs, an approved-with-conditions text storyboard, animation manifest and provider-neutral prompt bundle, plus a cost-blocked unexecuted reference proposal. No media, Phase 4 or live/A3 activity occurred.
 
 ---
 
@@ -140,4 +140,4 @@ M8 status: **IN PROGRESS — AP01–AP04 CONDITIONALLY APPROVED; AP05/AP06 REVIE
 - M5 — Complete
 - M6 — Complete
 - M7 — Complete
-- M8 — In progress (AP01–AP04 conditionally approved; AP05/AP06 human review, reference generation, Phase 4 and all A3 activity separately gated)
+- M8 — In progress (Phase 3 complete; AP01–AP06 approved with conditions; reference generation, Phase 4 and all A3 activity separately gated)

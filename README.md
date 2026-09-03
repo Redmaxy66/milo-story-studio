@@ -9,7 +9,7 @@ production-ready children's content package.
 - Current milestone: M8 — Complete Studio
 - Overall progress: M8 in progress
 - Current week: Week 13 of 16
-- Status: Phase 3 AP01–AP04 conditionally approved; remediated AP05/AP06 and all live/later phases remain separately gated
+- Status: M8 Phase 3 complete; AP01–AP06 approved with conditions; all live and later phases remain separately gated
 
 ## Current M8 objective
 
@@ -23,7 +23,8 @@ production-ready children's content package.
 - [x] Pass the M8 Phase 3 suite and rerun Phase 2 plus applicable M3–M7 regression protection.
 - [x] Record the project owner's AP01–AP04 conditional approvals and prepare targeted AP05/AP06 remediation.
 - [x] Prepare a finite five-sheet reference-generation proposal with unknown costs and caps blocking execution.
-- [ ] Review and decide remediated AP05/AP06; obtain separate authority before reference generation, Phase 4 or any A3 activity.
+- [x] Record AP05/AP06 approvals with explicit conditions and close M8 Phase 3.
+- [ ] Obtain separate authority for the no-reference-generation A3 connectivity/capability/cost proof before any OpenArt activity.
 
 ## Current build
 
@@ -42,15 +43,15 @@ Ten canonical stage workflows now cover Story Intake through Production Package:
 
 The shared `Milo Failure Handler v0.1` remains the governed handled/unhandled failure sink. The canonical Production Package workflow is `SNnLunczq5mxrXLn`; it remains inactive/unpublished and its repository export matches the verified live definition after normalization of volatile n8n metadata.
 
-M8 Phase 3 contains a byte-bound M7 source snapshot, derived non-canon reference governance, eight Film Director briefs, a 24-shot / 32-panel text storyboard, a renderer-neutral 5,760-frame animation manifest, 24 provider-neutral prompts, conditional AP01–AP04 repository evidence, pending AP05/AP06 review, and a cost-blocked five-sheet reference proposal. These artifacts contain no generated media, live configuration or execution authority.
+M8 Phase 3 contains a byte-bound M7 source snapshot, derived non-canon reference governance, eight Film Director briefs, a 24-shot / 32-panel text storyboard, a renderer-neutral 5,760-frame animation manifest, 24 provider-neutral prompts, AP01–AP06 approvals with explicit conditions, and a cost-blocked five-sheet reference proposal. Phase 3 is complete. These artifacts contain no generated media, live configuration or execution authority.
 
 ## Latest achievement
 
-Recorded AP01–AP04 conditional approvals and prepared targeted animation, prompt, and reference-proposal controls. Updated Phase 3 validation, Phase 2, and the full applicable M3–M7 regression collection pass, including M7 at `63 / 63`.
+Recorded AP01–AP06 approvals with explicit conditions and closed M8 Phase 3. Phase 3 validation passes `120 / 120`; Phase 2 and the full applicable M3–M7 regression collection also pass, including M7 at `63 / 63`.
 
 ## Current blocker
 
-AP05 and AP06 require human review. Reference generation is blocked by unverified provider capability, missing current unit-cost evidence, and unset hard caps. Phase 4 and the A3 n8n/OpenArt connectivity proof require separate explicit authority. D-015 remains parked as post-M7 hardening debt.
+Reference generation is blocked by unverified provider capability, missing current unit-cost evidence, and unset hard caps. The next required operational gate is a separately authorised A3 connectivity/capability/cost proof with no Milo reference generation; the 75-credit connectivity ceiling is not a reference-generation budget. Phase 4 remains unstarted and separately gated. D-015 remains parked as post-M7 hardening debt.
 
 ## Main links
 

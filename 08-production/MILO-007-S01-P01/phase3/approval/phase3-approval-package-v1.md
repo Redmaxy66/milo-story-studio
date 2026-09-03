@@ -1,7 +1,7 @@
 # M8 Phase 3 Approval Package — MILO-007-S01-P01
 
 **Review package ID:** `MILO-007-S01-P01-P3REVIEW-V001`
-**Status:** CONDITIONAL APPROVALS RECORDED — AP05/AP06 PENDING REVIEW
+**Status:** PHASE 3 COMPLETE — AP01–AP06 APPROVED WITH CONDITIONS
 **M7 source snapshot SHA-256:** `c1221fe13d7278912b73572658dc569756de4baa98679b7e3567bd3768d98233`
 **Design baseline:** revision 1.1, SHA-256 `6934b997f79e3d5aa7ff5b9405926abb8c9e401a1a539a31e16b1c32dac0d8a2`
 
@@ -21,11 +21,11 @@ This repository package records the project owner's repository-only conditional 
 
 ## Animation-manifest approval
 
-**AP05 remains PENDING_REVIEW.** Targeted remediation now provides one authoritative narration binding, explicit non-overlapping shot ranges or no-playback states, non-overlapping dialogue windows, complete voice dependencies, corrected SC02/SC03/SC05/SC07/SC08 actions, and separated ambience/dialogue/SFX/music/production-note semantics. The revised artifact requires fresh human review and is not approved for rendering or assembly.
+**AP05: APPROVED with conditions by Alex at `2026-09-03T07:48:04.000Z`.** Approval applies only to the renderer-neutral manifest at content hash `61738427c0f063c29f84595578e8e09006a49677ae0d30e43689581a06bf234c`. Its 24-fps, 5,760-frame and 240-second timeline remains provisional until tested against a scratch or approved voice performance, and final shot timing requires separate voice-timing confirmation before pilot motion generation. Narration/off-mouth/reaction coverage is the approved pilot fallback; lip sync is unnecessary unless separately tested and approved. The approval grants no rendering, assembly, provider-call or operational authority. Protected dialogue, story meaning, scene order, identities, canon lineage and firefly agency remain immutable.
 
 ## Prompt-bundle approval
 
-**AP06 remains PENDING_REVIEW.** Targeted remediation binds all prompts to future reference specification IDs, requires exact approved episode-reference matching without canonising production choices, preserves null provider configuration and non-callable status, and marks duration mapping unresolved pending A3 evidence. The revised bundle requires fresh human review and does not authorise a provider call.
+**AP06: APPROVED with conditions by Alex at `2026-09-03T07:48:04.000Z`.** Approval applies only to the provider-neutral bundle at content hash `39aad2f785cd8a90e6f45f5c7e5a34b9f5b2d8333dcfc3046df099d613016dba`. All prompts remain `DRAFT_NOT_AUTHORIZED` and non-callable. Provider, model, route, endpoint, workspace, project, credential, token, seed, resolution and observed settings remain unset until separately authorised evidence exists. Future OpenArt projection may adapt provider parameters but may not silently alter approved core creative intent. Exact approved episode references must exist and be checksum-bound before generation eligibility. Clip splitting, extension and duration mapping remain unresolved pending A3 evidence. This approval grants no provider-call, reference-generation, media-generation or credit authority.
 
 ## Unresolved creative choices
 
@@ -44,4 +44,8 @@ Film Director, Storyboard Creator, and Animation Production Director were all us
 
 ## Decision template
 
-The repository-only JSON evidence is in `phase3-approval-record-templates-v1.json`. AP01–AP04 use the schema-valid `APPROVED` decision with their conditions in `notes`; AP05–AP06 remain `PENDING_REVIEW`. The five-sheet generation proposal is `reference-generation-proposal-v1.json` and remains unexecuted.
+The repository-only JSON evidence is in `phase3-approval-record-templates-v1.json`. AP01–AP06 use the schema-valid `APPROVED` decision with their conditions in `notes`. The five-sheet generation proposal is `reference-generation-proposal-v1.json`; it remains `PROPOSAL_ONLY_NOT_AUTHORIZED`, unexecuted and blocked pending current unit-cost evidence and approved hard caps.
+
+## Phase 3 closure
+
+M8 Phase 3 is complete. The next operational gate is a separately authorised A3 OpenArt connectivity/capability/cost proof that generates no Milo reference. The existing 75-credit connectivity ceiling is not a reference-generation budget. Phase 4 has not begun.

@@ -2,7 +2,7 @@
   "schemaVersion": "m8-phase3-approval-templates-v1.0",
   "packageId": "MILO-007-S01-P01",
   "reviewPackageId": "MILO-007-S01-P01-P3REVIEW-V001",
-  "status": "PENDING_REVIEW",
+  "status": "APPROVED",
   "records": [
     {
       "templateId": "MILO-007-S01-P01-P3REVIEW-V001-AP01",
@@ -57,11 +57,11 @@
       "reviewType": "ANIMATION_MANIFEST",
       "targetId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
       "targetContentHash": "61738427c0f063c29f84595578e8e09006a49677ae0d30e43689581a06bf234c",
-      "status": "PENDING_REVIEW",
-      "decision": null,
-      "reviewer": null,
-      "reviewedAt": null,
-      "notes": "Targeted animation-manifest remediation prepared under A2; revised artifact requires fresh human review.",
+      "status": "APPROVED",
+      "decision": "APPROVED",
+      "reviewer": "Alex",
+      "reviewedAt": "2026-09-03T07:48:04.000Z",
+      "notes": "APPROVED WITH CONDITIONS: approval applies only to the renderer-neutral animation-production manifest at content hash 61738427c0f063c29f84595578e8e09006a49677ae0d30e43689581a06bf234c; the 24-fps, 5,760-frame and 240-second timeline remains a provisional production plan until tested against a scratch or approved voice performance; final shot timing requires separate voice-timing confirmation before pilot motion generation; narration/off-mouth/reaction coverage remains the approved pilot fallback; lip sync is not required unless separately tested and approved; this approval grants no rendering, assembly, provider-call or operational authority; protected dialogue, story meaning, scene order, identities, canon lineage and firefly agency remain immutable.",
       "liveRecord": false
     },
     {
@@ -69,13 +69,13 @@
       "reviewType": "PROMPT_BUNDLE",
       "targetId": "MILO-007-S01-P01-PB-V001",
       "targetContentHash": "39aad2f785cd8a90e6f45f5c7e5a34b9f5b2d8333dcfc3046df099d613016dba",
-      "status": "PENDING_REVIEW",
-      "decision": null,
-      "reviewer": null,
-      "reviewedAt": null,
-      "notes": "Targeted prompt-bundle remediation prepared under A2; revised artifact requires fresh human review.",
+      "status": "APPROVED",
+      "decision": "APPROVED",
+      "reviewer": "Alex",
+      "reviewedAt": "2026-09-03T07:48:04.000Z",
+      "notes": "APPROVED WITH CONDITIONS: approval applies only to the provider-neutral source bundle at content hash 39aad2f785cd8a90e6f45f5c7e5a34b9f5b2d8333dcfc3046df099d613016dba; all prompts remain DRAFT_NOT_AUTHORIZED and non-callable; provider, model, route, endpoint, workspace, project, credential, token, seed, resolution and observed settings remain unset until supported by separately authorised evidence; future OpenArt projection may adapt provider parameters but must not silently change the approved core creative intent; exact approved episode references must exist and be checksum-bound before any prompt is eligible for generation; clip splitting, extension and duration mapping remain unresolved pending A3 evidence; this approval grants no provider-call, reference-generation, media-generation or credit authority.",
       "liveRecord": false
     }
   ],
-  "statement": "Repository evidence only. AP01–AP04 record the project owner’s conditional approvals through schema-valid APPROVED decisions with explicit notes. AP05–AP06 remain PENDING_REVIEW. These are not live Story Vault records and grant no provider, generation, assembly, publication, Phase 4, or A3 authority."
+  "statement": "Repository evidence only. AP01–AP06 record the project owner’s conditional approvals through schema-valid APPROVED decisions with explicit notes. These are not live Story Vault records and grant no provider, generation, assembly, publication, Phase 4, or A3 authority."
 }

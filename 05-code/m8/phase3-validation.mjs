@@ -363,16 +363,17 @@ export function validatePhase3Repository(root) {
   check('prompt:provider-neutral', () => {
     for (const key of ['provider','model','workspaceId','projectId','endpoint','credential','token']) assert.equal(prompt.content.providerNeutrality[key],null);
     assert.equal(prompt.content.providerNeutrality.callable,false);
-    prompt.content.prompts.forEach(x => { for (const key of ['provider','model','workspaceId','projectId','endpoint','credential','token']) assert.equal(x.providerProjection[key],null); assert.equal(x.providerProjection.observedSettings,null); });
+    prompt.content.prompts.forEach(x => { for (const key of ['provider','model','workspaceId','projectId','endpoint','credential','token']) assert.equal(x.providerProjection[key],null); assert.equal(x.providerProjection.observedSettings,null); assert.equal(x.observedSettings,null); assert.equal(x.requestedSettings.seed,null); assert.equal(x.requestedSettings.resolution,null); });
   });
   check('prompt:no-authority', () => { assert(/NO_PROVIDER_CALL_AUTHORIZED/.test(prompt.content.status)); prompt.content.prompts.forEach(x=>assert.equal(x.status,'DRAFT_NOT_AUTHORIZED')); });
 
   const templates = docs.approvalTemplates;
-  check('approval:templates-only', () => { assert.equal(templates.status,'PENDING_REVIEW'); assert.equal(templates.records.length,6); assert(templates.records.every(x=>x.liveRecord===false)); });
+  check('approval:templates-only', () => { assert.equal(templates.status,'APPROVED'); assert.equal(templates.records.length,6); assert(templates.records.every(x=>x.liveRecord===false)); });
   check('approval:conditional-decisions', () => {
-    const approved=templates.records.slice(0,4); const pending=templates.records.slice(4);
-    approved.forEach(x => { assert.equal(x.status,'APPROVED'); assert.equal(x.decision,'APPROVED'); assert.equal(x.reviewer,'Alex'); assert(/^2026-09-03T\d{2}:\d{2}:\d{2}\.000Z$/.test(x.reviewedAt)); assert(/^APPROVED WITH CONDITIONS:/.test(x.notes)); });
-    pending.forEach(x => { assert.equal(x.status,'PENDING_REVIEW'); assert.equal(x.decision,null); assert.equal(x.reviewer,null); assert.equal(x.reviewedAt,null); assert(/requires fresh human review/.test(x.notes)); });
+    templates.records.forEach(x => { assert.equal(x.status,'APPROVED'); assert.equal(x.decision,'APPROVED'); assert.equal(x.reviewer,'Alex'); assert(/^2026-09-03T\d{2}:\d{2}:\d{2}\.000Z$/.test(x.reviewedAt)); assert(/^APPROVED WITH CONDITIONS:/.test(x.notes)); });
+    const ap05=templates.records[4]; const ap06=templates.records[5];
+    for (const phrase of ['61738427c0f063c29f84595578e8e09006a49677ae0d30e43689581a06bf234c','provisional production plan','voice-timing confirmation','narration/off-mouth/reaction','lip sync is not required','no rendering, assembly, provider-call or operational authority','protected dialogue, story meaning, scene order, identities, canon lineage and firefly agency remain immutable']) assert(ap05.notes.includes(phrase));
+    for (const phrase of ['39aad2f785cd8a90e6f45f5c7e5a34b9f5b2d8333dcfc3046df099d613016dba','DRAFT_NOT_AUTHORIZED','non-callable','provider, model, route, endpoint, workspace, project, credential, token, seed, resolution and observed settings remain unset','must not silently change the approved core creative intent','checksum-bound','duration mapping remain unresolved pending A3 evidence','no provider-call, reference-generation, media-generation or credit authority']) assert(ap06.notes.includes(phrase));
   });
   check('approval:target-hashes', () => {
     const expected=[reference.contentHash,director.contentHash,director.contentHash,storyboard.contentHash,animation.contentHash,prompt.contentHash];

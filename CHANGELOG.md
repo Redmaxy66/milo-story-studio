@@ -1,5 +1,15 @@
 ﻿# Changelog
 
+## 0.8.3 — M8 Phase 3 approval and closure
+
+- Recorded AP05 and AP06 as controlled `APPROVED` repository decisions by Alex using the actual execution timestamp and all explicit approval conditions; AP01–AP04 remain unchanged.
+- Preserved the final AP05 manifest and AP06 prompt-bundle content hashes without modifying either approved artifact.
+- Closed M8 Phase 3 with all six artifacts approved with conditions and the complete Phase 3 suite passing `120 / 120`.
+- Preserved all 24 prompts as `DRAFT_NOT_AUTHORIZED`, non-callable and free of provider configuration.
+- Preserved the byte-identical five-sheet reference proposal at `PROPOSAL_ONLY_NOT_AUTHORIZED`: five initial operations, five separately approved revisions and ten operations maximum, with unknown costs and unset hard caps blocking generation.
+- Recorded the next required operational gate as a separately authorised A3 OpenArt connectivity/capability/cost proof with no Milo reference generation; the 75-credit connectivity ceiling is not a reference-generation budget.
+- Accessed no operational system other than the authorised GitHub repository, generated no media, spent zero credits, and began neither Phase 4 nor A3.
+
 ## 0.8.2 — M8 Phase 3 conditional approval and targeted remediation
 
 - Recorded AP01–AP04 as controlled `APPROVED` repository decisions by Alex with explicit conditions; no live Story Vault approval was created.

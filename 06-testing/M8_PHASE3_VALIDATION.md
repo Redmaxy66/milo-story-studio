@@ -2,11 +2,11 @@
 
 **Result:** PASS
 **Validation date:** 2026-09-03
-**Authority:** A2 — M8 Phase 3 Final AP05/AP06 Determinism Correction
-**Entry remote `main`:** `73fc348fae9798bf172a891ee20051956ba82971`
-**Rollback position:** `73fc348fae9798bf172a891ee20051956ba82971`
-**Entry parent:** `59e479e37ba9306732f423a1136ebe67beb280bb`
-**Entry tree:** `e513a24b3571437310336b818352d2e7d63d21ab`
+**Authority:** A2 — M8 Phase 3 Final AP05/AP06 Approval and Phase Closure
+**Entry remote `main`:** `432136deda6707f8c7ece8cc77cd0cc46dbe0c6e`
+**Rollback position:** `432136deda6707f8c7ece8cc77cd0cc46dbe0c6e`
+**Entry parent:** `73fc348fae9798bf172a891ee20051956ba82971`
+**Entry tree:** `f1b15a4a84a4148ac14b0da9078aab2628ae69a0`
 
 ## Source verification
 
@@ -25,7 +25,7 @@
 | JSON parse gate | PASS |
 | `git diff --check` | PASS |
 
-The dedicated suite proves eight-scene lineage, exact source hashes, all reference classifications and categories, rights/provenance/checksum gates, all three specialist boundaries, 24 stable shots, 32 stable panels, a contiguous 24 fps timeline of 5,760 frames / 240 seconds, one authoritative narration binding, complete non-overlapping narration allocation, non-overlapping dialogue windows, no spoken or heard claims in no-playback shots, SC04 count and SC08 closing-cue isolation, SC05 clap isolation, complete voice dependencies, corrected action order, separated audio/production-note semantics, top-level and prompt-level animation-manifest hash synchronization, future reference-specification bindings without asset claims, null live configuration, AP01–AP04 conditional approval evidence, pending AP05/AP06 review, a finite cost-blocked reference proposal, and absence of generated-media claims.
+The dedicated suite proves eight-scene lineage, exact source hashes, all reference classifications and categories, rights/provenance/checksum gates, all three specialist boundaries, 24 stable shots, 32 stable panels, a contiguous provisional 24 fps timeline of 5,760 frames / 240 seconds, one authoritative narration binding, complete non-overlapping narration allocation, non-overlapping dialogue windows, no spoken or heard claims in no-playback shots, SC04 count and SC08 closing-cue isolation, SC05 clap isolation, complete voice dependencies, corrected action order, separated audio/production-note semantics, top-level and prompt-level animation-manifest hash synchronization, future reference-specification bindings without asset claims, null live configuration, AP01–AP06 conditional approval evidence, a finite cost-blocked reference proposal, and absence of generated-media claims.
 
 ## M8 Phase 2 regression
 
@@ -43,12 +43,14 @@ The dedicated suite proves eight-scene lineage, exact source hashes, all referen
 
 All applicable suites pass: canon initialization, canon lineage, continuity eligible selection, failure instrumentation, outline eligible selection, production package, and script eligible selection. M7 remains `63 / 63`.
 
-## Conditional approvals and remediation
+## Final conditional approvals
 
-- AP01–AP04 record controlled `APPROVED` decisions by `Alex` at `2026-09-03T06:28:06.000Z`, with every approval condition preserved in the existing `notes` field.
-- AP05 and AP06 remain `PENDING_REVIEW` with null decision, reviewer and timestamp.
+- AP01–AP04 retain their controlled `APPROVED` decisions by `Alex` at `2026-09-03T06:28:06.000Z`, with every approval condition preserved unchanged.
+- AP05 and AP06 record controlled `APPROVED` decisions by `Alex` at the actual execution timestamp `2026-09-03T07:48:04.000Z`, with all instructed conditions in their `notes` fields.
 - AP05 retains exact shot-level narration ranges or no-playback states, keeps the SC04 `"One,"` cue only in SH02, makes SC04-SH03 a silent patient hold, confines the SC05 soft muted clap to SH03 after the returning glow, keeps the SC08 closing cue in SH02, and makes SC08-SH03 a silent left-to-right departure and final visual fade.
+- AP05 remains bound to content hash `61738427c0f063c29f84595578e8e09006a49677ae0d30e43689581a06bf234c`; its 24-fps, 5,760-frame and 240-second timeline remains provisional pending voice-timing confirmation before pilot motion generation.
 - AP06 synchronizes only the affected shot prompts to AP05, binds its top-level and every prompt-level animation-manifest reference to the corrected AP05 content hash, retains future reference specification IDs without asset claims, leaves all provider/configuration fields null and non-callable, and keeps duration mapping unresolved pending A3 evidence.
+- AP06 remains bound to content hash `39aad2f785cd8a90e6f45f5c7e5a34b9f5b2d8333dcfc3046df099d613016dba`; all 24 prompts remain `DRAFT_NOT_AUTHORIZED` and grant no provider-call or generation authority.
 - The Animation Production Director instructions were read in full and used only to validate the narrowly scoped audio, action and handoff synchronization. No creative package was broadly regenerated.
 
 ## Reference-generation proposal
@@ -58,11 +60,13 @@ All applicable suites pass: canon initialization, canon lineage, continuity elig
 - Proposed route is OpenArt `TEXT_TO_IMAGE`, explicitly unverified; model remains null.
 - Per-operation estimates, hard per-sheet caps and total cap remain null and `UNSET_BLOCKING_GENERATION` because the approved spike does not prove current reference-image unit cost.
 - The proposal is unexecuted and states exactly: `PROPOSAL ONLY — NO OPENART ACCESS, GENERATION OR CREDIT SPEND AUTHORISED`.
+- Disposition remains `READY AFTER COST/CAP EVIDENCE`. The ten-operation absolute ceiling is five initial operations plus five separately approved revisions.
+- The next operational gate is a separately authorised A3 OpenArt connectivity/capability/cost proof with no Milo reference generation; its 75-credit connectivity ceiling is not a reference-generation budget.
 
 ## Issues and decisions
 
 - Critical now: none.
-- Material before next relevant gate: AP05/AP06 require final human review; actual reference bytes do not exist; provider/model/capability, current unit costs and hard reference caps remain unverified or unset; final shot timing still requires a scratch or approved voice performance.
+- Material before next relevant gate: actual reference bytes do not exist; provider/model/capability, current unit costs and hard reference caps remain unverified or unset; final shot timing still requires a scratch or approved voice performance before pilot motion generation.
 - Parkable: D-015 and unrelated legacy/test workflow cleanup remain unchanged.
 - No new material governance decision was required; `DECISION_LOG.md` remains unchanged.
 
@@ -74,4 +78,4 @@ No media was generated or retrieved; no credits were spent; no live approval rec
 
 ## Disposition
 
-AP01–AP04 conditional approvals are recorded. The final AP05/AP06 determinism correction and the unchanged cost-blocked reference proposal satisfy their offline acceptance criteria and await human review. They grant no later-phase, provider, generation, assembly or publication authority.
+AP01–AP06 conditional approvals are recorded and M8 Phase 3 is complete. The unchanged reference proposal remains cost-blocked, unexecuted and unauthorised. Phase 4 and A3 have not begun, and these approvals grant no provider, generation, assembly or publication authority.
