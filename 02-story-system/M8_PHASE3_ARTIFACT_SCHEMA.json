@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://milo-story-studio.local/schemas/m8-phase3-artifact-v1.json",
+  "title": "Milo M8 Phase 3 repository artifact envelope v1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "artifactId",
+    "artifactType",
+    "artifactVersion",
+    "status",
+    "lineage",
+    "sourceBindings",
+    "contentHash",
+    "content"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "m8-phase3-artifact-v1.0"
+    },
+    "artifactId": {
+      "type": "string",
+      "pattern": "^MILO-007-S01-P01-(?:PIA-[A-Z_]+|REFPACK|PB)(?:-[A-Z_]+)?-V[0-9]{3}$"
+    },
+    "artifactType": {
+      "enum": [
+        "VISUAL_REFERENCE_PACK",
+        "DIRECTOR_BRIEF_COLLECTION",
+        "STORYBOARD",
+        "ANIMATION_MANIFEST",
+        "PROMPT_BUNDLE"
+      ]
+    },
+    "artifactVersion": {
+      "const": 1
+    },
+    "status": {
+      "const": "AWAITING_APPROVAL"
+    },
+    "lineage": {
+      "$ref": "#/$defs/lineage"
+    },
+    "sourceBindings": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "$ref": "#/$defs/sourceBinding"
+      }
+    },
+    "contentHash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "content": {
+      "type": "object"
+    }
+  },
+  "$defs": {
+    "lineage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "storyId",
+        "conceptId",
+        "outlineId",
+        "scriptId",
+        "scriptVersion",
+        "reviewId",
+        "reviewVersion",
+        "packageId",
+        "packageVersion",
+        "canonVersion",
+        "canonRef"
+      ],
+      "properties": {
+        "storyId": {
+          "const": "MILO-007"
+        },
+        "conceptId": {
+          "const": "MILO-007-C01"
+        },
+        "outlineId": {
+          "const": "MILO-007-O01"
+        },
+        "scriptId": {
+          "const": "MILO-007-S01"
+        },
+        "scriptVersion": {
+          "const": 1
+        },
+        "reviewId": {
+          "const": "MILO-007-S01-R01"
+        },
+        "reviewVersion": {
+          "const": 1
+        },
+        "packageId": {
+          "const": "MILO-007-S01-P01"
+        },
+        "packageVersion": {
+          "const": 1
+        },
+        "canonVersion": {
+          "const": "canon-v1.0"
+        },
+        "canonRef": {
+          "const": "977755913d9ad41e4f16392d01ea993507af4102"
+        }
+      }
+    },
+    "sourceBinding": {
+      "type": "object",
+      "required": [
+        "type",
+        "path",
+        "byteSha256",
+        "immutable"
+      ],
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "path": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "externalArtifact": {
+          "type": "string"
+        },
+        "revision": {
+          "type": "string"
+        },
+        "byteSha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "immutable": {
+          "const": true
+        }
+      }
+    }
+  }
+}

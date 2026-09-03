@@ -16,5 +16,6 @@ Native n8n nodes should be preferred where practical.
 - `hashing.mjs` — domain-separated SHA-256 content hashes and idempotency keys
 - `contracts.mjs` — provider-neutral contract, controlled-value, lifecycle, and boundary validation
 - `openart-adapter-interface.mjs` — offline OpenArt normalization and fail-closed live-operation interface
+- `phase3-validation.mjs` — offline source, lineage, specialist-boundary, reference, storyboard, animation, prompt, approval and no-live-target validation
 
 These modules contain no HTTP client, provider SDK, credential lookup, endpoint, live target, media retrieval, or workflow execution capability.

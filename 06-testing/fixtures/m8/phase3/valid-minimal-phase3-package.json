@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "m8-phase3-test-fixture-v1.0",
+  "status": "AWAITING_APPROVAL",
+  "generatedMedia": false,
+  "liveTargets": false,
+  "scenes": [
+    {
+      "sceneId": "MILO-999-S01-P01-SC01",
+      "sceneNumber": 1,
+      "sourceText": "Inert source text.",
+      "sourceTextHash": "0d0e491de5c4fd877df403a2092e252d48eee55fe36539895a9fbae6e848f7d1",
+      "shots": [
+        {
+          "shotId": "MILO-999-S01-P01-SC01-SH01",
+          "panelIds": ["MILO-999-S01-P01-SC01-SH01-PN01"],
+          "provider": null,
+          "endpoint": null
+        }
+      ]
+    }
+  ]
+}

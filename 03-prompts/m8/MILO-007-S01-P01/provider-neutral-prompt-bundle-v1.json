@@ -1,0 +1,2612 @@
+{
+  "schemaVersion": "m8-phase3-artifact-v1.0",
+  "artifactId": "MILO-007-S01-P01-PB-V001",
+  "artifactType": "PROMPT_BUNDLE",
+  "artifactVersion": 1,
+  "status": "AWAITING_APPROVAL",
+  "lineage": {
+    "storyId": "MILO-007",
+    "conceptId": "MILO-007-C01",
+    "outlineId": "MILO-007-O01",
+    "scriptId": "MILO-007-S01",
+    "scriptVersion": 1,
+    "reviewId": "MILO-007-S01-R01",
+    "reviewVersion": 1,
+    "packageId": "MILO-007-S01-P01",
+    "packageVersion": 1,
+    "canonVersion": "canon-v1.0",
+    "canonRef": "977755913d9ad41e4f16392d01ea993507af4102"
+  },
+  "sourceBindings": [
+    {
+      "type": "M7_APPROVED_SNAPSHOT",
+      "path": "08-production/MILO-007-S01-P01/phase3/source/M7_PRODUCTION_PACKAGE_SNAPSHOT.json",
+      "byteSha256": "c1221fe13d7278912b73572658dc569756de4baa98679b7e3567bd3768d98233",
+      "immutable": true
+    },
+    {
+      "type": "M8_DESIGN_BASELINE",
+      "path": null,
+      "externalArtifact": "MILO_M8_DESIGN_APPROVAL_PACKAGE.md",
+      "revision": "1.1",
+      "byteSha256": "6934b997f79e3d5aa7ff5b9405926abb8c9e401a1a539a31e16b1c32dac0d8a2",
+      "immutable": true
+    }
+  ],
+  "contentHash": "817b393037598d9b7dcbfd054d0ab8d99b1f6c95686e77d0b93ab52eb294f1cd",
+  "content": {
+    "purpose": "Provider-neutral future projection of human-approved shot intent; this bundle is not generation authority.",
+    "sourceArtifacts": [
+      {
+        "artifactId": "MILO-007-S01-P01-PIA-DIRECTOR_SCENES-V001",
+        "contentHash": "218d0895fb56e4cd4523bf05dd6d585162bb79832c7965b40ee1c58c2cb20297"
+      },
+      {
+        "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
+        "contentHash": "0063dbfa802485098f4a694f838f67b2c9cf8d751ce78c90bde0b9a024326f63"
+      },
+      {
+        "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
+        "contentHash": "ace496163aa11c9988186a0a9721fab60db361fb0cd10ed0f24ae8ddc59b38e8"
+      }
+    ],
+    "providerNeutrality": {
+      "adapterName": "openart-adapter-v0.1",
+      "provider": null,
+      "model": null,
+      "workspaceId": null,
+      "projectId": null,
+      "endpoint": null,
+      "credential": null,
+      "token": null,
+      "callable": false
+    },
+    "prompts": [
+      {
+        "promptId": "MILO-007-S01-P01-PB-V001-PR001",
+        "promptOrder": 1,
+        "sceneId": "MILO-007-S01-P01-SC01",
+        "shotId": "MILO-007-S01-P01-SC01-SH01",
+        "exactSourceArtifactReferences": [
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
+            "contentHash": "ace496163aa11c9988186a0a9721fab60db361fb0cd10ed0f24ae8ddc59b38e8"
+          },
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
+            "contentHash": "0063dbfa802485098f4a694f838f67b2c9cf8d751ce78c90bde0b9a024326f63"
+          }
+        ],
+        "positiveRequirements": [
+          "Reveal the warm path and Milo entering the frame.",
+          "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Moonberry Wood — mossy forest path at evening, Reveal the warm path and Milo entering the frame., Gentle strolling motion, backpack bouncing subtly with each step; lanterns begin to illuminate sequentially., gentle track, hold, or release motivated by the action, 28mm gentle wide, 168 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off."
+        ],
+        "negativeConstraints": [
+          "No identity drift or unapproved appearance change",
+          "No fixed body proportions, locomotion canon, exact hex palette, backpack geometry, or visual-style canon",
+          "No new plot event, dialogue, named character, text overlay, logo, unsafe darkness, coercive action, flicker, warping, or camera-axis jump"
+        ],
+        "referenceRoles": [
+          {
+            "subject": "Milo",
+            "role": "IDENTITY_AND_APPEARANCE_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Moonberry Wood",
+            "role": "ENVIRONMENT_AND_LIGHTING_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Firefly",
+            "role": "SCENE_SCALE_AND_GLOW_PROGRESSION",
+            "required": false,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          }
+        ],
+        "continuityLocks": [
+          "Preserve every approved M7 sourceText character-for-character and in scene order.",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off.",
+          "Milo’s belly star is an appearance element here; it does not control the firefly or resolve its choice.",
+          "No generated or inferred visual detail becomes canon."
+        ],
+        "allowedChanges": [
+          "Timing ease, camera path smoothness, subtle performance intensity, restrained atmosphere within approved intent"
+        ],
+        "prohibitedChanges": [
+          "Dialogue rewrite",
+          "Plot or character-intent change",
+          "Canon resolution",
+          "M7 scene mutation",
+          "Asset replacement in place"
+        ],
+        "canonicalCapability": "IMAGE_TO_VIDEO",
+        "requestedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
+        "requestedSettings": {
+          "durationSeconds": 7,
+          "frameRate": 24,
+          "aspectRatio": "16:9",
+          "resolution": null,
+          "audio": false,
+          "seed": null
+        },
+        "observedSettings": null,
+        "providerProjection": {
+          "adapterName": "openart-adapter-v0.1",
+          "canonicalCapability": "IMAGE_TO_VIDEO",
+          "requestedMode": "PROVIDER_NEUTRAL_VIDEO_SHOT",
+          "requestedSettings": {
+            "durationSeconds": 7,
+            "frameRate": 24,
+            "aspectRatio": "16:9"
+          },
+          "provider": null,
+          "model": null,
+          "workspaceId": null,
+          "projectId": null,
+          "endpoint": null,
+          "credential": null,
+          "token": null,
+          "observedSettings": null
+        },
+        "acceptanceCriteria": [
+          "Frame count equals outFrame minus inFrame.",
+          "No identity drift, flicker, warping, foot sliding, prop duplication, or camera discontinuity.",
+          "Exact source and dialogue bindings remain traceable.",
+          "Safe anticipation and belonging.",
+          "Protected story meaning and firefly agency remain unchanged.",
+          "Human review must approve the prompt and all required reference assets before any request is created."
+        ],
+        "status": "DRAFT_NOT_AUTHORIZED"
+      },
+      {
+        "promptId": "MILO-007-S01-P01-PB-V001-PR002",
+        "promptOrder": 2,
+        "sceneId": "MILO-007-S01-P01-SC01",
+        "shotId": "MILO-007-S01-P01-SC01-SH02",
+        "exactSourceArtifactReferences": [
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
+            "contentHash": "ace496163aa11c9988186a0a9721fab60db361fb0cd10ed0f24ae8ddc59b38e8"
+          },
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
+            "contentHash": "0063dbfa802485098f4a694f838f67b2c9cf8d751ce78c90bde0b9a024326f63"
+          }
+        ],
+        "positiveRequirements": [
+          "Let Milo greet the audience while the first lanterns wake.",
+          "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Moonberry Wood — mossy forest path at evening, Let Milo greet the audience while the first lanterns wake., Gentle strolling motion, backpack bouncing subtly with each step; lanterns begin to illuminate sequentially., slow, eased push or restrained focus transfer, 50mm normal, 216 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off."
+        ],
+        "negativeConstraints": [
+          "No identity drift or unapproved appearance change",
+          "No fixed body proportions, locomotion canon, exact hex palette, backpack geometry, or visual-style canon",
+          "No new plot event, dialogue, named character, text overlay, logo, unsafe darkness, coercive action, flicker, warping, or camera-axis jump"
+        ],
+        "referenceRoles": [
+          {
+            "subject": "Milo",
+            "role": "IDENTITY_AND_APPEARANCE_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Moonberry Wood",
+            "role": "ENVIRONMENT_AND_LIGHTING_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Firefly",
+            "role": "SCENE_SCALE_AND_GLOW_PROGRESSION",
+            "required": false,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          }
+        ],
+        "continuityLocks": [
+          "Preserve every approved M7 sourceText character-for-character and in scene order.",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off.",
+          "Milo’s belly star is an appearance element here; it does not control the firefly or resolve its choice.",
+          "No generated or inferred visual detail becomes canon."
+        ],
+        "allowedChanges": [
+          "Timing ease, camera path smoothness, subtle performance intensity, restrained atmosphere within approved intent"
+        ],
+        "prohibitedChanges": [
+          "Dialogue rewrite",
+          "Plot or character-intent change",
+          "Canon resolution",
+          "M7 scene mutation",
+          "Asset replacement in place"
+        ],
+        "canonicalCapability": "IMAGE_TO_VIDEO",
+        "requestedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
+        "requestedSettings": {
+          "durationSeconds": 9,
+          "frameRate": 24,
+          "aspectRatio": "16:9",
+          "resolution": null,
+          "audio": false,
+          "seed": null
+        },
+        "observedSettings": null,
+        "providerProjection": {
+          "adapterName": "openart-adapter-v0.1",
+          "canonicalCapability": "IMAGE_TO_VIDEO",
+          "requestedMode": "PROVIDER_NEUTRAL_VIDEO_SHOT",
+          "requestedSettings": {
+            "durationSeconds": 9,
+            "frameRate": 24,
+            "aspectRatio": "16:9"
+          },
+          "provider": null,
+          "model": null,
+          "workspaceId": null,
+          "projectId": null,
+          "endpoint": null,
+          "credential": null,
+          "token": null,
+          "observedSettings": null
+        },
+        "acceptanceCriteria": [
+          "Frame count equals outFrame minus inFrame.",
+          "No identity drift, flicker, warping, foot sliding, prop duplication, or camera discontinuity.",
+          "Exact source and dialogue bindings remain traceable.",
+          "Safe anticipation and belonging.",
+          "Protected story meaning and firefly agency remain unchanged.",
+          "Human review must approve the prompt and all required reference assets before any request is created."
+        ],
+        "status": "DRAFT_NOT_AUTHORIZED"
+      },
+      {
+        "promptId": "MILO-007-S01-P01-PB-V001-PR003",
+        "promptOrder": 3,
+        "sceneId": "MILO-007-S01-P01-SC01",
+        "shotId": "MILO-007-S01-P01-SC01-SH03",
+        "exactSourceArtifactReferences": [
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
+            "contentHash": "ace496163aa11c9988186a0a9721fab60db361fb0cd10ed0f24ae8ddc59b38e8"
+          },
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
+            "contentHash": "0063dbfa802485098f4a694f838f67b2c9cf8d751ce78c90bde0b9a024326f63"
+          }
+        ],
+        "positiveRequirements": [
+          "Carry Milo and the twinkle sequence deeper along the path.",
+          "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Moonberry Wood — mossy forest path at evening, Carry Milo and the twinkle sequence deeper along the path., Gentle strolling motion, backpack bouncing subtly with each step; lanterns begin to illuminate sequentially., gentle track, hold, or release motivated by the action, 40mm normal-wide, 192 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off."
+        ],
+        "negativeConstraints": [
+          "No identity drift or unapproved appearance change",
+          "No fixed body proportions, locomotion canon, exact hex palette, backpack geometry, or visual-style canon",
+          "No new plot event, dialogue, named character, text overlay, logo, unsafe darkness, coercive action, flicker, warping, or camera-axis jump"
+        ],
+        "referenceRoles": [
+          {
+            "subject": "Milo",
+            "role": "IDENTITY_AND_APPEARANCE_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Moonberry Wood",
+            "role": "ENVIRONMENT_AND_LIGHTING_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Firefly",
+            "role": "SCENE_SCALE_AND_GLOW_PROGRESSION",
+            "required": false,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          }
+        ],
+        "continuityLocks": [
+          "Preserve every approved M7 sourceText character-for-character and in scene order.",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off.",
+          "Milo’s belly star is an appearance element here; it does not control the firefly or resolve its choice.",
+          "No generated or inferred visual detail becomes canon."
+        ],
+        "allowedChanges": [
+          "Timing ease, camera path smoothness, subtle performance intensity, restrained atmosphere within approved intent"
+        ],
+        "prohibitedChanges": [
+          "Dialogue rewrite",
+          "Plot or character-intent change",
+          "Canon resolution",
+          "M7 scene mutation",
+          "Asset replacement in place"
+        ],
+        "canonicalCapability": "IMAGE_TO_VIDEO",
+        "requestedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
+        "requestedSettings": {
+          "durationSeconds": 8,
+          "frameRate": 24,
+          "aspectRatio": "16:9",
+          "resolution": null,
+          "audio": false,
+          "seed": null
+        },
+        "observedSettings": null,
+        "providerProjection": {
+          "adapterName": "openart-adapter-v0.1",
+          "canonicalCapability": "IMAGE_TO_VIDEO",
+          "requestedMode": "PROVIDER_NEUTRAL_VIDEO_SHOT",
+          "requestedSettings": {
+            "durationSeconds": 8,
+            "frameRate": 24,
+            "aspectRatio": "16:9"
+          },
+          "provider": null,
+          "model": null,
+          "workspaceId": null,
+          "projectId": null,
+          "endpoint": null,
+          "credential": null,
+          "token": null,
+          "observedSettings": null
+        },
+        "acceptanceCriteria": [
+          "Frame count equals outFrame minus inFrame.",
+          "No identity drift, flicker, warping, foot sliding, prop duplication, or camera discontinuity.",
+          "Exact source and dialogue bindings remain traceable.",
+          "Safe anticipation and belonging.",
+          "Protected story meaning and firefly agency remain unchanged.",
+          "Human review must approve the prompt and all required reference assets before any request is created."
+        ],
+        "status": "DRAFT_NOT_AUTHORIZED"
+      },
+      {
+        "promptId": "MILO-007-S01-P01-PB-V001-PR004",
+        "promptOrder": 4,
+        "sceneId": "MILO-007-S01-P01-SC02",
+        "shotId": "MILO-007-S01-P01-SC02-SH01",
+        "exactSourceArtifactReferences": [
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
+            "contentHash": "ace496163aa11c9988186a0a9721fab60db361fb0cd10ed0f24ae8ddc59b38e8"
+          },
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
+            "contentHash": "0063dbfa802485098f4a694f838f67b2c9cf8d751ce78c90bde0b9a024326f63"
+          }
+        ],
+        "positiveRequirements": [
+          "Follow Milo toward the almost inaudible sound.",
+          "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, A quiet section of the mossy path near low ferns and mossy stones, Follow Milo toward the almost inaudible sound., Milo follows the glow, pauses at a faint sound, kneels, and gently parts the fern to reveal a trembling firefly., gentle track, hold, or release motivated by the action, 50mm normal, 240 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off."
+        ],
+        "negativeConstraints": [
+          "No identity drift or unapproved appearance change",
+          "No fixed body proportions, locomotion canon, exact hex palette, backpack geometry, or visual-style canon",
+          "No new plot event, dialogue, named character, text overlay, logo, unsafe darkness, coercive action, flicker, warping, or camera-axis jump"
+        ],
+        "referenceRoles": [
+          {
+            "subject": "Milo",
+            "role": "IDENTITY_AND_APPEARANCE_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Moonberry Wood",
+            "role": "ENVIRONMENT_AND_LIGHTING_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Firefly",
+            "role": "SCENE_SCALE_AND_GLOW_PROGRESSION",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          }
+        ],
+        "continuityLocks": [
+          "Preserve every approved M7 sourceText character-for-character and in scene order.",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off.",
+          "Milo’s belly star is an appearance element here; it does not control the firefly or resolve its choice.",
+          "No generated or inferred visual detail becomes canon."
+        ],
+        "allowedChanges": [
+          "Timing ease, camera path smoothness, subtle performance intensity, restrained atmosphere within approved intent"
+        ],
+        "prohibitedChanges": [
+          "Dialogue rewrite",
+          "Plot or character-intent change",
+          "Canon resolution",
+          "M7 scene mutation",
+          "Asset replacement in place"
+        ],
+        "canonicalCapability": "IMAGE_TO_VIDEO",
+        "requestedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
+        "requestedSettings": {
+          "durationSeconds": 10,
+          "frameRate": 24,
+          "aspectRatio": "16:9",
+          "resolution": null,
+          "audio": false,
+          "seed": null
+        },
+        "observedSettings": null,
+        "providerProjection": {
+          "adapterName": "openart-adapter-v0.1",
+          "canonicalCapability": "IMAGE_TO_VIDEO",
+          "requestedMode": "PROVIDER_NEUTRAL_VIDEO_SHOT",
+          "requestedSettings": {
+            "durationSeconds": 10,
+            "frameRate": 24,
+            "aspectRatio": "16:9"
+          },
+          "provider": null,
+          "model": null,
+          "workspaceId": null,
+          "projectId": null,
+          "endpoint": null,
+          "credential": null,
+          "token": null,
+          "observedSettings": null
+        },
+        "acceptanceCriteria": [
+          "Frame count equals outFrame minus inFrame.",
+          "No identity drift, flicker, warping, foot sliding, prop duplication, or camera discontinuity.",
+          "Exact source and dialogue bindings remain traceable.",
+          "Tender concern without alarm.",
+          "Protected story meaning and firefly agency remain unchanged.",
+          "Human review must approve the prompt and all required reference assets before any request is created."
+        ],
+        "status": "DRAFT_NOT_AUTHORIZED"
+      },
+      {
+        "promptId": "MILO-007-S01-P01-PB-V001-PR005",
+        "promptOrder": 5,
+        "sceneId": "MILO-007-S01-P01-SC02",
+        "shotId": "MILO-007-S01-P01-SC02-SH02",
+        "exactSourceArtifactReferences": [
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
+            "contentHash": "ace496163aa11c9988186a0a9721fab60db361fb0cd10ed0f24ae8ddc59b38e8"
+          },
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
+            "contentHash": "0063dbfa802485098f4a694f838f67b2c9cf8d751ce78c90bde0b9a024326f63"
+          }
+        ],
+        "positiveRequirements": [
+          "Reveal the firefly at true tiny scale beneath the fern.",
+          "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, A quiet section of the mossy path near low ferns and mossy stones, Reveal the firefly at true tiny scale beneath the fern., Milo follows the glow, pauses at a faint sound, kneels, and gently parts the fern to reveal a trembling firefly., slow, eased push or restrained focus transfer, 85mm macro character scale, 288 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off."
+        ],
+        "negativeConstraints": [
+          "No identity drift or unapproved appearance change",
+          "No fixed body proportions, locomotion canon, exact hex palette, backpack geometry, or visual-style canon",
+          "No new plot event, dialogue, named character, text overlay, logo, unsafe darkness, coercive action, flicker, warping, or camera-axis jump"
+        ],
+        "referenceRoles": [
+          {
+            "subject": "Milo",
+            "role": "IDENTITY_AND_APPEARANCE_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Moonberry Wood",
+            "role": "ENVIRONMENT_AND_LIGHTING_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Firefly",
+            "role": "SCENE_SCALE_AND_GLOW_PROGRESSION",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          }
+        ],
+        "continuityLocks": [
+          "Preserve every approved M7 sourceText character-for-character and in scene order.",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off.",
+          "Milo’s belly star is an appearance element here; it does not control the firefly or resolve its choice.",
+          "No generated or inferred visual detail becomes canon."
+        ],
+        "allowedChanges": [
+          "Timing ease, camera path smoothness, subtle performance intensity, restrained atmosphere within approved intent"
+        ],
+        "prohibitedChanges": [
+          "Dialogue rewrite",
+          "Plot or character-intent change",
+          "Canon resolution",
+          "M7 scene mutation",
+          "Asset replacement in place"
+        ],
+        "canonicalCapability": "IMAGE_TO_VIDEO",
+        "requestedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
+        "requestedSettings": {
+          "durationSeconds": 12,
+          "frameRate": 24,
+          "aspectRatio": "16:9",
+          "resolution": null,
+          "audio": false,
+          "seed": null
+        },
+        "observedSettings": null,
+        "providerProjection": {
+          "adapterName": "openart-adapter-v0.1",
+          "canonicalCapability": "IMAGE_TO_VIDEO",
+          "requestedMode": "PROVIDER_NEUTRAL_VIDEO_SHOT",
+          "requestedSettings": {
+            "durationSeconds": 12,
+            "frameRate": 24,
+            "aspectRatio": "16:9"
+          },
+          "provider": null,
+          "model": null,
+          "workspaceId": null,
+          "projectId": null,
+          "endpoint": null,
+          "credential": null,
+          "token": null,
+          "observedSettings": null
+        },
+        "acceptanceCriteria": [
+          "Frame count equals outFrame minus inFrame.",
+          "No identity drift, flicker, warping, foot sliding, prop duplication, or camera discontinuity.",
+          "Exact source and dialogue bindings remain traceable.",
+          "Tender concern without alarm.",
+          "Protected story meaning and firefly agency remain unchanged.",
+          "Human review must approve the prompt and all required reference assets before any request is created."
+        ],
+        "status": "DRAFT_NOT_AUTHORIZED"
+      },
+      {
+        "promptId": "MILO-007-S01-P01-PB-V001-PR006",
+        "promptOrder": 6,
+        "sceneId": "MILO-007-S01-P01-SC02",
+        "shotId": "MILO-007-S01-P01-SC02-SH03",
+        "exactSourceArtifactReferences": [
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
+            "contentHash": "ace496163aa11c9988186a0a9721fab60db361fb0cd10ed0f24ae8ddc59b38e8"
+          },
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
+            "contentHash": "0063dbfa802485098f4a694f838f67b2c9cf8d751ce78c90bde0b9a024326f63"
+          }
+        ],
+        "positiveRequirements": [
+          "Hold Milo and firefly together so the whispered fear lands.",
+          "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, A quiet section of the mossy path near low ferns and mossy stones, Hold Milo and firefly together so the whispered fear lands., Milo follows the glow, pauses at a faint sound, kneels, and gently parts the fern to reveal a trembling firefly., gentle track, hold, or release motivated by the action, 65mm intimate two-shot, 288 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off."
+        ],
+        "negativeConstraints": [
+          "No identity drift or unapproved appearance change",
+          "No fixed body proportions, locomotion canon, exact hex palette, backpack geometry, or visual-style canon",
+          "No new plot event, dialogue, named character, text overlay, logo, unsafe darkness, coercive action, flicker, warping, or camera-axis jump"
+        ],
+        "referenceRoles": [
+          {
+            "subject": "Milo",
+            "role": "IDENTITY_AND_APPEARANCE_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Moonberry Wood",
+            "role": "ENVIRONMENT_AND_LIGHTING_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Firefly",
+            "role": "SCENE_SCALE_AND_GLOW_PROGRESSION",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          }
+        ],
+        "continuityLocks": [
+          "Preserve every approved M7 sourceText character-for-character and in scene order.",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off.",
+          "Milo’s belly star is an appearance element here; it does not control the firefly or resolve its choice.",
+          "No generated or inferred visual detail becomes canon."
+        ],
+        "allowedChanges": [
+          "Timing ease, camera path smoothness, subtle performance intensity, restrained atmosphere within approved intent"
+        ],
+        "prohibitedChanges": [
+          "Dialogue rewrite",
+          "Plot or character-intent change",
+          "Canon resolution",
+          "M7 scene mutation",
+          "Asset replacement in place"
+        ],
+        "canonicalCapability": "IMAGE_TO_VIDEO",
+        "requestedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
+        "requestedSettings": {
+          "durationSeconds": 12,
+          "frameRate": 24,
+          "aspectRatio": "16:9",
+          "resolution": null,
+          "audio": false,
+          "seed": null
+        },
+        "observedSettings": null,
+        "providerProjection": {
+          "adapterName": "openart-adapter-v0.1",
+          "canonicalCapability": "IMAGE_TO_VIDEO",
+          "requestedMode": "PROVIDER_NEUTRAL_VIDEO_SHOT",
+          "requestedSettings": {
+            "durationSeconds": 12,
+            "frameRate": 24,
+            "aspectRatio": "16:9"
+          },
+          "provider": null,
+          "model": null,
+          "workspaceId": null,
+          "projectId": null,
+          "endpoint": null,
+          "credential": null,
+          "token": null,
+          "observedSettings": null
+        },
+        "acceptanceCriteria": [
+          "Frame count equals outFrame minus inFrame.",
+          "No identity drift, flicker, warping, foot sliding, prop duplication, or camera discontinuity.",
+          "Exact source and dialogue bindings remain traceable.",
+          "Tender concern without alarm.",
+          "Protected story meaning and firefly agency remain unchanged.",
+          "Human review must approve the prompt and all required reference assets before any request is created."
+        ],
+        "status": "DRAFT_NOT_AUTHORIZED"
+      },
+      {
+        "promptId": "MILO-007-S01-P01-PB-V001-PR007",
+        "promptOrder": 7,
+        "sceneId": "MILO-007-S01-P01-SC03",
+        "shotId": "MILO-007-S01-P01-SC03-SH01",
+        "exactSourceArtifactReferences": [
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
+            "contentHash": "ace496163aa11c9988186a0a9721fab60db361fb0cd10ed0f24ae8ddc59b38e8"
+          },
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
+            "contentHash": "0063dbfa802485098f4a694f838f67b2c9cf8d751ce78c90bde0b9a024326f63"
+          }
+        ],
+        "positiveRequirements": [
+          "Re-establish lanterns, stones, and gradual evening change.",
+          "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Same mossy path area, slightly wider framing showing lanterns and stones, Re-establish lanterns, stones, and gradual evening change., Subtle inhalation and decision beat: Milo breathes slowly, collects himself, and leans in to help., gentle track, hold, or release motivated by the action, 35mm environmental, 192 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off."
+        ],
+        "negativeConstraints": [
+          "No identity drift or unapproved appearance change",
+          "No fixed body proportions, locomotion canon, exact hex palette, backpack geometry, or visual-style canon",
+          "No new plot event, dialogue, named character, text overlay, logo, unsafe darkness, coercive action, flicker, warping, or camera-axis jump"
+        ],
+        "referenceRoles": [
+          {
+            "subject": "Milo",
+            "role": "IDENTITY_AND_APPEARANCE_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Moonberry Wood",
+            "role": "ENVIRONMENT_AND_LIGHTING_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Firefly",
+            "role": "SCENE_SCALE_AND_GLOW_PROGRESSION",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          }
+        ],
+        "continuityLocks": [
+          "Preserve every approved M7 sourceText character-for-character and in scene order.",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off.",
+          "Milo’s belly star is an appearance element here; it does not control the firefly or resolve its choice.",
+          "No generated or inferred visual detail becomes canon."
+        ],
+        "allowedChanges": [
+          "Timing ease, camera path smoothness, subtle performance intensity, restrained atmosphere within approved intent"
+        ],
+        "prohibitedChanges": [
+          "Dialogue rewrite",
+          "Plot or character-intent change",
+          "Canon resolution",
+          "M7 scene mutation",
+          "Asset replacement in place"
+        ],
+        "canonicalCapability": "IMAGE_TO_VIDEO",
+        "requestedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
+        "requestedSettings": {
+          "durationSeconds": 8,
+          "frameRate": 24,
+          "aspectRatio": "16:9",
+          "resolution": null,
+          "audio": false,
+          "seed": null
+        },
+        "observedSettings": null,
+        "providerProjection": {
+          "adapterName": "openart-adapter-v0.1",
+          "canonicalCapability": "IMAGE_TO_VIDEO",
+          "requestedMode": "PROVIDER_NEUTRAL_VIDEO_SHOT",
+          "requestedSettings": {
+            "durationSeconds": 8,
+            "frameRate": 24,
+            "aspectRatio": "16:9"
+          },
+          "provider": null,
+          "model": null,
+          "workspaceId": null,
+          "projectId": null,
+          "endpoint": null,
+          "credential": null,
+          "token": null,
+          "observedSettings": null
+        },
+        "acceptanceCriteria": [
+          "Frame count equals outFrame minus inFrame.",
+          "No identity drift, flicker, warping, foot sliding, prop duplication, or camera discontinuity.",
+          "Exact source and dialogue bindings remain traceable.",
+          "Confidence that Milo will help safely.",
+          "Protected story meaning and firefly agency remain unchanged.",
+          "Human review must approve the prompt and all required reference assets before any request is created."
+        ],
+        "status": "DRAFT_NOT_AUTHORIZED"
+      },
+      {
+        "promptId": "MILO-007-S01-P01-PB-V001-PR008",
+        "promptOrder": 8,
+        "sceneId": "MILO-007-S01-P01-SC03",
+        "shotId": "MILO-007-S01-P01-SC03-SH02",
+        "exactSourceArtifactReferences": [
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
+            "contentHash": "ace496163aa11c9988186a0a9721fab60db361fb0cd10ed0f24ae8ddc59b38e8"
+          },
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
+            "contentHash": "0063dbfa802485098f4a694f838f67b2c9cf8d751ce78c90bde0b9a024326f63"
+          }
+        ],
+        "positiveRequirements": [
+          "Read Milo noticing the shifting path and taking a slow breath.",
+          "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Same mossy path area, slightly wider framing showing lanterns and stones, Read Milo noticing the shifting path and taking a slow breath., Subtle inhalation and decision beat: Milo breathes slowly, collects himself, and leans in to help., slow, eased push or restrained focus transfer, 65mm close portrait, 216 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off."
+        ],
+        "negativeConstraints": [
+          "No identity drift or unapproved appearance change",
+          "No fixed body proportions, locomotion canon, exact hex palette, backpack geometry, or visual-style canon",
+          "No new plot event, dialogue, named character, text overlay, logo, unsafe darkness, coercive action, flicker, warping, or camera-axis jump"
+        ],
+        "referenceRoles": [
+          {
+            "subject": "Milo",
+            "role": "IDENTITY_AND_APPEARANCE_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Moonberry Wood",
+            "role": "ENVIRONMENT_AND_LIGHTING_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Firefly",
+            "role": "SCENE_SCALE_AND_GLOW_PROGRESSION",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          }
+        ],
+        "continuityLocks": [
+          "Preserve every approved M7 sourceText character-for-character and in scene order.",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off.",
+          "Milo’s belly star is an appearance element here; it does not control the firefly or resolve its choice.",
+          "No generated or inferred visual detail becomes canon."
+        ],
+        "allowedChanges": [
+          "Timing ease, camera path smoothness, subtle performance intensity, restrained atmosphere within approved intent"
+        ],
+        "prohibitedChanges": [
+          "Dialogue rewrite",
+          "Plot or character-intent change",
+          "Canon resolution",
+          "M7 scene mutation",
+          "Asset replacement in place"
+        ],
+        "canonicalCapability": "IMAGE_TO_VIDEO",
+        "requestedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
+        "requestedSettings": {
+          "durationSeconds": 9,
+          "frameRate": 24,
+          "aspectRatio": "16:9",
+          "resolution": null,
+          "audio": false,
+          "seed": null
+        },
+        "observedSettings": null,
+        "providerProjection": {
+          "adapterName": "openart-adapter-v0.1",
+          "canonicalCapability": "IMAGE_TO_VIDEO",
+          "requestedMode": "PROVIDER_NEUTRAL_VIDEO_SHOT",
+          "requestedSettings": {
+            "durationSeconds": 9,
+            "frameRate": 24,
+            "aspectRatio": "16:9"
+          },
+          "provider": null,
+          "model": null,
+          "workspaceId": null,
+          "projectId": null,
+          "endpoint": null,
+          "credential": null,
+          "token": null,
+          "observedSettings": null
+        },
+        "acceptanceCriteria": [
+          "Frame count equals outFrame minus inFrame.",
+          "No identity drift, flicker, warping, foot sliding, prop duplication, or camera discontinuity.",
+          "Exact source and dialogue bindings remain traceable.",
+          "Confidence that Milo will help safely.",
+          "Protected story meaning and firefly agency remain unchanged.",
+          "Human review must approve the prompt and all required reference assets before any request is created."
+        ],
+        "status": "DRAFT_NOT_AUTHORIZED"
+      },
+      {
+        "promptId": "MILO-007-S01-P01-PB-V001-PR009",
+        "promptOrder": 9,
+        "sceneId": "MILO-007-S01-P01-SC03",
+        "shotId": "MILO-007-S01-P01-SC03-SH03",
+        "exactSourceArtifactReferences": [
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
+            "contentHash": "ace496163aa11c9988186a0a9721fab60db361fb0cd10ed0f24ae8ddc59b38e8"
+          },
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
+            "contentHash": "0063dbfa802485098f4a694f838f67b2c9cf8d751ce78c90bde0b9a024326f63"
+          }
+        ],
+        "positiveRequirements": [
+          "End on his quiet decision to offer one small step.",
+          "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Same mossy path area, slightly wider framing showing lanterns and stones, End on his quiet decision to offer one small step., Subtle inhalation and decision beat: Milo breathes slowly, collects himself, and leans in to help., gentle track, hold, or release motivated by the action, 50mm two-shot, 192 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off."
+        ],
+        "negativeConstraints": [
+          "No identity drift or unapproved appearance change",
+          "No fixed body proportions, locomotion canon, exact hex palette, backpack geometry, or visual-style canon",
+          "No new plot event, dialogue, named character, text overlay, logo, unsafe darkness, coercive action, flicker, warping, or camera-axis jump"
+        ],
+        "referenceRoles": [
+          {
+            "subject": "Milo",
+            "role": "IDENTITY_AND_APPEARANCE_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Moonberry Wood",
+            "role": "ENVIRONMENT_AND_LIGHTING_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Firefly",
+            "role": "SCENE_SCALE_AND_GLOW_PROGRESSION",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          }
+        ],
+        "continuityLocks": [
+          "Preserve every approved M7 sourceText character-for-character and in scene order.",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off.",
+          "Milo’s belly star is an appearance element here; it does not control the firefly or resolve its choice.",
+          "No generated or inferred visual detail becomes canon."
+        ],
+        "allowedChanges": [
+          "Timing ease, camera path smoothness, subtle performance intensity, restrained atmosphere within approved intent"
+        ],
+        "prohibitedChanges": [
+          "Dialogue rewrite",
+          "Plot or character-intent change",
+          "Canon resolution",
+          "M7 scene mutation",
+          "Asset replacement in place"
+        ],
+        "canonicalCapability": "IMAGE_TO_VIDEO",
+        "requestedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
+        "requestedSettings": {
+          "durationSeconds": 8,
+          "frameRate": 24,
+          "aspectRatio": "16:9",
+          "resolution": null,
+          "audio": false,
+          "seed": null
+        },
+        "observedSettings": null,
+        "providerProjection": {
+          "adapterName": "openart-adapter-v0.1",
+          "canonicalCapability": "IMAGE_TO_VIDEO",
+          "requestedMode": "PROVIDER_NEUTRAL_VIDEO_SHOT",
+          "requestedSettings": {
+            "durationSeconds": 8,
+            "frameRate": 24,
+            "aspectRatio": "16:9"
+          },
+          "provider": null,
+          "model": null,
+          "workspaceId": null,
+          "projectId": null,
+          "endpoint": null,
+          "credential": null,
+          "token": null,
+          "observedSettings": null
+        },
+        "acceptanceCriteria": [
+          "Frame count equals outFrame minus inFrame.",
+          "No identity drift, flicker, warping, foot sliding, prop duplication, or camera discontinuity.",
+          "Exact source and dialogue bindings remain traceable.",
+          "Confidence that Milo will help safely.",
+          "Protected story meaning and firefly agency remain unchanged.",
+          "Human review must approve the prompt and all required reference assets before any request is created."
+        ],
+        "status": "DRAFT_NOT_AUTHORIZED"
+      },
+      {
+        "promptId": "MILO-007-S01-P01-PB-V001-PR010",
+        "promptOrder": 10,
+        "sceneId": "MILO-007-S01-P01-SC04",
+        "shotId": "MILO-007-S01-P01-SC04-SH01",
+        "exactSourceArtifactReferences": [
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
+            "contentHash": "ace496163aa11c9988186a0a9721fab60db361fb0cd10ed0f24ae8ddc59b38e8"
+          },
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
+            "contentHash": "0063dbfa802485098f4a694f838f67b2c9cf8d751ce78c90bde0b9a024326f63"
+          }
+        ],
+        "positiveRequirements": [
+          "Settle Milo beside the fern without crowding the firefly.",
+          "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Close beside the fern on the mossy path, Settle Milo beside the fern without crowding the firefly., Close, careful gestures: Milo sits, bends close, reaches into his backpack, offers a treat, and demonstrates counting with a hand gesture., gentle track, hold, or release motivated by the action, 50mm intimate two-shot, 288 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off."
+        ],
+        "negativeConstraints": [
+          "No identity drift or unapproved appearance change",
+          "No fixed body proportions, locomotion canon, exact hex palette, backpack geometry, or visual-style canon",
+          "No new plot event, dialogue, named character, text overlay, logo, unsafe darkness, coercive action, flicker, warping, or camera-axis jump"
+        ],
+        "referenceRoles": [
+          {
+            "subject": "Milo",
+            "role": "IDENTITY_AND_APPEARANCE_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Moonberry Wood",
+            "role": "ENVIRONMENT_AND_LIGHTING_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Firefly",
+            "role": "SCENE_SCALE_AND_GLOW_PROGRESSION",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          }
+        ],
+        "continuityLocks": [
+          "Preserve every approved M7 sourceText character-for-character and in scene order.",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off.",
+          "Milo’s belly star is an appearance element here; it does not control the firefly or resolve its choice.",
+          "No generated or inferred visual detail becomes canon."
+        ],
+        "allowedChanges": [
+          "Timing ease, camera path smoothness, subtle performance intensity, restrained atmosphere within approved intent"
+        ],
+        "prohibitedChanges": [
+          "Dialogue rewrite",
+          "Plot or character-intent change",
+          "Canon resolution",
+          "M7 scene mutation",
+          "Asset replacement in place"
+        ],
+        "canonicalCapability": "IMAGE_TO_VIDEO",
+        "requestedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
+        "requestedSettings": {
+          "durationSeconds": 12,
+          "frameRate": 24,
+          "aspectRatio": "16:9",
+          "resolution": null,
+          "audio": false,
+          "seed": null
+        },
+        "observedSettings": null,
+        "providerProjection": {
+          "adapterName": "openart-adapter-v0.1",
+          "canonicalCapability": "IMAGE_TO_VIDEO",
+          "requestedMode": "PROVIDER_NEUTRAL_VIDEO_SHOT",
+          "requestedSettings": {
+            "durationSeconds": 12,
+            "frameRate": 24,
+            "aspectRatio": "16:9"
+          },
+          "provider": null,
+          "model": null,
+          "workspaceId": null,
+          "projectId": null,
+          "endpoint": null,
+          "credential": null,
+          "token": null,
+          "observedSettings": null
+        },
+        "acceptanceCriteria": [
+          "Frame count equals outFrame minus inFrame.",
+          "No identity drift, flicker, warping, foot sliding, prop duplication, or camera discontinuity.",
+          "Exact source and dialogue bindings remain traceable.",
+          "Comfort and readiness to try.",
+          "Protected story meaning and firefly agency remain unchanged.",
+          "Human review must approve the prompt and all required reference assets before any request is created."
+        ],
+        "status": "DRAFT_NOT_AUTHORIZED"
+      },
+      {
+        "promptId": "MILO-007-S01-P01-PB-V001-PR011",
+        "promptOrder": 11,
+        "sceneId": "MILO-007-S01-P01-SC04",
+        "shotId": "MILO-007-S01-P01-SC04-SH02",
+        "exactSourceArtifactReferences": [
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
+            "contentHash": "ace496163aa11c9988186a0a9721fab60db361fb0cd10ed0f24ae8ddc59b38e8"
+          },
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
+            "contentHash": "0063dbfa802485098f4a694f838f67b2c9cf8d751ce78c90bde0b9a024326f63"
+          }
+        ],
+        "positiveRequirements": [
+          "Present the treat and “One tiny blink” with an open, non-demanding gesture.",
+          "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Close beside the fern on the mossy path, Present the treat and “One tiny blink” with an open, non-demanding gesture., Close, careful gestures: Milo sits, bends close, reaches into his backpack, offers a treat, and demonstrates counting with a hand gesture., slow, eased push or restrained focus transfer, 85mm hand-and-face detail, 288 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off."
+        ],
+        "negativeConstraints": [
+          "No identity drift or unapproved appearance change",
+          "No fixed body proportions, locomotion canon, exact hex palette, backpack geometry, or visual-style canon",
+          "No new plot event, dialogue, named character, text overlay, logo, unsafe darkness, coercive action, flicker, warping, or camera-axis jump"
+        ],
+        "referenceRoles": [
+          {
+            "subject": "Milo",
+            "role": "IDENTITY_AND_APPEARANCE_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Moonberry Wood",
+            "role": "ENVIRONMENT_AND_LIGHTING_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Firefly",
+            "role": "SCENE_SCALE_AND_GLOW_PROGRESSION",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          }
+        ],
+        "continuityLocks": [
+          "Preserve every approved M7 sourceText character-for-character and in scene order.",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off.",
+          "Milo’s belly star is an appearance element here; it does not control the firefly or resolve its choice.",
+          "No generated or inferred visual detail becomes canon."
+        ],
+        "allowedChanges": [
+          "Timing ease, camera path smoothness, subtle performance intensity, restrained atmosphere within approved intent"
+        ],
+        "prohibitedChanges": [
+          "Dialogue rewrite",
+          "Plot or character-intent change",
+          "Canon resolution",
+          "M7 scene mutation",
+          "Asset replacement in place"
+        ],
+        "canonicalCapability": "IMAGE_TO_VIDEO",
+        "requestedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
+        "requestedSettings": {
+          "durationSeconds": 12,
+          "frameRate": 24,
+          "aspectRatio": "16:9",
+          "resolution": null,
+          "audio": false,
+          "seed": null
+        },
+        "observedSettings": null,
+        "providerProjection": {
+          "adapterName": "openart-adapter-v0.1",
+          "canonicalCapability": "IMAGE_TO_VIDEO",
+          "requestedMode": "PROVIDER_NEUTRAL_VIDEO_SHOT",
+          "requestedSettings": {
+            "durationSeconds": 12,
+            "frameRate": 24,
+            "aspectRatio": "16:9"
+          },
+          "provider": null,
+          "model": null,
+          "workspaceId": null,
+          "projectId": null,
+          "endpoint": null,
+          "credential": null,
+          "token": null,
+          "observedSettings": null
+        },
+        "acceptanceCriteria": [
+          "Frame count equals outFrame minus inFrame.",
+          "No identity drift, flicker, warping, foot sliding, prop duplication, or camera discontinuity.",
+          "Exact source and dialogue bindings remain traceable.",
+          "Comfort and readiness to try.",
+          "Protected story meaning and firefly agency remain unchanged.",
+          "Human review must approve the prompt and all required reference assets before any request is created."
+        ],
+        "status": "DRAFT_NOT_AUTHORIZED"
+      },
+      {
+        "promptId": "MILO-007-S01-P01-PB-V001-PR012",
+        "promptOrder": 12,
+        "sceneId": "MILO-007-S01-P01-SC04",
+        "shotId": "MILO-007-S01-P01-SC04-SH03",
+        "exactSourceArtifactReferences": [
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
+            "contentHash": "ace496163aa11c9988186a0a9721fab60db361fb0cd10ed0f24ae8ddc59b38e8"
+          },
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
+            "contentHash": "0063dbfa802485098f4a694f838f67b2c9cf8d751ce78c90bde0b9a024326f63"
+          }
+        ],
+        "positiveRequirements": [
+          "Hold the single count and patient silence.",
+          "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Close beside the fern on the mossy path, Hold the single count and patient silence., Close, careful gestures: Milo sits, bends close, reaches into his backpack, offers a treat, and demonstrates counting with a hand gesture., gentle track, hold, or release motivated by the action, 65mm patient close, 288 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off."
+        ],
+        "negativeConstraints": [
+          "No identity drift or unapproved appearance change",
+          "No fixed body proportions, locomotion canon, exact hex palette, backpack geometry, or visual-style canon",
+          "No new plot event, dialogue, named character, text overlay, logo, unsafe darkness, coercive action, flicker, warping, or camera-axis jump"
+        ],
+        "referenceRoles": [
+          {
+            "subject": "Milo",
+            "role": "IDENTITY_AND_APPEARANCE_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Moonberry Wood",
+            "role": "ENVIRONMENT_AND_LIGHTING_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Firefly",
+            "role": "SCENE_SCALE_AND_GLOW_PROGRESSION",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          }
+        ],
+        "continuityLocks": [
+          "Preserve every approved M7 sourceText character-for-character and in scene order.",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off.",
+          "Milo’s belly star is an appearance element here; it does not control the firefly or resolve its choice.",
+          "No generated or inferred visual detail becomes canon."
+        ],
+        "allowedChanges": [
+          "Timing ease, camera path smoothness, subtle performance intensity, restrained atmosphere within approved intent"
+        ],
+        "prohibitedChanges": [
+          "Dialogue rewrite",
+          "Plot or character-intent change",
+          "Canon resolution",
+          "M7 scene mutation",
+          "Asset replacement in place"
+        ],
+        "canonicalCapability": "IMAGE_TO_VIDEO",
+        "requestedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
+        "requestedSettings": {
+          "durationSeconds": 12,
+          "frameRate": 24,
+          "aspectRatio": "16:9",
+          "resolution": null,
+          "audio": false,
+          "seed": null
+        },
+        "observedSettings": null,
+        "providerProjection": {
+          "adapterName": "openart-adapter-v0.1",
+          "canonicalCapability": "IMAGE_TO_VIDEO",
+          "requestedMode": "PROVIDER_NEUTRAL_VIDEO_SHOT",
+          "requestedSettings": {
+            "durationSeconds": 12,
+            "frameRate": 24,
+            "aspectRatio": "16:9"
+          },
+          "provider": null,
+          "model": null,
+          "workspaceId": null,
+          "projectId": null,
+          "endpoint": null,
+          "credential": null,
+          "token": null,
+          "observedSettings": null
+        },
+        "acceptanceCriteria": [
+          "Frame count equals outFrame minus inFrame.",
+          "No identity drift, flicker, warping, foot sliding, prop duplication, or camera discontinuity.",
+          "Exact source and dialogue bindings remain traceable.",
+          "Comfort and readiness to try.",
+          "Protected story meaning and firefly agency remain unchanged.",
+          "Human review must approve the prompt and all required reference assets before any request is created."
+        ],
+        "status": "DRAFT_NOT_AUTHORIZED"
+      },
+      {
+        "promptId": "MILO-007-S01-P01-PB-V001-PR013",
+        "promptOrder": 13,
+        "sceneId": "MILO-007-S01-P01-SC05",
+        "shotId": "MILO-007-S01-P01-SC05-SH01",
+        "exactSourceArtifactReferences": [
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
+            "contentHash": "ace496163aa11c9988186a0a9721fab60db361fb0cd10ed0f24ae8ddc59b38e8"
+          },
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
+            "contentHash": "0063dbfa802485098f4a694f838f67b2c9cf8d751ce78c90bde0b9a024326f63"
+          }
+        ],
+        "positiveRequirements": [
+          "Catch the nearly secret first flicker.",
+          "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Very close to the fern on the mossy ground; intimate close-up sequence, Catch the nearly secret first flicker., Tiny, delicate motion sequence: subtle fern movement, a hesitant glow, Milo's steady breathing, and a soft clap., gentle track, hold, or release motivated by the action, 100mm macro, 264 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off."
+        ],
+        "negativeConstraints": [
+          "No identity drift or unapproved appearance change",
+          "No fixed body proportions, locomotion canon, exact hex palette, backpack geometry, or visual-style canon",
+          "No new plot event, dialogue, named character, text overlay, logo, unsafe darkness, coercive action, flicker, warping, or camera-axis jump"
+        ],
+        "referenceRoles": [
+          {
+            "subject": "Milo",
+            "role": "IDENTITY_AND_APPEARANCE_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Moonberry Wood",
+            "role": "ENVIRONMENT_AND_LIGHTING_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Firefly",
+            "role": "SCENE_SCALE_AND_GLOW_PROGRESSION",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          }
+        ],
+        "continuityLocks": [
+          "Preserve every approved M7 sourceText character-for-character and in scene order.",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off.",
+          "Milo’s belly star is an appearance element here; it does not control the firefly or resolve its choice.",
+          "No generated or inferred visual detail becomes canon."
+        ],
+        "allowedChanges": [
+          "Timing ease, camera path smoothness, subtle performance intensity, restrained atmosphere within approved intent"
+        ],
+        "prohibitedChanges": [
+          "Dialogue rewrite",
+          "Plot or character-intent change",
+          "Canon resolution",
+          "M7 scene mutation",
+          "Asset replacement in place"
+        ],
+        "canonicalCapability": "IMAGE_TO_VIDEO",
+        "requestedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
+        "requestedSettings": {
+          "durationSeconds": 11,
+          "frameRate": 24,
+          "aspectRatio": "16:9",
+          "resolution": null,
+          "audio": false,
+          "seed": null
+        },
+        "observedSettings": null,
+        "providerProjection": {
+          "adapterName": "openart-adapter-v0.1",
+          "canonicalCapability": "IMAGE_TO_VIDEO",
+          "requestedMode": "PROVIDER_NEUTRAL_VIDEO_SHOT",
+          "requestedSettings": {
+            "durationSeconds": 11,
+            "frameRate": 24,
+            "aspectRatio": "16:9"
+          },
+          "provider": null,
+          "model": null,
+          "workspaceId": null,
+          "projectId": null,
+          "endpoint": null,
+          "credential": null,
+          "token": null,
+          "observedSettings": null
+        },
+        "acceptanceCriteria": [
+          "Frame count equals outFrame minus inFrame.",
+          "No identity drift, flicker, warping, foot sliding, prop duplication, or camera discontinuity.",
+          "Exact source and dialogue bindings remain traceable.",
+          "Relief and delight in a small success.",
+          "Protected story meaning and firefly agency remain unchanged.",
+          "Human review must approve the prompt and all required reference assets before any request is created."
+        ],
+        "status": "DRAFT_NOT_AUTHORIZED"
+      },
+      {
+        "promptId": "MILO-007-S01-P01-PB-V001-PR014",
+        "promptOrder": 14,
+        "sceneId": "MILO-007-S01-P01-SC05",
+        "shotId": "MILO-007-S01-P01-SC05-SH02",
+        "exactSourceArtifactReferences": [
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
+            "contentHash": "ace496163aa11c9988186a0a9721fab60db361fb0cd10ed0f24ae8ddc59b38e8"
+          },
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
+            "contentHash": "0063dbfa802485098f4a694f838f67b2c9cf8d751ce78c90bde0b9a024326f63"
+          }
+        ],
+        "positiveRequirements": [
+          "Let a mild breeze move the fern and the firefly hide while Milo stays calm.",
+          "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Very close to the fern on the mossy ground; intimate close-up sequence, Let a mild breeze move the fern and the firefly hide while Milo stays calm., Tiny, delicate motion sequence: subtle fern movement, a hesitant glow, Milo's steady breathing, and a soft clap., slow, eased push or restrained focus transfer, 50mm reaction, 288 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off."
+        ],
+        "negativeConstraints": [
+          "No identity drift or unapproved appearance change",
+          "No fixed body proportions, locomotion canon, exact hex palette, backpack geometry, or visual-style canon",
+          "No new plot event, dialogue, named character, text overlay, logo, unsafe darkness, coercive action, flicker, warping, or camera-axis jump"
+        ],
+        "referenceRoles": [
+          {
+            "subject": "Milo",
+            "role": "IDENTITY_AND_APPEARANCE_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Moonberry Wood",
+            "role": "ENVIRONMENT_AND_LIGHTING_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Firefly",
+            "role": "SCENE_SCALE_AND_GLOW_PROGRESSION",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          }
+        ],
+        "continuityLocks": [
+          "Preserve every approved M7 sourceText character-for-character and in scene order.",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off.",
+          "Milo’s belly star is an appearance element here; it does not control the firefly or resolve its choice.",
+          "No generated or inferred visual detail becomes canon."
+        ],
+        "allowedChanges": [
+          "Timing ease, camera path smoothness, subtle performance intensity, restrained atmosphere within approved intent"
+        ],
+        "prohibitedChanges": [
+          "Dialogue rewrite",
+          "Plot or character-intent change",
+          "Canon resolution",
+          "M7 scene mutation",
+          "Asset replacement in place"
+        ],
+        "canonicalCapability": "IMAGE_TO_VIDEO",
+        "requestedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
+        "requestedSettings": {
+          "durationSeconds": 12,
+          "frameRate": 24,
+          "aspectRatio": "16:9",
+          "resolution": null,
+          "audio": false,
+          "seed": null
+        },
+        "observedSettings": null,
+        "providerProjection": {
+          "adapterName": "openart-adapter-v0.1",
+          "canonicalCapability": "IMAGE_TO_VIDEO",
+          "requestedMode": "PROVIDER_NEUTRAL_VIDEO_SHOT",
+          "requestedSettings": {
+            "durationSeconds": 12,
+            "frameRate": 24,
+            "aspectRatio": "16:9"
+          },
+          "provider": null,
+          "model": null,
+          "workspaceId": null,
+          "projectId": null,
+          "endpoint": null,
+          "credential": null,
+          "token": null,
+          "observedSettings": null
+        },
+        "acceptanceCriteria": [
+          "Frame count equals outFrame minus inFrame.",
+          "No identity drift, flicker, warping, foot sliding, prop duplication, or camera discontinuity.",
+          "Exact source and dialogue bindings remain traceable.",
+          "Relief and delight in a small success.",
+          "Protected story meaning and firefly agency remain unchanged.",
+          "Human review must approve the prompt and all required reference assets before any request is created."
+        ],
+        "status": "DRAFT_NOT_AUTHORIZED"
+      },
+      {
+        "promptId": "MILO-007-S01-P01-PB-V001-PR015",
+        "promptOrder": 15,
+        "sceneId": "MILO-007-S01-P01-SC05",
+        "shotId": "MILO-007-S01-P01-SC05-SH03",
+        "exactSourceArtifactReferences": [
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
+            "contentHash": "ace496163aa11c9988186a0a9721fab60db361fb0cd10ed0f24ae8ddc59b38e8"
+          },
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
+            "contentHash": "0063dbfa802485098f4a694f838f67b2c9cf8d751ce78c90bde0b9a024326f63"
+          }
+        ],
+        "positiveRequirements": [
+          "Return through the slow count to the small glow and soft clap.",
+          "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Very close to the fern on the mossy ground; intimate close-up sequence, Return through the slow count to the small glow and soft clap., Tiny, delicate motion sequence: subtle fern movement, a hesitant glow, Milo's steady breathing, and a soft clap., gentle track, hold, or release motivated by the action, 85mm glow-and-clap detail, 288 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off."
+        ],
+        "negativeConstraints": [
+          "No identity drift or unapproved appearance change",
+          "No fixed body proportions, locomotion canon, exact hex palette, backpack geometry, or visual-style canon",
+          "No new plot event, dialogue, named character, text overlay, logo, unsafe darkness, coercive action, flicker, warping, or camera-axis jump"
+        ],
+        "referenceRoles": [
+          {
+            "subject": "Milo",
+            "role": "IDENTITY_AND_APPEARANCE_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Moonberry Wood",
+            "role": "ENVIRONMENT_AND_LIGHTING_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Firefly",
+            "role": "SCENE_SCALE_AND_GLOW_PROGRESSION",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          }
+        ],
+        "continuityLocks": [
+          "Preserve every approved M7 sourceText character-for-character and in scene order.",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off.",
+          "Milo’s belly star is an appearance element here; it does not control the firefly or resolve its choice.",
+          "No generated or inferred visual detail becomes canon."
+        ],
+        "allowedChanges": [
+          "Timing ease, camera path smoothness, subtle performance intensity, restrained atmosphere within approved intent"
+        ],
+        "prohibitedChanges": [
+          "Dialogue rewrite",
+          "Plot or character-intent change",
+          "Canon resolution",
+          "M7 scene mutation",
+          "Asset replacement in place"
+        ],
+        "canonicalCapability": "IMAGE_TO_VIDEO",
+        "requestedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
+        "requestedSettings": {
+          "durationSeconds": 12,
+          "frameRate": 24,
+          "aspectRatio": "16:9",
+          "resolution": null,
+          "audio": false,
+          "seed": null
+        },
+        "observedSettings": null,
+        "providerProjection": {
+          "adapterName": "openart-adapter-v0.1",
+          "canonicalCapability": "IMAGE_TO_VIDEO",
+          "requestedMode": "PROVIDER_NEUTRAL_VIDEO_SHOT",
+          "requestedSettings": {
+            "durationSeconds": 12,
+            "frameRate": 24,
+            "aspectRatio": "16:9"
+          },
+          "provider": null,
+          "model": null,
+          "workspaceId": null,
+          "projectId": null,
+          "endpoint": null,
+          "credential": null,
+          "token": null,
+          "observedSettings": null
+        },
+        "acceptanceCriteria": [
+          "Frame count equals outFrame minus inFrame.",
+          "No identity drift, flicker, warping, foot sliding, prop duplication, or camera discontinuity.",
+          "Exact source and dialogue bindings remain traceable.",
+          "Relief and delight in a small success.",
+          "Protected story meaning and firefly agency remain unchanged.",
+          "Human review must approve the prompt and all required reference assets before any request is created."
+        ],
+        "status": "DRAFT_NOT_AUTHORIZED"
+      },
+      {
+        "promptId": "MILO-007-S01-P01-PB-V001-PR016",
+        "promptOrder": 16,
+        "sceneId": "MILO-007-S01-P01-SC06",
+        "shotId": "MILO-007-S01-P01-SC06-SH01",
+        "exactSourceArtifactReferences": [
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
+            "contentHash": "ace496163aa11c9988186a0a9721fab60db361fb0cd10ed0f24ae8ddc59b38e8"
+          },
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
+            "contentHash": "0063dbfa802485098f4a694f838f67b2c9cf8d751ce78c90bde0b9a024326f63"
+          }
+        ],
+        "positiveRequirements": [
+          "Establish the repeatable rhythm of blink and quiet cheer.",
+          "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Short stretch of path showing a nearby lantern pool, Establish the repeatable rhythm of blink and quiet cheer., Montage of micro-actions: small blinks growing brighter, Milo's soft cheers, the firefly inched forward toward the lantern pool., gentle track, hold, or release motivated by the action, 65mm close montage, 240 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off."
+        ],
+        "negativeConstraints": [
+          "No identity drift or unapproved appearance change",
+          "No fixed body proportions, locomotion canon, exact hex palette, backpack geometry, or visual-style canon",
+          "No new plot event, dialogue, named character, text overlay, logo, unsafe darkness, coercive action, flicker, warping, or camera-axis jump"
+        ],
+        "referenceRoles": [
+          {
+            "subject": "Milo",
+            "role": "IDENTITY_AND_APPEARANCE_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Moonberry Wood",
+            "role": "ENVIRONMENT_AND_LIGHTING_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Firefly",
+            "role": "SCENE_SCALE_AND_GLOW_PROGRESSION",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          }
+        ],
+        "continuityLocks": [
+          "Preserve every approved M7 sourceText character-for-character and in scene order.",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off.",
+          "Milo’s belly star is an appearance element here; it does not control the firefly or resolve its choice.",
+          "No generated or inferred visual detail becomes canon."
+        ],
+        "allowedChanges": [
+          "Timing ease, camera path smoothness, subtle performance intensity, restrained atmosphere within approved intent"
+        ],
+        "prohibitedChanges": [
+          "Dialogue rewrite",
+          "Plot or character-intent change",
+          "Canon resolution",
+          "M7 scene mutation",
+          "Asset replacement in place"
+        ],
+        "canonicalCapability": "IMAGE_TO_VIDEO",
+        "requestedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
+        "requestedSettings": {
+          "durationSeconds": 10,
+          "frameRate": 24,
+          "aspectRatio": "16:9",
+          "resolution": null,
+          "audio": false,
+          "seed": null
+        },
+        "observedSettings": null,
+        "providerProjection": {
+          "adapterName": "openart-adapter-v0.1",
+          "canonicalCapability": "IMAGE_TO_VIDEO",
+          "requestedMode": "PROVIDER_NEUTRAL_VIDEO_SHOT",
+          "requestedSettings": {
+            "durationSeconds": 10,
+            "frameRate": 24,
+            "aspectRatio": "16:9"
+          },
+          "provider": null,
+          "model": null,
+          "workspaceId": null,
+          "projectId": null,
+          "endpoint": null,
+          "credential": null,
+          "token": null,
+          "observedSettings": null
+        },
+        "acceptanceCriteria": [
+          "Frame count equals outFrame minus inFrame.",
+          "No identity drift, flicker, warping, foot sliding, prop duplication, or camera discontinuity.",
+          "Exact source and dialogue bindings remain traceable.",
+          "Warm momentum rather than spectacle.",
+          "Protected story meaning and firefly agency remain unchanged.",
+          "Human review must approve the prompt and all required reference assets before any request is created."
+        ],
+        "status": "DRAFT_NOT_AUTHORIZED"
+      },
+      {
+        "promptId": "MILO-007-S01-P01-PB-V001-PR017",
+        "promptOrder": 17,
+        "sceneId": "MILO-007-S01-P01-SC06",
+        "shotId": "MILO-007-S01-P01-SC06-SH02",
+        "exactSourceArtifactReferences": [
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
+            "contentHash": "ace496163aa11c9988186a0a9721fab60db361fb0cd10ed0f24ae8ddc59b38e8"
+          },
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
+            "contentHash": "0063dbfa802485098f4a694f838f67b2c9cf8d751ce78c90bde0b9a024326f63"
+          }
+        ],
+        "positiveRequirements": [
+          "Show successive brighter attempts without skipping emotional beats.",
+          "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Short stretch of path showing a nearby lantern pool, Show successive brighter attempts without skipping emotional beats., Montage of micro-actions: small blinks growing brighter, Milo's soft cheers, the firefly inched forward toward the lantern pool., slow, eased push or restrained focus transfer, 85mm glow detail, 288 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off."
+        ],
+        "negativeConstraints": [
+          "No identity drift or unapproved appearance change",
+          "No fixed body proportions, locomotion canon, exact hex palette, backpack geometry, or visual-style canon",
+          "No new plot event, dialogue, named character, text overlay, logo, unsafe darkness, coercive action, flicker, warping, or camera-axis jump"
+        ],
+        "referenceRoles": [
+          {
+            "subject": "Milo",
+            "role": "IDENTITY_AND_APPEARANCE_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Moonberry Wood",
+            "role": "ENVIRONMENT_AND_LIGHTING_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Firefly",
+            "role": "SCENE_SCALE_AND_GLOW_PROGRESSION",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          }
+        ],
+        "continuityLocks": [
+          "Preserve every approved M7 sourceText character-for-character and in scene order.",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off.",
+          "Milo’s belly star is an appearance element here; it does not control the firefly or resolve its choice.",
+          "No generated or inferred visual detail becomes canon."
+        ],
+        "allowedChanges": [
+          "Timing ease, camera path smoothness, subtle performance intensity, restrained atmosphere within approved intent"
+        ],
+        "prohibitedChanges": [
+          "Dialogue rewrite",
+          "Plot or character-intent change",
+          "Canon resolution",
+          "M7 scene mutation",
+          "Asset replacement in place"
+        ],
+        "canonicalCapability": "IMAGE_TO_VIDEO",
+        "requestedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
+        "requestedSettings": {
+          "durationSeconds": 12,
+          "frameRate": 24,
+          "aspectRatio": "16:9",
+          "resolution": null,
+          "audio": false,
+          "seed": null
+        },
+        "observedSettings": null,
+        "providerProjection": {
+          "adapterName": "openart-adapter-v0.1",
+          "canonicalCapability": "IMAGE_TO_VIDEO",
+          "requestedMode": "PROVIDER_NEUTRAL_VIDEO_SHOT",
+          "requestedSettings": {
+            "durationSeconds": 12,
+            "frameRate": 24,
+            "aspectRatio": "16:9"
+          },
+          "provider": null,
+          "model": null,
+          "workspaceId": null,
+          "projectId": null,
+          "endpoint": null,
+          "credential": null,
+          "token": null,
+          "observedSettings": null
+        },
+        "acceptanceCriteria": [
+          "Frame count equals outFrame minus inFrame.",
+          "No identity drift, flicker, warping, foot sliding, prop duplication, or camera discontinuity.",
+          "Exact source and dialogue bindings remain traceable.",
+          "Warm momentum rather than spectacle.",
+          "Protected story meaning and firefly agency remain unchanged.",
+          "Human review must approve the prompt and all required reference assets before any request is created."
+        ],
+        "status": "DRAFT_NOT_AUTHORIZED"
+      },
+      {
+        "promptId": "MILO-007-S01-P01-PB-V001-PR018",
+        "promptOrder": 18,
+        "sceneId": "MILO-007-S01-P01-SC06",
+        "shotId": "MILO-007-S01-P01-SC06-SH03",
+        "exactSourceArtifactReferences": [
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
+            "contentHash": "ace496163aa11c9988186a0a9721fab60db361fb0cd10ed0f24ae8ddc59b38e8"
+          },
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
+            "contentHash": "0063dbfa802485098f4a694f838f67b2c9cf8d751ce78c90bde0b9a024326f63"
+          }
+        ],
+        "positiveRequirements": [
+          "Place the firefly’s first cautious movement toward the lantern pool.",
+          "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Short stretch of path showing a nearby lantern pool, Place the firefly’s first cautious movement toward the lantern pool., Montage of micro-actions: small blinks growing brighter, Milo's soft cheers, the firefly inched forward toward the lantern pool., gentle track, hold, or release motivated by the action, 40mm spatial medium, 288 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off."
+        ],
+        "negativeConstraints": [
+          "No identity drift or unapproved appearance change",
+          "No fixed body proportions, locomotion canon, exact hex palette, backpack geometry, or visual-style canon",
+          "No new plot event, dialogue, named character, text overlay, logo, unsafe darkness, coercive action, flicker, warping, or camera-axis jump"
+        ],
+        "referenceRoles": [
+          {
+            "subject": "Milo",
+            "role": "IDENTITY_AND_APPEARANCE_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Moonberry Wood",
+            "role": "ENVIRONMENT_AND_LIGHTING_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Firefly",
+            "role": "SCENE_SCALE_AND_GLOW_PROGRESSION",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          }
+        ],
+        "continuityLocks": [
+          "Preserve every approved M7 sourceText character-for-character and in scene order.",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off.",
+          "Milo’s belly star is an appearance element here; it does not control the firefly or resolve its choice.",
+          "No generated or inferred visual detail becomes canon."
+        ],
+        "allowedChanges": [
+          "Timing ease, camera path smoothness, subtle performance intensity, restrained atmosphere within approved intent"
+        ],
+        "prohibitedChanges": [
+          "Dialogue rewrite",
+          "Plot or character-intent change",
+          "Canon resolution",
+          "M7 scene mutation",
+          "Asset replacement in place"
+        ],
+        "canonicalCapability": "IMAGE_TO_VIDEO",
+        "requestedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
+        "requestedSettings": {
+          "durationSeconds": 12,
+          "frameRate": 24,
+          "aspectRatio": "16:9",
+          "resolution": null,
+          "audio": false,
+          "seed": null
+        },
+        "observedSettings": null,
+        "providerProjection": {
+          "adapterName": "openart-adapter-v0.1",
+          "canonicalCapability": "IMAGE_TO_VIDEO",
+          "requestedMode": "PROVIDER_NEUTRAL_VIDEO_SHOT",
+          "requestedSettings": {
+            "durationSeconds": 12,
+            "frameRate": 24,
+            "aspectRatio": "16:9"
+          },
+          "provider": null,
+          "model": null,
+          "workspaceId": null,
+          "projectId": null,
+          "endpoint": null,
+          "credential": null,
+          "token": null,
+          "observedSettings": null
+        },
+        "acceptanceCriteria": [
+          "Frame count equals outFrame minus inFrame.",
+          "No identity drift, flicker, warping, foot sliding, prop duplication, or camera discontinuity.",
+          "Exact source and dialogue bindings remain traceable.",
+          "Warm momentum rather than spectacle.",
+          "Protected story meaning and firefly agency remain unchanged.",
+          "Human review must approve the prompt and all required reference assets before any request is created."
+        ],
+        "status": "DRAFT_NOT_AUTHORIZED"
+      },
+      {
+        "promptId": "MILO-007-S01-P01-PB-V001-PR019",
+        "promptOrder": 19,
+        "sceneId": "MILO-007-S01-P01-SC07",
+        "shotId": "MILO-007-S01-P01-SC07-SH01",
+        "exactSourceArtifactReferences": [
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
+            "contentHash": "ace496163aa11c9988186a0a9721fab60db361fb0cd10ed0f24ae8ddc59b38e8"
+          },
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
+            "contentHash": "0063dbfa802485098f4a694f838f67b2c9cf8d751ce78c90bde0b9a024326f63"
+          }
+        ],
+        "positiveRequirements": [
+          "Frame the unfamiliar path and the choice to stay or go.",
+          "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, A slightly widened section of the path where lantern pools form a small guiding route, Frame the unfamiliar path and the choice to stay or go., Decision and lift-off: Milo offers a gentle gesture; the firefly blinks brighter and lifts into the air, following the lantern path with joyful motion., gentle track, hold, or release motivated by the action, 40mm decision two-shot, 240 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off."
+        ],
+        "negativeConstraints": [
+          "No identity drift or unapproved appearance change",
+          "No fixed body proportions, locomotion canon, exact hex palette, backpack geometry, or visual-style canon",
+          "No new plot event, dialogue, named character, text overlay, logo, unsafe darkness, coercive action, flicker, warping, or camera-axis jump"
+        ],
+        "referenceRoles": [
+          {
+            "subject": "Milo",
+            "role": "IDENTITY_AND_APPEARANCE_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Moonberry Wood",
+            "role": "ENVIRONMENT_AND_LIGHTING_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Firefly",
+            "role": "SCENE_SCALE_AND_GLOW_PROGRESSION",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          }
+        ],
+        "continuityLocks": [
+          "Preserve every approved M7 sourceText character-for-character and in scene order.",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off.",
+          "Milo’s belly star is an appearance element here; it does not control the firefly or resolve its choice.",
+          "No generated or inferred visual detail becomes canon."
+        ],
+        "allowedChanges": [
+          "Timing ease, camera path smoothness, subtle performance intensity, restrained atmosphere within approved intent"
+        ],
+        "prohibitedChanges": [
+          "Dialogue rewrite",
+          "Plot or character-intent change",
+          "Canon resolution",
+          "M7 scene mutation",
+          "Asset replacement in place"
+        ],
+        "canonicalCapability": "IMAGE_TO_VIDEO",
+        "requestedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
+        "requestedSettings": {
+          "durationSeconds": 10,
+          "frameRate": 24,
+          "aspectRatio": "16:9",
+          "resolution": null,
+          "audio": false,
+          "seed": null
+        },
+        "observedSettings": null,
+        "providerProjection": {
+          "adapterName": "openart-adapter-v0.1",
+          "canonicalCapability": "IMAGE_TO_VIDEO",
+          "requestedMode": "PROVIDER_NEUTRAL_VIDEO_SHOT",
+          "requestedSettings": {
+            "durationSeconds": 10,
+            "frameRate": 24,
+            "aspectRatio": "16:9"
+          },
+          "provider": null,
+          "model": null,
+          "workspaceId": null,
+          "projectId": null,
+          "endpoint": null,
+          "credential": null,
+          "token": null,
+          "observedSettings": null
+        },
+        "acceptanceCriteria": [
+          "Frame count equals outFrame minus inFrame.",
+          "No identity drift, flicker, warping, foot sliding, prop duplication, or camera discontinuity.",
+          "Exact source and dialogue bindings remain traceable.",
+          "Joy rooted in the firefly’s own choice.",
+          "Protected story meaning and firefly agency remain unchanged.",
+          "Human review must approve the prompt and all required reference assets before any request is created."
+        ],
+        "status": "DRAFT_NOT_AUTHORIZED"
+      },
+      {
+        "promptId": "MILO-007-S01-P01-PB-V001-PR020",
+        "promptOrder": 20,
+        "sceneId": "MILO-007-S01-P01-SC07",
+        "shotId": "MILO-007-S01-P01-SC07-SH02",
+        "exactSourceArtifactReferences": [
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
+            "contentHash": "ace496163aa11c9988186a0a9721fab60db361fb0cd10ed0f24ae8ddc59b38e8"
+          },
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
+            "contentHash": "0063dbfa802485098f4a694f838f67b2c9cf8d751ce78c90bde0b9a024326f63"
+          }
+        ],
+        "positiveRequirements": [
+          "Let Milo’s exact reminder land, then leave a pause with no physical prompting.",
+          "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, A slightly widened section of the path where lantern pools form a small guiding route, Let Milo’s exact reminder land, then leave a pause with no physical prompting., Decision and lift-off: Milo offers a gentle gesture; the firefly blinks brighter and lifts into the air, following the lantern path with joyful motion., slow, eased push or restrained focus transfer, 65mm dialogue close, 288 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off."
+        ],
+        "negativeConstraints": [
+          "No identity drift or unapproved appearance change",
+          "No fixed body proportions, locomotion canon, exact hex palette, backpack geometry, or visual-style canon",
+          "No new plot event, dialogue, named character, text overlay, logo, unsafe darkness, coercive action, flicker, warping, or camera-axis jump"
+        ],
+        "referenceRoles": [
+          {
+            "subject": "Milo",
+            "role": "IDENTITY_AND_APPEARANCE_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Moonberry Wood",
+            "role": "ENVIRONMENT_AND_LIGHTING_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Firefly",
+            "role": "SCENE_SCALE_AND_GLOW_PROGRESSION",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          }
+        ],
+        "continuityLocks": [
+          "Preserve every approved M7 sourceText character-for-character and in scene order.",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off.",
+          "Milo’s belly star is an appearance element here; it does not control the firefly or resolve its choice.",
+          "No generated or inferred visual detail becomes canon."
+        ],
+        "allowedChanges": [
+          "Timing ease, camera path smoothness, subtle performance intensity, restrained atmosphere within approved intent"
+        ],
+        "prohibitedChanges": [
+          "Dialogue rewrite",
+          "Plot or character-intent change",
+          "Canon resolution",
+          "M7 scene mutation",
+          "Asset replacement in place"
+        ],
+        "canonicalCapability": "IMAGE_TO_VIDEO",
+        "requestedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
+        "requestedSettings": {
+          "durationSeconds": 12,
+          "frameRate": 24,
+          "aspectRatio": "16:9",
+          "resolution": null,
+          "audio": false,
+          "seed": null
+        },
+        "observedSettings": null,
+        "providerProjection": {
+          "adapterName": "openart-adapter-v0.1",
+          "canonicalCapability": "IMAGE_TO_VIDEO",
+          "requestedMode": "PROVIDER_NEUTRAL_VIDEO_SHOT",
+          "requestedSettings": {
+            "durationSeconds": 12,
+            "frameRate": 24,
+            "aspectRatio": "16:9"
+          },
+          "provider": null,
+          "model": null,
+          "workspaceId": null,
+          "projectId": null,
+          "endpoint": null,
+          "credential": null,
+          "token": null,
+          "observedSettings": null
+        },
+        "acceptanceCriteria": [
+          "Frame count equals outFrame minus inFrame.",
+          "No identity drift, flicker, warping, foot sliding, prop duplication, or camera discontinuity.",
+          "Exact source and dialogue bindings remain traceable.",
+          "Joy rooted in the firefly’s own choice.",
+          "Protected story meaning and firefly agency remain unchanged.",
+          "Human review must approve the prompt and all required reference assets before any request is created."
+        ],
+        "status": "DRAFT_NOT_AUTHORIZED"
+      },
+      {
+        "promptId": "MILO-007-S01-P01-PB-V001-PR021",
+        "promptOrder": 21,
+        "sceneId": "MILO-007-S01-P01-SC07",
+        "shotId": "MILO-007-S01-P01-SC07-SH03",
+        "exactSourceArtifactReferences": [
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
+            "contentHash": "ace496163aa11c9988186a0a9721fab60db361fb0cd10ed0f24ae8ddc59b38e8"
+          },
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
+            "contentHash": "0063dbfa802485098f4a694f838f67b2c9cf8d751ce78c90bde0b9a024326f63"
+          }
+        ],
+        "positiveRequirements": [
+          "Follow the firefly’s bright blink and voluntary lift toward family.",
+          "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, A slightly widened section of the path where lantern pools form a small guiding route, Follow the firefly’s bright blink and voluntary lift toward family., Decision and lift-off: Milo offers a gentle gesture; the firefly blinks brighter and lifts into the air, following the lantern path with joyful motion., gentle track, hold, or release motivated by the action, 35mm upward tracking, 240 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off."
+        ],
+        "negativeConstraints": [
+          "No identity drift or unapproved appearance change",
+          "No fixed body proportions, locomotion canon, exact hex palette, backpack geometry, or visual-style canon",
+          "No new plot event, dialogue, named character, text overlay, logo, unsafe darkness, coercive action, flicker, warping, or camera-axis jump"
+        ],
+        "referenceRoles": [
+          {
+            "subject": "Milo",
+            "role": "IDENTITY_AND_APPEARANCE_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Moonberry Wood",
+            "role": "ENVIRONMENT_AND_LIGHTING_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Firefly",
+            "role": "SCENE_SCALE_AND_GLOW_PROGRESSION",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          }
+        ],
+        "continuityLocks": [
+          "Preserve every approved M7 sourceText character-for-character and in scene order.",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off.",
+          "Milo’s belly star is an appearance element here; it does not control the firefly or resolve its choice.",
+          "No generated or inferred visual detail becomes canon."
+        ],
+        "allowedChanges": [
+          "Timing ease, camera path smoothness, subtle performance intensity, restrained atmosphere within approved intent"
+        ],
+        "prohibitedChanges": [
+          "Dialogue rewrite",
+          "Plot or character-intent change",
+          "Canon resolution",
+          "M7 scene mutation",
+          "Asset replacement in place"
+        ],
+        "canonicalCapability": "IMAGE_TO_VIDEO",
+        "requestedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
+        "requestedSettings": {
+          "durationSeconds": 10,
+          "frameRate": 24,
+          "aspectRatio": "16:9",
+          "resolution": null,
+          "audio": false,
+          "seed": null
+        },
+        "observedSettings": null,
+        "providerProjection": {
+          "adapterName": "openart-adapter-v0.1",
+          "canonicalCapability": "IMAGE_TO_VIDEO",
+          "requestedMode": "PROVIDER_NEUTRAL_VIDEO_SHOT",
+          "requestedSettings": {
+            "durationSeconds": 10,
+            "frameRate": 24,
+            "aspectRatio": "16:9"
+          },
+          "provider": null,
+          "model": null,
+          "workspaceId": null,
+          "projectId": null,
+          "endpoint": null,
+          "credential": null,
+          "token": null,
+          "observedSettings": null
+        },
+        "acceptanceCriteria": [
+          "Frame count equals outFrame minus inFrame.",
+          "No identity drift, flicker, warping, foot sliding, prop duplication, or camera discontinuity.",
+          "Exact source and dialogue bindings remain traceable.",
+          "Joy rooted in the firefly’s own choice.",
+          "Protected story meaning and firefly agency remain unchanged.",
+          "Human review must approve the prompt and all required reference assets before any request is created."
+        ],
+        "status": "DRAFT_NOT_AUTHORIZED"
+      },
+      {
+        "promptId": "MILO-007-S01-P01-PB-V001-PR022",
+        "promptOrder": 22,
+        "sceneId": "MILO-007-S01-P01-SC08",
+        "shotId": "MILO-007-S01-P01-SC08-SH01",
+        "exactSourceArtifactReferences": [
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
+            "contentHash": "ace496163aa11c9988186a0a9721fab60db361fb0cd10ed0f24ae8ddc59b38e8"
+          },
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
+            "contentHash": "0063dbfa802485098f4a694f838f67b2c9cf8d751ce78c90bde0b9a024326f63"
+          }
+        ],
+        "positiveRequirements": [
+          "Reveal the firefly family as unnamed small lights in the lantern circle.",
+          "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Small clearing or path circle formed by lantern pools, Reveal the firefly family as unnamed small lights in the lantern circle., Resolution actions: the firefly family glows together; Milo waves and continues walking, smiling warmly., gentle track, hold, or release motivated by the action, 35mm reunion wide, 168 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off."
+        ],
+        "negativeConstraints": [
+          "No identity drift or unapproved appearance change",
+          "No fixed body proportions, locomotion canon, exact hex palette, backpack geometry, or visual-style canon",
+          "No new plot event, dialogue, named character, text overlay, logo, unsafe darkness, coercive action, flicker, warping, or camera-axis jump"
+        ],
+        "referenceRoles": [
+          {
+            "subject": "Milo",
+            "role": "IDENTITY_AND_APPEARANCE_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Moonberry Wood",
+            "role": "ENVIRONMENT_AND_LIGHTING_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Firefly",
+            "role": "SCENE_SCALE_AND_GLOW_PROGRESSION",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          }
+        ],
+        "continuityLocks": [
+          "Preserve every approved M7 sourceText character-for-character and in scene order.",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off.",
+          "Milo’s belly star is an appearance element here; it does not control the firefly or resolve its choice.",
+          "No generated or inferred visual detail becomes canon."
+        ],
+        "allowedChanges": [
+          "Timing ease, camera path smoothness, subtle performance intensity, restrained atmosphere within approved intent"
+        ],
+        "prohibitedChanges": [
+          "Dialogue rewrite",
+          "Plot or character-intent change",
+          "Canon resolution",
+          "M7 scene mutation",
+          "Asset replacement in place"
+        ],
+        "canonicalCapability": "IMAGE_TO_VIDEO",
+        "requestedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
+        "requestedSettings": {
+          "durationSeconds": 7,
+          "frameRate": 24,
+          "aspectRatio": "16:9",
+          "resolution": null,
+          "audio": false,
+          "seed": null
+        },
+        "observedSettings": null,
+        "providerProjection": {
+          "adapterName": "openart-adapter-v0.1",
+          "canonicalCapability": "IMAGE_TO_VIDEO",
+          "requestedMode": "PROVIDER_NEUTRAL_VIDEO_SHOT",
+          "requestedSettings": {
+            "durationSeconds": 7,
+            "frameRate": 24,
+            "aspectRatio": "16:9"
+          },
+          "provider": null,
+          "model": null,
+          "workspaceId": null,
+          "projectId": null,
+          "endpoint": null,
+          "credential": null,
+          "token": null,
+          "observedSettings": null
+        },
+        "acceptanceCriteria": [
+          "Frame count equals outFrame minus inFrame.",
+          "No identity drift, flicker, warping, foot sliding, prop duplication, or camera discontinuity.",
+          "Exact source and dialogue bindings remain traceable.",
+          "Comforted closure.",
+          "Protected story meaning and firefly agency remain unchanged.",
+          "Human review must approve the prompt and all required reference assets before any request is created."
+        ],
+        "status": "DRAFT_NOT_AUTHORIZED"
+      },
+      {
+        "promptId": "MILO-007-S01-P01-PB-V001-PR023",
+        "promptOrder": 23,
+        "sceneId": "MILO-007-S01-P01-SC08",
+        "shotId": "MILO-007-S01-P01-SC08-SH02",
+        "exactSourceArtifactReferences": [
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
+            "contentHash": "ace496163aa11c9988186a0a9721fab60db361fb0cd10ed0f24ae8ddc59b38e8"
+          },
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
+            "contentHash": "0063dbfa802485098f4a694f838f67b2c9cf8d751ce78c90bde0b9a024326f63"
+          }
+        ],
+        "positiveRequirements": [
+          "Include Milo’s happy wave while the reunion remains central.",
+          "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Small clearing or path circle formed by lantern pools, Include Milo’s happy wave while the reunion remains central., Resolution actions: the firefly family glows together; Milo waves and continues walking, smiling warmly., slow, eased push or restrained focus transfer, 50mm wave medium, 168 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off."
+        ],
+        "negativeConstraints": [
+          "No identity drift or unapproved appearance change",
+          "No fixed body proportions, locomotion canon, exact hex palette, backpack geometry, or visual-style canon",
+          "No new plot event, dialogue, named character, text overlay, logo, unsafe darkness, coercive action, flicker, warping, or camera-axis jump"
+        ],
+        "referenceRoles": [
+          {
+            "subject": "Milo",
+            "role": "IDENTITY_AND_APPEARANCE_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Moonberry Wood",
+            "role": "ENVIRONMENT_AND_LIGHTING_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Firefly",
+            "role": "SCENE_SCALE_AND_GLOW_PROGRESSION",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          }
+        ],
+        "continuityLocks": [
+          "Preserve every approved M7 sourceText character-for-character and in scene order.",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off.",
+          "Milo’s belly star is an appearance element here; it does not control the firefly or resolve its choice.",
+          "No generated or inferred visual detail becomes canon."
+        ],
+        "allowedChanges": [
+          "Timing ease, camera path smoothness, subtle performance intensity, restrained atmosphere within approved intent"
+        ],
+        "prohibitedChanges": [
+          "Dialogue rewrite",
+          "Plot or character-intent change",
+          "Canon resolution",
+          "M7 scene mutation",
+          "Asset replacement in place"
+        ],
+        "canonicalCapability": "IMAGE_TO_VIDEO",
+        "requestedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
+        "requestedSettings": {
+          "durationSeconds": 7,
+          "frameRate": 24,
+          "aspectRatio": "16:9",
+          "resolution": null,
+          "audio": false,
+          "seed": null
+        },
+        "observedSettings": null,
+        "providerProjection": {
+          "adapterName": "openart-adapter-v0.1",
+          "canonicalCapability": "IMAGE_TO_VIDEO",
+          "requestedMode": "PROVIDER_NEUTRAL_VIDEO_SHOT",
+          "requestedSettings": {
+            "durationSeconds": 7,
+            "frameRate": 24,
+            "aspectRatio": "16:9"
+          },
+          "provider": null,
+          "model": null,
+          "workspaceId": null,
+          "projectId": null,
+          "endpoint": null,
+          "credential": null,
+          "token": null,
+          "observedSettings": null
+        },
+        "acceptanceCriteria": [
+          "Frame count equals outFrame minus inFrame.",
+          "No identity drift, flicker, warping, foot sliding, prop duplication, or camera discontinuity.",
+          "Exact source and dialogue bindings remain traceable.",
+          "Comforted closure.",
+          "Protected story meaning and firefly agency remain unchanged.",
+          "Human review must approve the prompt and all required reference assets before any request is created."
+        ],
+        "status": "DRAFT_NOT_AUTHORIZED"
+      },
+      {
+        "promptId": "MILO-007-S01-P01-PB-V001-PR024",
+        "promptOrder": 24,
+        "sceneId": "MILO-007-S01-P01-SC08",
+        "shotId": "MILO-007-S01-P01-SC08-SH03",
+        "exactSourceArtifactReferences": [
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
+            "contentHash": "ace496163aa11c9988186a0a9721fab60db361fb0cd10ed0f24ae8ddc59b38e8"
+          },
+          {
+            "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
+            "contentHash": "0063dbfa802485098f4a694f838f67b2c9cf8d751ce78c90bde0b9a024326f63"
+          }
+        ],
+        "positiveRequirements": [
+          "Track Milo onward and close on the exact hummed phrase.",
+          "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Small clearing or path circle formed by lantern pools, Track Milo onward and close on the exact hummed phrase., Resolution actions: the firefly family glows together; Milo waves and continues walking, smiling warmly., gentle track, hold, or release motivated by the action, 40mm departing wide, 144 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off."
+        ],
+        "negativeConstraints": [
+          "No identity drift or unapproved appearance change",
+          "No fixed body proportions, locomotion canon, exact hex palette, backpack geometry, or visual-style canon",
+          "No new plot event, dialogue, named character, text overlay, logo, unsafe darkness, coercive action, flicker, warping, or camera-axis jump"
+        ],
+        "referenceRoles": [
+          {
+            "subject": "Milo",
+            "role": "IDENTITY_AND_APPEARANCE_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Moonberry Wood",
+            "role": "ENVIRONMENT_AND_LIGHTING_LOCK",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          },
+          {
+            "subject": "Firefly",
+            "role": "SCENE_SCALE_AND_GLOW_PROGRESSION",
+            "required": true,
+            "status": "REFERENCE_SPECIFICATION_PENDING_APPROVAL"
+          }
+        ],
+        "continuityLocks": [
+          "Preserve every approved M7 sourceText character-for-character and in scene order.",
+          "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+          "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+          "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off.",
+          "Milo’s belly star is an appearance element here; it does not control the firefly or resolve its choice.",
+          "No generated or inferred visual detail becomes canon."
+        ],
+        "allowedChanges": [
+          "Timing ease, camera path smoothness, subtle performance intensity, restrained atmosphere within approved intent"
+        ],
+        "prohibitedChanges": [
+          "Dialogue rewrite",
+          "Plot or character-intent change",
+          "Canon resolution",
+          "M7 scene mutation",
+          "Asset replacement in place"
+        ],
+        "canonicalCapability": "IMAGE_TO_VIDEO",
+        "requestedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
+        "requestedSettings": {
+          "durationSeconds": 6,
+          "frameRate": 24,
+          "aspectRatio": "16:9",
+          "resolution": null,
+          "audio": false,
+          "seed": null
+        },
+        "observedSettings": null,
+        "providerProjection": {
+          "adapterName": "openart-adapter-v0.1",
+          "canonicalCapability": "IMAGE_TO_VIDEO",
+          "requestedMode": "PROVIDER_NEUTRAL_VIDEO_SHOT",
+          "requestedSettings": {
+            "durationSeconds": 6,
+            "frameRate": 24,
+            "aspectRatio": "16:9"
+          },
+          "provider": null,
+          "model": null,
+          "workspaceId": null,
+          "projectId": null,
+          "endpoint": null,
+          "credential": null,
+          "token": null,
+          "observedSettings": null
+        },
+        "acceptanceCriteria": [
+          "Frame count equals outFrame minus inFrame.",
+          "No identity drift, flicker, warping, foot sliding, prop duplication, or camera discontinuity.",
+          "Exact source and dialogue bindings remain traceable.",
+          "Comforted closure.",
+          "Protected story meaning and firefly agency remain unchanged.",
+          "Human review must approve the prompt and all required reference assets before any request is created."
+        ],
+        "status": "DRAFT_NOT_AUTHORIZED"
+      }
+    ],
+    "status": "AWAITING_HUMAN_APPROVAL_NO_PROVIDER_CALL_AUTHORIZED"
+  }
+}

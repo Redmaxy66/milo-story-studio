@@ -1,0 +1,10 @@
+[
+  {"caseId":"M8-P3-INVALID-001","mutation":"DUPLICATE_SCENE","expected":"reject duplicate scene identity"},
+  {"caseId":"M8-P3-INVALID-002","mutation":"NONCONTIGUOUS_SCENE","expected":"reject non-contiguous scene order"},
+  {"caseId":"M8-P3-INVALID-003","mutation":"SOURCE_HASH_MISMATCH","expected":"reject source hash mismatch"},
+  {"caseId":"M8-P3-INVALID-004","mutation":"EMPTY_SOURCE","expected":"reject missing source text"},
+  {"caseId":"M8-P3-INVALID-005","mutation":"DUPLICATE_SHOT","expected":"reject duplicate shot identity"},
+  {"caseId":"M8-P3-INVALID-006","mutation":"APPROVAL_CLAIM","expected":"reject approval claim"},
+  {"caseId":"M8-P3-INVALID-007","mutation":"GENERATED_MEDIA_CLAIM","expected":"reject generated-media claim"},
+  {"caseId":"M8-P3-INVALID-008","mutation":"LIVE_TARGET","expected":"reject live target"}
+]

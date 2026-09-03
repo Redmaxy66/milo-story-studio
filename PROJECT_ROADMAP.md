@@ -8,11 +8,11 @@ The studio now supports the controlled progression:
 
 `IDEA -> CONCEPT_GENERATED -> CONCEPT_APPROVED -> OUTLINE_GENERATED -> OUTLINE_APPROVED -> SCRIPT_GENERATED -> SCRIPT_APPROVED -> CONTINUITY_REVIEWED -> CONTINUITY_APPROVED -> PRODUCTION_PACKAGE_GENERATED`
 
-Current milestone: **M8 — Complete Studio — Phase 2 repository contracts complete**
+Current milestone: **M8 — Complete Studio — Phase 3 preparation complete; human review pending**
 
 M7 status: **Complete.** Canonical workflow `SNnLunczq5mxrXLn` passed the controlled terminal no-op verification in execution `#432`; repository/live parity, persistence, provenance, lifecycle isolation, recovery, failure safety, and the `63 / 63` offline suite all pass.
 
-M8 status: **IN PROGRESS — PHASE 1 GOVERNANCE AND PHASE 2 REPOSITORY CONTRACTS COMPLETE.** Decision D-016 records M8-D01 through M8-D13 and all four amendments. Provider-neutral contracts, lifecycle/error controls, hashing/idempotency, the offline OpenArt adapter boundary, proposed Story Vault schemas, inert workflow skeletons, fixtures, validators, and regression evidence are installed. The n8n/OpenArt connectivity proof and every live phase require separate A3 authority.
+M8 status: **IN PROGRESS — PHASE 3 PREPARATION COMPLETE; HUMAN REVIEW PENDING.** Phase 1 governance and Phase 2 repository contracts remain complete. The immutable `MILO-007-S01-P01` source is now bound to derived non-canon reference governance, Film Director briefs, a text storyboard, renderer-neutral animation intent, provider-neutral prompts, pending review templates and offline evidence. No media or live/A3 activity occurred.
 
 ---
 
@@ -140,4 +140,4 @@ M8 status: **IN PROGRESS — PHASE 1 GOVERNANCE AND PHASE 2 REPOSITORY CONTRACTS
 - M5 — Complete
 - M6 — Complete
 - M7 — Complete
-- M8 — In progress (Phase 2 repository contracts complete; later phases separately gated)
+- M8 — In progress (Phase 3 preparation complete; human review, Phase 4 and all A3 activity separately gated)

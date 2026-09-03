@@ -1,5 +1,15 @@
 ﻿# Changelog
 
+## 0.8.1 — M8 reference and production intent preparation
+
+- Added the byte-identical approved `MILO-007-S01-P01` M7 snapshot and exact source/hash manifest.
+- Added reference-governance, production-intent, storyboard, animation-manifest and provider-neutral prompt specifications.
+- Used Film Director, Storyboard Creator and Animation Production Director instructions for offline text artifacts without changing M7 story meaning or canon.
+- Added eight scene briefs, 24 stable shots, 32 text storyboard panels, a 24 fps / 5,760-frame renderer-neutral plan and 24 provider-neutral prompts.
+- Added pending-only review material and kept actual visual-reference generation at `NOT REQUESTED — SPECIFICATION REVIEW FIRST`.
+- Added Phase 3 fixtures, validators, tests and evidence; `101 / 101` passes, Phase 2 remains green and M7 remains `63 / 63`.
+- Generated no media, spent no credits, created no live approval and accessed no operational system other than the authorised GitHub repository.
+
 ## 0.8.0 — M8 repository contracts foundation
 
 - Added provider-neutral schemas and specifications for all 12 approved M8 contracts.

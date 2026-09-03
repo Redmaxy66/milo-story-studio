@@ -9,7 +9,7 @@
 | M5 | Script Pipeline | Week 8 | Complete | Outline Generator, Outline Approval, Script Generator, and Script Approval v0.1 completed, tested, exported, committed, and pushed. End-to-end status progression proven from CONCEPT_APPROVED through OUTLINE_GENERATED, OUTLINE_APPROVED, SCRIPT_GENERATED, and SCRIPT_APPROVED. Deterministic validation, duplicate protection, approval repair paths, Story readiness checks, structured failure payloads, and canon-grounded script generation are working. |
 | M6 | Continuity Agent | Week 10 | Complete | Continuity Reviewer and Continuity Approval v0.1 completed, tested, exported, committed, and pushed. Deterministic validation, version-based duplicate protection, PASS / REVIEW_REQUIRED / FAIL routing, open-canon handling, human approval, approval repair, structured failures, and status progression through CONTINUITY_REVIEWED, CONTINUITY_APPROVED, and SCRIPT_REVISION_REQUIRED are proven. |
 | M7 | Production Package | Week 12 | Complete | Approved design and D-013 recorded; specification, schema, prompt, lifecycle/error contracts, two-tab persistence, workflow export, repair/no-op controls, and `63 / 63` offline validation complete. Canonical workflow `SNnLunczq5mxrXLn` passed terminal zero-write verification in execution `#432`; one version-1 `INITIAL` header and eight scenes remain intact with matching canon and prompt provenance. |
-| M8 | Complete Studio | Week 16 | In progress | Design revision 1.1 and D-016 govern the milestone. Phase 1 governance and Phase 2 repository contracts are complete: schemas, lifecycle/error controls, OpenArt adapter boundary, proposed Story Vault schema, inert skeleton exports, offline fixtures/validators, and M3–M7 regressions pass. No live/A3 phase has begun. |
+| M8 | Complete Studio | Week 16 | In progress | Design revision 1.1 and D-016 govern the milestone. Phase 1 governance, Phase 2 repository contracts and Phase 3 reference/production-intent preparation are complete. The Phase 3 package for `MILO-007-S01-P01` awaits human review; no media or live/A3 phase has begun. |
 
 ## M5 closure
 
@@ -57,7 +57,7 @@ Key M6 implementation commits:
 
 ## Current focus
 
-Current milestone: **M8 — Complete Studio (Phase 2 repository contracts complete)**
+Current milestone: **M8 — Complete Studio (Phase 3 preparation complete; human review pending)**
 
 M8 governance evidence:
 
@@ -74,6 +74,13 @@ M8 Phase 2 evidence:
 - Thirteen workflow skeleton exports are inactive, empty-node, and free of credentials, triggers, live targets, and executable configuration.
 - `06-testing/M8_PHASE2_VALIDATION.md` records all M8 suites passing, the aggregate at `9 / 9`, and complete applicable M3–M7 regression protection.
 
+M8 Phase 3 evidence:
+
+- The approved M7 snapshot is preserved byte-identically at SHA-256 `c1221fe13d7278912b73572658dc569756de4baa98679b7e3567bd3768d98233`.
+- Derived non-canon reference governance, eight Film Director briefs, 24 shots, 32 text panels, renderer-neutral animation direction and 24 provider-neutral prompts are prepared for review.
+- All approval records are repository templates at `PENDING_REVIEW`; no media, live approval, provider call, assembly or publication exists.
+- `06-testing/M8_PHASE3_VALIDATION.md` records `101 / 101` plus green Phase 2 and M3–M7 regressions.
+
 M7 closure evidence:
 
 - Canonical workflow: `SNnLunczq5mxrXLn`, inactive/unpublished, 47 nodes, 57 edges, zero pins.
@@ -82,7 +89,7 @@ M7 closure evidence:
 - Repository/live parity: passed against the certified workflow export, excluding only volatile n8n metadata.
 - Residual note: D-015 remains non-blocking post-M7 hardening debt.
 
-Next phase readiness: **PHASE 2 COMPLETE; AWAITING THE NEXT SEPARATELY AUTHORISED PHASE.** The A3 n8n/OpenArt connectivity proof remains unauthorised and has not begun.
+Next phase readiness: **PHASE 3 PREPARATION COMPLETE; AWAITING HUMAN REVIEW.** Phase 4 and the A3 n8n/OpenArt connectivity proof remain unauthorised and unstarted.
 
 ## Status values
 

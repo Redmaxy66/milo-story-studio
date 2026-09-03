@@ -1,0 +1,1207 @@
+{
+  "schemaVersion": "m8-phase3-artifact-v1.0",
+  "artifactId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
+  "artifactType": "STORYBOARD",
+  "artifactVersion": 1,
+  "status": "AWAITING_APPROVAL",
+  "lineage": {
+    "storyId": "MILO-007",
+    "conceptId": "MILO-007-C01",
+    "outlineId": "MILO-007-O01",
+    "scriptId": "MILO-007-S01",
+    "scriptVersion": 1,
+    "reviewId": "MILO-007-S01-R01",
+    "reviewVersion": 1,
+    "packageId": "MILO-007-S01-P01",
+    "packageVersion": 1,
+    "canonVersion": "canon-v1.0",
+    "canonRef": "977755913d9ad41e4f16392d01ea993507af4102"
+  },
+  "sourceBindings": [
+    {
+      "type": "M7_APPROVED_SNAPSHOT",
+      "path": "08-production/MILO-007-S01-P01/phase3/source/M7_PRODUCTION_PACKAGE_SNAPSHOT.json",
+      "byteSha256": "c1221fe13d7278912b73572658dc569756de4baa98679b7e3567bd3768d98233",
+      "immutable": true
+    },
+    {
+      "type": "M8_DESIGN_BASELINE",
+      "path": null,
+      "externalArtifact": "MILO_M8_DESIGN_APPROVAL_PACKAGE.md",
+      "revision": "1.1",
+      "byteSha256": "6934b997f79e3d5aa7ff5b9405926abb8c9e401a1a539a31e16b1c32dac0d8a2",
+      "immutable": true
+    }
+  ],
+  "contentHash": "0063dbfa802485098f4a694f838f67b2c9cf8d751ce78c90bde0b9a024326f63",
+  "content": {
+    "specialist": "Storyboard Creator",
+    "specialistInstructionReadInFull": true,
+    "format": "TEXT_SPECIFICATION_ONLY",
+    "generatedImages": [],
+    "authority": {
+      "filmDirectorBrief": "MILO-007-S01-P01-PIA-DIRECTOR_SCENES-V001",
+      "filmDirectorBriefHash": "218d0895fb56e4cd4523bf05dd6d585162bb79832c7965b40ee1c58c2cb20297",
+      "approvedSource": "c1221fe13d7278912b73572658dc569756de4baa98679b7e3567bd3768d98233",
+      "outputApprovalState": "AWAITING_HUMAN_APPROVAL"
+    },
+    "continuityLocks": [
+      "Preserve every approved M7 sourceText character-for-character and in scene order.",
+      "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+      "Do not define Milo’s exact proportions, height, locomotion category, posture canon, exact colour values, or backpack geometry.",
+      "Moonberry Wood remains warm, colourful, safe, playful, gentle, and full of wonder.",
+      "The firefly remains tiny relative to Milo and increases brightness gradually until the voluntary lift-off.",
+      "Milo’s belly star is an appearance element here; it does not control the firefly or resolve its choice.",
+      "No generated or inferred visual detail becomes canon."
+    ],
+    "scenes": [
+      {
+        "sceneId": "MILO-007-S01-P01-SC01",
+        "sceneNumber": 1,
+        "sourceText": "Hello, explorers! Moonberry Wood is soft and amber as evening settles in. Milo strolls along a mossy path, his mustard-yellow backpack bouncing, as tiny Moonberry lanterns begin to twinkle on, one by one, like a row of sleepy stars waking up.",
+        "sourceTextHash": "0f50450b7a9f0f000a19592104cfd515500bfc64f73be855925ef796195b16be",
+        "sequenceIntent": {
+          "objective": "Welcome the audience and establish the lantern path as a gentle visual invitation.",
+          "emotionalProgression": "Curiosity opens into quiet wonder.",
+          "pointOfView": "Milo-aligned observation; firefly agency protected",
+          "pacing": "gentle and legible",
+          "visualMotif": "one-by-one points of light",
+          "audienceResponse": "Safe anticipation and belonging.",
+          "assumptions": [
+            "Four panels are the minimum sufficient coverage for this short scene; the middle action uses two panels to make the emotional turn legible."
+          ]
+        },
+        "visualContinuityBible": {
+          "characterAppearance": "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "locationLayout": "Mossy path, low growing ferns, scattered mossy stones, small Moonberry lanterns lining the path. Distant hints of tiny cottages and glowing flowers but out of focus.",
+          "propsAndPositions": [
+            "MILO-007-S01-P01-A001: Warm evening forest background with sequential lantern lights, mossy path, and subtle cottage hints; layered for parallax.",
+            "MILO-007-S01-P01-A002: Bright, gentle British-accented male voice actor to record the line Hello, explorers! matching the approved voice guide."
+          ],
+          "aspectRatio": "16:9",
+          "storyboardRenderingStyle": "Clean monochrome cinematic storyboard, selective gray values, strong silhouettes; a non-canon review convention.",
+          "palette": "Warm/cool values only; exact colours remain specified by approved names, not hex values.",
+          "lensLanguage": [
+            "28mm gentle wide",
+            "50mm normal",
+            "40mm normal-wide"
+          ],
+          "screenDirection": "Path progress screen-left to screen-right; keep Milo/firefly eyelines across the same axis.",
+          "recurringMotif": "one-by-one points of light"
+        },
+        "shots": [
+          {
+            "shotId": "MILO-007-S01-P01-SC01-SH01",
+            "shotNumber": 1,
+            "purpose": "Reveal the warm path and Milo entering the frame.",
+            "sourceTextHash": "0f50450b7a9f0f000a19592104cfd515500bfc64f73be855925ef796195b16be",
+            "panelIds": [
+              "MILO-007-S01-P01-SC01-SH01-PN01"
+            ]
+          },
+          {
+            "shotId": "MILO-007-S01-P01-SC01-SH02",
+            "shotNumber": 2,
+            "purpose": "Let Milo greet the audience while the first lanterns wake.",
+            "sourceTextHash": "0f50450b7a9f0f000a19592104cfd515500bfc64f73be855925ef796195b16be",
+            "panelIds": [
+              "MILO-007-S01-P01-SC01-SH02-PN01",
+              "MILO-007-S01-P01-SC01-SH02-PN02"
+            ]
+          },
+          {
+            "shotId": "MILO-007-S01-P01-SC01-SH03",
+            "shotNumber": 3,
+            "purpose": "Carry Milo and the twinkle sequence deeper along the path.",
+            "sourceTextHash": "0f50450b7a9f0f000a19592104cfd515500bfc64f73be855925ef796195b16be",
+            "panelIds": [
+              "MILO-007-S01-P01-SC01-SH03-PN01"
+            ]
+          }
+        ],
+        "panels": [
+          {
+            "panelId": "MILO-007-S01-P01-SC01-SH01-PN01",
+            "panelOrder": 1,
+            "shotId": "MILO-007-S01-P01-SC01-SH01",
+            "storyBeat": "Opening state: Reveal the warm path and Milo entering the frame.",
+            "frameComposition": "Reveal the warm path and Milo entering the frame. Keep the axis along the mossy path and the firefly on the established fern/lantern side.",
+            "characterAndObjectPlacement": "Maintain the established path axis; Milo and the tiny firefly/scene focus remain on their prior screen sides. Mossy path, low growing ferns, scattered mossy stones, small Moonberry lanterns lining the path. Distant hints of tiny cottages and glowing flowers but out of focus.",
+            "geographyAndScreenDirection": "Path travel reads screen-left to screen-right; do not cross the Milo–firefly axis without a neutral re-establishing frame.",
+            "cameraMovement": "gentle track, hold, or release motivated by the action",
+            "actionAndDialogueTiming": "Hold for the source-text beat; do not add dialogue.",
+            "performance": "Reveal the warm path and Milo entering the frame.",
+            "lightingAndAtmosphere": "Soft amber evening glow with small points of cool lantern light beginning to twinkle; overall warm and comforting.",
+            "transition": "Motivated straight cut or gentle dissolve; preserve axis and light progression.",
+            "panelDescription": "Opening state: Reveal the warm path and Milo entering the frame.. Opening evening stroll: Milo greets the audience and walks along a mossy path in Moonberry Wood as lanterns begin to twinkle.",
+            "providerNeutralStoryboardPrompt": "Clean monochrome production storyboard with selective warm-gray values, 16:9 frame, Milo Moonberry identifiable by huge round ears, shaggy fur silhouette, cream muzzle and belly-star shape, mustard backpack indicated by annotation, Moonberry Wood — mossy forest path at evening, Opening state: Reveal the warm path and Milo entering the frame., establishing geography with readable foreground, midground, and exit path, 28mm gentle wide, readable silhouettes and eyelines, established left-to-right path direction, no canonical body proportions, no new characters, no photoreal asset claim, text specification only"
+          },
+          {
+            "panelId": "MILO-007-S01-P01-SC01-SH02-PN01",
+            "panelOrder": 2,
+            "shotId": "MILO-007-S01-P01-SC01-SH02",
+            "storyBeat": "Primary action: Let Milo greet the audience while the first lanterns wake.",
+            "frameComposition": "Let Milo greet the audience while the first lanterns wake. Keep the axis along the mossy path and the firefly on the established fern/lantern side.",
+            "characterAndObjectPlacement": "Maintain the established path axis; Milo and the tiny firefly/scene focus remain on their prior screen sides. Mossy path, low growing ferns, scattered mossy stones, small Moonberry lanterns lining the path. Distant hints of tiny cottages and glowing flowers but out of focus.",
+            "geographyAndScreenDirection": "Path travel reads screen-left to screen-right; do not cross the Milo–firefly axis without a neutral re-establishing frame.",
+            "cameraMovement": "slow, eased push or restrained focus transfer",
+            "actionAndDialogueTiming": "Hold for exact cue(s): Hello, explorers!",
+            "performance": "Let Milo greet the audience while the first lanterns wake.",
+            "lightingAndAtmosphere": "Soft amber evening glow with small points of cool lantern light beginning to twinkle; overall warm and comforting.",
+            "transition": "Motivated straight cut or gentle dissolve; preserve axis and light progression.",
+            "panelDescription": "Primary action: Let Milo greet the audience while the first lanterns wake.. Opening evening stroll: Milo greets the audience and walks along a mossy path in Moonberry Wood as lanterns begin to twinkle.",
+            "providerNeutralStoryboardPrompt": "Clean monochrome production storyboard with selective warm-gray values, 16:9 frame, Milo Moonberry identifiable by huge round ears, shaggy fur silhouette, cream muzzle and belly-star shape, mustard backpack indicated by annotation, Moonberry Wood — mossy forest path at evening, Primary action: Let Milo greet the audience while the first lanterns wake., emotion-led primary action framing, 50mm normal, readable silhouettes and eyelines, established left-to-right path direction, no canonical body proportions, no new characters, no photoreal asset claim, text specification only"
+          },
+          {
+            "panelId": "MILO-007-S01-P01-SC01-SH02-PN02",
+            "panelOrder": 3,
+            "shotId": "MILO-007-S01-P01-SC01-SH02",
+            "storyBeat": "Reaction/turn: Curiosity opens into quiet wonder.",
+            "frameComposition": "Let Milo greet the audience while the first lanterns wake. Keep the axis along the mossy path and the firefly on the established fern/lantern side.",
+            "characterAndObjectPlacement": "Maintain the established path axis; Milo and the tiny firefly/scene focus remain on their prior screen sides. Mossy path, low growing ferns, scattered mossy stones, small Moonberry lanterns lining the path. Distant hints of tiny cottages and glowing flowers but out of focus.",
+            "geographyAndScreenDirection": "Path travel reads screen-left to screen-right; do not cross the Milo–firefly axis without a neutral re-establishing frame.",
+            "cameraMovement": "slow, eased push or restrained focus transfer",
+            "actionAndDialogueTiming": "Hold for exact cue(s): Hello, explorers!",
+            "performance": "Let Milo greet the audience while the first lanterns wake.",
+            "lightingAndAtmosphere": "Soft amber evening glow with small points of cool lantern light beginning to twinkle; overall warm and comforting.",
+            "transition": "Motivated straight cut or gentle dissolve; preserve axis and light progression.",
+            "panelDescription": "Reaction/turn: Curiosity opens into quiet wonder.. Opening evening stroll: Milo greets the audience and walks along a mossy path in Moonberry Wood as lanterns begin to twinkle.",
+            "providerNeutralStoryboardPrompt": "Clean monochrome production storyboard with selective warm-gray values, 16:9 frame, Milo Moonberry identifiable by huge round ears, shaggy fur silhouette, cream muzzle and belly-star shape, mustard backpack indicated by annotation, Moonberry Wood — mossy forest path at evening, Reaction/turn: Curiosity opens into quiet wonder., emotion-led primary action framing, 50mm normal, readable silhouettes and eyelines, established left-to-right path direction, no canonical body proportions, no new characters, no photoreal asset claim, text specification only"
+          },
+          {
+            "panelId": "MILO-007-S01-P01-SC01-SH03-PN01",
+            "panelOrder": 4,
+            "shotId": "MILO-007-S01-P01-SC01-SH03",
+            "storyBeat": "Exit state: Carry Milo and the twinkle sequence deeper along the path.",
+            "frameComposition": "Carry Milo and the twinkle sequence deeper along the path. Keep the axis along the mossy path and the firefly on the established fern/lantern side.",
+            "characterAndObjectPlacement": "Maintain the established path axis; Milo and the tiny firefly/scene focus remain on their prior screen sides. Mossy path, low growing ferns, scattered mossy stones, small Moonberry lanterns lining the path. Distant hints of tiny cottages and glowing flowers but out of focus.",
+            "geographyAndScreenDirection": "Path travel reads screen-left to screen-right; do not cross the Milo–firefly axis without a neutral re-establishing frame.",
+            "cameraMovement": "gentle track, hold, or release motivated by the action",
+            "actionAndDialogueTiming": "Hold for the source-text beat; do not add dialogue.",
+            "performance": "Carry Milo and the twinkle sequence deeper along the path.",
+            "lightingAndAtmosphere": "Soft amber evening glow with small points of cool lantern light beginning to twinkle; overall warm and comforting.",
+            "transition": "Fade or gentle cut to the next close/medium shot as Milo follows the glow deeper into the woods.",
+            "panelDescription": "Exit state: Carry Milo and the twinkle sequence deeper along the path.. Opening evening stroll: Milo greets the audience and walks along a mossy path in Moonberry Wood as lanterns begin to twinkle.",
+            "providerNeutralStoryboardPrompt": "Clean monochrome production storyboard with selective warm-gray values, 16:9 frame, Milo Moonberry identifiable by huge round ears, shaggy fur silhouette, cream muzzle and belly-star shape, mustard backpack indicated by annotation, Moonberry Wood — mossy forest path at evening, Exit state: Carry Milo and the twinkle sequence deeper along the path., release or transition framing with a clean outgoing eyeline, 40mm normal-wide, readable silhouettes and eyelines, established left-to-right path direction, no canonical body proportions, no new characters, no photoreal asset claim, text specification only"
+          }
+        ],
+        "coverageAndContinuityCheck": {
+          "establishingGeography": true,
+          "essentialAction": true,
+          "emotionalReaction": true,
+          "usableExitImage": true,
+          "axisCrossings": [],
+          "risks": [
+            "No actual character/environment reference artwork exists; drawings remain specification-only until a separately authorised reference-generation gate."
+          ],
+          "redundantPanels": [],
+          "result": "TEXT_SPECIFICATION_COMPLETE_AWAITING_HUMAN_APPROVAL"
+        }
+      },
+      {
+        "sceneId": "MILO-007-S01-P01-SC02",
+        "sceneNumber": 2,
+        "sourceText": "He follows the warm glow, listening to the hush of leaves, until a very faint, tiny sound makes him pause. Kneeling down, Milo parts a fern and discovers a shy little firefly tucked beneath the fronds. Its light is almost still — a tiny hush of a glow that won't blink. The firefly trembles. It whispers that it is too nervous to blink and too frightened to follow the twinkling path home.",
+        "sourceTextHash": "3f49787adb607b3de2baf7a9a284bc528b8c536f75e693a28fc586e6a0fee946",
+        "sequenceIntent": {
+          "objective": "Discover the hidden firefly and make its fear feel small, real, and safe to witness.",
+          "emotionalProgression": "Curiosity becomes compassionate attention.",
+          "pointOfView": "Milo-aligned observation; firefly agency protected",
+          "pacing": "gentle and legible",
+          "visualMotif": "a faint light sheltered by fern fronds",
+          "audienceResponse": "Tender concern without alarm.",
+          "assumptions": [
+            "Four panels are the minimum sufficient coverage for this short scene; the middle action uses two panels to make the emotional turn legible."
+          ]
+        },
+        "visualContinuityBible": {
+          "characterAppearance": "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "locationLayout": "Low fern clump beside the mossy path, nearby mossy stones, warm lantern glow in the near background.",
+          "propsAndPositions": [
+            "MILO-007-S01-P01-A003: High-resolution layered element of a tiny firefly with a very faint glow that can be composited over the fern fronds."
+          ],
+          "aspectRatio": "16:9",
+          "storyboardRenderingStyle": "Clean monochrome cinematic storyboard, selective gray values, strong silhouettes; a non-canon review convention.",
+          "palette": "Warm/cool values only; exact colours remain specified by approved names, not hex values.",
+          "lensLanguage": [
+            "50mm normal",
+            "85mm macro character scale",
+            "65mm intimate two-shot"
+          ],
+          "screenDirection": "Path progress screen-left to screen-right; keep Milo/firefly eyelines across the same axis.",
+          "recurringMotif": "a faint light sheltered by fern fronds"
+        },
+        "shots": [
+          {
+            "shotId": "MILO-007-S01-P01-SC02-SH01",
+            "shotNumber": 1,
+            "purpose": "Follow Milo toward the almost inaudible sound.",
+            "sourceTextHash": "3f49787adb607b3de2baf7a9a284bc528b8c536f75e693a28fc586e6a0fee946",
+            "panelIds": [
+              "MILO-007-S01-P01-SC02-SH01-PN01"
+            ]
+          },
+          {
+            "shotId": "MILO-007-S01-P01-SC02-SH02",
+            "shotNumber": 2,
+            "purpose": "Reveal the firefly at true tiny scale beneath the fern.",
+            "sourceTextHash": "3f49787adb607b3de2baf7a9a284bc528b8c536f75e693a28fc586e6a0fee946",
+            "panelIds": [
+              "MILO-007-S01-P01-SC02-SH02-PN01",
+              "MILO-007-S01-P01-SC02-SH02-PN02"
+            ]
+          },
+          {
+            "shotId": "MILO-007-S01-P01-SC02-SH03",
+            "shotNumber": 3,
+            "purpose": "Hold Milo and firefly together so the whispered fear lands.",
+            "sourceTextHash": "3f49787adb607b3de2baf7a9a284bc528b8c536f75e693a28fc586e6a0fee946",
+            "panelIds": [
+              "MILO-007-S01-P01-SC02-SH03-PN01"
+            ]
+          }
+        ],
+        "panels": [
+          {
+            "panelId": "MILO-007-S01-P01-SC02-SH01-PN01",
+            "panelOrder": 1,
+            "shotId": "MILO-007-S01-P01-SC02-SH01",
+            "storyBeat": "Opening state: Follow Milo toward the almost inaudible sound.",
+            "frameComposition": "Follow Milo toward the almost inaudible sound. Keep the axis along the mossy path and the firefly on the established fern/lantern side.",
+            "characterAndObjectPlacement": "Maintain the established path axis; Milo and the tiny firefly/scene focus remain on their prior screen sides. Low fern clump beside the mossy path, nearby mossy stones, warm lantern glow in the near background.",
+            "geographyAndScreenDirection": "Path travel reads screen-left to screen-right; do not cross the Milo–firefly axis without a neutral re-establishing frame.",
+            "cameraMovement": "gentle track, hold, or release motivated by the action",
+            "actionAndDialogueTiming": "Hold for the source-text beat; do not add dialogue.",
+            "performance": "Follow Milo toward the almost inaudible sound.",
+            "lightingAndAtmosphere": "Soft, low evening light with a single, very faint point of bioluminescent glow from the firefly and warmer pools from distant lanterns.",
+            "transition": "Motivated straight cut or gentle dissolve; preserve axis and light progression.",
+            "panelDescription": "Opening state: Follow Milo toward the almost inaudible sound.. Milo discovers a hesitant firefly hiding beneath a fern; the firefly says it is too nervous to blink and afraid to follow the path.",
+            "providerNeutralStoryboardPrompt": "Clean monochrome production storyboard with selective warm-gray values, 16:9 frame, Milo Moonberry identifiable by huge round ears, shaggy fur silhouette, cream muzzle and belly-star shape, mustard backpack indicated by annotation, A quiet section of the mossy path near low ferns and mossy stones, Opening state: Follow Milo toward the almost inaudible sound., establishing geography with readable foreground, midground, and exit path, 50mm normal, readable silhouettes and eyelines, established left-to-right path direction, no canonical body proportions, no new characters, no photoreal asset claim, text specification only"
+          },
+          {
+            "panelId": "MILO-007-S01-P01-SC02-SH02-PN01",
+            "panelOrder": 2,
+            "shotId": "MILO-007-S01-P01-SC02-SH02",
+            "storyBeat": "Primary action: Reveal the firefly at true tiny scale beneath the fern.",
+            "frameComposition": "Reveal the firefly at true tiny scale beneath the fern. Keep the axis along the mossy path and the firefly on the established fern/lantern side.",
+            "characterAndObjectPlacement": "Maintain the established path axis; Milo and the tiny firefly/scene focus remain on their prior screen sides. Low fern clump beside the mossy path, nearby mossy stones, warm lantern glow in the near background.",
+            "geographyAndScreenDirection": "Path travel reads screen-left to screen-right; do not cross the Milo–firefly axis without a neutral re-establishing frame.",
+            "cameraMovement": "slow, eased push or restrained focus transfer",
+            "actionAndDialogueTiming": "Hold for the source-text beat; do not add dialogue.",
+            "performance": "Reveal the firefly at true tiny scale beneath the fern.",
+            "lightingAndAtmosphere": "Soft, low evening light with a single, very faint point of bioluminescent glow from the firefly and warmer pools from distant lanterns.",
+            "transition": "Motivated straight cut or gentle dissolve; preserve axis and light progression.",
+            "panelDescription": "Primary action: Reveal the firefly at true tiny scale beneath the fern.. Milo discovers a hesitant firefly hiding beneath a fern; the firefly says it is too nervous to blink and afraid to follow the path.",
+            "providerNeutralStoryboardPrompt": "Clean monochrome production storyboard with selective warm-gray values, 16:9 frame, Milo Moonberry identifiable by huge round ears, shaggy fur silhouette, cream muzzle and belly-star shape, mustard backpack indicated by annotation, A quiet section of the mossy path near low ferns and mossy stones, Primary action: Reveal the firefly at true tiny scale beneath the fern., emotion-led primary action framing, 85mm macro character scale, readable silhouettes and eyelines, established left-to-right path direction, no canonical body proportions, no new characters, no photoreal asset claim, text specification only"
+          },
+          {
+            "panelId": "MILO-007-S01-P01-SC02-SH02-PN02",
+            "panelOrder": 3,
+            "shotId": "MILO-007-S01-P01-SC02-SH02",
+            "storyBeat": "Reaction/turn: Curiosity becomes compassionate attention.",
+            "frameComposition": "Reveal the firefly at true tiny scale beneath the fern. Keep the axis along the mossy path and the firefly on the established fern/lantern side.",
+            "characterAndObjectPlacement": "Maintain the established path axis; Milo and the tiny firefly/scene focus remain on their prior screen sides. Low fern clump beside the mossy path, nearby mossy stones, warm lantern glow in the near background.",
+            "geographyAndScreenDirection": "Path travel reads screen-left to screen-right; do not cross the Milo–firefly axis without a neutral re-establishing frame.",
+            "cameraMovement": "slow, eased push or restrained focus transfer",
+            "actionAndDialogueTiming": "Hold for the source-text beat; do not add dialogue.",
+            "performance": "Reveal the firefly at true tiny scale beneath the fern.",
+            "lightingAndAtmosphere": "Soft, low evening light with a single, very faint point of bioluminescent glow from the firefly and warmer pools from distant lanterns.",
+            "transition": "Motivated straight cut or gentle dissolve; preserve axis and light progression.",
+            "panelDescription": "Reaction/turn: Curiosity becomes compassionate attention.. Milo discovers a hesitant firefly hiding beneath a fern; the firefly says it is too nervous to blink and afraid to follow the path.",
+            "providerNeutralStoryboardPrompt": "Clean monochrome production storyboard with selective warm-gray values, 16:9 frame, Milo Moonberry identifiable by huge round ears, shaggy fur silhouette, cream muzzle and belly-star shape, mustard backpack indicated by annotation, A quiet section of the mossy path near low ferns and mossy stones, Reaction/turn: Curiosity becomes compassionate attention., emotion-led primary action framing, 85mm macro character scale, readable silhouettes and eyelines, established left-to-right path direction, no canonical body proportions, no new characters, no photoreal asset claim, text specification only"
+          },
+          {
+            "panelId": "MILO-007-S01-P01-SC02-SH03-PN01",
+            "panelOrder": 4,
+            "shotId": "MILO-007-S01-P01-SC02-SH03",
+            "storyBeat": "Exit state: Hold Milo and firefly together so the whispered fear lands.",
+            "frameComposition": "Hold Milo and firefly together so the whispered fear lands. Keep the axis along the mossy path and the firefly on the established fern/lantern side.",
+            "characterAndObjectPlacement": "Maintain the established path axis; Milo and the tiny firefly/scene focus remain on their prior screen sides. Low fern clump beside the mossy path, nearby mossy stones, warm lantern glow in the near background.",
+            "geographyAndScreenDirection": "Path travel reads screen-left to screen-right; do not cross the Milo–firefly axis without a neutral re-establishing frame.",
+            "cameraMovement": "gentle track, hold, or release motivated by the action",
+            "actionAndDialogueTiming": "Hold for the source-text beat; do not add dialogue.",
+            "performance": "Hold Milo and firefly together so the whispered fear lands.",
+            "lightingAndAtmosphere": "Soft, low evening light with a single, very faint point of bioluminescent glow from the firefly and warmer pools from distant lanterns.",
+            "transition": "Soft crossfade or gentle cut to close-up when the fern is parted.",
+            "panelDescription": "Exit state: Hold Milo and firefly together so the whispered fear lands.. Milo discovers a hesitant firefly hiding beneath a fern; the firefly says it is too nervous to blink and afraid to follow the path.",
+            "providerNeutralStoryboardPrompt": "Clean monochrome production storyboard with selective warm-gray values, 16:9 frame, Milo Moonberry identifiable by huge round ears, shaggy fur silhouette, cream muzzle and belly-star shape, mustard backpack indicated by annotation, A quiet section of the mossy path near low ferns and mossy stones, Exit state: Hold Milo and firefly together so the whispered fear lands., release or transition framing with a clean outgoing eyeline, 65mm intimate two-shot, readable silhouettes and eyelines, established left-to-right path direction, no canonical body proportions, no new characters, no photoreal asset claim, text specification only"
+          }
+        ],
+        "coverageAndContinuityCheck": {
+          "establishingGeography": true,
+          "essentialAction": true,
+          "emotionalReaction": true,
+          "usableExitImage": true,
+          "axisCrossings": [],
+          "risks": [
+            "No actual character/environment reference artwork exists; drawings remain specification-only until a separately authorised reference-generation gate."
+          ],
+          "redundantPanels": [],
+          "result": "TEXT_SPECIFICATION_COMPLETE_AWAITING_HUMAN_APPROVAL"
+        }
+      },
+      {
+        "sceneId": "MILO-007-S01-P01-SC03",
+        "sceneNumber": 3,
+        "sourceText": "Milo notices the lanterns growing brighter and the shadows shifting around the mossy stones. He realises that the familiar shapes along the path will look different soon, and the firefly might lose its way for good. Milo takes a slow breath. He decides to help the little light take one very small step toward home.",
+        "sourceTextHash": "1f1af14ac124b064ec84b4e46d8765401ef165f87c886fdaad3aeae88e686c01",
+        "sequenceIntent": {
+          "objective": "Show Milo recognising time pressure while choosing calm help instead of urgency.",
+          "emotionalProgression": "Concern resolves into patient purpose.",
+          "pointOfView": "Milo-aligned observation; firefly agency protected",
+          "pacing": "gentle and legible",
+          "visualMotif": "lengthening soft shadows beside brightening lanterns",
+          "audienceResponse": "Confidence that Milo will help safely.",
+          "assumptions": [
+            "Four panels are the minimum sufficient coverage for this short scene; the middle action uses two panels to make the emotional turn legible."
+          ]
+        },
+        "visualContinuityBible": {
+          "characterAppearance": "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "locationLayout": "Mossy stones, shifting evening shadows, warmer pools of lantern light forming along the path.",
+          "propsAndPositions": [
+            "MILO-007-S01-P01-A004: A staged animation of lanterns increasing brightness in a gentle, sequential rhythm to match the emotional beats."
+          ],
+          "aspectRatio": "16:9",
+          "storyboardRenderingStyle": "Clean monochrome cinematic storyboard, selective gray values, strong silhouettes; a non-canon review convention.",
+          "palette": "Warm/cool values only; exact colours remain specified by approved names, not hex values.",
+          "lensLanguage": [
+            "35mm environmental",
+            "65mm close portrait",
+            "50mm two-shot"
+          ],
+          "screenDirection": "Path progress screen-left to screen-right; keep Milo/firefly eyelines across the same axis.",
+          "recurringMotif": "lengthening soft shadows beside brightening lanterns"
+        },
+        "shots": [
+          {
+            "shotId": "MILO-007-S01-P01-SC03-SH01",
+            "shotNumber": 1,
+            "purpose": "Re-establish lanterns, stones, and gradual evening change.",
+            "sourceTextHash": "1f1af14ac124b064ec84b4e46d8765401ef165f87c886fdaad3aeae88e686c01",
+            "panelIds": [
+              "MILO-007-S01-P01-SC03-SH01-PN01"
+            ]
+          },
+          {
+            "shotId": "MILO-007-S01-P01-SC03-SH02",
+            "shotNumber": 2,
+            "purpose": "Read Milo noticing the shifting path and taking a slow breath.",
+            "sourceTextHash": "1f1af14ac124b064ec84b4e46d8765401ef165f87c886fdaad3aeae88e686c01",
+            "panelIds": [
+              "MILO-007-S01-P01-SC03-SH02-PN01",
+              "MILO-007-S01-P01-SC03-SH02-PN02"
+            ]
+          },
+          {
+            "shotId": "MILO-007-S01-P01-SC03-SH03",
+            "shotNumber": 3,
+            "purpose": "End on his quiet decision to offer one small step.",
+            "sourceTextHash": "1f1af14ac124b064ec84b4e46d8765401ef165f87c886fdaad3aeae88e686c01",
+            "panelIds": [
+              "MILO-007-S01-P01-SC03-SH03-PN01"
+            ]
+          }
+        ],
+        "panels": [
+          {
+            "panelId": "MILO-007-S01-P01-SC03-SH01-PN01",
+            "panelOrder": 1,
+            "shotId": "MILO-007-S01-P01-SC03-SH01",
+            "storyBeat": "Opening state: Re-establish lanterns, stones, and gradual evening change.",
+            "frameComposition": "Re-establish lanterns, stones, and gradual evening change. Keep the axis along the mossy path and the firefly on the established fern/lantern side.",
+            "characterAndObjectPlacement": "Maintain the established path axis; Milo and the tiny firefly/scene focus remain on their prior screen sides. Mossy stones, shifting evening shadows, warmer pools of lantern light forming along the path.",
+            "geographyAndScreenDirection": "Path travel reads screen-left to screen-right; do not cross the Milo–firefly axis without a neutral re-establishing frame.",
+            "cameraMovement": "gentle track, hold, or release motivated by the action",
+            "actionAndDialogueTiming": "Hold for the source-text beat; do not add dialogue.",
+            "performance": "Re-establish lanterns, stones, and gradual evening change.",
+            "lightingAndAtmosphere": "Gradual increase in contrast from soft amber to slightly deeper evening tones; maintain comforting warmth.",
+            "transition": "Motivated straight cut or gentle dissolve; preserve axis and light progression.",
+            "panelDescription": "Opening state: Re-establish lanterns, stones, and gradual evening change.. Milo recognises the risk that the firefly will lose its way as evening deepens and decides to help.",
+            "providerNeutralStoryboardPrompt": "Clean monochrome production storyboard with selective warm-gray values, 16:9 frame, Milo Moonberry identifiable by huge round ears, shaggy fur silhouette, cream muzzle and belly-star shape, mustard backpack indicated by annotation, Same mossy path area, slightly wider framing showing lanterns and stones, Opening state: Re-establish lanterns, stones, and gradual evening change., establishing geography with readable foreground, midground, and exit path, 35mm environmental, readable silhouettes and eyelines, established left-to-right path direction, no canonical body proportions, no new characters, no photoreal asset claim, text specification only"
+          },
+          {
+            "panelId": "MILO-007-S01-P01-SC03-SH02-PN01",
+            "panelOrder": 2,
+            "shotId": "MILO-007-S01-P01-SC03-SH02",
+            "storyBeat": "Primary action: Read Milo noticing the shifting path and taking a slow breath.",
+            "frameComposition": "Read Milo noticing the shifting path and taking a slow breath. Keep the axis along the mossy path and the firefly on the established fern/lantern side.",
+            "characterAndObjectPlacement": "Maintain the established path axis; Milo and the tiny firefly/scene focus remain on their prior screen sides. Mossy stones, shifting evening shadows, warmer pools of lantern light forming along the path.",
+            "geographyAndScreenDirection": "Path travel reads screen-left to screen-right; do not cross the Milo–firefly axis without a neutral re-establishing frame.",
+            "cameraMovement": "slow, eased push or restrained focus transfer",
+            "actionAndDialogueTiming": "Hold for the source-text beat; do not add dialogue.",
+            "performance": "Read Milo noticing the shifting path and taking a slow breath.",
+            "lightingAndAtmosphere": "Gradual increase in contrast from soft amber to slightly deeper evening tones; maintain comforting warmth.",
+            "transition": "Motivated straight cut or gentle dissolve; preserve axis and light progression.",
+            "panelDescription": "Primary action: Read Milo noticing the shifting path and taking a slow breath.. Milo recognises the risk that the firefly will lose its way as evening deepens and decides to help.",
+            "providerNeutralStoryboardPrompt": "Clean monochrome production storyboard with selective warm-gray values, 16:9 frame, Milo Moonberry identifiable by huge round ears, shaggy fur silhouette, cream muzzle and belly-star shape, mustard backpack indicated by annotation, Same mossy path area, slightly wider framing showing lanterns and stones, Primary action: Read Milo noticing the shifting path and taking a slow breath., emotion-led primary action framing, 65mm close portrait, readable silhouettes and eyelines, established left-to-right path direction, no canonical body proportions, no new characters, no photoreal asset claim, text specification only"
+          },
+          {
+            "panelId": "MILO-007-S01-P01-SC03-SH02-PN02",
+            "panelOrder": 3,
+            "shotId": "MILO-007-S01-P01-SC03-SH02",
+            "storyBeat": "Reaction/turn: Concern resolves into patient purpose.",
+            "frameComposition": "Read Milo noticing the shifting path and taking a slow breath. Keep the axis along the mossy path and the firefly on the established fern/lantern side.",
+            "characterAndObjectPlacement": "Maintain the established path axis; Milo and the tiny firefly/scene focus remain on their prior screen sides. Mossy stones, shifting evening shadows, warmer pools of lantern light forming along the path.",
+            "geographyAndScreenDirection": "Path travel reads screen-left to screen-right; do not cross the Milo–firefly axis without a neutral re-establishing frame.",
+            "cameraMovement": "slow, eased push or restrained focus transfer",
+            "actionAndDialogueTiming": "Hold for the source-text beat; do not add dialogue.",
+            "performance": "Read Milo noticing the shifting path and taking a slow breath.",
+            "lightingAndAtmosphere": "Gradual increase in contrast from soft amber to slightly deeper evening tones; maintain comforting warmth.",
+            "transition": "Motivated straight cut or gentle dissolve; preserve axis and light progression.",
+            "panelDescription": "Reaction/turn: Concern resolves into patient purpose.. Milo recognises the risk that the firefly will lose its way as evening deepens and decides to help.",
+            "providerNeutralStoryboardPrompt": "Clean monochrome production storyboard with selective warm-gray values, 16:9 frame, Milo Moonberry identifiable by huge round ears, shaggy fur silhouette, cream muzzle and belly-star shape, mustard backpack indicated by annotation, Same mossy path area, slightly wider framing showing lanterns and stones, Reaction/turn: Concern resolves into patient purpose., emotion-led primary action framing, 65mm close portrait, readable silhouettes and eyelines, established left-to-right path direction, no canonical body proportions, no new characters, no photoreal asset claim, text specification only"
+          },
+          {
+            "panelId": "MILO-007-S01-P01-SC03-SH03-PN01",
+            "panelOrder": 4,
+            "shotId": "MILO-007-S01-P01-SC03-SH03",
+            "storyBeat": "Exit state: End on his quiet decision to offer one small step.",
+            "frameComposition": "End on his quiet decision to offer one small step. Keep the axis along the mossy path and the firefly on the established fern/lantern side.",
+            "characterAndObjectPlacement": "Maintain the established path axis; Milo and the tiny firefly/scene focus remain on their prior screen sides. Mossy stones, shifting evening shadows, warmer pools of lantern light forming along the path.",
+            "geographyAndScreenDirection": "Path travel reads screen-left to screen-right; do not cross the Milo–firefly axis without a neutral re-establishing frame.",
+            "cameraMovement": "gentle track, hold, or release motivated by the action",
+            "actionAndDialogueTiming": "Hold for the source-text beat; do not add dialogue.",
+            "performance": "End on his quiet decision to offer one small step.",
+            "lightingAndAtmosphere": "Gradual increase in contrast from soft amber to slightly deeper evening tones; maintain comforting warmth.",
+            "transition": "Cut to a closer, quieter vantage when Milo begins to sit beside the fern.",
+            "panelDescription": "Exit state: End on his quiet decision to offer one small step.. Milo recognises the risk that the firefly will lose its way as evening deepens and decides to help.",
+            "providerNeutralStoryboardPrompt": "Clean monochrome production storyboard with selective warm-gray values, 16:9 frame, Milo Moonberry identifiable by huge round ears, shaggy fur silhouette, cream muzzle and belly-star shape, mustard backpack indicated by annotation, Same mossy path area, slightly wider framing showing lanterns and stones, Exit state: End on his quiet decision to offer one small step., release or transition framing with a clean outgoing eyeline, 50mm two-shot, readable silhouettes and eyelines, established left-to-right path direction, no canonical body proportions, no new characters, no photoreal asset claim, text specification only"
+          }
+        ],
+        "coverageAndContinuityCheck": {
+          "establishingGeography": true,
+          "essentialAction": true,
+          "emotionalReaction": true,
+          "usableExitImage": true,
+          "axisCrossings": [],
+          "risks": [
+            "No actual character/environment reference artwork exists; drawings remain specification-only until a separately authorised reference-generation gate."
+          ],
+          "redundantPanels": [],
+          "result": "TEXT_SPECIFICATION_COMPLETE_AWAITING_HUMAN_APPROVAL"
+        }
+      },
+      {
+        "sceneId": "MILO-007-S01-P01-SC04",
+        "sceneNumber": 4,
+        "sourceText": "He sits quietly beside the fern and bends close, keeping his voice gentle and steady. \"One tiny blink,\" Milo says, using short, comforting words. He reaches into his backpack for a small treat and offers it with a smile. Then he suggests they try one blink together — just one — and shows how he will count: \"One,\" he says softly, and waits, patient as the moonlight.",
+        "sourceTextHash": "f31749853f6146975dc0a3862ceb6cd690f9d855f5f8db3ddb35c04c7d57229a",
+        "sequenceIntent": {
+          "objective": "Stage Milo’s offer as an invitation with space for the firefly to choose.",
+          "emotionalProgression": "Reassurance becomes a concrete first step.",
+          "pointOfView": "Milo-aligned observation; firefly agency protected",
+          "pacing": "gentle and legible",
+          "visualMotif": "one open palm, one raised count",
+          "audienceResponse": "Comfort and readiness to try.",
+          "assumptions": [
+            "Four panels are the minimum sufficient coverage for this short scene; the middle action uses two panels to make the emotional turn legible."
+          ]
+        },
+        "visualContinuityBible": {
+          "characterAppearance": "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "locationLayout": "Fern, mossy ground, small pool of nearby lantern light; backpack subtly visible.",
+          "propsAndPositions": [
+            "MILO-007-S01-P01-A005: Recordings of Milo saying \"One tiny blink,\" and \"One,\" using warm British-accented voice, with controlled soft dynamics and pauses.",
+            "MILO-007-S01-P01-A006: Detailed visual asset for Milo's hand offering a small treat and a close-up of his face showing a gentle smile and patient expression."
+          ],
+          "aspectRatio": "16:9",
+          "storyboardRenderingStyle": "Clean monochrome cinematic storyboard, selective gray values, strong silhouettes; a non-canon review convention.",
+          "palette": "Warm/cool values only; exact colours remain specified by approved names, not hex values.",
+          "lensLanguage": [
+            "50mm intimate two-shot",
+            "85mm hand-and-face detail",
+            "65mm patient close"
+          ],
+          "screenDirection": "Path progress screen-left to screen-right; keep Milo/firefly eyelines across the same axis.",
+          "recurringMotif": "one open palm, one raised count"
+        },
+        "shots": [
+          {
+            "shotId": "MILO-007-S01-P01-SC04-SH01",
+            "shotNumber": 1,
+            "purpose": "Settle Milo beside the fern without crowding the firefly.",
+            "sourceTextHash": "f31749853f6146975dc0a3862ceb6cd690f9d855f5f8db3ddb35c04c7d57229a",
+            "panelIds": [
+              "MILO-007-S01-P01-SC04-SH01-PN01"
+            ]
+          },
+          {
+            "shotId": "MILO-007-S01-P01-SC04-SH02",
+            "shotNumber": 2,
+            "purpose": "Present the treat and “One tiny blink” with an open, non-demanding gesture.",
+            "sourceTextHash": "f31749853f6146975dc0a3862ceb6cd690f9d855f5f8db3ddb35c04c7d57229a",
+            "panelIds": [
+              "MILO-007-S01-P01-SC04-SH02-PN01",
+              "MILO-007-S01-P01-SC04-SH02-PN02"
+            ]
+          },
+          {
+            "shotId": "MILO-007-S01-P01-SC04-SH03",
+            "shotNumber": 3,
+            "purpose": "Hold the single count and patient silence.",
+            "sourceTextHash": "f31749853f6146975dc0a3862ceb6cd690f9d855f5f8db3ddb35c04c7d57229a",
+            "panelIds": [
+              "MILO-007-S01-P01-SC04-SH03-PN01"
+            ]
+          }
+        ],
+        "panels": [
+          {
+            "panelId": "MILO-007-S01-P01-SC04-SH01-PN01",
+            "panelOrder": 1,
+            "shotId": "MILO-007-S01-P01-SC04-SH01",
+            "storyBeat": "Opening state: Settle Milo beside the fern without crowding the firefly.",
+            "frameComposition": "Settle Milo beside the fern without crowding the firefly. Keep the axis along the mossy path and the firefly on the established fern/lantern side.",
+            "characterAndObjectPlacement": "Maintain the established path axis; Milo and the tiny firefly/scene focus remain on their prior screen sides. Fern, mossy ground, small pool of nearby lantern light; backpack subtly visible.",
+            "geographyAndScreenDirection": "Path travel reads screen-left to screen-right; do not cross the Milo–firefly axis without a neutral re-establishing frame.",
+            "cameraMovement": "gentle track, hold, or release motivated by the action",
+            "actionAndDialogueTiming": "Hold for the source-text beat; do not add dialogue.",
+            "performance": "Settle Milo beside the fern without crowding the firefly.",
+            "lightingAndAtmosphere": "Soft moonlit and lantern-accented lighting—warm and calm.",
+            "transition": "Motivated straight cut or gentle dissolve; preserve axis and light progression.",
+            "panelDescription": "Opening state: Settle Milo beside the fern without crowding the firefly.. Milo sits beside the fern, speaks gently to the firefly, offers a treat, and demonstrates counting one blink together.",
+            "providerNeutralStoryboardPrompt": "Clean monochrome production storyboard with selective warm-gray values, 16:9 frame, Milo Moonberry identifiable by huge round ears, shaggy fur silhouette, cream muzzle and belly-star shape, mustard backpack indicated by annotation, Close beside the fern on the mossy path, Opening state: Settle Milo beside the fern without crowding the firefly., establishing geography with readable foreground, midground, and exit path, 50mm intimate two-shot, readable silhouettes and eyelines, established left-to-right path direction, no canonical body proportions, no new characters, no photoreal asset claim, text specification only"
+          },
+          {
+            "panelId": "MILO-007-S01-P01-SC04-SH02-PN01",
+            "panelOrder": 2,
+            "shotId": "MILO-007-S01-P01-SC04-SH02",
+            "storyBeat": "Primary action: Present the treat and “One tiny blink” with an open, non-demanding gesture.",
+            "frameComposition": "Present the treat and “One tiny blink” with an open, non-demanding gesture. Keep the axis along the mossy path and the firefly on the established fern/lantern side.",
+            "characterAndObjectPlacement": "Maintain the established path axis; Milo and the tiny firefly/scene focus remain on their prior screen sides. Fern, mossy ground, small pool of nearby lantern light; backpack subtly visible.",
+            "geographyAndScreenDirection": "Path travel reads screen-left to screen-right; do not cross the Milo–firefly axis without a neutral re-establishing frame.",
+            "cameraMovement": "slow, eased push or restrained focus transfer",
+            "actionAndDialogueTiming": "Hold for exact cue(s): \"One tiny blink,\" | \"One,\"",
+            "performance": "Present the treat and “One tiny blink” with an open, non-demanding gesture.",
+            "lightingAndAtmosphere": "Soft moonlit and lantern-accented lighting—warm and calm.",
+            "transition": "Motivated straight cut or gentle dissolve; preserve axis and light progression.",
+            "panelDescription": "Primary action: Present the treat and “One tiny blink” with an open, non-demanding gesture.. Milo sits beside the fern, speaks gently to the firefly, offers a treat, and demonstrates counting one blink together.",
+            "providerNeutralStoryboardPrompt": "Clean monochrome production storyboard with selective warm-gray values, 16:9 frame, Milo Moonberry identifiable by huge round ears, shaggy fur silhouette, cream muzzle and belly-star shape, mustard backpack indicated by annotation, Close beside the fern on the mossy path, Primary action: Present the treat and “One tiny blink” with an open, non-demanding gesture., emotion-led primary action framing, 85mm hand-and-face detail, readable silhouettes and eyelines, established left-to-right path direction, no canonical body proportions, no new characters, no photoreal asset claim, text specification only"
+          },
+          {
+            "panelId": "MILO-007-S01-P01-SC04-SH02-PN02",
+            "panelOrder": 3,
+            "shotId": "MILO-007-S01-P01-SC04-SH02",
+            "storyBeat": "Reaction/turn: Reassurance becomes a concrete first step.",
+            "frameComposition": "Present the treat and “One tiny blink” with an open, non-demanding gesture. Keep the axis along the mossy path and the firefly on the established fern/lantern side.",
+            "characterAndObjectPlacement": "Maintain the established path axis; Milo and the tiny firefly/scene focus remain on their prior screen sides. Fern, mossy ground, small pool of nearby lantern light; backpack subtly visible.",
+            "geographyAndScreenDirection": "Path travel reads screen-left to screen-right; do not cross the Milo–firefly axis without a neutral re-establishing frame.",
+            "cameraMovement": "slow, eased push or restrained focus transfer",
+            "actionAndDialogueTiming": "Hold for exact cue(s): \"One tiny blink,\" | \"One,\"",
+            "performance": "Present the treat and “One tiny blink” with an open, non-demanding gesture.",
+            "lightingAndAtmosphere": "Soft moonlit and lantern-accented lighting—warm and calm.",
+            "transition": "Motivated straight cut or gentle dissolve; preserve axis and light progression.",
+            "panelDescription": "Reaction/turn: Reassurance becomes a concrete first step.. Milo sits beside the fern, speaks gently to the firefly, offers a treat, and demonstrates counting one blink together.",
+            "providerNeutralStoryboardPrompt": "Clean monochrome production storyboard with selective warm-gray values, 16:9 frame, Milo Moonberry identifiable by huge round ears, shaggy fur silhouette, cream muzzle and belly-star shape, mustard backpack indicated by annotation, Close beside the fern on the mossy path, Reaction/turn: Reassurance becomes a concrete first step., emotion-led primary action framing, 85mm hand-and-face detail, readable silhouettes and eyelines, established left-to-right path direction, no canonical body proportions, no new characters, no photoreal asset claim, text specification only"
+          },
+          {
+            "panelId": "MILO-007-S01-P01-SC04-SH03-PN01",
+            "panelOrder": 4,
+            "shotId": "MILO-007-S01-P01-SC04-SH03",
+            "storyBeat": "Exit state: Hold the single count and patient silence.",
+            "frameComposition": "Hold the single count and patient silence. Keep the axis along the mossy path and the firefly on the established fern/lantern side.",
+            "characterAndObjectPlacement": "Maintain the established path axis; Milo and the tiny firefly/scene focus remain on their prior screen sides. Fern, mossy ground, small pool of nearby lantern light; backpack subtly visible.",
+            "geographyAndScreenDirection": "Path travel reads screen-left to screen-right; do not cross the Milo–firefly axis without a neutral re-establishing frame.",
+            "cameraMovement": "gentle track, hold, or release motivated by the action",
+            "actionAndDialogueTiming": "Hold for the source-text beat; do not add dialogue.",
+            "performance": "Hold the single count and patient silence.",
+            "lightingAndAtmosphere": "Soft moonlit and lantern-accented lighting—warm and calm.",
+            "transition": "Keep the transition to the next beat subtle—crosscut to the firefly's reaction close-up.",
+            "panelDescription": "Exit state: Hold the single count and patient silence.. Milo sits beside the fern, speaks gently to the firefly, offers a treat, and demonstrates counting one blink together.",
+            "providerNeutralStoryboardPrompt": "Clean monochrome production storyboard with selective warm-gray values, 16:9 frame, Milo Moonberry identifiable by huge round ears, shaggy fur silhouette, cream muzzle and belly-star shape, mustard backpack indicated by annotation, Close beside the fern on the mossy path, Exit state: Hold the single count and patient silence., release or transition framing with a clean outgoing eyeline, 65mm patient close, readable silhouettes and eyelines, established left-to-right path direction, no canonical body proportions, no new characters, no photoreal asset claim, text specification only"
+          }
+        ],
+        "coverageAndContinuityCheck": {
+          "establishingGeography": true,
+          "essentialAction": true,
+          "emotionalReaction": true,
+          "usableExitImage": true,
+          "axisCrossings": [],
+          "risks": [
+            "No actual character/environment reference artwork exists; drawings remain specification-only until a separately authorised reference-generation gate."
+          ],
+          "redundantPanels": [],
+          "result": "TEXT_SPECIFICATION_COMPLETE_AWAITING_HUMAN_APPROVAL"
+        }
+      },
+      {
+        "sceneId": "MILO-007-S01-P01-SC05",
+        "sceneNumber": 5,
+        "sourceText": "The first blink is barely a flicker, almost a secret. A sudden breeze shakes the fern and the little firefly hides its light again. Milo stays calm. He breathes slowly, keeps his voice warm, and whispers encouragement. He stays patient and tries the slow count once more. \"One...\" The firefly peeks and lets out a little glow. Milo claps softly, celebrating the tiny success.",
+        "sourceTextHash": "741c92b41235c92c95a5888abdbeb361477317bd69a2e03b2f22c6bfb0113a09",
+        "sequenceIntent": {
+          "objective": "Make the setback legible without threat, then reward patient recovery.",
+          "emotionalProgression": "A fragile attempt retreats, then returns stronger.",
+          "pointOfView": "Milo-aligned observation; firefly agency protected",
+          "pacing": "gentle and legible",
+          "visualMotif": "flicker, shadow, glow",
+          "audienceResponse": "Relief and delight in a small success.",
+          "assumptions": [
+            "Four panels are the minimum sufficient coverage for this short scene; the middle action uses two panels to make the emotional turn legible."
+          ]
+        },
+        "visualContinuityBible": {
+          "characterAppearance": "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "locationLayout": "Fern fronds, small gust affecting the foliage, lantern glow in soft focus behind.",
+          "propsAndPositions": [
+            "MILO-007-S01-P01-A007: Very subtle animation sequences for a near-imperceptible blink, a hide reaction, and a small glow increase for the firefly."
+          ],
+          "aspectRatio": "16:9",
+          "storyboardRenderingStyle": "Clean monochrome cinematic storyboard, selective gray values, strong silhouettes; a non-canon review convention.",
+          "palette": "Warm/cool values only; exact colours remain specified by approved names, not hex values.",
+          "lensLanguage": [
+            "100mm macro",
+            "50mm reaction",
+            "85mm glow-and-clap detail"
+          ],
+          "screenDirection": "Path progress screen-left to screen-right; keep Milo/firefly eyelines across the same axis.",
+          "recurringMotif": "flicker, shadow, glow"
+        },
+        "shots": [
+          {
+            "shotId": "MILO-007-S01-P01-SC05-SH01",
+            "shotNumber": 1,
+            "purpose": "Catch the nearly secret first flicker.",
+            "sourceTextHash": "741c92b41235c92c95a5888abdbeb361477317bd69a2e03b2f22c6bfb0113a09",
+            "panelIds": [
+              "MILO-007-S01-P01-SC05-SH01-PN01"
+            ]
+          },
+          {
+            "shotId": "MILO-007-S01-P01-SC05-SH02",
+            "shotNumber": 2,
+            "purpose": "Let a mild breeze move the fern and the firefly hide while Milo stays calm.",
+            "sourceTextHash": "741c92b41235c92c95a5888abdbeb361477317bd69a2e03b2f22c6bfb0113a09",
+            "panelIds": [
+              "MILO-007-S01-P01-SC05-SH02-PN01",
+              "MILO-007-S01-P01-SC05-SH02-PN02"
+            ]
+          },
+          {
+            "shotId": "MILO-007-S01-P01-SC05-SH03",
+            "shotNumber": 3,
+            "purpose": "Return through the slow count to the small glow and soft clap.",
+            "sourceTextHash": "741c92b41235c92c95a5888abdbeb361477317bd69a2e03b2f22c6bfb0113a09",
+            "panelIds": [
+              "MILO-007-S01-P01-SC05-SH03-PN01"
+            ]
+          }
+        ],
+        "panels": [
+          {
+            "panelId": "MILO-007-S01-P01-SC05-SH01-PN01",
+            "panelOrder": 1,
+            "shotId": "MILO-007-S01-P01-SC05-SH01",
+            "storyBeat": "Opening state: Catch the nearly secret first flicker.",
+            "frameComposition": "Catch the nearly secret first flicker. Keep the axis along the mossy path and the firefly on the established fern/lantern side.",
+            "characterAndObjectPlacement": "Maintain the established path axis; Milo and the tiny firefly/scene focus remain on their prior screen sides. Fern fronds, small gust affecting the foliage, lantern glow in soft focus behind.",
+            "geographyAndScreenDirection": "Path travel reads screen-left to screen-right; do not cross the Milo–firefly axis without a neutral re-establishing frame.",
+            "cameraMovement": "gentle track, hold, or release motivated by the action",
+            "actionAndDialogueTiming": "Hold for the source-text beat; do not add dialogue.",
+            "performance": "Catch the nearly secret first flicker.",
+            "lightingAndAtmosphere": "Very gentle flicker-level lighting on the firefly; maintain overall warm background light to keep mood safe.",
+            "transition": "Motivated straight cut or gentle dissolve; preserve axis and light progression.",
+            "panelDescription": "Opening state: Catch the nearly secret first flicker.. The first attempt: a barely visible blink, a setback when a breeze causes hiding, then a successful little glow after Milo patiently counts again.",
+            "providerNeutralStoryboardPrompt": "Clean monochrome production storyboard with selective warm-gray values, 16:9 frame, Milo Moonberry identifiable by huge round ears, shaggy fur silhouette, cream muzzle and belly-star shape, mustard backpack indicated by annotation, Very close to the fern on the mossy ground; intimate close-up sequence, Opening state: Catch the nearly secret first flicker., establishing geography with readable foreground, midground, and exit path, 100mm macro, readable silhouettes and eyelines, established left-to-right path direction, no canonical body proportions, no new characters, no photoreal asset claim, text specification only"
+          },
+          {
+            "panelId": "MILO-007-S01-P01-SC05-SH02-PN01",
+            "panelOrder": 2,
+            "shotId": "MILO-007-S01-P01-SC05-SH02",
+            "storyBeat": "Primary action: Let a mild breeze move the fern and the firefly hide while Milo stays calm.",
+            "frameComposition": "Let a mild breeze move the fern and the firefly hide while Milo stays calm. Keep the axis along the mossy path and the firefly on the established fern/lantern side.",
+            "characterAndObjectPlacement": "Maintain the established path axis; Milo and the tiny firefly/scene focus remain on their prior screen sides. Fern fronds, small gust affecting the foliage, lantern glow in soft focus behind.",
+            "geographyAndScreenDirection": "Path travel reads screen-left to screen-right; do not cross the Milo–firefly axis without a neutral re-establishing frame.",
+            "cameraMovement": "slow, eased push or restrained focus transfer",
+            "actionAndDialogueTiming": "Hold for exact cue(s): \"One...\"",
+            "performance": "Let a mild breeze move the fern and the firefly hide while Milo stays calm.",
+            "lightingAndAtmosphere": "Very gentle flicker-level lighting on the firefly; maintain overall warm background light to keep mood safe.",
+            "transition": "Motivated straight cut or gentle dissolve; preserve axis and light progression.",
+            "panelDescription": "Primary action: Let a mild breeze move the fern and the firefly hide while Milo stays calm.. The first attempt: a barely visible blink, a setback when a breeze causes hiding, then a successful little glow after Milo patiently counts again.",
+            "providerNeutralStoryboardPrompt": "Clean monochrome production storyboard with selective warm-gray values, 16:9 frame, Milo Moonberry identifiable by huge round ears, shaggy fur silhouette, cream muzzle and belly-star shape, mustard backpack indicated by annotation, Very close to the fern on the mossy ground; intimate close-up sequence, Primary action: Let a mild breeze move the fern and the firefly hide while Milo stays calm., emotion-led primary action framing, 50mm reaction, readable silhouettes and eyelines, established left-to-right path direction, no canonical body proportions, no new characters, no photoreal asset claim, text specification only"
+          },
+          {
+            "panelId": "MILO-007-S01-P01-SC05-SH02-PN02",
+            "panelOrder": 3,
+            "shotId": "MILO-007-S01-P01-SC05-SH02",
+            "storyBeat": "Reaction/turn: A fragile attempt retreats, then returns stronger.",
+            "frameComposition": "Let a mild breeze move the fern and the firefly hide while Milo stays calm. Keep the axis along the mossy path and the firefly on the established fern/lantern side.",
+            "characterAndObjectPlacement": "Maintain the established path axis; Milo and the tiny firefly/scene focus remain on their prior screen sides. Fern fronds, small gust affecting the foliage, lantern glow in soft focus behind.",
+            "geographyAndScreenDirection": "Path travel reads screen-left to screen-right; do not cross the Milo–firefly axis without a neutral re-establishing frame.",
+            "cameraMovement": "slow, eased push or restrained focus transfer",
+            "actionAndDialogueTiming": "Hold for exact cue(s): \"One...\"",
+            "performance": "Let a mild breeze move the fern and the firefly hide while Milo stays calm.",
+            "lightingAndAtmosphere": "Very gentle flicker-level lighting on the firefly; maintain overall warm background light to keep mood safe.",
+            "transition": "Motivated straight cut or gentle dissolve; preserve axis and light progression.",
+            "panelDescription": "Reaction/turn: A fragile attempt retreats, then returns stronger.. The first attempt: a barely visible blink, a setback when a breeze causes hiding, then a successful little glow after Milo patiently counts again.",
+            "providerNeutralStoryboardPrompt": "Clean monochrome production storyboard with selective warm-gray values, 16:9 frame, Milo Moonberry identifiable by huge round ears, shaggy fur silhouette, cream muzzle and belly-star shape, mustard backpack indicated by annotation, Very close to the fern on the mossy ground; intimate close-up sequence, Reaction/turn: A fragile attempt retreats, then returns stronger., emotion-led primary action framing, 50mm reaction, readable silhouettes and eyelines, established left-to-right path direction, no canonical body proportions, no new characters, no photoreal asset claim, text specification only"
+          },
+          {
+            "panelId": "MILO-007-S01-P01-SC05-SH03-PN01",
+            "panelOrder": 4,
+            "shotId": "MILO-007-S01-P01-SC05-SH03",
+            "storyBeat": "Exit state: Return through the slow count to the small glow and soft clap.",
+            "frameComposition": "Return through the slow count to the small glow and soft clap. Keep the axis along the mossy path and the firefly on the established fern/lantern side.",
+            "characterAndObjectPlacement": "Maintain the established path axis; Milo and the tiny firefly/scene focus remain on their prior screen sides. Fern fronds, small gust affecting the foliage, lantern glow in soft focus behind.",
+            "geographyAndScreenDirection": "Path travel reads screen-left to screen-right; do not cross the Milo–firefly axis without a neutral re-establishing frame.",
+            "cameraMovement": "gentle track, hold, or release motivated by the action",
+            "actionAndDialogueTiming": "Hold for the source-text beat; do not add dialogue.",
+            "performance": "Return through the slow count to the small glow and soft clap.",
+            "lightingAndAtmosphere": "Very gentle flicker-level lighting on the firefly; maintain overall warm background light to keep mood safe.",
+            "transition": "Quick micro-cuts between reaction shots to convey fragile progress without losing calm pacing.",
+            "panelDescription": "Exit state: Return through the slow count to the small glow and soft clap.. The first attempt: a barely visible blink, a setback when a breeze causes hiding, then a successful little glow after Milo patiently counts again.",
+            "providerNeutralStoryboardPrompt": "Clean monochrome production storyboard with selective warm-gray values, 16:9 frame, Milo Moonberry identifiable by huge round ears, shaggy fur silhouette, cream muzzle and belly-star shape, mustard backpack indicated by annotation, Very close to the fern on the mossy ground; intimate close-up sequence, Exit state: Return through the slow count to the small glow and soft clap., release or transition framing with a clean outgoing eyeline, 85mm glow-and-clap detail, readable silhouettes and eyelines, established left-to-right path direction, no canonical body proportions, no new characters, no photoreal asset claim, text specification only"
+          }
+        ],
+        "coverageAndContinuityCheck": {
+          "establishingGeography": true,
+          "essentialAction": true,
+          "emotionalReaction": true,
+          "usableExitImage": true,
+          "axisCrossings": [],
+          "risks": [
+            "No actual character/environment reference artwork exists; drawings remain specification-only until a separately authorised reference-generation gate."
+          ],
+          "redundantPanels": [],
+          "result": "TEXT_SPECIFICATION_COMPLETE_AWAITING_HUMAN_APPROVAL"
+        }
+      },
+      {
+        "sceneId": "MILO-007-S01-P01-SC06",
+        "sceneNumber": 6,
+        "sourceText": "Each small blink grows a fraction brighter. With each quiet cheer from Milo, the firefly's courage builds. They try again and again, celebrating each tiny glow like a sparkling victory. Soon the little firefly feels ready to test the path. A nearby lantern makes a gentle pool of light, and the firefly inches forward toward it.",
+        "sourceTextHash": "82b95a5a86926cdf35b7623184604e96a05ab2a235a3965e2ec57c59b35235e6",
+        "sequenceIntent": {
+          "objective": "Compress repeated practice while preserving the sense of gradual progress.",
+          "emotionalProgression": "Effort accumulates into self-belief.",
+          "pointOfView": "Milo-aligned observation; firefly agency protected",
+          "pacing": "gentle and legible",
+          "visualMotif": "incremental glow stepping toward a lantern pool",
+          "audienceResponse": "Warm momentum rather than spectacle.",
+          "assumptions": [
+            "Four panels are the minimum sufficient coverage for this short scene; the middle action uses two panels to make the emotional turn legible."
+          ]
+        },
+        "visualContinuityBible": {
+          "characterAppearance": "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "locationLayout": "Lantern pool of gentle light, low-lying moss and stones marking the small step path.",
+          "propsAndPositions": [
+            "MILO-007-S01-P01-A008: Multiple keyed frames or layered assets showing incremental increases in the firefly's glow for compositing into a montage."
+          ],
+          "aspectRatio": "16:9",
+          "storyboardRenderingStyle": "Clean monochrome cinematic storyboard, selective gray values, strong silhouettes; a non-canon review convention.",
+          "palette": "Warm/cool values only; exact colours remain specified by approved names, not hex values.",
+          "lensLanguage": [
+            "65mm close montage",
+            "85mm glow detail",
+            "40mm spatial medium"
+          ],
+          "screenDirection": "Path progress screen-left to screen-right; keep Milo/firefly eyelines across the same axis.",
+          "recurringMotif": "incremental glow stepping toward a lantern pool"
+        },
+        "shots": [
+          {
+            "shotId": "MILO-007-S01-P01-SC06-SH01",
+            "shotNumber": 1,
+            "purpose": "Establish the repeatable rhythm of blink and quiet cheer.",
+            "sourceTextHash": "82b95a5a86926cdf35b7623184604e96a05ab2a235a3965e2ec57c59b35235e6",
+            "panelIds": [
+              "MILO-007-S01-P01-SC06-SH01-PN01"
+            ]
+          },
+          {
+            "shotId": "MILO-007-S01-P01-SC06-SH02",
+            "shotNumber": 2,
+            "purpose": "Show successive brighter attempts without skipping emotional beats.",
+            "sourceTextHash": "82b95a5a86926cdf35b7623184604e96a05ab2a235a3965e2ec57c59b35235e6",
+            "panelIds": [
+              "MILO-007-S01-P01-SC06-SH02-PN01",
+              "MILO-007-S01-P01-SC06-SH02-PN02"
+            ]
+          },
+          {
+            "shotId": "MILO-007-S01-P01-SC06-SH03",
+            "shotNumber": 3,
+            "purpose": "Place the firefly’s first cautious movement toward the lantern pool.",
+            "sourceTextHash": "82b95a5a86926cdf35b7623184604e96a05ab2a235a3965e2ec57c59b35235e6",
+            "panelIds": [
+              "MILO-007-S01-P01-SC06-SH03-PN01"
+            ]
+          }
+        ],
+        "panels": [
+          {
+            "panelId": "MILO-007-S01-P01-SC06-SH01-PN01",
+            "panelOrder": 1,
+            "shotId": "MILO-007-S01-P01-SC06-SH01",
+            "storyBeat": "Opening state: Establish the repeatable rhythm of blink and quiet cheer.",
+            "frameComposition": "Establish the repeatable rhythm of blink and quiet cheer. Keep the axis along the mossy path and the firefly on the established fern/lantern side.",
+            "characterAndObjectPlacement": "Maintain the established path axis; Milo and the tiny firefly/scene focus remain on their prior screen sides. Lantern pool of gentle light, low-lying moss and stones marking the small step path.",
+            "geographyAndScreenDirection": "Path travel reads screen-left to screen-right; do not cross the Milo–firefly axis without a neutral re-establishing frame.",
+            "cameraMovement": "gentle track, hold, or release motivated by the action",
+            "actionAndDialogueTiming": "Hold for the source-text beat; do not add dialogue.",
+            "performance": "Establish the repeatable rhythm of blink and quiet cheer.",
+            "lightingAndAtmosphere": "Warm, encouraging pools of light with soft highlights; increase firefly glow subtly across beats.",
+            "transition": "Motivated straight cut or gentle dissolve; preserve axis and light progression.",
+            "panelDescription": "Opening state: Establish the repeatable rhythm of blink and quiet cheer.. Training and encouragement montage: incremental progress as Milo celebrates each tiny glow and the firefly inches toward a nearby lantern pool.",
+            "providerNeutralStoryboardPrompt": "Clean monochrome production storyboard with selective warm-gray values, 16:9 frame, Milo Moonberry identifiable by huge round ears, shaggy fur silhouette, cream muzzle and belly-star shape, mustard backpack indicated by annotation, Short stretch of path showing a nearby lantern pool, Opening state: Establish the repeatable rhythm of blink and quiet cheer., establishing geography with readable foreground, midground, and exit path, 65mm close montage, readable silhouettes and eyelines, established left-to-right path direction, no canonical body proportions, no new characters, no photoreal asset claim, text specification only"
+          },
+          {
+            "panelId": "MILO-007-S01-P01-SC06-SH02-PN01",
+            "panelOrder": 2,
+            "shotId": "MILO-007-S01-P01-SC06-SH02",
+            "storyBeat": "Primary action: Show successive brighter attempts without skipping emotional beats.",
+            "frameComposition": "Show successive brighter attempts without skipping emotional beats. Keep the axis along the mossy path and the firefly on the established fern/lantern side.",
+            "characterAndObjectPlacement": "Maintain the established path axis; Milo and the tiny firefly/scene focus remain on their prior screen sides. Lantern pool of gentle light, low-lying moss and stones marking the small step path.",
+            "geographyAndScreenDirection": "Path travel reads screen-left to screen-right; do not cross the Milo–firefly axis without a neutral re-establishing frame.",
+            "cameraMovement": "slow, eased push or restrained focus transfer",
+            "actionAndDialogueTiming": "Hold for the source-text beat; do not add dialogue.",
+            "performance": "Show successive brighter attempts without skipping emotional beats.",
+            "lightingAndAtmosphere": "Warm, encouraging pools of light with soft highlights; increase firefly glow subtly across beats.",
+            "transition": "Motivated straight cut or gentle dissolve; preserve axis and light progression.",
+            "panelDescription": "Primary action: Show successive brighter attempts without skipping emotional beats.. Training and encouragement montage: incremental progress as Milo celebrates each tiny glow and the firefly inches toward a nearby lantern pool.",
+            "providerNeutralStoryboardPrompt": "Clean monochrome production storyboard with selective warm-gray values, 16:9 frame, Milo Moonberry identifiable by huge round ears, shaggy fur silhouette, cream muzzle and belly-star shape, mustard backpack indicated by annotation, Short stretch of path showing a nearby lantern pool, Primary action: Show successive brighter attempts without skipping emotional beats., emotion-led primary action framing, 85mm glow detail, readable silhouettes and eyelines, established left-to-right path direction, no canonical body proportions, no new characters, no photoreal asset claim, text specification only"
+          },
+          {
+            "panelId": "MILO-007-S01-P01-SC06-SH02-PN02",
+            "panelOrder": 3,
+            "shotId": "MILO-007-S01-P01-SC06-SH02",
+            "storyBeat": "Reaction/turn: Effort accumulates into self-belief.",
+            "frameComposition": "Show successive brighter attempts without skipping emotional beats. Keep the axis along the mossy path and the firefly on the established fern/lantern side.",
+            "characterAndObjectPlacement": "Maintain the established path axis; Milo and the tiny firefly/scene focus remain on their prior screen sides. Lantern pool of gentle light, low-lying moss and stones marking the small step path.",
+            "geographyAndScreenDirection": "Path travel reads screen-left to screen-right; do not cross the Milo–firefly axis without a neutral re-establishing frame.",
+            "cameraMovement": "slow, eased push or restrained focus transfer",
+            "actionAndDialogueTiming": "Hold for the source-text beat; do not add dialogue.",
+            "performance": "Show successive brighter attempts without skipping emotional beats.",
+            "lightingAndAtmosphere": "Warm, encouraging pools of light with soft highlights; increase firefly glow subtly across beats.",
+            "transition": "Motivated straight cut or gentle dissolve; preserve axis and light progression.",
+            "panelDescription": "Reaction/turn: Effort accumulates into self-belief.. Training and encouragement montage: incremental progress as Milo celebrates each tiny glow and the firefly inches toward a nearby lantern pool.",
+            "providerNeutralStoryboardPrompt": "Clean monochrome production storyboard with selective warm-gray values, 16:9 frame, Milo Moonberry identifiable by huge round ears, shaggy fur silhouette, cream muzzle and belly-star shape, mustard backpack indicated by annotation, Short stretch of path showing a nearby lantern pool, Reaction/turn: Effort accumulates into self-belief., emotion-led primary action framing, 85mm glow detail, readable silhouettes and eyelines, established left-to-right path direction, no canonical body proportions, no new characters, no photoreal asset claim, text specification only"
+          },
+          {
+            "panelId": "MILO-007-S01-P01-SC06-SH03-PN01",
+            "panelOrder": 4,
+            "shotId": "MILO-007-S01-P01-SC06-SH03",
+            "storyBeat": "Exit state: Place the firefly’s first cautious movement toward the lantern pool.",
+            "frameComposition": "Place the firefly’s first cautious movement toward the lantern pool. Keep the axis along the mossy path and the firefly on the established fern/lantern side.",
+            "characterAndObjectPlacement": "Maintain the established path axis; Milo and the tiny firefly/scene focus remain on their prior screen sides. Lantern pool of gentle light, low-lying moss and stones marking the small step path.",
+            "geographyAndScreenDirection": "Path travel reads screen-left to screen-right; do not cross the Milo–firefly axis without a neutral re-establishing frame.",
+            "cameraMovement": "gentle track, hold, or release motivated by the action",
+            "actionAndDialogueTiming": "Hold for the source-text beat; do not add dialogue.",
+            "performance": "Place the firefly’s first cautious movement toward the lantern pool.",
+            "lightingAndAtmosphere": "Warm, encouraging pools of light with soft highlights; increase firefly glow subtly across beats.",
+            "transition": "Montage rhythm: consistent short dissolves or gentle cuts to maintain calm momentum.",
+            "panelDescription": "Exit state: Place the firefly’s first cautious movement toward the lantern pool.. Training and encouragement montage: incremental progress as Milo celebrates each tiny glow and the firefly inches toward a nearby lantern pool.",
+            "providerNeutralStoryboardPrompt": "Clean monochrome production storyboard with selective warm-gray values, 16:9 frame, Milo Moonberry identifiable by huge round ears, shaggy fur silhouette, cream muzzle and belly-star shape, mustard backpack indicated by annotation, Short stretch of path showing a nearby lantern pool, Exit state: Place the firefly’s first cautious movement toward the lantern pool., release or transition framing with a clean outgoing eyeline, 40mm spatial medium, readable silhouettes and eyelines, established left-to-right path direction, no canonical body proportions, no new characters, no photoreal asset claim, text specification only"
+          }
+        ],
+        "coverageAndContinuityCheck": {
+          "establishingGeography": true,
+          "essentialAction": true,
+          "emotionalReaction": true,
+          "usableExitImage": true,
+          "axisCrossings": [],
+          "risks": [
+            "No actual character/environment reference artwork exists; drawings remain specification-only until a separately authorised reference-generation gate."
+          ],
+          "redundantPanels": [],
+          "result": "TEXT_SPECIFICATION_COMPLETE_AWAITING_HUMAN_APPROVAL"
+        }
+      },
+      {
+        "sceneId": "MILO-007-S01-P01-SC07",
+        "sceneNumber": 7,
+        "sourceText": "Just as the lanterns lift the shadows and the path begins to look unfamiliar, the firefly faces the biggest choice — stay hidden or blink and fly. Milo stays by its side, offering a gentle, encouraging gesture. \"Remember your first tiny blink? You did that,\" he says softly. The firefly chooses for itself. It blinks bright, lets out a joyful twinkle, and lifts into the air, following the twinkling path toward its family.",
+        "sourceTextHash": "72a458d4c15eb226cca2d26709e33666a8f3cd17226e84d1d201dee584d1f289",
+        "sequenceIntent": {
+          "objective": "Protect the firefly’s agency at the central choice and make lift-off earned.",
+          "emotionalProgression": "Uncertainty becomes self-directed courage.",
+          "pointOfView": "Milo-aligned observation; firefly agency protected",
+          "pacing": "gentle and legible",
+          "visualMotif": "the twinkling path rising into depth",
+          "audienceResponse": "Joy rooted in the firefly’s own choice.",
+          "assumptions": [
+            "Four panels are the minimum sufficient coverage for this short scene; the middle action uses two panels to make the emotional turn legible."
+          ]
+        },
+        "visualContinuityBible": {
+          "characterAppearance": "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "locationLayout": "Twinkling lanterns forming a subtly winding path, soft shadow play on mossy stones, small circle of light ahead suggesting family reunion.",
+          "propsAndPositions": [
+            "MILO-007-S01-P01-A009: Warm, soft recording of the line \"Remember your first tiny blink? You did that,\" with controlled dynamics and a comforting tone.",
+            "MILO-007-S01-P01-A010: Animated arc of the firefly's joyful twinkle and flight that can be followed by a camera track; include light bloom for the twinkle."
+          ],
+          "aspectRatio": "16:9",
+          "storyboardRenderingStyle": "Clean monochrome cinematic storyboard, selective gray values, strong silhouettes; a non-canon review convention.",
+          "palette": "Warm/cool values only; exact colours remain specified by approved names, not hex values.",
+          "lensLanguage": [
+            "40mm decision two-shot",
+            "65mm dialogue close",
+            "35mm upward tracking"
+          ],
+          "screenDirection": "Path progress screen-left to screen-right; keep Milo/firefly eyelines across the same axis.",
+          "recurringMotif": "the twinkling path rising into depth"
+        },
+        "shots": [
+          {
+            "shotId": "MILO-007-S01-P01-SC07-SH01",
+            "shotNumber": 1,
+            "purpose": "Frame the unfamiliar path and the choice to stay or go.",
+            "sourceTextHash": "72a458d4c15eb226cca2d26709e33666a8f3cd17226e84d1d201dee584d1f289",
+            "panelIds": [
+              "MILO-007-S01-P01-SC07-SH01-PN01"
+            ]
+          },
+          {
+            "shotId": "MILO-007-S01-P01-SC07-SH02",
+            "shotNumber": 2,
+            "purpose": "Let Milo’s exact reminder land, then leave a pause with no physical prompting.",
+            "sourceTextHash": "72a458d4c15eb226cca2d26709e33666a8f3cd17226e84d1d201dee584d1f289",
+            "panelIds": [
+              "MILO-007-S01-P01-SC07-SH02-PN01",
+              "MILO-007-S01-P01-SC07-SH02-PN02"
+            ]
+          },
+          {
+            "shotId": "MILO-007-S01-P01-SC07-SH03",
+            "shotNumber": 3,
+            "purpose": "Follow the firefly’s bright blink and voluntary lift toward family.",
+            "sourceTextHash": "72a458d4c15eb226cca2d26709e33666a8f3cd17226e84d1d201dee584d1f289",
+            "panelIds": [
+              "MILO-007-S01-P01-SC07-SH03-PN01"
+            ]
+          }
+        ],
+        "panels": [
+          {
+            "panelId": "MILO-007-S01-P01-SC07-SH01-PN01",
+            "panelOrder": 1,
+            "shotId": "MILO-007-S01-P01-SC07-SH01",
+            "storyBeat": "Opening state: Frame the unfamiliar path and the choice to stay or go.",
+            "frameComposition": "Frame the unfamiliar path and the choice to stay or go. Keep the axis along the mossy path and the firefly on the established fern/lantern side.",
+            "characterAndObjectPlacement": "Maintain the established path axis; Milo and the tiny firefly/scene focus remain on their prior screen sides. Twinkling lanterns forming a subtly winding path, soft shadow play on mossy stones, small circle of light ahead suggesting family reunion.",
+            "geographyAndScreenDirection": "Path travel reads screen-left to screen-right; do not cross the Milo–firefly axis without a neutral re-establishing frame.",
+            "cameraMovement": "gentle track, hold, or release motivated by the action",
+            "actionAndDialogueTiming": "Hold for the source-text beat; do not add dialogue.",
+            "performance": "Frame the unfamiliar path and the choice to stay or go.",
+            "lightingAndAtmosphere": "Warm, nurturing pools of lantern light leading forward; the firefly's glow increases to a joyful bright twinkle at the lift-off.",
+            "transition": "Motivated straight cut or gentle dissolve; preserve axis and light progression.",
+            "panelDescription": "Opening state: Frame the unfamiliar path and the choice to stay or go.. Decision moment: the path looks unfamiliar, the firefly must choose; Milo gently encourages and reminds it of its first blink, and the firefly chooses to blink and fly toward its family.",
+            "providerNeutralStoryboardPrompt": "Clean monochrome production storyboard with selective warm-gray values, 16:9 frame, Milo Moonberry identifiable by huge round ears, shaggy fur silhouette, cream muzzle and belly-star shape, mustard backpack indicated by annotation, A slightly widened section of the path where lantern pools form a small guiding route, Opening state: Frame the unfamiliar path and the choice to stay or go., establishing geography with readable foreground, midground, and exit path, 40mm decision two-shot, readable silhouettes and eyelines, established left-to-right path direction, no canonical body proportions, no new characters, no photoreal asset claim, text specification only"
+          },
+          {
+            "panelId": "MILO-007-S01-P01-SC07-SH02-PN01",
+            "panelOrder": 2,
+            "shotId": "MILO-007-S01-P01-SC07-SH02",
+            "storyBeat": "Primary action: Let Milo’s exact reminder land, then leave a pause with no physical prompting.",
+            "frameComposition": "Let Milo’s exact reminder land, then leave a pause with no physical prompting. Keep the axis along the mossy path and the firefly on the established fern/lantern side.",
+            "characterAndObjectPlacement": "Maintain the established path axis; Milo and the tiny firefly/scene focus remain on their prior screen sides. Twinkling lanterns forming a subtly winding path, soft shadow play on mossy stones, small circle of light ahead suggesting family reunion.",
+            "geographyAndScreenDirection": "Path travel reads screen-left to screen-right; do not cross the Milo–firefly axis without a neutral re-establishing frame.",
+            "cameraMovement": "slow, eased push or restrained focus transfer",
+            "actionAndDialogueTiming": "Hold for exact cue(s): \"Remember your first tiny blink? You did that,\"",
+            "performance": "Let Milo’s exact reminder land, then leave a pause with no physical prompting.",
+            "lightingAndAtmosphere": "Warm, nurturing pools of lantern light leading forward; the firefly's glow increases to a joyful bright twinkle at the lift-off.",
+            "transition": "Motivated straight cut or gentle dissolve; preserve axis and light progression.",
+            "panelDescription": "Primary action: Let Milo’s exact reminder land, then leave a pause with no physical prompting.. Decision moment: the path looks unfamiliar, the firefly must choose; Milo gently encourages and reminds it of its first blink, and the firefly chooses to blink and fly toward its family.",
+            "providerNeutralStoryboardPrompt": "Clean monochrome production storyboard with selective warm-gray values, 16:9 frame, Milo Moonberry identifiable by huge round ears, shaggy fur silhouette, cream muzzle and belly-star shape, mustard backpack indicated by annotation, A slightly widened section of the path where lantern pools form a small guiding route, Primary action: Let Milo’s exact reminder land, then leave a pause with no physical prompting., emotion-led primary action framing, 65mm dialogue close, readable silhouettes and eyelines, established left-to-right path direction, no canonical body proportions, no new characters, no photoreal asset claim, text specification only"
+          },
+          {
+            "panelId": "MILO-007-S01-P01-SC07-SH02-PN02",
+            "panelOrder": 3,
+            "shotId": "MILO-007-S01-P01-SC07-SH02",
+            "storyBeat": "Reaction/turn: Uncertainty becomes self-directed courage.",
+            "frameComposition": "Let Milo’s exact reminder land, then leave a pause with no physical prompting. Keep the axis along the mossy path and the firefly on the established fern/lantern side.",
+            "characterAndObjectPlacement": "Maintain the established path axis; Milo and the tiny firefly/scene focus remain on their prior screen sides. Twinkling lanterns forming a subtly winding path, soft shadow play on mossy stones, small circle of light ahead suggesting family reunion.",
+            "geographyAndScreenDirection": "Path travel reads screen-left to screen-right; do not cross the Milo–firefly axis without a neutral re-establishing frame.",
+            "cameraMovement": "slow, eased push or restrained focus transfer",
+            "actionAndDialogueTiming": "Hold for exact cue(s): \"Remember your first tiny blink? You did that,\"",
+            "performance": "Let Milo’s exact reminder land, then leave a pause with no physical prompting.",
+            "lightingAndAtmosphere": "Warm, nurturing pools of lantern light leading forward; the firefly's glow increases to a joyful bright twinkle at the lift-off.",
+            "transition": "Motivated straight cut or gentle dissolve; preserve axis and light progression.",
+            "panelDescription": "Reaction/turn: Uncertainty becomes self-directed courage.. Decision moment: the path looks unfamiliar, the firefly must choose; Milo gently encourages and reminds it of its first blink, and the firefly chooses to blink and fly toward its family.",
+            "providerNeutralStoryboardPrompt": "Clean monochrome production storyboard with selective warm-gray values, 16:9 frame, Milo Moonberry identifiable by huge round ears, shaggy fur silhouette, cream muzzle and belly-star shape, mustard backpack indicated by annotation, A slightly widened section of the path where lantern pools form a small guiding route, Reaction/turn: Uncertainty becomes self-directed courage., emotion-led primary action framing, 65mm dialogue close, readable silhouettes and eyelines, established left-to-right path direction, no canonical body proportions, no new characters, no photoreal asset claim, text specification only"
+          },
+          {
+            "panelId": "MILO-007-S01-P01-SC07-SH03-PN01",
+            "panelOrder": 4,
+            "shotId": "MILO-007-S01-P01-SC07-SH03",
+            "storyBeat": "Exit state: Follow the firefly’s bright blink and voluntary lift toward family.",
+            "frameComposition": "Follow the firefly’s bright blink and voluntary lift toward family. Keep the axis along the mossy path and the firefly on the established fern/lantern side.",
+            "characterAndObjectPlacement": "Maintain the established path axis; Milo and the tiny firefly/scene focus remain on their prior screen sides. Twinkling lanterns forming a subtly winding path, soft shadow play on mossy stones, small circle of light ahead suggesting family reunion.",
+            "geographyAndScreenDirection": "Path travel reads screen-left to screen-right; do not cross the Milo–firefly axis without a neutral re-establishing frame.",
+            "cameraMovement": "gentle track, hold, or release motivated by the action",
+            "actionAndDialogueTiming": "Hold for the source-text beat; do not add dialogue.",
+            "performance": "Follow the firefly’s bright blink and voluntary lift toward family.",
+            "lightingAndAtmosphere": "Warm, nurturing pools of lantern light leading forward; the firefly's glow increases to a joyful bright twinkle at the lift-off.",
+            "transition": "Use a soft upward camera movement or match-cut to follow the firefly into the air.",
+            "panelDescription": "Exit state: Follow the firefly’s bright blink and voluntary lift toward family.. Decision moment: the path looks unfamiliar, the firefly must choose; Milo gently encourages and reminds it of its first blink, and the firefly chooses to blink and fly toward its family.",
+            "providerNeutralStoryboardPrompt": "Clean monochrome production storyboard with selective warm-gray values, 16:9 frame, Milo Moonberry identifiable by huge round ears, shaggy fur silhouette, cream muzzle and belly-star shape, mustard backpack indicated by annotation, A slightly widened section of the path where lantern pools form a small guiding route, Exit state: Follow the firefly’s bright blink and voluntary lift toward family., release or transition framing with a clean outgoing eyeline, 35mm upward tracking, readable silhouettes and eyelines, established left-to-right path direction, no canonical body proportions, no new characters, no photoreal asset claim, text specification only"
+          }
+        ],
+        "coverageAndContinuityCheck": {
+          "establishingGeography": true,
+          "essentialAction": true,
+          "emotionalReaction": true,
+          "usableExitImage": true,
+          "axisCrossings": [],
+          "risks": [
+            "No actual character/environment reference artwork exists; drawings remain specification-only until a separately authorised reference-generation gate."
+          ],
+          "redundantPanels": [],
+          "result": "TEXT_SPECIFICATION_COMPLETE_AWAITING_HUMAN_APPROVAL"
+        }
+      },
+      {
+        "sceneId": "MILO-007-S01-P01-SC08",
+        "sceneNumber": 8,
+        "sourceText": "At the place where the lanterns make a soft circle, the firefly reunites with its family and they glow together like a tiny, warm constellation. Milo watches happily, waves, and continues his evening walk with a warm smile. He celebrates the courage of one small light and quietly hums, \"Moonberries and moonbeams!\"",
+        "sourceTextHash": "9a2c65085926464506dd213e0d09b640bd9563c5213274ca016a3b1d663105b1",
+        "sequenceIntent": {
+          "objective": "Resolve the journey with an intimate reunion and a calm, memorable farewell.",
+          "emotionalProgression": "Courage settles into belonging and contentment.",
+          "pointOfView": "Milo-aligned observation; firefly agency protected",
+          "pacing": "gentle and legible",
+          "visualMotif": "a tiny constellation inside a lantern circle",
+          "audienceResponse": "Comforted closure.",
+          "assumptions": [
+            "Four panels are the minimum sufficient coverage for this short scene; the middle action uses two panels to make the emotional turn legible."
+          ]
+        },
+        "visualContinuityBible": {
+          "characterAppearance": "Milo retains soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, and mustard-yellow explorer backpack.",
+          "locationLayout": "Soft circle of lanterns, slightly elevated clearing feel, warm ambient glow showing the small family reunion.",
+          "propsAndPositions": [
+            "MILO-007-S01-P01-A011: Composed wide/medium assets showing lantern circle, small glowing firefly family, and Milo waving and walking away."
+          ],
+          "aspectRatio": "16:9",
+          "storyboardRenderingStyle": "Clean monochrome cinematic storyboard, selective gray values, strong silhouettes; a non-canon review convention.",
+          "palette": "Warm/cool values only; exact colours remain specified by approved names, not hex values.",
+          "lensLanguage": [
+            "35mm reunion wide",
+            "50mm wave medium",
+            "40mm departing wide"
+          ],
+          "screenDirection": "Path progress screen-left to screen-right; keep Milo/firefly eyelines across the same axis.",
+          "recurringMotif": "a tiny constellation inside a lantern circle"
+        },
+        "shots": [
+          {
+            "shotId": "MILO-007-S01-P01-SC08-SH01",
+            "shotNumber": 1,
+            "purpose": "Reveal the firefly family as unnamed small lights in the lantern circle.",
+            "sourceTextHash": "9a2c65085926464506dd213e0d09b640bd9563c5213274ca016a3b1d663105b1",
+            "panelIds": [
+              "MILO-007-S01-P01-SC08-SH01-PN01"
+            ]
+          },
+          {
+            "shotId": "MILO-007-S01-P01-SC08-SH02",
+            "shotNumber": 2,
+            "purpose": "Include Milo’s happy wave while the reunion remains central.",
+            "sourceTextHash": "9a2c65085926464506dd213e0d09b640bd9563c5213274ca016a3b1d663105b1",
+            "panelIds": [
+              "MILO-007-S01-P01-SC08-SH02-PN01",
+              "MILO-007-S01-P01-SC08-SH02-PN02"
+            ]
+          },
+          {
+            "shotId": "MILO-007-S01-P01-SC08-SH03",
+            "shotNumber": 3,
+            "purpose": "Track Milo onward and close on the exact hummed phrase.",
+            "sourceTextHash": "9a2c65085926464506dd213e0d09b640bd9563c5213274ca016a3b1d663105b1",
+            "panelIds": [
+              "MILO-007-S01-P01-SC08-SH03-PN01"
+            ]
+          }
+        ],
+        "panels": [
+          {
+            "panelId": "MILO-007-S01-P01-SC08-SH01-PN01",
+            "panelOrder": 1,
+            "shotId": "MILO-007-S01-P01-SC08-SH01",
+            "storyBeat": "Opening state: Reveal the firefly family as unnamed small lights in the lantern circle.",
+            "frameComposition": "Reveal the firefly family as unnamed small lights in the lantern circle. Keep the axis along the mossy path and the firefly on the established fern/lantern side.",
+            "characterAndObjectPlacement": "Maintain the established path axis; Milo and the tiny firefly/scene focus remain on their prior screen sides. Soft circle of lanterns, slightly elevated clearing feel, warm ambient glow showing the small family reunion.",
+            "geographyAndScreenDirection": "Path travel reads screen-left to screen-right; do not cross the Milo–firefly axis without a neutral re-establishing frame.",
+            "cameraMovement": "gentle track, hold, or release motivated by the action",
+            "actionAndDialogueTiming": "Hold for the source-text beat; do not add dialogue.",
+            "performance": "Reveal the firefly family as unnamed small lights in the lantern circle.",
+            "lightingAndAtmosphere": "Comforting warm circle of light with small, harmonious points of bioluminescence from the firefly family.",
+            "transition": "Motivated straight cut or gentle dissolve; preserve axis and light progression.",
+            "panelDescription": "Opening state: Reveal the firefly family as unnamed small lights in the lantern circle.. Resolution and farewell: the firefly reunites with family in a circle of lanterns; Milo waves and continues his walk, humming the signature sign-off.",
+            "providerNeutralStoryboardPrompt": "Clean monochrome production storyboard with selective warm-gray values, 16:9 frame, Milo Moonberry identifiable by huge round ears, shaggy fur silhouette, cream muzzle and belly-star shape, mustard backpack indicated by annotation, Small clearing or path circle formed by lantern pools, Opening state: Reveal the firefly family as unnamed small lights in the lantern circle., establishing geography with readable foreground, midground, and exit path, 35mm reunion wide, readable silhouettes and eyelines, established left-to-right path direction, no canonical body proportions, no new characters, no photoreal asset claim, text specification only"
+          },
+          {
+            "panelId": "MILO-007-S01-P01-SC08-SH02-PN01",
+            "panelOrder": 2,
+            "shotId": "MILO-007-S01-P01-SC08-SH02",
+            "storyBeat": "Primary action: Include Milo’s happy wave while the reunion remains central.",
+            "frameComposition": "Include Milo’s happy wave while the reunion remains central. Keep the axis along the mossy path and the firefly on the established fern/lantern side.",
+            "characterAndObjectPlacement": "Maintain the established path axis; Milo and the tiny firefly/scene focus remain on their prior screen sides. Soft circle of lanterns, slightly elevated clearing feel, warm ambient glow showing the small family reunion.",
+            "geographyAndScreenDirection": "Path travel reads screen-left to screen-right; do not cross the Milo–firefly axis without a neutral re-establishing frame.",
+            "cameraMovement": "slow, eased push or restrained focus transfer",
+            "actionAndDialogueTiming": "Hold for exact cue(s): \"Moonberries and moonbeams!\"",
+            "performance": "Include Milo’s happy wave while the reunion remains central.",
+            "lightingAndAtmosphere": "Comforting warm circle of light with small, harmonious points of bioluminescence from the firefly family.",
+            "transition": "Motivated straight cut or gentle dissolve; preserve axis and light progression.",
+            "panelDescription": "Primary action: Include Milo’s happy wave while the reunion remains central.. Resolution and farewell: the firefly reunites with family in a circle of lanterns; Milo waves and continues his walk, humming the signature sign-off.",
+            "providerNeutralStoryboardPrompt": "Clean monochrome production storyboard with selective warm-gray values, 16:9 frame, Milo Moonberry identifiable by huge round ears, shaggy fur silhouette, cream muzzle and belly-star shape, mustard backpack indicated by annotation, Small clearing or path circle formed by lantern pools, Primary action: Include Milo’s happy wave while the reunion remains central., emotion-led primary action framing, 50mm wave medium, readable silhouettes and eyelines, established left-to-right path direction, no canonical body proportions, no new characters, no photoreal asset claim, text specification only"
+          },
+          {
+            "panelId": "MILO-007-S01-P01-SC08-SH02-PN02",
+            "panelOrder": 3,
+            "shotId": "MILO-007-S01-P01-SC08-SH02",
+            "storyBeat": "Reaction/turn: Courage settles into belonging and contentment.",
+            "frameComposition": "Include Milo’s happy wave while the reunion remains central. Keep the axis along the mossy path and the firefly on the established fern/lantern side.",
+            "characterAndObjectPlacement": "Maintain the established path axis; Milo and the tiny firefly/scene focus remain on their prior screen sides. Soft circle of lanterns, slightly elevated clearing feel, warm ambient glow showing the small family reunion.",
+            "geographyAndScreenDirection": "Path travel reads screen-left to screen-right; do not cross the Milo–firefly axis without a neutral re-establishing frame.",
+            "cameraMovement": "slow, eased push or restrained focus transfer",
+            "actionAndDialogueTiming": "Hold for exact cue(s): \"Moonberries and moonbeams!\"",
+            "performance": "Include Milo’s happy wave while the reunion remains central.",
+            "lightingAndAtmosphere": "Comforting warm circle of light with small, harmonious points of bioluminescence from the firefly family.",
+            "transition": "Motivated straight cut or gentle dissolve; preserve axis and light progression.",
+            "panelDescription": "Reaction/turn: Courage settles into belonging and contentment.. Resolution and farewell: the firefly reunites with family in a circle of lanterns; Milo waves and continues his walk, humming the signature sign-off.",
+            "providerNeutralStoryboardPrompt": "Clean monochrome production storyboard with selective warm-gray values, 16:9 frame, Milo Moonberry identifiable by huge round ears, shaggy fur silhouette, cream muzzle and belly-star shape, mustard backpack indicated by annotation, Small clearing or path circle formed by lantern pools, Reaction/turn: Courage settles into belonging and contentment., emotion-led primary action framing, 50mm wave medium, readable silhouettes and eyelines, established left-to-right path direction, no canonical body proportions, no new characters, no photoreal asset claim, text specification only"
+          },
+          {
+            "panelId": "MILO-007-S01-P01-SC08-SH03-PN01",
+            "panelOrder": 4,
+            "shotId": "MILO-007-S01-P01-SC08-SH03",
+            "storyBeat": "Exit state: Track Milo onward and close on the exact hummed phrase.",
+            "frameComposition": "Track Milo onward and close on the exact hummed phrase. Keep the axis along the mossy path and the firefly on the established fern/lantern side.",
+            "characterAndObjectPlacement": "Maintain the established path axis; Milo and the tiny firefly/scene focus remain on their prior screen sides. Soft circle of lanterns, slightly elevated clearing feel, warm ambient glow showing the small family reunion.",
+            "geographyAndScreenDirection": "Path travel reads screen-left to screen-right; do not cross the Milo–firefly axis without a neutral re-establishing frame.",
+            "cameraMovement": "gentle track, hold, or release motivated by the action",
+            "actionAndDialogueTiming": "Hold for the source-text beat; do not add dialogue.",
+            "performance": "Track Milo onward and close on the exact hummed phrase.",
+            "lightingAndAtmosphere": "Comforting warm circle of light with small, harmonious points of bioluminescence from the firefly family.",
+            "transition": "Gentle fade or track-out as Milo continues his evening walk to close the scene.",
+            "panelDescription": "Exit state: Track Milo onward and close on the exact hummed phrase.. Resolution and farewell: the firefly reunites with family in a circle of lanterns; Milo waves and continues his walk, humming the signature sign-off.",
+            "providerNeutralStoryboardPrompt": "Clean monochrome production storyboard with selective warm-gray values, 16:9 frame, Milo Moonberry identifiable by huge round ears, shaggy fur silhouette, cream muzzle and belly-star shape, mustard backpack indicated by annotation, Small clearing or path circle formed by lantern pools, Exit state: Track Milo onward and close on the exact hummed phrase., release or transition framing with a clean outgoing eyeline, 40mm departing wide, readable silhouettes and eyelines, established left-to-right path direction, no canonical body proportions, no new characters, no photoreal asset claim, text specification only"
+          }
+        ],
+        "coverageAndContinuityCheck": {
+          "establishingGeography": true,
+          "essentialAction": true,
+          "emotionalReaction": true,
+          "usableExitImage": true,
+          "axisCrossings": [],
+          "risks": [
+            "No actual character/environment reference artwork exists; drawings remain specification-only until a separately authorised reference-generation gate."
+          ],
+          "redundantPanels": [],
+          "result": "TEXT_SPECIFICATION_COMPLETE_AWAITING_HUMAN_APPROVAL"
+        }
+      }
+    ],
+    "humanApprovalCriteria": [
+      "Every one of the eight M7 scenes is covered in exact order.",
+      "Every panel communicates one dominant story beat and preserves the path axis, scale, props, lighting progression, and firefly agency.",
+      "All quoted dialogue remains exact; no panel invents plot, dialogue, character intent, or canon.",
+      "Camera and composition choices are accepted as non-canon production choices only.",
+      "No panel image is claimed to exist or be approved."
+    ],
+    "protectedStoryMeaningChanged": false
+  }
+}

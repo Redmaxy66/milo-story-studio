@@ -1,0 +1,113 @@
+{
+  "schemaVersion": "m8-phase3-source-manifest-v1.0",
+  "manifestId": "MILO-007-S01-P01-P3SRC-V001",
+  "status": "VALIDATED_OFFLINE",
+  "lineage": {
+    "storyId": "MILO-007",
+    "conceptId": "MILO-007-C01",
+    "outlineId": "MILO-007-O01",
+    "scriptId": "MILO-007-S01",
+    "scriptVersion": 1,
+    "reviewId": "MILO-007-S01-R01",
+    "reviewVersion": 1,
+    "packageId": "MILO-007-S01-P01",
+    "packageVersion": 1,
+    "canonVersion": "canon-v1.0",
+    "canonRef": "977755913d9ad41e4f16392d01ea993507af4102"
+  },
+  "sources": [
+    {
+      "type": "M7_APPROVED_SNAPSHOT",
+      "path": "08-production/MILO-007-S01-P01/phase3/source/M7_PRODUCTION_PACKAGE_SNAPSHOT.json",
+      "byteSha256": "c1221fe13d7278912b73572658dc569756de4baa98679b7e3567bd3768d98233",
+      "verified": true,
+      "headerCount": 1,
+      "sceneCount": 8
+    },
+    {
+      "type": "M8_DESIGN_BASELINE",
+      "externalArtifact": "MILO_M8_DESIGN_APPROVAL_PACKAGE.md",
+      "revision": "1.1",
+      "byteSha256": "6934b997f79e3d5aa7ff5b9405926abb8c9e401a1a539a31e16b1c32dac0d8a2",
+      "verifiedReadOnly": true,
+      "repositoryPath": null
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "08-production/MILO-007-S01-P01/phase3/source/M7_PRODUCTION_PACKAGE_SNAPSHOT.json",
+      "byteSha256": "c1221fe13d7278912b73572658dc569756de4baa98679b7e3567bd3768d98233",
+      "contentHash": null
+    },
+    {
+      "path": "08-production/MILO-007-S01-P01/phase3/reference/visual-reference-pack-v1.json",
+      "byteSha256": "871816efc8df977103f3d90462d6c7fc2d819df0fff6c3277e77d6ff0a2502a3",
+      "contentHash": "7833541f6f5df0ab54d5c6036207e91861762d2903cbebe3a1a89c1f3884c13f"
+    },
+    {
+      "path": "08-production/MILO-007-S01-P01/phase3/intent/film-director-briefs-v1.json",
+      "byteSha256": "79ffb1e80f0af77b92d8cfd0288c84c89230b13e1fbd5b6c78fca0483b8e46fe",
+      "contentHash": "218d0895fb56e4cd4523bf05dd6d585162bb79832c7965b40ee1c58c2cb20297"
+    },
+    {
+      "path": "08-production/MILO-007-S01-P01/phase3/storyboard/storyboard-v1.json",
+      "byteSha256": "7626cb473cac0f34e4599c23c1e4a2e0bfc5bdaf3348df0d449eb78727da2989",
+      "contentHash": "0063dbfa802485098f4a694f838f67b2c9cf8d751ce78c90bde0b9a024326f63"
+    },
+    {
+      "path": "08-production/MILO-007-S01-P01/phase3/animation/animation-production-manifest-v1.json",
+      "byteSha256": "542a35d52f8b1bf66352e2be4a2adce7799c4496be4847868d21cd9d12974146",
+      "contentHash": "ace496163aa11c9988186a0a9721fab60db361fb0cd10ed0f24ae8ddc59b38e8"
+    },
+    {
+      "path": "03-prompts/m8/MILO-007-S01-P01/provider-neutral-prompt-bundle-v1.json",
+      "byteSha256": "a23134d03fc1627ed728d6e62a9937ed47cda7f626f3342c41ccef85ea6b9119",
+      "contentHash": "817b393037598d9b7dcbfd054d0ab8d99b1f6c95686e77d0b93ab52eb294f1cd"
+    },
+    {
+      "path": "08-production/MILO-007-S01-P01/phase3/approval/phase3-approval-record-templates-v1.json",
+      "byteSha256": "bd3c714bc9b8094b179b2add6ea83f188fe0fc898c31b6a53bfaeb5a13a54d25",
+      "contentHash": null
+    },
+    {
+      "path": "08-production/MILO-007-S01-P01/phase3/intent/episode-visual-language-v1.md",
+      "byteSha256": "37fba24cfc2ed65669ba0f73179b70ecfb21ebe3c8b3721ff5d8665ce696cbc9",
+      "contentHash": null
+    },
+    {
+      "path": "08-production/MILO-007-S01-P01/phase3/storyboard/storyboard-review-v1.md",
+      "byteSha256": "68458999f2591576b8836965bd21907e2316a9404e1c054b6440d8b583bfa993",
+      "contentHash": null
+    },
+    {
+      "path": "08-production/MILO-007-S01-P01/phase3/SPECIALIST_USAGE_LOG.md",
+      "byteSha256": "fea0a2cfd9eb5485c6e27ca0ad03c1375124f053d8a40622299f023f2a648d64",
+      "contentHash": null
+    },
+    {
+      "path": "08-production/MILO-007-S01-P01/phase3/approval/reference-generation-gate-v1.md",
+      "byteSha256": "a1fd51aebf9dd0b136b23bc9efe633d5f4119dc82bd87764d5871f2f8988d70a",
+      "contentHash": null
+    },
+    {
+      "path": "08-production/MILO-007-S01-P01/phase3/approval/phase3-approval-package-v1.md",
+      "byteSha256": "591f5e4e83c0ef5054a90c12554d914cc0e1d35950ef5488e5149ec03df775bb",
+      "contentHash": null
+    },
+    {
+      "path": "08-production/MILO-007-S01-P01/phase3/README.md",
+      "byteSha256": "a7eb45cb14b5dd3afa09f12f666ce8bd42f85146f2dc6e5f5c7e0c113682c26e",
+      "contentHash": null
+    },
+    {
+      "path": "08-production/README.md",
+      "byteSha256": "d15e72dc11f5a94491cdc72a6fa0a31e17dbd548f8287a24ddc6749c730bea75",
+      "contentHash": null
+    }
+  ],
+  "hashRules": {
+    "byteIdentity": "SHA-256 over exact UTF-8 file bytes",
+    "structuredContent": "MILO_M8_CONTENT_V1 over canonical JSON",
+    "normalization": "None for approved source snapshot"
+  }
+}

@@ -93,3 +93,16 @@ The gate covers all 12 provider-neutral contracts, lifecycle transitions, contro
 Phase 2 also requires the complete applicable M3–M7 regression commands listed in `M8_PHASE2_TEST_CASES.md`. No M8 change may weaken a prior milestone assertion. In particular, M8 lifecycle states are not additions made under M7 authority.
 
 All Phase 2 tests are offline. They must not access n8n, Story Vault, Google Sheets, Google Drive, OpenArt, credentials, canon services, media services, or publishing platforms; spend credits; generate media; execute/import/activate workflows; assemble an episode; or publish anything.
+
+## M8 Phase 3 — Reference and production intent validation
+
+Run:
+
+```bash
+node --check 05-code/m8/phase3-validation.mjs
+node 06-testing/validate_m8_phase3.mjs
+```
+
+The Phase 3 gate verifies the byte-identical approved M7 snapshot, exact lineage and source coverage, visual-reference governance, all three specialist boundaries, stable scene/shot/panel/prompt IDs, storyboard and animation timing, dialogue preservation, source hashes, provider neutrality, pending-only repository approval templates, the closed visual-generation gate, and absence of media or live-system claims. Run the complete Phase 2 and M3–M7 suites in `M8_PHASE3_TEST_CASES.md` before commit.
+
+Phase 3 is offline and text/specification-only. It grants no provider, generation, live approval, workflow, assembly, publication, Phase 4 or A3 authority.

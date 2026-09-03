@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "m8-phase3-approval-templates-v1.0",
+  "packageId": "MILO-007-S01-P01",
+  "reviewPackageId": "MILO-007-S01-P01-P3REVIEW-V001",
+  "status": "PENDING_REVIEW",
+  "records": [
+    {
+      "templateId": "MILO-007-S01-P01-P3REVIEW-V001-AP01",
+      "reviewType": "REFERENCE_GOVERNANCE",
+      "targetId": "MILO-007-S01-P01-REFPACK-V001",
+      "targetContentHash": "7833541f6f5df0ab54d5c6036207e91861762d2903cbebe3a1a89c1f3884c13f",
+      "status": "PENDING_REVIEW",
+      "decision": null,
+      "reviewer": null,
+      "reviewedAt": null,
+      "notes": null,
+      "liveRecord": false
+    },
+    {
+      "templateId": "MILO-007-S01-P01-P3REVIEW-V001-AP02",
+      "reviewType": "PRODUCTION_INTENT",
+      "targetId": "MILO-007-S01-P01-PIA-DIRECTOR_SCENES-V001",
+      "targetContentHash": "218d0895fb56e4cd4523bf05dd6d585162bb79832c7965b40ee1c58c2cb20297",
+      "status": "PENDING_REVIEW",
+      "decision": null,
+      "reviewer": null,
+      "reviewedAt": null,
+      "notes": null,
+      "liveRecord": false
+    },
+    {
+      "templateId": "MILO-007-S01-P01-P3REVIEW-V001-AP03",
+      "reviewType": "FILM_DIRECTOR_BRIEFS",
+      "targetId": "MILO-007-S01-P01-PIA-DIRECTOR_SCENES-V001",
+      "targetContentHash": "218d0895fb56e4cd4523bf05dd6d585162bb79832c7965b40ee1c58c2cb20297",
+      "status": "PENDING_REVIEW",
+      "decision": null,
+      "reviewer": null,
+      "reviewedAt": null,
+      "notes": null,
+      "liveRecord": false
+    },
+    {
+      "templateId": "MILO-007-S01-P01-P3REVIEW-V001-AP04",
+      "reviewType": "STORYBOARD",
+      "targetId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
+      "targetContentHash": "0063dbfa802485098f4a694f838f67b2c9cf8d751ce78c90bde0b9a024326f63",
+      "status": "PENDING_REVIEW",
+      "decision": null,
+      "reviewer": null,
+      "reviewedAt": null,
+      "notes": null,
+      "liveRecord": false
+    },
+    {
+      "templateId": "MILO-007-S01-P01-P3REVIEW-V001-AP05",
+      "reviewType": "ANIMATION_MANIFEST",
+      "targetId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
+      "targetContentHash": "ace496163aa11c9988186a0a9721fab60db361fb0cd10ed0f24ae8ddc59b38e8",
+      "status": "PENDING_REVIEW",
+      "decision": null,
+      "reviewer": null,
+      "reviewedAt": null,
+      "notes": null,
+      "liveRecord": false
+    },
+    {
+      "templateId": "MILO-007-S01-P01-P3REVIEW-V001-AP06",
+      "reviewType": "PROMPT_BUNDLE",
+      "targetId": "MILO-007-S01-P01-PB-V001",
+      "targetContentHash": "817b393037598d9b7dcbfd054d0ab8d99b1f6c95686e77d0b93ab52eb294f1cd",
+      "status": "PENDING_REVIEW",
+      "decision": null,
+      "reviewer": null,
+      "reviewedAt": null,
+      "notes": null,
+      "liveRecord": false
+    }
+  ],
+  "statement": "Repository templates only. They are not live Story Vault approval records and do not constitute approval."
+}

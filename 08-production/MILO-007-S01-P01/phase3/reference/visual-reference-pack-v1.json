@@ -1,0 +1,404 @@
+{
+  "schemaVersion": "m8-phase3-artifact-v1.0",
+  "artifactId": "MILO-007-S01-P01-REFPACK-V001",
+  "artifactType": "VISUAL_REFERENCE_PACK",
+  "artifactVersion": 1,
+  "status": "AWAITING_APPROVAL",
+  "lineage": {
+    "storyId": "MILO-007",
+    "conceptId": "MILO-007-C01",
+    "outlineId": "MILO-007-O01",
+    "scriptId": "MILO-007-S01",
+    "scriptVersion": 1,
+    "reviewId": "MILO-007-S01-R01",
+    "reviewVersion": 1,
+    "packageId": "MILO-007-S01-P01",
+    "packageVersion": 1,
+    "canonVersion": "canon-v1.0",
+    "canonRef": "977755913d9ad41e4f16392d01ea993507af4102"
+  },
+  "sourceBindings": [
+    {
+      "type": "M7_APPROVED_SNAPSHOT",
+      "path": "08-production/MILO-007-S01-P01/phase3/source/M7_PRODUCTION_PACKAGE_SNAPSHOT.json",
+      "byteSha256": "c1221fe13d7278912b73572658dc569756de4baa98679b7e3567bd3768d98233",
+      "immutable": true
+    },
+    {
+      "type": "M8_DESIGN_BASELINE",
+      "path": null,
+      "externalArtifact": "MILO_M8_DESIGN_APPROVAL_PACKAGE.md",
+      "revision": "1.1",
+      "byteSha256": "6934b997f79e3d5aa7ff5b9405926abb8c9e401a1a539a31e16b1c32dac0d8a2",
+      "immutable": true
+    }
+  ],
+  "contentHash": "7833541f6f5df0ab54d5c6036207e91861762d2903cbebe3a1a89c1f3884c13f",
+  "content": {
+    "artifactNature": "DERIVED_CANON_CONTROLLED_NON_CANON_PRODUCTION_ARTIFACT",
+    "generatedAssets": [],
+    "spikeMediaTreatment": "Historical capability evidence only; never an approved Milo reference.",
+    "classificationModel": {
+      "CANON_FACT_DERIVATION": "Direct trace to approved canon facts; cannot extend those facts.",
+      "APPROVED_PRODUCTION_CHOICE": "Reversible episode production choice that requires human approval and does not become canon.",
+      "APPROVED_NON_CANON_REFERENCE": "Approved-for-use reference influence with rights/provenance, explicitly non-canon."
+    },
+    "canonFactDerivationRules": [
+      "Cite exact approved source paths.",
+      "Copy or faithfully constrain only approved facts.",
+      "Never close an open-canon question.",
+      "Conflict routes to human canon review; no silent repair."
+    ],
+    "nonCanonProductionChoiceRules": [
+      "Record rationale, scope, and approval state.",
+      "Treat every choice as episode-scoped and reversible.",
+      "A production approval never modifies canon."
+    ],
+    "categoriesRequired": [
+      "CHARACTER",
+      "ENVIRONMENT",
+      "PROP",
+      "SCALE",
+      "PALETTE",
+      "LIGHTING"
+    ],
+    "entries": [
+      {
+        "referenceId": "MILO-007-S01-P01-REF001-V01",
+        "subjectId": "MILO_IDENTITY",
+        "referenceType": "CHARACTER",
+        "classification": "CANON_FACT_DERIVATION",
+        "approvalStatus": "PENDING_REVIEW",
+        "assetState": "SPECIFICATION_ONLY",
+        "sourceCanonPaths": [
+          "01-character-bible/VISUAL_REFERENCE.md",
+          "03-prompts/MILO_CANON_CONTEXT.md"
+        ],
+        "sourceM7Refs": [],
+        "requirements": [
+          "soft shaggy turquoise fur",
+          "huge round ears with cream inner panels",
+          "warm amber eyes",
+          "small pink nose",
+          "broad cream muzzle",
+          "cream belly with glowing golden star",
+          "mustard-yellow explorer backpack"
+        ],
+        "disallowedDeviations": [
+          "Exact proportions, height, locomotion, exact shades, and backpack geometry remain unresolved."
+        ],
+        "rightsAndProvenance": {
+          "rightsStatus": "REQUIRED_BEFORE_USE",
+          "provenanceStatus": "REQUIRED_BEFORE_USE",
+          "licenceSource": null,
+          "territory": null,
+          "expiry": null,
+          "restrictions": [
+            "No unlicensed or untraceable reference may be approved."
+          ]
+        },
+        "checksumBinding": {
+          "requiredForLaterApprovedAsset": true,
+          "sha256": null,
+          "rule": "Bind approval to exact SHA-256 bytes; storage IDs and paths are locators only; a replacement or revision creates a new file, record, checksum, and reference version."
+        },
+        "activeFrom": null,
+        "retiredAt": null,
+        "supersededByReferenceId": null
+      },
+      {
+        "referenceId": "MILO-007-S01-P01-REF002-V01",
+        "subjectId": "MOONBERRY_WOOD",
+        "referenceType": "ENVIRONMENT",
+        "classification": "CANON_FACT_DERIVATION",
+        "approvalStatus": "PENDING_REVIEW",
+        "assetState": "SPECIFICATION_ONLY",
+        "sourceCanonPaths": [
+          "01-character-bible/VISUAL_REFERENCE.md",
+          "03-prompts/MILO_CANON_CONTEXT.md"
+        ],
+        "sourceM7Refs": [],
+        "requirements": [
+          "cozy magical forest",
+          "tiny cottages",
+          "glowing flowers",
+          "mossy paths",
+          "friendly creatures",
+          "hidden doors",
+          "warm, colourful, safe, playful, gentle, full of wonder"
+        ],
+        "disallowedDeviations": [
+          "Do not force every listed feature into every shot."
+        ],
+        "rightsAndProvenance": {
+          "rightsStatus": "REQUIRED_BEFORE_USE",
+          "provenanceStatus": "REQUIRED_BEFORE_USE",
+          "licenceSource": null,
+          "territory": null,
+          "expiry": null,
+          "restrictions": [
+            "No unlicensed or untraceable reference may be approved."
+          ]
+        },
+        "checksumBinding": {
+          "requiredForLaterApprovedAsset": true,
+          "sha256": null,
+          "rule": "Bind approval to exact SHA-256 bytes; storage IDs and paths are locators only; a replacement or revision creates a new file, record, checksum, and reference version."
+        },
+        "activeFrom": null,
+        "retiredAt": null,
+        "supersededByReferenceId": null
+      },
+      {
+        "referenceId": "MILO-007-S01-P01-REF003-V01",
+        "subjectId": "MILO_BACKPACK",
+        "referenceType": "PROP",
+        "classification": "CANON_FACT_DERIVATION",
+        "approvalStatus": "PENDING_REVIEW",
+        "assetState": "SPECIFICATION_ONLY",
+        "sourceCanonPaths": [
+          "01-character-bible/VISUAL_REFERENCE.md",
+          "03-prompts/MILO_CANON_CONTEXT.md"
+        ],
+        "sourceM7Refs": [],
+        "requirements": [
+          "mustard-yellow explorer backpack",
+          "may contain crayons, maps, snacks, and tiny magical treasures"
+        ],
+        "disallowedDeviations": [
+          "Carrying method, shape, size, and interior layout remain unresolved."
+        ],
+        "rightsAndProvenance": {
+          "rightsStatus": "REQUIRED_BEFORE_USE",
+          "provenanceStatus": "REQUIRED_BEFORE_USE",
+          "licenceSource": null,
+          "territory": null,
+          "expiry": null,
+          "restrictions": [
+            "No unlicensed or untraceable reference may be approved."
+          ]
+        },
+        "checksumBinding": {
+          "requiredForLaterApprovedAsset": true,
+          "sha256": null,
+          "rule": "Bind approval to exact SHA-256 bytes; storage IDs and paths are locators only; a replacement or revision creates a new file, record, checksum, and reference version."
+        },
+        "activeFrom": null,
+        "retiredAt": null,
+        "supersededByReferenceId": null
+      },
+      {
+        "referenceId": "MILO-007-S01-P01-REF004-V01",
+        "subjectId": "STORY_FIREFLY",
+        "referenceType": "CHARACTER",
+        "classification": "APPROVED_PRODUCTION_CHOICE",
+        "approvalStatus": "PENDING_REVIEW",
+        "assetState": "SPECIFICATION_ONLY",
+        "sourceCanonPaths": [],
+        "sourceM7Refs": [
+          "MILO-007-S01-P01"
+        ],
+        "requirements": [
+          "tiny relative to Milo",
+          "faint near-still glow in SC02",
+          "gradual glow progression",
+          "unnamed family only at reunion"
+        ],
+        "disallowedDeviations": [
+          "Species design, anatomy, name, and backstory are non-canon and pending review."
+        ],
+        "rightsAndProvenance": {
+          "rightsStatus": "REQUIRED_BEFORE_USE",
+          "provenanceStatus": "REQUIRED_BEFORE_USE",
+          "licenceSource": null,
+          "territory": null,
+          "expiry": null,
+          "restrictions": [
+            "No unlicensed or untraceable reference may be approved."
+          ]
+        },
+        "checksumBinding": {
+          "requiredForLaterApprovedAsset": true,
+          "sha256": null,
+          "rule": "Bind approval to exact SHA-256 bytes; storage IDs and paths are locators only; a replacement or revision creates a new file, record, checksum, and reference version."
+        },
+        "activeFrom": null,
+        "retiredAt": null,
+        "supersededByReferenceId": null
+      },
+      {
+        "referenceId": "MILO-007-S01-P01-REF005-V01",
+        "subjectId": "RELATIVE_SCALE",
+        "referenceType": "SCALE",
+        "classification": "APPROVED_PRODUCTION_CHOICE",
+        "approvalStatus": "PENDING_REVIEW",
+        "assetState": "SPECIFICATION_ONLY",
+        "sourceCanonPaths": [],
+        "sourceM7Refs": [
+          "MILO-007-S01-P01"
+        ],
+        "requirements": [
+          "firefly reads as tiny against Milo’s hand and fern",
+          "lantern path remains spatially readable"
+        ],
+        "disallowedDeviations": [
+          "Milo’s absolute height and proportions are not defined."
+        ],
+        "rightsAndProvenance": {
+          "rightsStatus": "REQUIRED_BEFORE_USE",
+          "provenanceStatus": "REQUIRED_BEFORE_USE",
+          "licenceSource": null,
+          "territory": null,
+          "expiry": null,
+          "restrictions": [
+            "No unlicensed or untraceable reference may be approved."
+          ]
+        },
+        "checksumBinding": {
+          "requiredForLaterApprovedAsset": true,
+          "sha256": null,
+          "rule": "Bind approval to exact SHA-256 bytes; storage IDs and paths are locators only; a replacement or revision creates a new file, record, checksum, and reference version."
+        },
+        "activeFrom": null,
+        "retiredAt": null,
+        "supersededByReferenceId": null
+      },
+      {
+        "referenceId": "MILO-007-S01-P01-REF006-V01",
+        "subjectId": "EPISODE_PALETTE",
+        "referenceType": "PALETTE",
+        "classification": "APPROVED_PRODUCTION_CHOICE",
+        "approvalStatus": "PENDING_REVIEW",
+        "assetState": "SPECIFICATION_ONLY",
+        "sourceCanonPaths": [],
+        "sourceM7Refs": [
+          "MILO-007-S01-P01"
+        ],
+        "requirements": [
+          "approved colour names for Milo",
+          "warm amber evening with restrained cool lantern points"
+        ],
+        "disallowedDeviations": [
+          "No hex values or permanent show palette is established."
+        ],
+        "rightsAndProvenance": {
+          "rightsStatus": "REQUIRED_BEFORE_USE",
+          "provenanceStatus": "REQUIRED_BEFORE_USE",
+          "licenceSource": null,
+          "territory": null,
+          "expiry": null,
+          "restrictions": [
+            "No unlicensed or untraceable reference may be approved."
+          ]
+        },
+        "checksumBinding": {
+          "requiredForLaterApprovedAsset": true,
+          "sha256": null,
+          "rule": "Bind approval to exact SHA-256 bytes; storage IDs and paths are locators only; a replacement or revision creates a new file, record, checksum, and reference version."
+        },
+        "activeFrom": null,
+        "retiredAt": null,
+        "supersededByReferenceId": null
+      },
+      {
+        "referenceId": "MILO-007-S01-P01-REF007-V01",
+        "subjectId": "LIGHTING_ARC",
+        "referenceType": "LIGHTING",
+        "classification": "APPROVED_PRODUCTION_CHOICE",
+        "approvalStatus": "PENDING_REVIEW",
+        "assetState": "SPECIFICATION_ONLY",
+        "sourceCanonPaths": [],
+        "sourceM7Refs": [
+          "MILO-007-S01-P01"
+        ],
+        "requirements": [
+          "soft evening ambience",
+          "gradually brighter lanterns",
+          "firefly glow increases only with approved beats",
+          "low-to-moderate child-safe contrast"
+        ],
+        "disallowedDeviations": [
+          "No harsh darkness, flash, or use of Milo’s star to cause the outcome."
+        ],
+        "rightsAndProvenance": {
+          "rightsStatus": "REQUIRED_BEFORE_USE",
+          "provenanceStatus": "REQUIRED_BEFORE_USE",
+          "licenceSource": null,
+          "territory": null,
+          "expiry": null,
+          "restrictions": [
+            "No unlicensed or untraceable reference may be approved."
+          ]
+        },
+        "checksumBinding": {
+          "requiredForLaterApprovedAsset": true,
+          "sha256": null,
+          "rule": "Bind approval to exact SHA-256 bytes; storage IDs and paths are locators only; a replacement or revision creates a new file, record, checksum, and reference version."
+        },
+        "activeFrom": null,
+        "retiredAt": null,
+        "supersededByReferenceId": null
+      },
+      {
+        "referenceId": "MILO-007-S01-P01-REF008-V01",
+        "subjectId": "STORYBOARD_CONVENTION",
+        "referenceType": "STYLE",
+        "classification": "APPROVED_NON_CANON_REFERENCE",
+        "approvalStatus": "PENDING_REVIEW",
+        "assetState": "SPECIFICATION_ONLY",
+        "sourceCanonPaths": [],
+        "sourceM7Refs": [
+          "MILO-007-S01-P01"
+        ],
+        "requirements": [
+          "clean monochrome storyboard drawings",
+          "selective gray values",
+          "strong silhouettes",
+          "16:9 review frames"
+        ],
+        "disallowedDeviations": [
+          "Review convention only; not final visual style or canon."
+        ],
+        "rightsAndProvenance": {
+          "rightsStatus": "REQUIRED_BEFORE_USE",
+          "provenanceStatus": "REQUIRED_BEFORE_USE",
+          "licenceSource": null,
+          "territory": null,
+          "expiry": null,
+          "restrictions": [
+            "No unlicensed or untraceable reference may be approved."
+          ]
+        },
+        "checksumBinding": {
+          "requiredForLaterApprovedAsset": true,
+          "sha256": null,
+          "rule": "Bind approval to exact SHA-256 bytes; storage IDs and paths are locators only; a replacement or revision creates a new file, record, checksum, and reference version."
+        },
+        "activeFrom": null,
+        "retiredAt": null,
+        "supersededByReferenceId": null
+      }
+    ],
+    "versioning": {
+      "packId": "MILO-007-S01-P01-REFPACK-V001",
+      "version": 1,
+      "approval": "PENDING_REVIEW",
+      "replacementRule": "A changed approved reference becomes a new REF version; prior bytes and records remain immutable.",
+      "retirementRule": "Retirement records retiredAt and successor; it does not delete history."
+    },
+    "approvalCriteria": [
+      "Every entry is correctly classified and source-bound.",
+      "Rights and provenance are complete before any external asset is approved.",
+      "Every approved asset has an authoritative SHA-256 and write-restricted durable file.",
+      "No entry resolves open canon or uses spike media as Milo reference."
+    ],
+    "disallowedVisualDeviations": [
+      "Any contradiction of Milo’s approved appearance",
+      "Harsh or frightening treatment",
+      "Unapproved named characters or relationships",
+      "Firefly confidence or brightness ahead of the approved sequence",
+      "Milo causing or forcing the firefly’s decision",
+      "Silent canonisation of production choices"
+    ]
+  }
+}
