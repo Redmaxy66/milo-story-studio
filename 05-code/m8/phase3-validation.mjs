@@ -28,10 +28,11 @@ export const PATHS = Object.freeze({
   approvalPackage: `${PHASE3.base}/approval/phase3-approval-package-v1.md`,
   approvalTemplates: `${PHASE3.base}/approval/phase3-approval-record-templates-v1.json`,
   generationGate: `${PHASE3.base}/approval/reference-generation-gate-v1.md`,
+  generationProposal: `${PHASE3.base}/approval/reference-generation-proposal-v1.json`,
   specialistLog: `${PHASE3.base}/SPECIALIST_USAGE_LOG.md`,
 });
 
-const JSON_PATHS = ['snapshot', 'manifest', 'reference', 'director', 'storyboard', 'animation', 'prompt', 'approvalTemplates'];
+const JSON_PATHS = ['snapshot', 'manifest', 'reference', 'director', 'storyboard', 'animation', 'prompt', 'approvalTemplates', 'generationProposal'];
 const json = (root, key) => JSON.parse(fs.readFileSync(path.join(root, PATHS[key]), 'utf8'));
 const text = (root, key) => fs.readFileSync(path.join(root, PATHS[key]), 'utf8');
 const unique = values => new Set(values).size === values.length;
@@ -218,6 +219,64 @@ export function validatePhase3Repository(root) {
   check('animation:dialogue-preservation', () => animation.content.scenes.forEach((scene,i) => {
     const expected=sourceScenes[i].voice.dialogueCues.map(x=>x.text); const actual=animation.content.shots.filter(x=>x.sceneId===scene.sceneId).flatMap(x=>x.voiceDialogueSound.dialogueCues.map(c=>c.text)); assert.deepEqual(actual,expected);
   }));
+  check('animation:single-narration-binding', () => {
+    const binding=animation.content.audioPlan.narrationSourceBinding;
+    assert.equal(binding.sourceBindingId,'MILO-007-S01-P01-NARRATION-SOURCE-V001');
+    assert.equal(binding.sourceByteSha256,PHASE3.snapshotSha256);
+    assert.equal(binding.sourcePath,PATHS.snapshot);
+    assert(!animation.content.shots.some(x => Object.hasOwn(x.voiceDialogueSound,'narrationSourceText')));
+  });
+  check('animation:narration-allocation', () => animation.content.scenes.forEach((scene,i) => {
+    const sourceText=sourceScenes[i].sourceText;
+    const playback=animation.content.shots.filter(x=>x.sceneId===scene.sceneId).map(x=>x.voiceDialogueSound.narrationPlayback);
+    const assigned=playback.filter(x=>x.playbackState==='ASSIGNED_EXACT_SOURCE_RANGE');
+    assert(assigned.length>0);
+    assert.equal(assigned[0].sourceCharacterStart,0);
+    assert.equal(assigned.at(-1).sourceCharacterEndExclusive,sourceText.length);
+    assigned.forEach((item,index) => {
+      assert(item.sourceCharacterEndExclusive>item.sourceCharacterStart);
+      if(index) assert.equal(item.sourceCharacterStart,assigned[index-1].sourceCharacterEndExclusive);
+      assert.equal(item.segmentTextHash,contentHash(sourceText.slice(item.sourceCharacterStart,item.sourceCharacterEndExclusive)));
+      assert.equal(item.timingStatus,'PROVISIONAL_PENDING_VOICE_TIMING');
+    });
+    playback.filter(x=>x.playbackState==='NO_PLAYBACK_VISUAL_HOLD').forEach(item => {
+      assert.equal(item.sourceCharacterStart,null); assert.equal(item.sourceCharacterEndExclusive,null); assert.equal(item.segmentTextHash,null);
+    });
+  }));
+  check('animation:dialogue-windows', () => animation.content.shots.forEach(shot => {
+    const sourceText=sourceScenes.find(x=>x.sceneId===shot.sceneId).sourceText;
+    const cues=[...shot.voiceDialogueSound.dialogueCues].sort((a,b)=>a.startFrame-b.startFrame);
+    cues.forEach((cue,index) => {
+      assert(cue.startFrame>=shot.inFrame && cue.endFrame<=shot.outFrame && cue.endFrame>cue.startFrame);
+      if(index) assert(cue.startFrame>=cues[index-1].endFrame);
+      assert.equal(sourceText.slice(cue.sourceCharacterStart,cue.sourceCharacterEndExclusive),cue.text);
+      assert.equal(cue.timingStatus,'PROVISIONAL_PENDING_VOICE_TIMING');
+    });
+  }));
+  check('animation:complete-voice-dependencies', () => {
+    const voiceId=animation.content.audioPlan.narrationSourceBinding.voiceAssetId;
+    const voice=animation.content.assets.find(x=>x.assetId===voiceId);
+    assert(voice && voice.type==='VOICE' && voice.status==='MISSING');
+    animation.content.shots.filter(x=>x.voiceDialogueSound.narrationPlayback.playbackState!=='NO_PLAYBACK_VISUAL_HOLD' || x.voiceDialogueSound.dialogueCues.length).forEach(x => {
+      assert(x.assetDependencies.includes(voiceId)); assert(x.assemblyHandoff.requiredInputs.includes(voiceId));
+    });
+  });
+  check('animation:targeted-action-order', () => {
+    const byId=new Map(animation.content.shots.map(x=>[x.shotId,x]));
+    assert(/listens without interrupting/.test(byId.get('MILO-007-S01-P01-SC02-SH03').motionChoreography.primaryAction));
+    assert(/quiet decision/.test(byId.get('MILO-007-S01-P01-SC03-SH03').motionChoreography.primaryAction));
+    assert(/without clapping/.test(byId.get('MILO-007-S01-P01-SC05-SH02').motionChoreography.primaryAction));
+    assert(/only then Milo gives one soft muted clap/.test(byId.get('MILO-007-S01-P01-SC05-SH03').motionChoreography.primaryAction));
+    assert(/Milo holds still with no touch or prompting/.test(byId.get('MILO-007-S01-P01-SC07-SH03').motionChoreography.primaryAction));
+    assert(/without waving or departing yet/.test(byId.get('MILO-007-S01-P01-SC08-SH01').motionChoreography.reaction));
+    assert(/does not depart yet/.test(byId.get('MILO-007-S01-P01-SC08-SH02').motionChoreography.primaryAction));
+    assert(/Only after the reunion and wave/.test(byId.get('MILO-007-S01-P01-SC08-SH03').motionChoreography.primaryAction));
+  });
+  check('animation:audio-semantics-separated', () => animation.content.shots.forEach(x => {
+    assert(Array.isArray(x.voiceDialogueSound.ambience)); assert(Array.isArray(x.voiceDialogueSound.dialogueCues));
+    assert(Array.isArray(x.voiceDialogueSound.sfx)); assert(Array.isArray(x.voiceDialogueSound.productionNotes));
+    assert.equal(x.voiceDialogueSound.musicStatus,'NOT_CREATED');
+  }));
   check('animation:missing-assets-honest', () => animation.content.assets.forEach(x => assert.equal(x.status,'MISSING')));
   check('animation:lip-sync-fallback', () => assert(/fallback/i.test(animation.content.audioPlan.fallbackClassification)));
   check('animation:acceptance-and-revision', () => animation.content.shots.forEach(x => { assert(x.technicalAcceptanceCriteria.length && x.creativeAcceptanceCriteria.length); assert(x.revisionBoundary.allowed.length && x.revisionBoundary.prohibited.length); }));
@@ -230,6 +289,22 @@ export function validatePhase3Repository(root) {
   check('prompt:source-provenance', () => prompt.content.prompts.forEach(x => { assert(x.exactSourceArtifactReferences.length>=2); x.exactSourceArtifactReferences.forEach(r=>assert(/^[a-f0-9]{64}$/.test(r.contentHash))); }));
   check('prompt:required-fields', () => prompt.content.prompts.forEach(x => { assert(x.positiveRequirements.length && x.negativeConstraints.length && x.referenceRoles.length && x.continuityLocks.length && x.allowedChanges.length && x.prohibitedChanges.length && x.acceptanceCriteria.length); }));
   check('prompt:requested-observed-separation', () => prompt.content.prompts.forEach(x => { assert(x.requestedSettings && x.observedSettings===null); }));
+  check('prompt:approved-episode-reference-principle', () => prompt.content.prompts.forEach(x => {
+    const combined=JSON.stringify([x.positiveRequirements,x.negativeConstraints,x.continuityLocks]);
+    assert(combined.includes('exact approved future episode reference'));
+    assert(!combined.includes('Do not define Milo’s exact proportions'));
+    x.referenceRoles.forEach(role => { assert(role.referenceSpecificationIds.length>0); assert.equal(role.futureReferenceAssetState,'SPECIFICATION_ONLY_ASSET_NOT_CREATED'); });
+  }));
+  check('prompt:manifest-synchronization', () => prompt.content.prompts.forEach(x => {
+    const shot=animation.content.shots.find(shot=>shot.shotId===x.shotId);
+    assert.equal(x.positiveRequirements[1],shot.rendererNeutralPrompt);
+    assert(x.exactSourceArtifactReferences.some(ref=>ref.artifactId===animation.artifactId && ref.contentHash===animation.contentHash));
+  }));
+  check('prompt:duration-mapping-unresolved', () => prompt.content.prompts.forEach(x => {
+    assert.equal(x.providerProjection.durationMapping.requestedDurationSeconds,x.requestedSettings.durationSeconds);
+    assert.equal(x.providerProjection.durationMapping.status,'UNRESOLVED_PENDING_A3_CAPABILITY_EVIDENCE');
+    assert.equal(x.providerProjection.durationMapping.requiresSplitOrExtension,null);
+  }));
   check('prompt:provider-neutral', () => {
     for (const key of ['provider','model','workspaceId','projectId','endpoint','credential','token']) assert.equal(prompt.content.providerNeutrality[key],null);
     assert.equal(prompt.content.providerNeutrality.callable,false);
@@ -239,13 +314,45 @@ export function validatePhase3Repository(root) {
 
   const templates = docs.approvalTemplates;
   check('approval:templates-only', () => { assert.equal(templates.status,'PENDING_REVIEW'); assert.equal(templates.records.length,6); assert(templates.records.every(x=>x.liveRecord===false)); });
-  check('approval:no-decisions', () => templates.records.forEach(x => { assert.equal(x.status,'PENDING_REVIEW'); assert.equal(x.decision,null); assert.equal(x.reviewer,null); assert.equal(x.reviewedAt,null); }));
-  check('approval:target-hashes', () => templates.records.forEach(x => assert(/^[a-f0-9]{64}$/.test(x.targetContentHash))));
+  check('approval:conditional-decisions', () => {
+    const approved=templates.records.slice(0,4); const pending=templates.records.slice(4);
+    approved.forEach(x => { assert.equal(x.status,'APPROVED'); assert.equal(x.decision,'APPROVED'); assert.equal(x.reviewer,'Alex'); assert(/^2026-09-03T\d{2}:\d{2}:\d{2}\.000Z$/.test(x.reviewedAt)); assert(/^APPROVED WITH CONDITIONS:/.test(x.notes)); });
+    pending.forEach(x => { assert.equal(x.status,'PENDING_REVIEW'); assert.equal(x.decision,null); assert.equal(x.reviewer,null); assert.equal(x.reviewedAt,null); assert(/requires fresh human review/.test(x.notes)); });
+  });
+  check('approval:target-hashes', () => {
+    const expected=[reference.contentHash,director.contentHash,director.contentHash,storyboard.contentHash,animation.contentHash,prompt.contentHash];
+    templates.records.forEach((x,index) => assert.equal(x.targetContentHash,expected[index]));
+  });
   check('approval:package-sections', () => {
     const value=text(root,'approvalPackage');
     for (const phrase of ['Reference-governance approval','Production-intent and Film Director approval','Storyboard approval','Animation-manifest approval','Prompt-bundle approval','Unresolved creative choices','Deviations from M7','Protected-meaning confirmation']) assert(value.includes(phrase));
   });
-  check('generation-gate:closed', () => assert(text(root,'generationGate').includes('NOT REQUESTED — SPECIFICATION REVIEW FIRST')));
+  check('generation-gate:closed', () => {
+    const value=text(root,'generationGate');
+    assert(value.includes('PROPOSAL PREPARED — EXECUTION NOT AUTHORISED'));
+    assert(value.includes('PROPOSAL ONLY — NO OPENART ACCESS, GENERATION OR CREDIT SPEND AUTHORISED'));
+  });
+  const proposal=docs.generationProposal;
+  check('generation-proposal:finite-minimum', () => {
+    assert.equal(proposal.status,'PROPOSAL_ONLY_NOT_AUTHORIZED'); assert.equal(proposal.sheets.length,5);
+    assert.equal(proposal.minimumViablePlan.initialGenerationOperationsTotal,5);
+    assert.equal(proposal.minimumViablePlan.maximumRevisionOperationsTotal,5);
+    assert.equal(proposal.minimumViablePlan.maximumOperationsTotal,10);
+    proposal.sheets.forEach(x => { assert.equal(x.initialGenerationCount,1); assert.equal(x.maximumRevisionCount,1); assert(x.stoppingCriteria.length>=3); });
+  });
+  check('generation-proposal:cost-gate', () => {
+    assert.equal(proposal.minimumViablePlan.perOperationCreditEstimate,null);
+    assert.equal(proposal.minimumViablePlan.hardPerSheetCap,null);
+    assert.equal(proposal.minimumViablePlan.hardTotalCap,null);
+    assert.equal(proposal.minimumViablePlan.spendAuthorized,false);
+    assert.equal(proposal.minimumViablePlan.capStatus,'UNSET_BLOCKING_GENERATION');
+    proposal.sheets.forEach(x => { assert.equal(x.perOperationCreditEstimate,null); assert.equal(x.hardPerSheetCap,null); assert.equal(x.capStatus,'UNSET_BLOCKING_GENERATION'); assert.equal(x.proposedRoute.verified,false); assert.equal(x.proposedRoute.model,null); });
+  });
+  check('generation-proposal:governance', () => {
+    assert.equal(proposal.statement,'PROPOSAL ONLY — NO OPENART ACCESS, GENERATION OR CREDIT SPEND AUTHORISED');
+    assert(unique(proposal.sheets.map(x=>x.sheetId))); assert(unique(proposal.sheets.map(x=>x.fileName)));
+    proposal.sheets.forEach(x => { assert(x.rightsAndProvenanceRequirements.length>=2); assert(/SHA-256/.test(x.storageAndChecksum)); assert(/revision/i.test(x.rollbackOrRejectionTreatment)); });
+  });
   check('specialist:all-used', () => {
     const value=text(root,'specialistLog'); for (const specialist of ['Film Director','Storyboard Creator','Animation Production Director']) assert(value.includes(`| ${specialist} | Yes |`)); assert(!value.includes('| Yes |\n'));
   });
@@ -255,7 +362,7 @@ export function validatePhase3Repository(root) {
     assert(!/(Bearer\s+[A-Za-z0-9._-]+|sk-[A-Za-z0-9]{12,}|AIza[A-Za-z0-9_-]{20,}|https?:\/\/[^\s"`]*api)/.test(artifactText));
   });
   check('boundary:no-generated-asset', () => {
-    const combined=allStrings({reference,director,storyboard,animation,prompt,templates});
+    const combined=allStrings({reference,director,storyboard,animation,prompt});
     assert(!/"(?:generatedAssets|generatedImages)":\[(?!\])/.test(combined));
     assert(!/"(?:approvalStatus|status)":"APPROVED"/.test(combined));
   });

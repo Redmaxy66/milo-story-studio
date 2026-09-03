@@ -1,0 +1,342 @@
+{
+  "schemaVersion": "m8-reference-generation-proposal-v1.0",
+  "proposalId": "MILO-007-S01-P01-REFGEN-PROP-V001",
+  "packageId": "MILO-007-S01-P01",
+  "status": "PROPOSAL_ONLY_NOT_AUTHORIZED",
+  "lineage": {
+    "storyId": "MILO-007",
+    "scriptId": "MILO-007-S01",
+    "packageId": "MILO-007-S01-P01",
+    "packageVersion": 1,
+    "canonVersion": "canon-v1.0",
+    "canonRef": "977755913d9ad41e4f16392d01ea993507af4102"
+  },
+  "approvedSpecificationBasis": {
+    "referencePackId": "MILO-007-S01-P01-REFPACK-V001",
+    "approvalRecordId": "MILO-007-S01-P01-P3REVIEW-V001-AP01",
+    "approvalScope": "Reference governance and the five-sheet specification only; no image, provider request, cost, or generated asset is approved."
+  },
+  "minimumViablePlan": {
+    "sheetCount": 5,
+    "proposedProvider": "OpenArt",
+    "proposedCanonicalCapability": "TEXT_TO_IMAGE",
+    "providerRouteVerified": false,
+    "model": null,
+    "initialGenerationCountPerSheet": 1,
+    "maximumRevisionCountPerSheet": 1,
+    "maximumOperationsPerSheet": 2,
+    "initialGenerationOperationsTotal": 5,
+    "maximumRevisionOperationsTotal": 5,
+    "maximumOperationsTotal": 10,
+    "perOperationCreditEstimate": null,
+    "hardPerSheetCap": null,
+    "hardTotalCap": null,
+    "costUnit": "PROVIDER_CREDIT",
+    "capStatus": "UNSET_BLOCKING_GENERATION",
+    "costEvidenceStatus": "INSUFFICIENT_FOR_REFERENCE_GENERATION_CAP",
+    "costEvidenceGap": "The approved spike proves Smart Shot and video costs, not the current supported TEXT_TO_IMAGE reference-sheet route, output count, or current unit estimate. A separately authorised capability/connectivity proof must establish those facts before any spending cap can be approved.",
+    "spendAuthorized": false
+  },
+  "sheets": [
+    {
+      "sheetId": "MILO-007-S01-P01-REFSHEET01-V01",
+      "fileName": "MILO-007-S01-P01-REFSHEET01-V01.png",
+      "purpose": "Lock Milo's episode-scoped identity and production proportions without changing canon.",
+      "requiredViewsOrPanels": [
+        "front neutral",
+        "three-quarter neutral",
+        "profile neutral",
+        "back view with backpack",
+        "relative-height marker without absolute units"
+      ],
+      "sourceSupportedTraits": [
+        "soft shaggy turquoise fur",
+        "huge round ears with cream inner panels",
+        "warm amber eyes",
+        "small pink nose",
+        "broad cream muzzle",
+        "cream belly with glowing golden star",
+        "mustard-yellow explorer backpack"
+      ],
+      "episodeScopedChoices": [
+        "soft layered 2D/2.5D storybook treatment",
+        "upright and hand-capable",
+        "gentle bipedal gait with small steps",
+        "rounded compact two-strap backpack",
+        "relative scale only; no absolute canonical height"
+      ],
+      "prohibitedInvention": [
+        "new anatomy or identity traits",
+        "canonical height or proportions",
+        "new clothing or accessories",
+        "powers for Milo's belly star",
+        "visible invented backpack inventory"
+      ],
+      "promptOrBrief": "Create one clean, internally consistent Milo episode model sheet in a soft layered 2D/2.5D children's storybook treatment. Show front, three-quarter, profile, and back views at one stable relative scale. Preserve every source-supported appearance trait exactly. Use an upright, hand-capable episode production model, a gentle small-step bipedal stance, and a rounded compact mustard-yellow two-strap backpack. Keep the treatment warm, safe, simple, and suitable for selective animation. No text beyond neutral view labels, no new accessories, no absolute height, no new powers, and no claim that episode proportions or geometry are canon.",
+      "proposedRoute": {
+        "provider": "OpenArt",
+        "canonicalCapability": "TEXT_TO_IMAGE",
+        "model": null,
+        "verified": false
+      },
+      "initialGenerationCount": 1,
+      "maximumRevisionCount": 1,
+      "perOperationCreditEstimate": null,
+      "hardPerSheetCap": null,
+      "capStatus": "UNSET_BLOCKING_GENERATION",
+      "stoppingCriteria": [
+        "Stop after one initial operation for human review.",
+        "Permit at most one separately approved bounded revision operation.",
+        "Stop on identity drift, missing required view, new canon implication, missing estimate, or cap uncertainty."
+      ],
+      "humanApprovalCheckpoint": "Approve or reject exact candidate bytes before the sheet may be referenced by any moving-image request.",
+      "rightsAndProvenanceRequirements": [
+        "Record provider, model, prompt hash, request/attempt IDs, actual settings, cost, creation time, and usage terms.",
+        "No unlicensed or untraceable source influence may be used."
+      ],
+      "storageAndChecksum": "Store each candidate as a new durable file; SHA-256 is authoritative; approved bytes must be write-restricted; never replace approved content in place; revalidate checksum before later use.",
+      "rollbackOrRejectionTreatment": "Reject or quarantine the candidate without deletion or reuse of its file identity; a revision uses REFSHEET01-V02 and a new file, record, checksum, and approval."
+    },
+    {
+      "sheetId": "MILO-007-S01-P01-REFSHEET02-V01",
+      "fileName": "MILO-007-S01-P01-REFSHEET02-V01.png",
+      "purpose": "Lock the episode performance vocabulary, hands, poses, backpack interaction, and generic treat interaction.",
+      "requiredViewsOrPanels": [
+        "walk cycle key poses",
+        "kneel and seated poses",
+        "fern-parting two-finger pose",
+        "open-palm treat offer",
+        "one-finger count",
+        "soft clap and wave",
+        "backpack closed and simple opening interaction"
+      ],
+      "sourceSupportedTraits": [
+        "Milo walks, kneels, sits, parts a fern, offers a treat, counts one, claps softly, and waves",
+        "performance remains gentle, patient, open, and non-coercive",
+        "backpack is mustard-yellow and may contain snacks"
+      ],
+      "episodeScopedChoices": [
+        "small readable gestures",
+        "restrained facial range",
+        "rounded compact two-strap backpack",
+        "generic small treat without canonical product design"
+      ],
+      "prohibitedInvention": [
+        "exaggerated or coercive gestures",
+        "new backpack contents",
+        "new treat lore or brand",
+        "anatomy inconsistent with REFSHEET01",
+        "fixed gesture or posture canon"
+      ],
+      "promptOrBrief": "Using the approved future Milo model as the identity reference, create one performance and interaction sheet in the same soft layered 2D/2.5D storybook treatment. Show restrained key poses for walking, kneeling, sitting, gently parting a fern with two fingers, offering a generic tiny treat on an open palm, counting one, softly clapping, waving, and accessing a simple rounded two-strap backpack. Expressions must read as warm, patient, reassuring, and non-coercive. Preserve exact identity and proportions from the approved episode reference. Do not expose invented backpack inventory or establish any pose, hand construction, treat, or backpack geometry as canon.",
+      "proposedRoute": {
+        "provider": "OpenArt",
+        "canonicalCapability": "TEXT_TO_IMAGE",
+        "model": null,
+        "verified": false
+      },
+      "initialGenerationCount": 1,
+      "maximumRevisionCount": 1,
+      "perOperationCreditEstimate": null,
+      "hardPerSheetCap": null,
+      "capStatus": "UNSET_BLOCKING_GENERATION",
+      "stoppingCriteria": [
+        "Stop after one initial operation for human review.",
+        "Permit at most one separately approved bounded revision operation.",
+        "Stop if identity differs from REFSHEET01 or any gesture changes story intent."
+      ],
+      "humanApprovalCheckpoint": "Approve exact poses, hand treatment, backpack interaction, and treat neutrality before motion use.",
+      "rightsAndProvenanceRequirements": [
+        "Carry forward approved identity-reference provenance and record all new provider/request facts.",
+        "No unlicensed pose sheet or external character reference may be used."
+      ],
+      "storageAndChecksum": "Use a new durable file and authoritative SHA-256 for every candidate/version; write-restrict approved bytes and revalidate before later use.",
+      "rollbackOrRejectionTreatment": "Reject or quarantine without deletion; a revision uses REFSHEET02-V02 with a new identity and checksum."
+    },
+    {
+      "sheetId": "MILO-007-S01-P01-REFSHEET03-V01",
+      "fileName": "MILO-007-S01-P01-REFSHEET03-V01.png",
+      "purpose": "Lock the firefly's episode scale, simple anatomy, glow progression, flight state, and unnamed family treatment.",
+      "requiredViewsOrPanels": [
+        "neutral tiny insect-like silhouette",
+        "scale beside Milo's fingertip and fern",
+        "four ordered glow stages",
+        "sheltered and peeking states",
+        "voluntary lift and flight state",
+        "restrained unnamed family-light grouping"
+      ],
+      "sourceSupportedTraits": [
+        "tiny relative to Milo",
+        "faint near-still glow at discovery",
+        "gradual confidence and glow progression",
+        "voluntary lift toward unnamed family"
+      ],
+      "episodeScopedChoices": [
+        "simple insect-like silhouette",
+        "restrained visible wings",
+        "one readable glow source",
+        "four controlled glow stages",
+        "unnamed visually restrained family lights"
+      ],
+      "prohibitedInvention": [
+        "humanised face, clothing, name, or spoken performance",
+        "species lore or backstory",
+        "brightness ahead of the approved scene order",
+        "Milo causing the glow or flight",
+        "frightening macro anatomy"
+      ],
+      "promptOrBrief": "Create one child-safe firefly reference sheet for a soft layered 2D/2.5D storybook episode. Use a tiny simple insect-like silhouette, restrained visible wings, and one readable warm glow source. Show true scale beside Milo's fingertip and a fern, then four clearly separated glow stages from faint discovery to reunion brightness, plus sheltered, peeking, voluntary lift, flight, and restrained unnamed family-light states. No humanised face, clothing, name, words, species lore, frightening macro detail, premature brightness, or implication that Milo controls the firefly.",
+      "proposedRoute": {
+        "provider": "OpenArt",
+        "canonicalCapability": "TEXT_TO_IMAGE",
+        "model": null,
+        "verified": false
+      },
+      "initialGenerationCount": 1,
+      "maximumRevisionCount": 1,
+      "perOperationCreditEstimate": null,
+      "hardPerSheetCap": null,
+      "capStatus": "UNSET_BLOCKING_GENERATION",
+      "stoppingCriteria": [
+        "Stop after one initial operation for human review.",
+        "Permit at most one separately approved bounded revision operation.",
+        "Stop on anthropomorphism, frightening anatomy, unreadable scale, or non-monotonic glow stages."
+      ],
+      "humanApprovalCheckpoint": "Approve exact scale, silhouette, all four glow stages, wings, flight state, and family treatment before any motion request.",
+      "rightsAndProvenanceRequirements": [
+        "Record complete provider and prompt provenance and applicable commercial-use terms.",
+        "Do not use spike media or unlicensed insect artwork as a Milo reference."
+      ],
+      "storageAndChecksum": "Use immutable versioned candidate files with authoritative SHA-256; write-restrict approved bytes and revalidate before later use.",
+      "rollbackOrRejectionTreatment": "Reject or quarantine without deletion; a revision uses REFSHEET03-V02 with a new file, record, checksum, and approval."
+    },
+    {
+      "sheetId": "MILO-007-S01-P01-REFSHEET04-V01",
+      "fileName": "MILO-007-S01-P01-REFSHEET04-V01.png",
+      "purpose": "Lock Moonberry Wood episode geography and screen direction across the eight scenes.",
+      "requiredViewsOrPanels": [
+        "mossy path establishing layout",
+        "fern discovery area",
+        "lantern practice pool",
+        "decision path",
+        "reunion lantern circle",
+        "left-to-right axis and safe neutral re-establishing view"
+      ],
+      "sourceSupportedTraits": [
+        "cozy magical forest",
+        "mossy paths, ferns, stones, and Moonberry lanterns",
+        "warm, colourful, safe, playful, gentle atmosphere",
+        "tiny cottages and glowing flowers may remain distant optional hints"
+      ],
+      "episodeScopedChoices": [
+        "left-to-right path travel",
+        "stable fern and lantern geography",
+        "soft layered depth for restrained parallax",
+        "centre-safe 16:9 action"
+      ],
+      "prohibitedInvention": [
+        "harsh darkness or unsafe terrain",
+        "unapproved named characters",
+        "mandatory inclusion of every world feature",
+        "axis changes without a neutral re-establishing frame",
+        "new plot locations"
+      ],
+      "promptOrBrief": "Create one 16:9 Moonberry Wood geography sheet in a soft layered 2D/2.5D children's storybook treatment. Present a coherent left-to-right mossy path linking the fern discovery area, lantern practice pool, decision path, and final lantern-circle clearing. Show foreground, midground, and background layers suitable for restrained parallax, with warm safe forest shapes, moss, stones, ferns, and small lanterns. Keep action centre-safe. Tiny cottages or glowing flowers may appear only as distant hints. No harsh darkness, unsafe terrain, new plot location, named character, or unmarked axis reversal.",
+      "proposedRoute": {
+        "provider": "OpenArt",
+        "canonicalCapability": "TEXT_TO_IMAGE",
+        "model": null,
+        "verified": false
+      },
+      "initialGenerationCount": 1,
+      "maximumRevisionCount": 1,
+      "perOperationCreditEstimate": null,
+      "hardPerSheetCap": null,
+      "capStatus": "UNSET_BLOCKING_GENERATION",
+      "stoppingCriteria": [
+        "Stop after one initial operation for human review.",
+        "Permit at most one separately approved bounded revision operation.",
+        "Stop if scene geography, screen direction, safety, or required locations are unclear."
+      ],
+      "humanApprovalCheckpoint": "Approve the path map, scene locations, axis, parallax layers, and 16:9 safe area before moving-image generation.",
+      "rightsAndProvenanceRequirements": [
+        "Record all provider/prompt facts and any source influence with commercial-use rights.",
+        "Do not use unlicensed environment artwork."
+      ],
+      "storageAndChecksum": "Use immutable versioned candidate files with authoritative SHA-256; write-restrict approved bytes and revalidate before later use.",
+      "rollbackOrRejectionTreatment": "Reject or quarantine without deletion; a revision uses REFSHEET04-V02 and never replaces approved bytes in place."
+    },
+    {
+      "sheetId": "MILO-007-S01-P01-REFSHEET05-V01",
+      "fileName": "MILO-007-S01-P01-REFSHEET05-V01.png",
+      "purpose": "Lock episode-only palette, lighting progression, and relative scale relationships.",
+      "requiredViewsOrPanels": [
+        "episode colour swatches labelled non-canon",
+        "SC01 soft amber evening state",
+        "SC02 faint firefly state",
+        "SC03-SC06 gradual lantern and glow progression",
+        "SC07 bright voluntary-lift state",
+        "SC08 warm constellation state",
+        "Milo, fern, firefly, treat, and lantern relative-scale chart"
+      ],
+      "sourceSupportedTraits": [
+        "approved colour names for Milo",
+        "warm amber evening",
+        "restrained cool lantern points",
+        "gradually brighter lanterns and firefly glow",
+        "low-to-moderate child-safe contrast"
+      ],
+      "episodeScopedChoices": [
+        "exact episode swatches are production controls only",
+        "four firefly glow stages",
+        "restrained bloom",
+        "relative scale without absolute Milo height"
+      ],
+      "prohibitedInvention": [
+        "permanent show palette or canonical hex values",
+        "harsh darkness or flashing",
+        "firefly brightness ahead of story order",
+        "Milo's star causing the outcome",
+        "absolute canonical height"
+      ],
+      "promptOrBrief": "Create one episode-only palette, lighting, and relative-scale sheet for the approved soft layered 2D/2.5D storybook direction. Show labelled production swatches for Milo's established colour names, warm amber evening ambience, restrained cool lantern points, low-to-moderate child-safe contrast, restrained bloom, and the ordered lighting progression from SC01 through the SC08 constellation. Include four distinct firefly glow stages and a relative-scale chart for Milo, fern, firefly, treat, and lantern without absolute units. Mark every exact swatch and scale as episode-scoped and non-canon. No harsh darkness, flashing, premature glow, or star causality.",
+      "proposedRoute": {
+        "provider": "OpenArt",
+        "canonicalCapability": "TEXT_TO_IMAGE",
+        "model": null,
+        "verified": false
+      },
+      "initialGenerationCount": 1,
+      "maximumRevisionCount": 1,
+      "perOperationCreditEstimate": null,
+      "hardPerSheetCap": null,
+      "capStatus": "UNSET_BLOCKING_GENERATION",
+      "stoppingCriteria": [
+        "Stop after one initial operation for human review.",
+        "Permit at most one separately approved bounded revision operation.",
+        "Stop if glow order, child-safe contrast, relative scale, or non-canon labelling is unclear."
+      ],
+      "humanApprovalCheckpoint": "Approve exact episode swatches, light states, glow order, and relative-scale relationships before motion use.",
+      "rightsAndProvenanceRequirements": [
+        "Record all provider/prompt facts and rights terms.",
+        "Any external palette or lighting influence must be licensed and traceable."
+      ],
+      "storageAndChecksum": "Use immutable versioned candidate files with authoritative SHA-256; write-restrict approved bytes and revalidate before later use.",
+      "rollbackOrRejectionTreatment": "Reject or quarantine without deletion; a revision uses REFSHEET05-V02 and a new file, record, checksum, and approval."
+    }
+  ],
+  "globalStoppingCriteria": [
+    "No operation may begin without a separately approved authority package naming provider target, current estimate, hard per-sheet and total caps, credentials, side effects, and rollback.",
+    "Stop if provider capability, model, output count, current unit cost, or request schema remains unverified.",
+    "Stop if any estimate is missing, stale, or exceeds its separately approved cap.",
+    "Stop after each initial candidate for human review; no automatic variant generation or retry.",
+    "Stop on identity, canon, rights, provenance, safety, storage, or checksum uncertainty.",
+    "No rejected candidate may be silently reused or promoted."
+  ],
+  "approvalPoints": [
+    "Approve the provider route, exact current estimates, hard caps, and operation counts before any request.",
+    "Approve or reject each initial sheet before any bounded revision.",
+    "Approve exact final bytes, rights/provenance, SHA-256, and write restriction before a reference can support moving-image generation."
+  ],
+  "statement": "PROPOSAL ONLY — NO OPENART ACCESS, GENERATION OR CREDIT SPEND AUTHORISED"
+}

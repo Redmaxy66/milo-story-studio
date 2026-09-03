@@ -2,20 +2,20 @@
 ## Milo Story Studio — Current Operational State
 
 **Status date:** 2026-09-03
-**State basis:** Repository evidence, complete applicable M7 validation and acceptance evidence, approved external `MILO_M8_DESIGN_APPROVAL_PACKAGE.md` revision 1.1, completed M8 Phase 1 governance installation, passing M8 Phase 2 contracts, and passing M8 Phase 3 reference/production-intent preparation
-**Authority for this baseline:** A2 — M8 Phase 3 Reference and Production Intent Preparation following explicit approval
+**State basis:** Repository evidence, complete applicable M7 validation and acceptance evidence, approved external `MILO_M8_DESIGN_APPROVAL_PACKAGE.md` revision 1.1, completed M8 Phase 1 governance installation, passing M8 Phase 2 contracts, passing M8 Phase 3 preparation, and the project owner's conditional AP01–AP04 approvals with targeted AP05/AP06 remediation
+**Authority for this baseline:** A2 — M8 Phase 3 Conditional Approval, Targeted Remediation and Reference Proposal
 
 ---
 
 ## 1. Current Milestone
 
-**M8 — Complete Studio — PHASE 3 PREPARATION COMPLETE; HUMAN REVIEW PENDING; LIVE PHASES NOT STARTED**
+**M8 — Complete Studio — PHASE 3 AP01–AP04 CONDITIONALLY APPROVED; AP05/AP06 PENDING REVIEW; LIVE PHASES NOT STARTED**
 
 ---
 
 ## 2. Current Status
 
-**M8 DESIGN REVISION 1.1 APPROVED; PHASE 3 REFERENCE AND PRODUCTION INTENT PREPARATION COMPLETE**
+**M8 DESIGN REVISION 1.1 APPROVED; PHASE 3 CONDITIONAL APPROVALS AND TARGETED REMEDIATION RECORDED**
 
 The approved M8 design baseline is `MILO_M8_DESIGN_APPROVAL_PACKAGE.md` revision 1.1, SHA-256 `6934b997f79e3d5aa7ff5b9405926abb8c9e401a1a539a31e16b1c32dac0d8a2`. Decision D-016 records M8-D01 through M8-D13 and the four incorporated amendments.
 
@@ -33,9 +33,9 @@ The certified repository export was first proven in temporary workflow `xuzK7QTs
 
 ## 3. Current M8 Phase
 
-**PHASE 3 — REFERENCE AND PRODUCTION INTENT PREPARATION COMPLETE; HUMAN REVIEW PENDING**
+**PHASE 3 — AP01–AP04 CONDITIONALLY APPROVED; REMEDIATED AP05/AP06 AWAIT HUMAN REVIEW**
 
-The approved replacement `WORK_ORDER.md`, decision D-016, and Phase 2 repository foundations remain installed. Phase 3 adds only the authorised offline, repository-side reference governance and human-reviewable production intent for `MILO-007-S01-P01`. All outputs are derived, non-canon and awaiting review. Phase 4, media generation and the A3 n8n/OpenArt connectivity proof remain unauthorised.
+The approved replacement `WORK_ORDER.md`, decision D-016, and Phase 2 repository foundations remain installed. The project owner conditionally approved AP01–AP04 and the episode-scoped creative/reference specifications. Targeted AP05 animation and AP06 prompt corrections are prepared but remain pending fresh human review. A finite five-sheet reference-generation proposal exists with one initial and at most one revision operation per sheet, but unit-cost evidence and hard caps remain unavailable; generation is blocked and unauthorised. All outputs remain derived and non-canon. Phase 4, media generation and the A3 n8n/OpenArt connectivity proof remain unauthorised.
 
 ---
 
@@ -46,8 +46,12 @@ The approved replacement `WORK_ORDER.md`, decision D-016, and Phase 2 repository
 - The approved M7 snapshot is copied byte-identically at SHA-256 `c1221fe13d7278912b73572658dc569756de4baa98679b7e3567bd3768d98233` with one header and eight exact ordered scenes.
 - The Phase 3 package contains reference governance, eight Film Director briefs, 24 stable shots, 32 text storyboard panels, a renderer-neutral 5,760-frame plan and 24 provider-neutral prompts.
 - All three required specialist instruction sets were read in full and used without changing protected M7 story meaning, dialogue, scene order, characterisation, identity or canon lineage.
-- All Phase 3 artifacts await human review; no reference image, storyboard image, production media, renderer adapter, live approval or provider configuration exists.
-- `validate_m8_phase3.mjs` passes `101 / 101`; Phase 2 and all applicable M3–M7 regressions remain green, including M7 at `63 / 63`.
+- AP01–AP04 record schema-valid `APPROVED` decisions by Alex with explicit conditions; the records remain repository evidence rather than live Story Vault approvals.
+- AP05 now has one authoritative narration binding, non-overlapping shot allocation and cue windows, complete voice dependencies, corrected action order, and separated audio/production-note semantics; it remains `PENDING_REVIEW`.
+- AP06 now binds future reference specification IDs, separates episode-reference matching from canon, preserves null provider configuration, and marks duration mapping unresolved pending A3 evidence; it remains `PENDING_REVIEW`.
+- The reference proposal specifies five sheets, five initial operations and at most five separately approved revisions. All estimates and caps are null, `UNSET_BLOCKING_GENERATION`, because current `TEXT_TO_IMAGE` unit-cost evidence is insufficient.
+- No reference image, storyboard image, production media, renderer adapter, live approval or provider configuration exists.
+- Updated Phase 3 validation and all Phase 2 plus applicable M3–M7 regressions pass; M7 remains `63 / 63`.
 
 - The M8 replacement `WORK_ORDER.md` is installed as governance-only and explicitly grants no implementation authority.
 - Decision D-016 records approval of M8-D01 through M8-D13 and all four amendments.
@@ -212,9 +216,9 @@ The governed upstream lineage and M7 completion evidence remain unchanged. M8 de
 
 ## 9. Next Authorised Action
 
-**M8 PHASE 3 PREPARATION COMPLETE; AWAITING HUMAN REVIEW.**
+**M8 PHASE 3 CONDITIONAL APPROVALS RECORDED; AP05/AP06 AWAIT HUMAN REVIEW.**
 
-Human review of the Phase 3 package is the next gate. Completion of Phase 3 does not authorise live schema installation, workflow implementation, media/reference generation, Phase 4, or the connectivity proof.
+Human review of the remediated AP05 animation manifest and AP06 prompt bundle is the next gate. The reference-generation proposal also requires a separate costed authority package after capability evidence exists. This state does not authorise live schema installation, workflow implementation, media/reference generation, Phase 4, or the connectivity proof.
 
 The A3 n8n/OpenArt connectivity proof remains unauthorised. This state record also does not authorise n8n activity, Story Vault changes, OpenArt activity, credential changes, paid generation, durable-media writes, assembly execution, activation, publication, canon changes, D-015 remediation, or legacy/test-workflow cleanup.
 

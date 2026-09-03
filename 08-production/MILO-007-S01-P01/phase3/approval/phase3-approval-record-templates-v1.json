@@ -9,11 +9,11 @@
       "reviewType": "REFERENCE_GOVERNANCE",
       "targetId": "MILO-007-S01-P01-REFPACK-V001",
       "targetContentHash": "7833541f6f5df0ab54d5c6036207e91861762d2903cbebe3a1a89c1f3884c13f",
-      "status": "PENDING_REVIEW",
-      "decision": null,
-      "reviewer": null,
-      "reviewedAt": null,
-      "notes": null,
+      "status": "APPROVED",
+      "decision": "APPROVED",
+      "reviewer": "Alex",
+      "reviewedAt": "2026-09-03T06:28:06.000Z",
+      "notes": "APPROVED WITH CONDITIONS: APPROVED_PRODUCTION_CHOICE is a classification, not proof that a pending design or image is approved; every actual asset requires explicit human approval and complete rights/provenance; SHA-256 and write-restricted durable storage remain mandatory; every revision creates a new file, record, checksum, and version; spike media remains historical evidence only.",
       "liveRecord": false
     },
     {
@@ -21,11 +21,11 @@
       "reviewType": "PRODUCTION_INTENT",
       "targetId": "MILO-007-S01-P01-PIA-DIRECTOR_SCENES-V001",
       "targetContentHash": "218d0895fb56e4cd4523bf05dd6d585162bb79832c7965b40ee1c58c2cb20297",
-      "status": "PENDING_REVIEW",
-      "decision": null,
-      "reviewer": null,
-      "reviewedAt": null,
-      "notes": null,
+      "status": "APPROVED",
+      "decision": "APPROVED",
+      "reviewer": "Alex",
+      "reviewedAt": "2026-09-03T06:28:06.000Z",
+      "notes": "APPROVED WITH CONDITIONS: soft layered 2D/2.5D storybook treatment, restrained parallax/selective motion, warm amber/cool-lantern child-safe lighting, stable camera, and 16:9 centre-safe framing are approved as episode-scoped non-canon choices; 24 fps and 240 seconds remain provisional until voice timing; all later provider, generation, assembly, and publication gates remain separate.",
       "liveRecord": false
     },
     {
@@ -33,11 +33,11 @@
       "reviewType": "FILM_DIRECTOR_BRIEFS",
       "targetId": "MILO-007-S01-P01-PIA-DIRECTOR_SCENES-V001",
       "targetContentHash": "218d0895fb56e4cd4523bf05dd6d585162bb79832c7965b40ee1c58c2cb20297",
-      "status": "PENDING_REVIEW",
-      "decision": null,
-      "reviewer": null,
-      "reviewedAt": null,
-      "notes": null,
+      "status": "APPROVED",
+      "decision": "APPROVED",
+      "reviewer": "Alex",
+      "reviewedAt": "2026-09-03T06:28:06.000Z",
+      "notes": "APPROVED WITH CONDITIONS: protected meaning, dialogue, scene order, and firefly agency remain unchanged; episode reference designs must be approved before generation; action-allocation corrections belong only in the pending AP05 animation manifest and do not broadly regenerate the director briefs.",
       "liveRecord": false
     },
     {
@@ -45,37 +45,37 @@
       "reviewType": "STORYBOARD",
       "targetId": "MILO-007-S01-P01-PIA-STORYBOARD-V001",
       "targetContentHash": "0063dbfa802485098f4a694f838f67b2c9cf8d751ce78c90bde0b9a024326f63",
-      "status": "PENDING_REVIEW",
-      "decision": null,
-      "reviewer": null,
-      "reviewedAt": null,
-      "notes": null,
+      "status": "APPROVED",
+      "decision": "APPROVED",
+      "reviewer": "Alex",
+      "reviewedAt": "2026-09-03T06:28:06.000Z",
+      "notes": "APPROVED WITH CONDITIONS: approval covers the governed text storyboard only; it does not approve generated storyboard images, final reference artwork, final timing, provider calls, motion generation, assembly, or publication; downstream corrections preserve approved shot and panel identities.",
       "liveRecord": false
     },
     {
       "templateId": "MILO-007-S01-P01-P3REVIEW-V001-AP05",
       "reviewType": "ANIMATION_MANIFEST",
       "targetId": "MILO-007-S01-P01-PIA-ANIMATION_MANIFEST-V001",
-      "targetContentHash": "ace496163aa11c9988186a0a9721fab60db361fb0cd10ed0f24ae8ddc59b38e8",
+      "targetContentHash": "8e2bc4ba60e2c53ebda2b3a782a53edc6ae1dfae818bfa0254186111b23879f7",
       "status": "PENDING_REVIEW",
       "decision": null,
       "reviewer": null,
       "reviewedAt": null,
-      "notes": null,
+      "notes": "Targeted animation-manifest remediation prepared under A2; revised artifact requires fresh human review.",
       "liveRecord": false
     },
     {
       "templateId": "MILO-007-S01-P01-P3REVIEW-V001-AP06",
       "reviewType": "PROMPT_BUNDLE",
       "targetId": "MILO-007-S01-P01-PB-V001",
-      "targetContentHash": "817b393037598d9b7dcbfd054d0ab8d99b1f6c95686e77d0b93ab52eb294f1cd",
+      "targetContentHash": "0b016b0d07da023f3c51ff2b78dcc07cb669a6f24bb4ecc1588016ce40cce91d",
       "status": "PENDING_REVIEW",
       "decision": null,
       "reviewer": null,
       "reviewedAt": null,
-      "notes": null,
+      "notes": "Targeted prompt-bundle remediation prepared under A2; revised artifact requires fresh human review.",
       "liveRecord": false
     }
   ],
-  "statement": "Repository templates only. They are not live Story Vault approval records and do not constitute approval."
+  "statement": "Repository evidence only. AP01–AP04 record the project owner’s conditional approvals through schema-valid APPROVED decisions with explicit notes. AP05–AP06 remain PENDING_REVIEW. These are not live Story Vault records and grant no provider, generation, assembly, publication, Phase 4, or A3 authority."
 }

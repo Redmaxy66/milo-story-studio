@@ -33,7 +33,7 @@
       "immutable": true
     }
   ],
-  "contentHash": "ace496163aa11c9988186a0a9721fab60db361fb0cd10ed0f24ae8ddc59b38e8",
+  "contentHash": "8e2bc4ba60e2c53ebda2b3a782a53edc6ae1dfae818bfa0254186111b23879f7",
   "content": {
     "specialist": "Animation Production Director",
     "specialistInstructionReadInFull": true,
@@ -306,6 +306,48 @@
         ],
         "sourceOrDependency": "M7 assetManifestJson MILO-007-S01-P01-A011",
         "status": "MISSING"
+      },
+      {
+        "assetId": "MILO-007-S01-P01-P3A-VOICE001-V01",
+        "type": "VOICE",
+        "descriptionAndContinuityLock": "One complete voice-first episode narration source preserving all M7 source text and dialogue exactly; shot playback uses non-overlapping source-character ranges and dialogue locators.",
+        "rigOrControlRequirements": "Record or prepare only under separate authority; retain clean cue boundaries, source-text fidelity, rights/provenance, and checksum identity. Final timing must precede pilot motion generation.",
+        "variants": [],
+        "usedInScenes": [
+          "MILO-007-S01-P01-SC01",
+          "MILO-007-S01-P01-SC02",
+          "MILO-007-S01-P01-SC03",
+          "MILO-007-S01-P01-SC04",
+          "MILO-007-S01-P01-SC05",
+          "MILO-007-S01-P01-SC06",
+          "MILO-007-S01-P01-SC07",
+          "MILO-007-S01-P01-SC08"
+        ],
+        "usedInShots": [
+          "MILO-007-S01-P01-SC01-SH02",
+          "MILO-007-S01-P01-SC01-SH03",
+          "MILO-007-S01-P01-SC02-SH01",
+          "MILO-007-S01-P01-SC02-SH02",
+          "MILO-007-S01-P01-SC02-SH03",
+          "MILO-007-S01-P01-SC03-SH01",
+          "MILO-007-S01-P01-SC03-SH02",
+          "MILO-007-S01-P01-SC03-SH03",
+          "MILO-007-S01-P01-SC04-SH01",
+          "MILO-007-S01-P01-SC04-SH02",
+          "MILO-007-S01-P01-SC05-SH01",
+          "MILO-007-S01-P01-SC05-SH02",
+          "MILO-007-S01-P01-SC05-SH03",
+          "MILO-007-S01-P01-SC06-SH01",
+          "MILO-007-S01-P01-SC06-SH02",
+          "MILO-007-S01-P01-SC06-SH03",
+          "MILO-007-S01-P01-SC07-SH01",
+          "MILO-007-S01-P01-SC07-SH02",
+          "MILO-007-S01-P01-SC07-SH03",
+          "MILO-007-S01-P01-SC08-SH01",
+          "MILO-007-S01-P01-SC08-SH02"
+        ],
+        "sourceOrDependency": "Derived Phase 3 voice-first dependency bound to the immutable M7 source snapshot; does not modify the M7 asset manifest.",
+        "status": "MISSING"
       }
     ],
     "scenes": [
@@ -461,18 +503,29 @@
           ]
         },
         "voiceDialogueSound": {
-          "narrationSourceText": "Hello, explorers! Moonberry Wood is soft and amber as evening settles in. Milo strolls along a mossy path, his mustard-yellow backpack bouncing, as tiny Moonberry lanterns begin to twinkle on, one by one, like a row of sleepy stars waking up.",
           "dialogueCues": [],
           "ambience": [
             "gentle leaf hush",
             "soft evening forest bed"
           ],
-          "sfx": [
+          "sfx": [],
+          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
+          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED",
+          "narrationPlayback": {
+            "sourceBindingId": "MILO-007-S01-P01-NARRATION-SOURCE-V001",
+            "playbackState": "NO_PLAYBACK_VISUAL_HOLD",
+            "sourceCharacterStart": null,
+            "sourceCharacterEndExclusive": null,
+            "segmentTextHash": null,
+            "timingStatus": "PROVISIONAL_PENDING_VOICE_TIMING"
+          },
+          "productionNotes": [
             "Keep color and feature consistency per Visual Reference checklist.",
             "Design lantern light as small, soft points—avoid high saturation or harsh specular highlights."
           ],
-          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
-          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED"
+          "musicStatus": "NOT_CREATED",
+          "voiceAssetId": "MILO-007-S01-P01-P3A-VOICE001-V01",
+          "dialoguePlaybackRule": "Dialogue cues locate words within the authoritative narration source; do not create duplicate playback."
         },
         "assetDependencies": [
           "MILO-007-S01-P01-A001",
@@ -556,7 +609,6 @@
           ]
         },
         "voiceDialogueSound": {
-          "narrationSourceText": "Hello, explorers! Moonberry Wood is soft and amber as evening settles in. Milo strolls along a mossy path, his mustard-yellow backpack bouncing, as tiny Moonberry lanterns begin to twinkle on, one by one, like a row of sleepy stars waking up.",
           "dialogueCues": [
             {
               "speaker": "Milo",
@@ -564,23 +616,39 @@
               "deliveryNote": "Warm, bright, welcoming—clear diction and slight cheerful emphasis on explorers",
               "source": "M7.voiceGuidanceJson.dialogueCues",
               "startFrame": 211,
-              "endFrame": 340
+              "endFrame": 340,
+              "sourceCharacterStart": 0,
+              "sourceCharacterEndExclusive": 17,
+              "timingStatus": "PROVISIONAL_PENDING_VOICE_TIMING"
             }
           ],
           "ambience": [
             "gentle leaf hush",
             "soft evening forest bed"
           ],
-          "sfx": [
+          "sfx": [],
+          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
+          "lipSyncClassification": "VOICE_FIRST_DIALOGUE_PRESENT_LIP_SYNC_CAPABILITY_UNPROVEN_USE_APPROVED_FALLBACK",
+          "narrationPlayback": {
+            "sourceBindingId": "MILO-007-S01-P01-NARRATION-SOURCE-V001",
+            "playbackState": "ASSIGNED_EXACT_SOURCE_RANGE",
+            "sourceCharacterStart": 0,
+            "sourceCharacterEndExclusive": 74,
+            "segmentTextHash": "16177f649f848b8e51b09fbc9f74f00cf49a23826ac380dace8c4857cc87cb74",
+            "timingStatus": "PROVISIONAL_PENDING_VOICE_TIMING"
+          },
+          "productionNotes": [
             "Keep color and feature consistency per Visual Reference checklist.",
             "Design lantern light as small, soft points—avoid high saturation or harsh specular highlights."
           ],
-          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
-          "lipSyncClassification": "VOICE_FIRST_DIALOGUE_PRESENT_LIP_SYNC_CAPABILITY_UNPROVEN_USE_APPROVED_FALLBACK"
+          "musicStatus": "NOT_CREATED",
+          "voiceAssetId": "MILO-007-S01-P01-P3A-VOICE001-V01",
+          "dialoguePlaybackRule": "Dialogue cues locate words within the authoritative narration source; do not create duplicate playback."
         },
         "assetDependencies": [
           "MILO-007-S01-P01-A001",
-          "MILO-007-S01-P01-A002"
+          "MILO-007-S01-P01-A002",
+          "MILO-007-S01-P01-P3A-VOICE001-V01"
         ],
         "technicalAcceptanceCriteria": [
           "Frame count equals outFrame minus inFrame.",
@@ -606,7 +674,8 @@
         "assemblyHandoff": {
           "requiredInputs": [
             "MILO-007-S01-P01-A001",
-            "MILO-007-S01-P01-A002"
+            "MILO-007-S01-P01-A002",
+            "MILO-007-S01-P01-P3A-VOICE001-V01"
           ],
           "expectedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
           "inputChecksumRequirement": "Every later approved durable asset must be write-restricted and SHA-256 revalidated immediately before assembly.",
@@ -660,22 +729,34 @@
           ]
         },
         "voiceDialogueSound": {
-          "narrationSourceText": "Hello, explorers! Moonberry Wood is soft and amber as evening settles in. Milo strolls along a mossy path, his mustard-yellow backpack bouncing, as tiny Moonberry lanterns begin to twinkle on, one by one, like a row of sleepy stars waking up.",
           "dialogueCues": [],
           "ambience": [
             "gentle leaf hush",
             "soft evening forest bed"
           ],
-          "sfx": [
+          "sfx": [],
+          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
+          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED",
+          "narrationPlayback": {
+            "sourceBindingId": "MILO-007-S01-P01-NARRATION-SOURCE-V001",
+            "playbackState": "ASSIGNED_EXACT_SOURCE_RANGE",
+            "sourceCharacterStart": 74,
+            "sourceCharacterEndExclusive": 242,
+            "segmentTextHash": "28256014a24d0b7e753ca4582d57856a0903fc64268f1d31ffde9c4e8721a548",
+            "timingStatus": "PROVISIONAL_PENDING_VOICE_TIMING"
+          },
+          "productionNotes": [
             "Keep color and feature consistency per Visual Reference checklist.",
             "Design lantern light as small, soft points—avoid high saturation or harsh specular highlights."
           ],
-          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
-          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED"
+          "musicStatus": "NOT_CREATED",
+          "voiceAssetId": "MILO-007-S01-P01-P3A-VOICE001-V01",
+          "dialoguePlaybackRule": "Dialogue cues locate words within the authoritative narration source; do not create duplicate playback."
         },
         "assetDependencies": [
           "MILO-007-S01-P01-A001",
-          "MILO-007-S01-P01-A002"
+          "MILO-007-S01-P01-A002",
+          "MILO-007-S01-P01-P3A-VOICE001-V01"
         ],
         "technicalAcceptanceCriteria": [
           "Frame count equals outFrame minus inFrame.",
@@ -701,7 +782,8 @@
         "assemblyHandoff": {
           "requiredInputs": [
             "MILO-007-S01-P01-A001",
-            "MILO-007-S01-P01-A002"
+            "MILO-007-S01-P01-A002",
+            "MILO-007-S01-P01-P3A-VOICE001-V01"
           ],
           "expectedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
           "inputChecksumRequirement": "Every later approved durable asset must be write-restricted and SHA-256 revalidated immediately before assembly.",
@@ -755,21 +837,36 @@
           ]
         },
         "voiceDialogueSound": {
-          "narrationSourceText": "He follows the warm glow, listening to the hush of leaves, until a very faint, tiny sound makes him pause. Kneeling down, Milo parts a fern and discovers a shy little firefly tucked beneath the fronds. Its light is almost still — a tiny hush of a glow that won't blink. The firefly trembles. It whispers that it is too nervous to blink and too frightened to follow the twinkling path home.",
           "dialogueCues": [],
           "ambience": [
             "gentle leaf hush",
             "soft evening forest bed"
           ],
           "sfx": [
+            "Subtle leaf hush",
+            "Optional almost inaudible nonverbal firefly texture; no spoken words"
+          ],
+          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
+          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED",
+          "narrationPlayback": {
+            "sourceBindingId": "MILO-007-S01-P01-NARRATION-SOURCE-V001",
+            "playbackState": "ASSIGNED_EXACT_SOURCE_RANGE",
+            "sourceCharacterStart": 0,
+            "sourceCharacterEndExclusive": 107,
+            "segmentTextHash": "fc8813f0b145b99751a05b35a66143927d2eef5b9a524fbfdaba60fbc803041f",
+            "timingStatus": "PROVISIONAL_PENDING_VOICE_TIMING"
+          },
+          "productionNotes": [
             "Maintain scale: the firefly should read as very small compared to Milo's hands.",
             "Sound design: include subtle leaf-hush and an almost inaudible whisper for the firefly if doing diegetic voice effects."
           ],
-          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
-          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED"
+          "musicStatus": "NOT_CREATED",
+          "voiceAssetId": "MILO-007-S01-P01-P3A-VOICE001-V01",
+          "dialoguePlaybackRule": "Dialogue cues locate words within the authoritative narration source; do not create duplicate playback."
         },
         "assetDependencies": [
-          "MILO-007-S01-P01-A003"
+          "MILO-007-S01-P01-A003",
+          "MILO-007-S01-P01-P3A-VOICE001-V01"
         ],
         "technicalAcceptanceCriteria": [
           "Frame count equals outFrame minus inFrame.",
@@ -794,7 +891,8 @@
         },
         "assemblyHandoff": {
           "requiredInputs": [
-            "MILO-007-S01-P01-A003"
+            "MILO-007-S01-P01-A003",
+            "MILO-007-S01-P01-P3A-VOICE001-V01"
           ],
           "expectedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
           "inputChecksumRequirement": "Every later approved durable asset must be write-restricted and SHA-256 revalidated immediately before assembly.",
@@ -848,21 +946,36 @@
           ]
         },
         "voiceDialogueSound": {
-          "narrationSourceText": "He follows the warm glow, listening to the hush of leaves, until a very faint, tiny sound makes him pause. Kneeling down, Milo parts a fern and discovers a shy little firefly tucked beneath the fronds. Its light is almost still — a tiny hush of a glow that won't blink. The firefly trembles. It whispers that it is too nervous to blink and too frightened to follow the twinkling path home.",
           "dialogueCues": [],
           "ambience": [
             "gentle leaf hush",
             "soft evening forest bed"
           ],
           "sfx": [
+            "Subtle leaf hush",
+            "Optional almost inaudible nonverbal firefly texture; no spoken words"
+          ],
+          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
+          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED",
+          "narrationPlayback": {
+            "sourceBindingId": "MILO-007-S01-P01-NARRATION-SOURCE-V001",
+            "playbackState": "ASSIGNED_EXACT_SOURCE_RANGE",
+            "sourceCharacterStart": 107,
+            "sourceCharacterEndExclusive": 270,
+            "segmentTextHash": "9207d4eae48ca63ddc135c4ac6b60d8e6fbc016833450cb383b2b9a2998d678d",
+            "timingStatus": "PROVISIONAL_PENDING_VOICE_TIMING"
+          },
+          "productionNotes": [
             "Maintain scale: the firefly should read as very small compared to Milo's hands.",
             "Sound design: include subtle leaf-hush and an almost inaudible whisper for the firefly if doing diegetic voice effects."
           ],
-          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
-          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED"
+          "musicStatus": "NOT_CREATED",
+          "voiceAssetId": "MILO-007-S01-P01-P3A-VOICE001-V01",
+          "dialoguePlaybackRule": "Dialogue cues locate words within the authoritative narration source; do not create duplicate playback."
         },
         "assetDependencies": [
-          "MILO-007-S01-P01-A003"
+          "MILO-007-S01-P01-A003",
+          "MILO-007-S01-P01-P3A-VOICE001-V01"
         ],
         "technicalAcceptanceCriteria": [
           "Frame count equals outFrame minus inFrame.",
@@ -887,7 +1000,8 @@
         },
         "assemblyHandoff": {
           "requiredInputs": [
-            "MILO-007-S01-P01-A003"
+            "MILO-007-S01-P01-A003",
+            "MILO-007-S01-P01-P3A-VOICE001-V01"
           ],
           "expectedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
           "inputChecksumRequirement": "Every later approved durable asset must be write-restricted and SHA-256 revalidated immediately before assembly.",
@@ -909,10 +1023,10 @@
         "motionChoreography": {
           "startPose": "Match the preceding shot’s end pose and eyeline.",
           "anticipation": "One restrained breath, gaze shift, or light pulse before the primary action.",
-          "primaryAction": "Milo leans in and kneels slowly — movement is slow and deliberate",
-          "reaction": "Hold a small readable response without anticipating later beats.",
-          "settle": "Ease motion to stillness before the edit.",
-          "endPose": "Provide the approved scene exit image and clean direction into the next scene.",
+          "primaryAction": "Milo remains settled in his kneel and listens without interrupting while the firefly's fear lands",
+          "reaction": "His gaze softens while his hands remain still and clear of the firefly.",
+          "settle": "Hold the listening reaction without repeating the kneel or adding a response.",
+          "endPose": "Milo and the firefly remain on their established screen sides in a quiet two-shot.",
           "performanceRequirements": [
             "Gentle, curious, and reassuring narrator voice with Milo's warmth.",
             "Compassionate curiosity with tender concern.",
@@ -941,21 +1055,36 @@
           ]
         },
         "voiceDialogueSound": {
-          "narrationSourceText": "He follows the warm glow, listening to the hush of leaves, until a very faint, tiny sound makes him pause. Kneeling down, Milo parts a fern and discovers a shy little firefly tucked beneath the fronds. Its light is almost still — a tiny hush of a glow that won't blink. The firefly trembles. It whispers that it is too nervous to blink and too frightened to follow the twinkling path home.",
           "dialogueCues": [],
           "ambience": [
             "gentle leaf hush",
             "soft evening forest bed"
           ],
           "sfx": [
+            "Subtle leaf hush",
+            "Optional almost inaudible nonverbal firefly texture; no spoken words"
+          ],
+          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
+          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED",
+          "narrationPlayback": {
+            "sourceBindingId": "MILO-007-S01-P01-NARRATION-SOURCE-V001",
+            "playbackState": "ASSIGNED_EXACT_SOURCE_RANGE",
+            "sourceCharacterStart": 270,
+            "sourceCharacterEndExclusive": 389,
+            "segmentTextHash": "aaa9f30d5cef6ae9007fd46fc8e80cb564de2e2726cf26cbecb5f861f8d3cea2",
+            "timingStatus": "PROVISIONAL_PENDING_VOICE_TIMING"
+          },
+          "productionNotes": [
             "Maintain scale: the firefly should read as very small compared to Milo's hands.",
             "Sound design: include subtle leaf-hush and an almost inaudible whisper for the firefly if doing diegetic voice effects."
           ],
-          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
-          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED"
+          "musicStatus": "NOT_CREATED",
+          "voiceAssetId": "MILO-007-S01-P01-P3A-VOICE001-V01",
+          "dialoguePlaybackRule": "Dialogue cues locate words within the authoritative narration source; do not create duplicate playback."
         },
         "assetDependencies": [
-          "MILO-007-S01-P01-A003"
+          "MILO-007-S01-P01-A003",
+          "MILO-007-S01-P01-P3A-VOICE001-V01"
         ],
         "technicalAcceptanceCriteria": [
           "Frame count equals outFrame minus inFrame.",
@@ -980,13 +1109,14 @@
         },
         "assemblyHandoff": {
           "requiredInputs": [
-            "MILO-007-S01-P01-A003"
+            "MILO-007-S01-P01-A003",
+            "MILO-007-S01-P01-P3A-VOICE001-V01"
           ],
           "expectedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
           "inputChecksumRequirement": "Every later approved durable asset must be write-restricted and SHA-256 revalidated immediately before assembly.",
           "outputStatus": "NOT_GENERATED"
         },
-        "rendererNeutralPrompt": "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, A quiet section of the mossy path near low ferns and mossy stones, Hold Milo and firefly together so the whispered fear lands., Milo follows the glow, pauses at a faint sound, kneels, and gently parts the fern to reveal a trembling firefly., gentle track, hold, or release motivated by the action, 65mm intimate two-shot, 288 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution"
+        "rendererNeutralPrompt": "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, A quiet section of the mossy path near low ferns and mossy stones, Hold Milo and firefly together so the whispered fear lands., Milo is already settled in a kneel and listens without interrupting while the tiny firefly's fear lands; hands remain still and clear., gentle track, hold, or release motivated by the action, 65mm intimate two-shot, 288 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution"
       },
       {
         "shotId": "MILO-007-S01-P01-SC03-SH01",
@@ -1034,21 +1164,35 @@
           ]
         },
         "voiceDialogueSound": {
-          "narrationSourceText": "Milo notices the lanterns growing brighter and the shadows shifting around the mossy stones. He realises that the familiar shapes along the path will look different soon, and the firefly might lose its way for good. Milo takes a slow breath. He decides to help the little light take one very small step toward home.",
           "dialogueCues": [],
           "ambience": [
             "gentle leaf hush",
             "soft evening forest bed"
           ],
           "sfx": [
+            "Subtle Milo breath at a non-intrusive level"
+          ],
+          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
+          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED",
+          "narrationPlayback": {
+            "sourceBindingId": "MILO-007-S01-P01-NARRATION-SOURCE-V001",
+            "playbackState": "ASSIGNED_EXACT_SOURCE_RANGE",
+            "sourceCharacterStart": 0,
+            "sourceCharacterEndExclusive": 93,
+            "segmentTextHash": "d089a72c9ced31dccc7f8faf57b6373fd4aca414eea329745c4d0fa1e11e363a",
+            "timingStatus": "PROVISIONAL_PENDING_VOICE_TIMING"
+          },
+          "productionNotes": [
             "Subtle character breath sound can enhance intimacy but ensure non-intrusive levels for child audience.",
             "Keep lighting changes gradual to avoid a sense of sudden danger."
           ],
-          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
-          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED"
+          "musicStatus": "NOT_CREATED",
+          "voiceAssetId": "MILO-007-S01-P01-P3A-VOICE001-V01",
+          "dialoguePlaybackRule": "Dialogue cues locate words within the authoritative narration source; do not create duplicate playback."
         },
         "assetDependencies": [
-          "MILO-007-S01-P01-A004"
+          "MILO-007-S01-P01-A004",
+          "MILO-007-S01-P01-P3A-VOICE001-V01"
         ],
         "technicalAcceptanceCriteria": [
           "Frame count equals outFrame minus inFrame.",
@@ -1073,7 +1217,8 @@
         },
         "assemblyHandoff": {
           "requiredInputs": [
-            "MILO-007-S01-P01-A004"
+            "MILO-007-S01-P01-A004",
+            "MILO-007-S01-P01-P3A-VOICE001-V01"
           ],
           "expectedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
           "inputChecksumRequirement": "Every later approved durable asset must be write-restricted and SHA-256 revalidated immediately before assembly.",
@@ -1127,21 +1272,35 @@
           ]
         },
         "voiceDialogueSound": {
-          "narrationSourceText": "Milo notices the lanterns growing brighter and the shadows shifting around the mossy stones. He realises that the familiar shapes along the path will look different soon, and the firefly might lose its way for good. Milo takes a slow breath. He decides to help the little light take one very small step toward home.",
           "dialogueCues": [],
           "ambience": [
             "gentle leaf hush",
             "soft evening forest bed"
           ],
           "sfx": [
+            "Subtle Milo breath at a non-intrusive level"
+          ],
+          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
+          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED",
+          "narrationPlayback": {
+            "sourceBindingId": "MILO-007-S01-P01-NARRATION-SOURCE-V001",
+            "playbackState": "ASSIGNED_EXACT_SOURCE_RANGE",
+            "sourceCharacterStart": 93,
+            "sourceCharacterEndExclusive": 242,
+            "segmentTextHash": "807c3da4fbfa3993584fe8c3d1fb3d2b00d8cbd7141cbfa1b1bf17ca0ef2d1bf",
+            "timingStatus": "PROVISIONAL_PENDING_VOICE_TIMING"
+          },
+          "productionNotes": [
             "Subtle character breath sound can enhance intimacy but ensure non-intrusive levels for child audience.",
             "Keep lighting changes gradual to avoid a sense of sudden danger."
           ],
-          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
-          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED"
+          "musicStatus": "NOT_CREATED",
+          "voiceAssetId": "MILO-007-S01-P01-P3A-VOICE001-V01",
+          "dialoguePlaybackRule": "Dialogue cues locate words within the authoritative narration source; do not create duplicate playback."
         },
         "assetDependencies": [
-          "MILO-007-S01-P01-A004"
+          "MILO-007-S01-P01-A004",
+          "MILO-007-S01-P01-P3A-VOICE001-V01"
         ],
         "technicalAcceptanceCriteria": [
           "Frame count equals outFrame minus inFrame.",
@@ -1166,7 +1325,8 @@
         },
         "assemblyHandoff": {
           "requiredInputs": [
-            "MILO-007-S01-P01-A004"
+            "MILO-007-S01-P01-A004",
+            "MILO-007-S01-P01-P3A-VOICE001-V01"
           ],
           "expectedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
           "inputChecksumRequirement": "Every later approved durable asset must be write-restricted and SHA-256 revalidated immediately before assembly.",
@@ -1188,10 +1348,10 @@
         "motionChoreography": {
           "startPose": "Match the preceding shot’s end pose and eyeline.",
           "anticipation": "One restrained breath, gaze shift, or light pulse before the primary action.",
-          "primaryAction": "Milo inhales slowly and exhales gently",
-          "reaction": "Hold a small readable response without anticipating later beats.",
-          "settle": "Ease motion to stillness before the edit.",
-          "endPose": "Provide the approved scene exit image and clean direction into the next scene.",
+          "primaryAction": "Milo completes one slow breath, settles, and makes the quiet decision to offer one very small step toward home",
+          "reaction": "The decision reads through a calm gaze and still, open posture rather than rescue action.",
+          "settle": "Hold the resolved but patient expression before the closer seated scene.",
+          "endPose": "Milo remains beside the firefly, ready to sit without changing the established axis.",
           "performanceRequirements": [
             "Reassuring and thoughtful.",
             "Calm determination and empathy.",
@@ -1220,21 +1380,35 @@
           ]
         },
         "voiceDialogueSound": {
-          "narrationSourceText": "Milo notices the lanterns growing brighter and the shadows shifting around the mossy stones. He realises that the familiar shapes along the path will look different soon, and the firefly might lose its way for good. Milo takes a slow breath. He decides to help the little light take one very small step toward home.",
           "dialogueCues": [],
           "ambience": [
             "gentle leaf hush",
             "soft evening forest bed"
           ],
           "sfx": [
+            "Subtle Milo breath at a non-intrusive level"
+          ],
+          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
+          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED",
+          "narrationPlayback": {
+            "sourceBindingId": "MILO-007-S01-P01-NARRATION-SOURCE-V001",
+            "playbackState": "ASSIGNED_EXACT_SOURCE_RANGE",
+            "sourceCharacterStart": 242,
+            "sourceCharacterEndExclusive": 315,
+            "segmentTextHash": "b0da76d090217b33b356b4adf088909ad7e4efcdf7d3feda9c2bd3775e1a53f3",
+            "timingStatus": "PROVISIONAL_PENDING_VOICE_TIMING"
+          },
+          "productionNotes": [
             "Subtle character breath sound can enhance intimacy but ensure non-intrusive levels for child audience.",
             "Keep lighting changes gradual to avoid a sense of sudden danger."
           ],
-          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
-          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED"
+          "musicStatus": "NOT_CREATED",
+          "voiceAssetId": "MILO-007-S01-P01-P3A-VOICE001-V01",
+          "dialoguePlaybackRule": "Dialogue cues locate words within the authoritative narration source; do not create duplicate playback."
         },
         "assetDependencies": [
-          "MILO-007-S01-P01-A004"
+          "MILO-007-S01-P01-A004",
+          "MILO-007-S01-P01-P3A-VOICE001-V01"
         ],
         "technicalAcceptanceCriteria": [
           "Frame count equals outFrame minus inFrame.",
@@ -1259,13 +1433,14 @@
         },
         "assemblyHandoff": {
           "requiredInputs": [
-            "MILO-007-S01-P01-A004"
+            "MILO-007-S01-P01-A004",
+            "MILO-007-S01-P01-P3A-VOICE001-V01"
           ],
           "expectedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
           "inputChecksumRequirement": "Every later approved durable asset must be write-restricted and SHA-256 revalidated immediately before assembly.",
           "outputStatus": "NOT_GENERATED"
         },
-        "rendererNeutralPrompt": "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Same mossy path area, slightly wider framing showing lanterns and stones, End on his quiet decision to offer one small step., Subtle inhalation and decision beat: Milo breathes slowly, collects himself, and leans in to help., gentle track, hold, or release motivated by the action, 50mm two-shot, 192 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution"
+        "rendererNeutralPrompt": "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Same mossy path area, slightly wider framing showing lanterns and stones, End on his quiet decision to offer one small step., Milo completes one slow breath and settles into a calm, open posture that makes his quiet decision to offer one small step readable., gentle track, hold, or release motivated by the action, 50mm two-shot, 192 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution"
       },
       {
         "shotId": "MILO-007-S01-P01-SC04-SH01",
@@ -1313,22 +1488,34 @@
           ]
         },
         "voiceDialogueSound": {
-          "narrationSourceText": "He sits quietly beside the fern and bends close, keeping his voice gentle and steady. \"One tiny blink,\" Milo says, using short, comforting words. He reaches into his backpack for a small treat and offers it with a smile. Then he suggests they try one blink together — just one — and shows how he will count: \"One,\" he says softly, and waits, patient as the moonlight.",
           "dialogueCues": [],
           "ambience": [
             "gentle leaf hush",
             "soft evening forest bed"
           ],
-          "sfx": [
+          "sfx": [],
+          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
+          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED",
+          "narrationPlayback": {
+            "sourceBindingId": "MILO-007-S01-P01-NARRATION-SOURCE-V001",
+            "playbackState": "ASSIGNED_EXACT_SOURCE_RANGE",
+            "sourceCharacterStart": 0,
+            "sourceCharacterEndExclusive": 86,
+            "segmentTextHash": "bd939d2a749a31b86d4a73ddc98b155f620419a277c8b10e03b5e2ff84a01907",
+            "timingStatus": "PROVISIONAL_PENDING_VOICE_TIMING"
+          },
+          "productionNotes": [
             "Direction should prioritise small, controlled movements to support the scene's calmness.",
             "When recording voice, instruct actor to maintain consistent mic distance during quiet lines to preserve intimacy."
           ],
-          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
-          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED"
+          "musicStatus": "NOT_CREATED",
+          "voiceAssetId": "MILO-007-S01-P01-P3A-VOICE001-V01",
+          "dialoguePlaybackRule": "Dialogue cues locate words within the authoritative narration source; do not create duplicate playback."
         },
         "assetDependencies": [
           "MILO-007-S01-P01-A005",
-          "MILO-007-S01-P01-A006"
+          "MILO-007-S01-P01-A006",
+          "MILO-007-S01-P01-P3A-VOICE001-V01"
         ],
         "technicalAcceptanceCriteria": [
           "Frame count equals outFrame minus inFrame.",
@@ -1354,7 +1541,8 @@
         "assemblyHandoff": {
           "requiredInputs": [
             "MILO-007-S01-P01-A005",
-            "MILO-007-S01-P01-A006"
+            "MILO-007-S01-P01-A006",
+            "MILO-007-S01-P01-P3A-VOICE001-V01"
           ],
           "expectedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
           "inputChecksumRequirement": "Every later approved durable asset must be write-restricted and SHA-256 revalidated immediately before assembly.",
@@ -1408,7 +1596,6 @@
           ]
         },
         "voiceDialogueSound": {
-          "narrationSourceText": "He sits quietly beside the fern and bends close, keeping his voice gentle and steady. \"One tiny blink,\" Milo says, using short, comforting words. He reaches into his backpack for a small treat and offers it with a smile. Then he suggests they try one blink together — just one — and shows how he will count: \"One,\" he says softly, and waits, patient as the moonlight.",
           "dialogueCues": [
             {
               "speaker": "Milo",
@@ -1416,31 +1603,50 @@
               "deliveryNote": "Short, comforting, warm—very gentle cadence; not rushed",
               "source": "M7.voiceGuidanceJson.dialogueCues",
               "startFrame": 2337,
-              "endFrame": 2510
+              "endFrame": 2415,
+              "sourceCharacterStart": 86,
+              "sourceCharacterEndExclusive": 103,
+              "timingStatus": "PROVISIONAL_PENDING_VOICE_TIMING"
             },
             {
               "speaker": "Milo",
               "text": "\"One,\"",
               "deliveryNote": "Soft, patient counting voice with an encouraging warmth; allow a small pause after the word",
               "source": "M7.voiceGuidanceJson.dialogueCues",
-              "startFrame": 2337,
-              "endFrame": 2510
+              "startFrame": 2430,
+              "endFrame": 2510,
+              "sourceCharacterStart": 308,
+              "sourceCharacterEndExclusive": 314,
+              "timingStatus": "PROVISIONAL_PENDING_VOICE_TIMING"
             }
           ],
           "ambience": [
             "gentle leaf hush",
             "soft evening forest bed"
           ],
-          "sfx": [
+          "sfx": [],
+          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
+          "lipSyncClassification": "VOICE_FIRST_DIALOGUE_PRESENT_LIP_SYNC_CAPABILITY_UNPROVEN_USE_APPROVED_FALLBACK",
+          "narrationPlayback": {
+            "sourceBindingId": "MILO-007-S01-P01-NARRATION-SOURCE-V001",
+            "playbackState": "ASSIGNED_EXACT_SOURCE_RANGE",
+            "sourceCharacterStart": 86,
+            "sourceCharacterEndExclusive": 367,
+            "segmentTextHash": "431403b0d70b87b618fecdb88c86b2324d3c23ee69e343048ec182e5b90321f2",
+            "timingStatus": "PROVISIONAL_PENDING_VOICE_TIMING"
+          },
+          "productionNotes": [
             "Direction should prioritise small, controlled movements to support the scene's calmness.",
             "When recording voice, instruct actor to maintain consistent mic distance during quiet lines to preserve intimacy."
           ],
-          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
-          "lipSyncClassification": "VOICE_FIRST_DIALOGUE_PRESENT_LIP_SYNC_CAPABILITY_UNPROVEN_USE_APPROVED_FALLBACK"
+          "musicStatus": "NOT_CREATED",
+          "voiceAssetId": "MILO-007-S01-P01-P3A-VOICE001-V01",
+          "dialoguePlaybackRule": "Dialogue cues locate words within the authoritative narration source; do not create duplicate playback."
         },
         "assetDependencies": [
           "MILO-007-S01-P01-A005",
-          "MILO-007-S01-P01-A006"
+          "MILO-007-S01-P01-A006",
+          "MILO-007-S01-P01-P3A-VOICE001-V01"
         ],
         "technicalAcceptanceCriteria": [
           "Frame count equals outFrame minus inFrame.",
@@ -1466,7 +1672,8 @@
         "assemblyHandoff": {
           "requiredInputs": [
             "MILO-007-S01-P01-A005",
-            "MILO-007-S01-P01-A006"
+            "MILO-007-S01-P01-A006",
+            "MILO-007-S01-P01-P3A-VOICE001-V01"
           ],
           "expectedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
           "inputChecksumRequirement": "Every later approved durable asset must be write-restricted and SHA-256 revalidated immediately before assembly.",
@@ -1520,18 +1727,29 @@
           ]
         },
         "voiceDialogueSound": {
-          "narrationSourceText": "He sits quietly beside the fern and bends close, keeping his voice gentle and steady. \"One tiny blink,\" Milo says, using short, comforting words. He reaches into his backpack for a small treat and offers it with a smile. Then he suggests they try one blink together — just one — and shows how he will count: \"One,\" he says softly, and waits, patient as the moonlight.",
           "dialogueCues": [],
           "ambience": [
             "gentle leaf hush",
             "soft evening forest bed"
           ],
-          "sfx": [
+          "sfx": [],
+          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
+          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED",
+          "narrationPlayback": {
+            "sourceBindingId": "MILO-007-S01-P01-NARRATION-SOURCE-V001",
+            "playbackState": "NO_PLAYBACK_VISUAL_HOLD",
+            "sourceCharacterStart": null,
+            "sourceCharacterEndExclusive": null,
+            "segmentTextHash": null,
+            "timingStatus": "PROVISIONAL_PENDING_VOICE_TIMING"
+          },
+          "productionNotes": [
             "Direction should prioritise small, controlled movements to support the scene's calmness.",
             "When recording voice, instruct actor to maintain consistent mic distance during quiet lines to preserve intimacy."
           ],
-          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
-          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED"
+          "musicStatus": "NOT_CREATED",
+          "voiceAssetId": "MILO-007-S01-P01-P3A-VOICE001-V01",
+          "dialoguePlaybackRule": "Dialogue cues locate words within the authoritative narration source; do not create duplicate playback."
         },
         "assetDependencies": [
           "MILO-007-S01-P01-A005",
@@ -1615,21 +1833,37 @@
           ]
         },
         "voiceDialogueSound": {
-          "narrationSourceText": "The first blink is barely a flicker, almost a secret. A sudden breeze shakes the fern and the little firefly hides its light again. Milo stays calm. He breathes slowly, keeps his voice warm, and whispers encouragement. He stays patient and tries the slow count once more. \"One...\" The firefly peeks and lets out a little glow. Milo claps softly, celebrating the tiny success.",
           "dialogueCues": [],
           "ambience": [
             "gentle leaf hush",
             "soft evening forest bed"
           ],
           "sfx": [
+            "Soft leaf rustle",
+            "Almost inaudible exhale",
+            "Soft muted clap only after the returning glow"
+          ],
+          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
+          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED",
+          "narrationPlayback": {
+            "sourceBindingId": "MILO-007-S01-P01-NARRATION-SOURCE-V001",
+            "playbackState": "ASSIGNED_EXACT_SOURCE_RANGE",
+            "sourceCharacterStart": 0,
+            "sourceCharacterEndExclusive": 54,
+            "segmentTextHash": "3542a6d9dfd653adeb0f0076142f999fc891f2ebf3ea28587e4bc317572efd6f",
+            "timingStatus": "PROVISIONAL_PENDING_VOICE_TIMING"
+          },
+          "productionNotes": [
             "Keep sound design minimal and supportive—soft leaf rustle and an almost inaudible exhale will enhance intimacy.",
             "Clap should be soft and muted to avoid startling a young audience."
           ],
-          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
-          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED"
+          "musicStatus": "NOT_CREATED",
+          "voiceAssetId": "MILO-007-S01-P01-P3A-VOICE001-V01",
+          "dialoguePlaybackRule": "Dialogue cues locate words within the authoritative narration source; do not create duplicate playback."
         },
         "assetDependencies": [
-          "MILO-007-S01-P01-A007"
+          "MILO-007-S01-P01-A007",
+          "MILO-007-S01-P01-P3A-VOICE001-V01"
         ],
         "technicalAcceptanceCriteria": [
           "Frame count equals outFrame minus inFrame.",
@@ -1654,7 +1888,8 @@
         },
         "assemblyHandoff": {
           "requiredInputs": [
-            "MILO-007-S01-P01-A007"
+            "MILO-007-S01-P01-A007",
+            "MILO-007-S01-P01-P3A-VOICE001-V01"
           ],
           "expectedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
           "inputChecksumRequirement": "Every later approved durable asset must be write-restricted and SHA-256 revalidated immediately before assembly.",
@@ -1676,10 +1911,10 @@
         "motionChoreography": {
           "startPose": "Match the preceding shot’s end pose and eyeline.",
           "anticipation": "One restrained breath, gaze shift, or light pulse before the primary action.",
-          "primaryAction": "He claps softly—hands coming together quietly to celebrate the small success",
-          "reaction": "A fragile attempt retreats, then returns stronger.",
-          "settle": "Ease motion to stillness before the edit.",
-          "endPose": "Maintain position and screen side for the following shot.",
+          "primaryAction": "A mild breeze shakes the fern and the firefly hides its light; Milo stays calm, breathes slowly, and softly counts without clapping",
+          "reaction": "Milo does not startle, reach, or celebrate during the setback.",
+          "settle": "The fern settles while Milo preserves a quiet, patient hold.",
+          "endPose": "Milo remains relaxed and the firefly stays sheltered for the recovery beat.",
           "performanceRequirements": [
             "Soft encouragement with gentle celebratory warmth at the small success.",
             "Patience turning to quiet joy.",
@@ -1708,7 +1943,6 @@
           ]
         },
         "voiceDialogueSound": {
-          "narrationSourceText": "The first blink is barely a flicker, almost a secret. A sudden breeze shakes the fern and the little firefly hides its light again. Milo stays calm. He breathes slowly, keeps his voice warm, and whispers encouragement. He stays patient and tries the slow count once more. \"One...\" The firefly peeks and lets out a little glow. Milo claps softly, celebrating the tiny success.",
           "dialogueCues": [
             {
               "speaker": "Milo",
@@ -1716,7 +1950,10 @@
               "deliveryNote": "Very gentle, slow counting with a whisper quality; allow a small pause for the firefly's response",
               "source": "M7.voiceGuidanceJson.dialogueCues",
               "startFrame": 3177,
-              "endFrame": 3350
+              "endFrame": 3350,
+              "sourceCharacterStart": 272,
+              "sourceCharacterEndExclusive": 280,
+              "timingStatus": "PROVISIONAL_PENDING_VOICE_TIMING"
             }
           ],
           "ambience": [
@@ -1724,14 +1961,31 @@
             "soft evening forest bed"
           ],
           "sfx": [
+            "Soft leaf rustle",
+            "Almost inaudible exhale",
+            "Soft muted clap only after the returning glow"
+          ],
+          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
+          "lipSyncClassification": "VOICE_FIRST_DIALOGUE_PRESENT_LIP_SYNC_CAPABILITY_UNPROVEN_USE_APPROVED_FALLBACK",
+          "narrationPlayback": {
+            "sourceBindingId": "MILO-007-S01-P01-NARRATION-SOURCE-V001",
+            "playbackState": "ASSIGNED_EXACT_SOURCE_RANGE",
+            "sourceCharacterStart": 54,
+            "sourceCharacterEndExclusive": 281,
+            "segmentTextHash": "1c679433b45a0ef1fdbf41d81a4a8375c726141741e7d00c971106e4f882f22f",
+            "timingStatus": "PROVISIONAL_PENDING_VOICE_TIMING"
+          },
+          "productionNotes": [
             "Keep sound design minimal and supportive—soft leaf rustle and an almost inaudible exhale will enhance intimacy.",
             "Clap should be soft and muted to avoid startling a young audience."
           ],
-          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
-          "lipSyncClassification": "VOICE_FIRST_DIALOGUE_PRESENT_LIP_SYNC_CAPABILITY_UNPROVEN_USE_APPROVED_FALLBACK"
+          "musicStatus": "NOT_CREATED",
+          "voiceAssetId": "MILO-007-S01-P01-P3A-VOICE001-V01",
+          "dialoguePlaybackRule": "Dialogue cues locate words within the authoritative narration source; do not create duplicate playback."
         },
         "assetDependencies": [
-          "MILO-007-S01-P01-A007"
+          "MILO-007-S01-P01-A007",
+          "MILO-007-S01-P01-P3A-VOICE001-V01"
         ],
         "technicalAcceptanceCriteria": [
           "Frame count equals outFrame minus inFrame.",
@@ -1756,13 +2010,14 @@
         },
         "assemblyHandoff": {
           "requiredInputs": [
-            "MILO-007-S01-P01-A007"
+            "MILO-007-S01-P01-A007",
+            "MILO-007-S01-P01-P3A-VOICE001-V01"
           ],
           "expectedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
           "inputChecksumRequirement": "Every later approved durable asset must be write-restricted and SHA-256 revalidated immediately before assembly.",
           "outputStatus": "NOT_GENERATED"
         },
-        "rendererNeutralPrompt": "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Very close to the fern on the mossy ground; intimate close-up sequence, Let a mild breeze move the fern and the firefly hide while Milo stays calm., Tiny, delicate motion sequence: subtle fern movement, a hesitant glow, Milo's steady breathing, and a soft clap., slow, eased push or restrained focus transfer, 50mm reaction, 288 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution"
+        "rendererNeutralPrompt": "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Very close to the fern on the mossy ground; intimate close-up sequence, Let a mild breeze move the fern and the firefly hide while Milo stays calm., A mild breeze moves the fern and the firefly hides; Milo stays calm, breathes slowly, and softly counts with no clap during the setback., slow, eased push or restrained focus transfer, 50mm reaction, 288 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution"
       },
       {
         "shotId": "MILO-007-S01-P01-SC05-SH03",
@@ -1778,10 +2033,10 @@
         "motionChoreography": {
           "startPose": "Match the preceding shot’s end pose and eyeline.",
           "anticipation": "One restrained breath, gaze shift, or light pulse before the primary action.",
-          "primaryAction": "Milo maintains a slow, steady breathing rhythm and keeps his posture relaxed",
-          "reaction": "Hold a small readable response without anticipating later beats.",
-          "settle": "Ease motion to stillness before the edit.",
-          "endPose": "Provide the approved scene exit image and clean direction into the next scene.",
+          "primaryAction": "The firefly peeks, releases a small returning glow, and only then Milo gives one soft muted clap",
+          "reaction": "Milo celebrates the tiny success without increasing the firefly brightness or pressure.",
+          "settle": "The clap finishes softly and both characters return to a calm hold.",
+          "endPose": "The small glow remains readable at the approved SC05 level.",
           "performanceRequirements": [
             "Soft encouragement with gentle celebratory warmth at the small success.",
             "Patience turning to quiet joy.",
@@ -1810,21 +2065,37 @@
           ]
         },
         "voiceDialogueSound": {
-          "narrationSourceText": "The first blink is barely a flicker, almost a secret. A sudden breeze shakes the fern and the little firefly hides its light again. Milo stays calm. He breathes slowly, keeps his voice warm, and whispers encouragement. He stays patient and tries the slow count once more. \"One...\" The firefly peeks and lets out a little glow. Milo claps softly, celebrating the tiny success.",
           "dialogueCues": [],
           "ambience": [
             "gentle leaf hush",
             "soft evening forest bed"
           ],
           "sfx": [
+            "Soft leaf rustle",
+            "Almost inaudible exhale",
+            "Soft muted clap only after the returning glow"
+          ],
+          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
+          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED",
+          "narrationPlayback": {
+            "sourceBindingId": "MILO-007-S01-P01-NARRATION-SOURCE-V001",
+            "playbackState": "ASSIGNED_EXACT_SOURCE_RANGE",
+            "sourceCharacterStart": 281,
+            "sourceCharacterEndExclusive": 375,
+            "segmentTextHash": "ca3bec0e8413473966c3401b4ac260bca1954055da65b4b9e29eaa788ba7791c",
+            "timingStatus": "PROVISIONAL_PENDING_VOICE_TIMING"
+          },
+          "productionNotes": [
             "Keep sound design minimal and supportive—soft leaf rustle and an almost inaudible exhale will enhance intimacy.",
             "Clap should be soft and muted to avoid startling a young audience."
           ],
-          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
-          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED"
+          "musicStatus": "NOT_CREATED",
+          "voiceAssetId": "MILO-007-S01-P01-P3A-VOICE001-V01",
+          "dialoguePlaybackRule": "Dialogue cues locate words within the authoritative narration source; do not create duplicate playback."
         },
         "assetDependencies": [
-          "MILO-007-S01-P01-A007"
+          "MILO-007-S01-P01-A007",
+          "MILO-007-S01-P01-P3A-VOICE001-V01"
         ],
         "technicalAcceptanceCriteria": [
           "Frame count equals outFrame minus inFrame.",
@@ -1849,13 +2120,14 @@
         },
         "assemblyHandoff": {
           "requiredInputs": [
-            "MILO-007-S01-P01-A007"
+            "MILO-007-S01-P01-A007",
+            "MILO-007-S01-P01-P3A-VOICE001-V01"
           ],
           "expectedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
           "inputChecksumRequirement": "Every later approved durable asset must be write-restricted and SHA-256 revalidated immediately before assembly.",
           "outputStatus": "NOT_GENERATED"
         },
-        "rendererNeutralPrompt": "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Very close to the fern on the mossy ground; intimate close-up sequence, Return through the slow count to the small glow and soft clap., Tiny, delicate motion sequence: subtle fern movement, a hesitant glow, Milo's steady breathing, and a soft clap., gentle track, hold, or release motivated by the action, 85mm glow-and-clap detail, 288 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution"
+        "rendererNeutralPrompt": "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Very close to the fern on the mossy ground; intimate close-up sequence, Return through the slow count to the small glow and soft clap., The firefly peeks and releases a small returning glow; only after the glow Milo gives one soft muted clap and settles., gentle track, hold, or release motivated by the action, 85mm glow-and-clap detail, 288 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution"
       },
       {
         "shotId": "MILO-007-S01-P01-SC06-SH01",
@@ -1903,21 +2175,33 @@
           ]
         },
         "voiceDialogueSound": {
-          "narrationSourceText": "Each small blink grows a fraction brighter. With each quiet cheer from Milo, the firefly's courage builds. They try again and again, celebrating each tiny glow like a sparkling victory. Soon the little firefly feels ready to test the path. A nearby lantern makes a gentle pool of light, and the firefly inches forward toward it.",
           "dialogueCues": [],
           "ambience": [
             "gentle leaf hush",
             "soft evening forest bed"
           ],
-          "sfx": [
+          "sfx": [],
+          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
+          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED",
+          "narrationPlayback": {
+            "sourceBindingId": "MILO-007-S01-P01-NARRATION-SOURCE-V001",
+            "playbackState": "ASSIGNED_EXACT_SOURCE_RANGE",
+            "sourceCharacterStart": 0,
+            "sourceCharacterEndExclusive": 107,
+            "segmentTextHash": "2a5db09aa324f4dac97f2a4e927526be74f94b67b6760ca443194d10f643d4ba",
+            "timingStatus": "PROVISIONAL_PENDING_VOICE_TIMING"
+          },
+          "productionNotes": [
             "Montage should feel celebratory but gentle—avoid energetic music that would contradict the calm tone.",
             "Keep continuity of lantern brightness across montage cuts."
           ],
-          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
-          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED"
+          "musicStatus": "NOT_CREATED",
+          "voiceAssetId": "MILO-007-S01-P01-P3A-VOICE001-V01",
+          "dialoguePlaybackRule": "Dialogue cues locate words within the authoritative narration source; do not create duplicate playback."
         },
         "assetDependencies": [
-          "MILO-007-S01-P01-A008"
+          "MILO-007-S01-P01-A008",
+          "MILO-007-S01-P01-P3A-VOICE001-V01"
         ],
         "technicalAcceptanceCriteria": [
           "Frame count equals outFrame minus inFrame.",
@@ -1942,7 +2226,8 @@
         },
         "assemblyHandoff": {
           "requiredInputs": [
-            "MILO-007-S01-P01-A008"
+            "MILO-007-S01-P01-A008",
+            "MILO-007-S01-P01-P3A-VOICE001-V01"
           ],
           "expectedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
           "inputChecksumRequirement": "Every later approved durable asset must be write-restricted and SHA-256 revalidated immediately before assembly.",
@@ -1996,21 +2281,33 @@
           ]
         },
         "voiceDialogueSound": {
-          "narrationSourceText": "Each small blink grows a fraction brighter. With each quiet cheer from Milo, the firefly's courage builds. They try again and again, celebrating each tiny glow like a sparkling victory. Soon the little firefly feels ready to test the path. A nearby lantern makes a gentle pool of light, and the firefly inches forward toward it.",
           "dialogueCues": [],
           "ambience": [
             "gentle leaf hush",
             "soft evening forest bed"
           ],
-          "sfx": [
+          "sfx": [],
+          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
+          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED",
+          "narrationPlayback": {
+            "sourceBindingId": "MILO-007-S01-P01-NARRATION-SOURCE-V001",
+            "playbackState": "ASSIGNED_EXACT_SOURCE_RANGE",
+            "sourceCharacterStart": 107,
+            "sourceCharacterEndExclusive": 186,
+            "segmentTextHash": "f5a02039e6764277db4c9c0d315e3c1da4d7f5e3987f2037545c7f693654269e",
+            "timingStatus": "PROVISIONAL_PENDING_VOICE_TIMING"
+          },
+          "productionNotes": [
             "Montage should feel celebratory but gentle—avoid energetic music that would contradict the calm tone.",
             "Keep continuity of lantern brightness across montage cuts."
           ],
-          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
-          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED"
+          "musicStatus": "NOT_CREATED",
+          "voiceAssetId": "MILO-007-S01-P01-P3A-VOICE001-V01",
+          "dialoguePlaybackRule": "Dialogue cues locate words within the authoritative narration source; do not create duplicate playback."
         },
         "assetDependencies": [
-          "MILO-007-S01-P01-A008"
+          "MILO-007-S01-P01-A008",
+          "MILO-007-S01-P01-P3A-VOICE001-V01"
         ],
         "technicalAcceptanceCriteria": [
           "Frame count equals outFrame minus inFrame.",
@@ -2035,7 +2332,8 @@
         },
         "assemblyHandoff": {
           "requiredInputs": [
-            "MILO-007-S01-P01-A008"
+            "MILO-007-S01-P01-A008",
+            "MILO-007-S01-P01-P3A-VOICE001-V01"
           ],
           "expectedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
           "inputChecksumRequirement": "Every later approved durable asset must be write-restricted and SHA-256 revalidated immediately before assembly.",
@@ -2089,21 +2387,33 @@
           ]
         },
         "voiceDialogueSound": {
-          "narrationSourceText": "Each small blink grows a fraction brighter. With each quiet cheer from Milo, the firefly's courage builds. They try again and again, celebrating each tiny glow like a sparkling victory. Soon the little firefly feels ready to test the path. A nearby lantern makes a gentle pool of light, and the firefly inches forward toward it.",
           "dialogueCues": [],
           "ambience": [
             "gentle leaf hush",
             "soft evening forest bed"
           ],
-          "sfx": [
+          "sfx": [],
+          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
+          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED",
+          "narrationPlayback": {
+            "sourceBindingId": "MILO-007-S01-P01-NARRATION-SOURCE-V001",
+            "playbackState": "ASSIGNED_EXACT_SOURCE_RANGE",
+            "sourceCharacterStart": 186,
+            "sourceCharacterEndExclusive": 328,
+            "segmentTextHash": "46b852705cfe3e3fdb62a1fe42bd4a755f897d6d069da40a091a3e04578b9856",
+            "timingStatus": "PROVISIONAL_PENDING_VOICE_TIMING"
+          },
+          "productionNotes": [
             "Montage should feel celebratory but gentle—avoid energetic music that would contradict the calm tone.",
             "Keep continuity of lantern brightness across montage cuts."
           ],
-          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
-          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED"
+          "musicStatus": "NOT_CREATED",
+          "voiceAssetId": "MILO-007-S01-P01-P3A-VOICE001-V01",
+          "dialoguePlaybackRule": "Dialogue cues locate words within the authoritative narration source; do not create duplicate playback."
         },
         "assetDependencies": [
-          "MILO-007-S01-P01-A008"
+          "MILO-007-S01-P01-A008",
+          "MILO-007-S01-P01-P3A-VOICE001-V01"
         ],
         "technicalAcceptanceCriteria": [
           "Frame count equals outFrame minus inFrame.",
@@ -2128,7 +2438,8 @@
         },
         "assemblyHandoff": {
           "requiredInputs": [
-            "MILO-007-S01-P01-A008"
+            "MILO-007-S01-P01-A008",
+            "MILO-007-S01-P01-P3A-VOICE001-V01"
           ],
           "expectedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
           "inputChecksumRequirement": "Every later approved durable asset must be write-restricted and SHA-256 revalidated immediately before assembly.",
@@ -2182,22 +2493,34 @@
           ]
         },
         "voiceDialogueSound": {
-          "narrationSourceText": "Just as the lanterns lift the shadows and the path begins to look unfamiliar, the firefly faces the biggest choice — stay hidden or blink and fly. Milo stays by its side, offering a gentle, encouraging gesture. \"Remember your first tiny blink? You did that,\" he says softly. The firefly chooses for itself. It blinks bright, lets out a joyful twinkle, and lifts into the air, following the twinkling path toward its family.",
           "dialogueCues": [],
           "ambience": [
             "gentle leaf hush",
             "soft evening forest bed"
           ],
-          "sfx": [
+          "sfx": [],
+          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
+          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED",
+          "narrationPlayback": {
+            "sourceBindingId": "MILO-007-S01-P01-NARRATION-SOURCE-V001",
+            "playbackState": "ASSIGNED_EXACT_SOURCE_RANGE",
+            "sourceCharacterStart": 0,
+            "sourceCharacterEndExclusive": 147,
+            "segmentTextHash": "9d5bcd03c8b360a8683ff10e803d3a7b71682c349f7af219092737eafe70395c",
+            "timingStatus": "PROVISIONAL_PENDING_VOICE_TIMING"
+          },
+          "productionNotes": [
             "Preserve the firefly's agency—the direction should feel like a choice rather than a rescue.",
             "Ensure the lift-off animation reads well against lantern light without overwhelming the scene."
           ],
-          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
-          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED"
+          "musicStatus": "NOT_CREATED",
+          "voiceAssetId": "MILO-007-S01-P01-P3A-VOICE001-V01",
+          "dialoguePlaybackRule": "Dialogue cues locate words within the authoritative narration source; do not create duplicate playback."
         },
         "assetDependencies": [
           "MILO-007-S01-P01-A009",
-          "MILO-007-S01-P01-A010"
+          "MILO-007-S01-P01-A010",
+          "MILO-007-S01-P01-P3A-VOICE001-V01"
         ],
         "technicalAcceptanceCriteria": [
           "Frame count equals outFrame minus inFrame.",
@@ -2223,7 +2546,8 @@
         "assemblyHandoff": {
           "requiredInputs": [
             "MILO-007-S01-P01-A009",
-            "MILO-007-S01-P01-A010"
+            "MILO-007-S01-P01-A010",
+            "MILO-007-S01-P01-P3A-VOICE001-V01"
           ],
           "expectedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
           "inputChecksumRequirement": "Every later approved durable asset must be write-restricted and SHA-256 revalidated immediately before assembly.",
@@ -2277,7 +2601,6 @@
           ]
         },
         "voiceDialogueSound": {
-          "narrationSourceText": "Just as the lanterns lift the shadows and the path begins to look unfamiliar, the firefly faces the biggest choice — stay hidden or blink and fly. Milo stays by its side, offering a gentle, encouraging gesture. \"Remember your first tiny blink? You did that,\" he says softly. The firefly chooses for itself. It blinks bright, lets out a joyful twinkle, and lifts into the air, following the twinkling path toward its family.",
           "dialogueCues": [
             {
               "speaker": "Milo",
@@ -2285,23 +2608,39 @@
               "deliveryNote": "Soft, encouraging, matter-of-fact reassurance—warmth without pressure",
               "source": "M7.voiceGuidanceJson.dialogueCues",
               "startFrame": 4809,
-              "endFrame": 4982
+              "endFrame": 4982,
+              "sourceCharacterStart": 211,
+              "sourceCharacterEndExclusive": 258,
+              "timingStatus": "PROVISIONAL_PENDING_VOICE_TIMING"
             }
           ],
           "ambience": [
             "gentle leaf hush",
             "soft evening forest bed"
           ],
-          "sfx": [
+          "sfx": [],
+          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
+          "lipSyncClassification": "VOICE_FIRST_DIALOGUE_PRESENT_LIP_SYNC_CAPABILITY_UNPROVEN_USE_APPROVED_FALLBACK",
+          "narrationPlayback": {
+            "sourceBindingId": "MILO-007-S01-P01-NARRATION-SOURCE-V001",
+            "playbackState": "ASSIGNED_EXACT_SOURCE_RANGE",
+            "sourceCharacterStart": 147,
+            "sourceCharacterEndExclusive": 275,
+            "segmentTextHash": "c8d7607dd61d417f4e52174d9b31e3f53aa773d8906a00a4ca02240b37489c19",
+            "timingStatus": "PROVISIONAL_PENDING_VOICE_TIMING"
+          },
+          "productionNotes": [
             "Preserve the firefly's agency—the direction should feel like a choice rather than a rescue.",
             "Ensure the lift-off animation reads well against lantern light without overwhelming the scene."
           ],
-          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
-          "lipSyncClassification": "VOICE_FIRST_DIALOGUE_PRESENT_LIP_SYNC_CAPABILITY_UNPROVEN_USE_APPROVED_FALLBACK"
+          "musicStatus": "NOT_CREATED",
+          "voiceAssetId": "MILO-007-S01-P01-P3A-VOICE001-V01",
+          "dialoguePlaybackRule": "Dialogue cues locate words within the authoritative narration source; do not create duplicate playback."
         },
         "assetDependencies": [
           "MILO-007-S01-P01-A009",
-          "MILO-007-S01-P01-A010"
+          "MILO-007-S01-P01-A010",
+          "MILO-007-S01-P01-P3A-VOICE001-V01"
         ],
         "technicalAcceptanceCriteria": [
           "Frame count equals outFrame minus inFrame.",
@@ -2327,7 +2666,8 @@
         "assemblyHandoff": {
           "requiredInputs": [
             "MILO-007-S01-P01-A009",
-            "MILO-007-S01-P01-A010"
+            "MILO-007-S01-P01-A010",
+            "MILO-007-S01-P01-P3A-VOICE001-V01"
           ],
           "expectedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
           "inputChecksumRequirement": "Every later approved durable asset must be write-restricted and SHA-256 revalidated immediately before assembly.",
@@ -2349,10 +2689,10 @@
         "motionChoreography": {
           "startPose": "Match the preceding shot’s end pose and eyeline.",
           "anticipation": "One restrained breath, gaze shift, or light pulse before the primary action.",
-          "primaryAction": "Milo places a gentle hand or gives a small encouraging nod/gesture beside the firefly",
-          "reaction": "Hold a small readable response without anticipating later beats.",
-          "settle": "Ease motion to stillness before the edit.",
-          "endPose": "Provide the approved scene exit image and clean direction into the next scene.",
+          "primaryAction": "Milo holds still with no touch or prompting while the firefly chooses, blinks bright, and voluntarily lifts toward its family",
+          "reaction": "Milo watches supportively without competing with the firefly or causing the lift.",
+          "settle": "The camera and firefly settle on the outgoing flight path toward the lantern circle.",
+          "endPose": "The firefly leads the frame; Milo remains behind on the established side.",
           "performanceRequirements": [
             "Tender encouragement leading into joyful warmth at the firefly's success.",
             "Reassuring then quietly celebratory.",
@@ -2381,22 +2721,34 @@
           ]
         },
         "voiceDialogueSound": {
-          "narrationSourceText": "Just as the lanterns lift the shadows and the path begins to look unfamiliar, the firefly faces the biggest choice — stay hidden or blink and fly. Milo stays by its side, offering a gentle, encouraging gesture. \"Remember your first tiny blink? You did that,\" he says softly. The firefly chooses for itself. It blinks bright, lets out a joyful twinkle, and lifts into the air, following the twinkling path toward its family.",
           "dialogueCues": [],
           "ambience": [
             "gentle leaf hush",
             "soft evening forest bed"
           ],
-          "sfx": [
+          "sfx": [],
+          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
+          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED",
+          "narrationPlayback": {
+            "sourceBindingId": "MILO-007-S01-P01-NARRATION-SOURCE-V001",
+            "playbackState": "ASSIGNED_EXACT_SOURCE_RANGE",
+            "sourceCharacterStart": 275,
+            "sourceCharacterEndExclusive": 423,
+            "segmentTextHash": "eb8c63b6eb0afad021a16d4999aad038d8974ac16b30e46d69c65ec1b20b1340",
+            "timingStatus": "PROVISIONAL_PENDING_VOICE_TIMING"
+          },
+          "productionNotes": [
             "Preserve the firefly's agency—the direction should feel like a choice rather than a rescue.",
             "Ensure the lift-off animation reads well against lantern light without overwhelming the scene."
           ],
-          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
-          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED"
+          "musicStatus": "NOT_CREATED",
+          "voiceAssetId": "MILO-007-S01-P01-P3A-VOICE001-V01",
+          "dialoguePlaybackRule": "Dialogue cues locate words within the authoritative narration source; do not create duplicate playback."
         },
         "assetDependencies": [
           "MILO-007-S01-P01-A009",
-          "MILO-007-S01-P01-A010"
+          "MILO-007-S01-P01-A010",
+          "MILO-007-S01-P01-P3A-VOICE001-V01"
         ],
         "technicalAcceptanceCriteria": [
           "Frame count equals outFrame minus inFrame.",
@@ -2422,13 +2774,14 @@
         "assemblyHandoff": {
           "requiredInputs": [
             "MILO-007-S01-P01-A009",
-            "MILO-007-S01-P01-A010"
+            "MILO-007-S01-P01-A010",
+            "MILO-007-S01-P01-P3A-VOICE001-V01"
           ],
           "expectedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
           "inputChecksumRequirement": "Every later approved durable asset must be write-restricted and SHA-256 revalidated immediately before assembly.",
           "outputStatus": "NOT_GENERATED"
         },
-        "rendererNeutralPrompt": "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, A slightly widened section of the path where lantern pools form a small guiding route, Follow the firefly’s bright blink and voluntary lift toward family., Decision and lift-off: Milo offers a gentle gesture; the firefly blinks brighter and lifts into the air, following the lantern path with joyful motion., gentle track, hold, or release motivated by the action, 35mm upward tracking, 240 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution"
+        "rendererNeutralPrompt": "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, A slightly widened section of the path where lantern pools form a small guiding route, Follow the firefly’s bright blink and voluntary lift toward family., Milo holds still without touch or prompting; the firefly chooses, blinks bright, and voluntarily lifts, leading the upward camera path toward its family., gentle track, hold, or release motivated by the action, 35mm upward tracking, 240 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution"
       },
       {
         "shotId": "MILO-007-S01-P01-SC08-SH01",
@@ -2444,10 +2797,10 @@
         "motionChoreography": {
           "startPose": "Readable settled entry pose from the prior transition.",
           "anticipation": "One restrained breath, gaze shift, or light pulse before the primary action.",
-          "primaryAction": "Milo watches the small reunion, gives a gentle wave, and resumes his stroll with a warm smile",
-          "reaction": "Hold a small readable response without anticipating later beats.",
-          "settle": "Ease motion to stillness before the edit.",
-          "endPose": "Maintain position and screen side for the following shot.",
+          "primaryAction": "Reveal the unnamed firefly family as restrained small lights welcoming the returning firefly in the lantern circle",
+          "reaction": "Milo watches from the established path side without waving or departing yet.",
+          "settle": "Hold the reunion as the centre of attention.",
+          "endPose": "The family remains central and Milo is poised for the following wave.",
           "performanceRequirements": [
             "Warm, satisfied, gently cheerful.",
             "Happy, quietly celebratory and comforting.",
@@ -2476,21 +2829,33 @@
           ]
         },
         "voiceDialogueSound": {
-          "narrationSourceText": "At the place where the lanterns make a soft circle, the firefly reunites with its family and they glow together like a tiny, warm constellation. Milo watches happily, waves, and continues his evening walk with a warm smile. He celebrates the courage of one small light and quietly hums, \"Moonberries and moonbeams!\"",
           "dialogueCues": [],
           "ambience": [
             "gentle leaf hush",
             "soft evening forest bed"
           ],
-          "sfx": [
+          "sfx": [],
+          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
+          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED",
+          "narrationPlayback": {
+            "sourceBindingId": "MILO-007-S01-P01-NARRATION-SOURCE-V001",
+            "playbackState": "ASSIGNED_EXACT_SOURCE_RANGE",
+            "sourceCharacterStart": 0,
+            "sourceCharacterEndExclusive": 145,
+            "segmentTextHash": "fe0eabbacf12e9097cceb494f4b1da52f72bb1e9f39b19971aa3e40aa3a25f12",
+            "timingStatus": "PROVISIONAL_PENDING_VOICE_TIMING"
+          },
+          "productionNotes": [
             "End with a calm, satisfying visual and audio cue to leave the audience comforted.",
             "Ensure the final hum line is clearly audible but soft; do not overdub loud music under the close."
           ],
-          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
-          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED"
+          "musicStatus": "NOT_CREATED",
+          "voiceAssetId": "MILO-007-S01-P01-P3A-VOICE001-V01",
+          "dialoguePlaybackRule": "Dialogue cues locate words within the authoritative narration source; do not create duplicate playback."
         },
         "assetDependencies": [
-          "MILO-007-S01-P01-A011"
+          "MILO-007-S01-P01-A011",
+          "MILO-007-S01-P01-P3A-VOICE001-V01"
         ],
         "technicalAcceptanceCriteria": [
           "Frame count equals outFrame minus inFrame.",
@@ -2515,13 +2880,14 @@
         },
         "assemblyHandoff": {
           "requiredInputs": [
-            "MILO-007-S01-P01-A011"
+            "MILO-007-S01-P01-A011",
+            "MILO-007-S01-P01-P3A-VOICE001-V01"
           ],
           "expectedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
           "inputChecksumRequirement": "Every later approved durable asset must be write-restricted and SHA-256 revalidated immediately before assembly.",
           "outputStatus": "NOT_GENERATED"
         },
-        "rendererNeutralPrompt": "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Small clearing or path circle formed by lantern pools, Reveal the firefly family as unnamed small lights in the lantern circle., Resolution actions: the firefly family glows together; Milo waves and continues walking, smiling warmly., gentle track, hold, or release motivated by the action, 35mm reunion wide, 168 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution"
+        "rendererNeutralPrompt": "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Small clearing or path circle formed by lantern pools, Reveal the firefly family as unnamed small lights in the lantern circle., Reveal the unnamed firefly family as restrained small lights welcoming the returning firefly; Milo watches without waving or departing yet., gentle track, hold, or release motivated by the action, 35mm reunion wide, 168 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution"
       },
       {
         "shotId": "MILO-007-S01-P01-SC08-SH02",
@@ -2537,10 +2903,10 @@
         "motionChoreography": {
           "startPose": "Match the preceding shot’s end pose and eyeline.",
           "anticipation": "One restrained breath, gaze shift, or light pulse before the primary action.",
-          "primaryAction": "The firefly family emits small, coordinated glows like a tiny constellation",
-          "reaction": "Courage settles into belonging and contentment.",
-          "settle": "Ease motion to stillness before the edit.",
-          "endPose": "Maintain position and screen side for the following shot.",
+          "primaryAction": "The family glows together while Milo gives one happy wave and delivers the exact closing cue; he does not depart yet",
+          "reaction": "Milo lets the reunion remain central after the wave.",
+          "settle": "Finish the cue and wave in a clean held pose.",
+          "endPose": "Milo is ready to turn into the departure shot while the family remains together.",
           "performanceRequirements": [
             "Warm, satisfied, gently cheerful.",
             "Happy, quietly celebratory and comforting.",
@@ -2569,7 +2935,6 @@
           ]
         },
         "voiceDialogueSound": {
-          "narrationSourceText": "At the place where the lanterns make a soft circle, the firefly reunites with its family and they glow together like a tiny, warm constellation. Milo watches happily, waves, and continues his evening walk with a warm smile. He celebrates the courage of one small light and quietly hums, \"Moonberries and moonbeams!\"",
           "dialogueCues": [
             {
               "speaker": "Milo",
@@ -2577,22 +2942,38 @@
               "deliveryNote": "Warm, gentle hum-like delivery; signature phrase delivered with affectionate cheer and soft closure tone",
               "source": "M7.voiceGuidanceJson.dialogueCues",
               "startFrame": 5481,
-              "endFrame": 5582
+              "endFrame": 5582,
+              "sourceCharacterStart": 287,
+              "sourceCharacterEndExclusive": 315,
+              "timingStatus": "PROVISIONAL_PENDING_VOICE_TIMING"
             }
           ],
           "ambience": [
             "gentle leaf hush",
             "soft evening forest bed"
           ],
-          "sfx": [
+          "sfx": [],
+          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
+          "lipSyncClassification": "VOICE_FIRST_DIALOGUE_PRESENT_LIP_SYNC_CAPABILITY_UNPROVEN_USE_APPROVED_FALLBACK",
+          "narrationPlayback": {
+            "sourceBindingId": "MILO-007-S01-P01-NARRATION-SOURCE-V001",
+            "playbackState": "ASSIGNED_EXACT_SOURCE_RANGE",
+            "sourceCharacterStart": 145,
+            "sourceCharacterEndExclusive": 315,
+            "segmentTextHash": "d1076a4d8972874adb14d8db64ae72f25dcbf210e4477e6b171f422de317fc7c",
+            "timingStatus": "PROVISIONAL_PENDING_VOICE_TIMING"
+          },
+          "productionNotes": [
             "End with a calm, satisfying visual and audio cue to leave the audience comforted.",
             "Ensure the final hum line is clearly audible but soft; do not overdub loud music under the close."
           ],
-          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
-          "lipSyncClassification": "VOICE_FIRST_DIALOGUE_PRESENT_LIP_SYNC_CAPABILITY_UNPROVEN_USE_APPROVED_FALLBACK"
+          "musicStatus": "NOT_CREATED",
+          "voiceAssetId": "MILO-007-S01-P01-P3A-VOICE001-V01",
+          "dialoguePlaybackRule": "Dialogue cues locate words within the authoritative narration source; do not create duplicate playback."
         },
         "assetDependencies": [
-          "MILO-007-S01-P01-A011"
+          "MILO-007-S01-P01-A011",
+          "MILO-007-S01-P01-P3A-VOICE001-V01"
         ],
         "technicalAcceptanceCriteria": [
           "Frame count equals outFrame minus inFrame.",
@@ -2617,13 +2998,14 @@
         },
         "assemblyHandoff": {
           "requiredInputs": [
-            "MILO-007-S01-P01-A011"
+            "MILO-007-S01-P01-A011",
+            "MILO-007-S01-P01-P3A-VOICE001-V01"
           ],
           "expectedOutputPurpose": "FUTURE_APPROVED_SHOT_MEDIA",
           "inputChecksumRequirement": "Every later approved durable asset must be write-restricted and SHA-256 revalidated immediately before assembly.",
           "outputStatus": "NOT_GENERATED"
         },
-        "rendererNeutralPrompt": "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Small clearing or path circle formed by lantern pools, Include Milo’s happy wave while the reunion remains central., Resolution actions: the firefly family glows together; Milo waves and continues walking, smiling warmly., slow, eased push or restrained focus transfer, 50mm wave medium, 168 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution"
+        "rendererNeutralPrompt": "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Small clearing or path circle formed by lantern pools, Include Milo’s happy wave while the reunion remains central., The family glows together while Milo gives one happy wave and delivers the exact closing cue; he does not depart yet., slow, eased push or restrained focus transfer, 50mm wave medium, 168 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution"
       },
       {
         "shotId": "MILO-007-S01-P01-SC08-SH03",
@@ -2639,10 +3021,10 @@
         "motionChoreography": {
           "startPose": "Match the preceding shot’s end pose and eyeline.",
           "anticipation": "One restrained breath, gaze shift, or light pulse before the primary action.",
-          "primaryAction": "Milo watches the small reunion, gives a gentle wave, and resumes his stroll with a warm smile",
-          "reaction": "Hold a small readable response without anticipating later beats.",
-          "settle": "Ease motion to stillness before the edit.",
-          "endPose": "Provide the approved scene exit image and clean direction into the next scene.",
+          "primaryAction": "Only after the reunion and wave, Milo resumes his left-to-right evening stroll with a warm smile",
+          "reaction": "The family remains visible as a small warm constellation behind him.",
+          "settle": "Ease the stroll and camera track into the final fade.",
+          "endPose": "Milo continues safely along the path as the episode closes.",
           "performanceRequirements": [
             "Warm, satisfied, gently cheerful.",
             "Happy, quietly celebratory and comforting.",
@@ -2671,18 +3053,29 @@
           ]
         },
         "voiceDialogueSound": {
-          "narrationSourceText": "At the place where the lanterns make a soft circle, the firefly reunites with its family and they glow together like a tiny, warm constellation. Milo watches happily, waves, and continues his evening walk with a warm smile. He celebrates the courage of one small light and quietly hums, \"Moonberries and moonbeams!\"",
           "dialogueCues": [],
           "ambience": [
             "gentle leaf hush",
             "soft evening forest bed"
           ],
-          "sfx": [
+          "sfx": [],
+          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
+          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED",
+          "narrationPlayback": {
+            "sourceBindingId": "MILO-007-S01-P01-NARRATION-SOURCE-V001",
+            "playbackState": "NO_PLAYBACK_VISUAL_HOLD",
+            "sourceCharacterStart": null,
+            "sourceCharacterEndExclusive": null,
+            "segmentTextHash": null,
+            "timingStatus": "PROVISIONAL_PENDING_VOICE_TIMING"
+          },
+          "productionNotes": [
             "End with a calm, satisfying visual and audio cue to leave the audience comforted.",
             "Ensure the final hum line is clearly audible but soft; do not overdub loud music under the close."
           ],
-          "music": "Optional soft underscore only; must not mask dialogue or make the scene frightening.",
-          "lipSyncClassification": "VOICE_FIRST_NARRATION_OR_NON_DIALOGUE_NO_CHARACTER_LIP_SYNC_REQUIRED"
+          "musicStatus": "NOT_CREATED",
+          "voiceAssetId": "MILO-007-S01-P01-P3A-VOICE001-V01",
+          "dialoguePlaybackRule": "Dialogue cues locate words within the authoritative narration source; do not create duplicate playback."
         },
         "assetDependencies": [
           "MILO-007-S01-P01-A011"
@@ -2716,17 +3109,27 @@
           "inputChecksumRequirement": "Every later approved durable asset must be write-restricted and SHA-256 revalidated immediately before assembly.",
           "outputStatus": "NOT_GENERATED"
         },
-        "rendererNeutralPrompt": "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Small clearing or path circle formed by lantern pools, Track Milo onward and close on the exact hummed phrase., Resolution actions: the firefly family glows together; Milo waves and continues walking, smiling warmly., gentle track, hold, or release motivated by the action, 40mm departing wide, 144 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution"
+        "rendererNeutralPrompt": "Milo Moonberry, soft shaggy turquoise fur, huge round ears with cream inner panels, warm amber eyes, small pink nose, broad cream muzzle, cream belly with glowing golden star, mustard-yellow explorer backpack, Small clearing or path circle formed by lantern pools, Track Milo onward and close on the exact hummed phrase., After the reunion and wave are complete, Milo resumes his left-to-right evening stroll with a warm smile and eases into the final fade., gentle track, hold, or release motivated by the action, 40mm departing wide, 144 frames at 24 fps, gentle eased motion, warm safe evening atmosphere, stable path screen direction, start from prior matched pose and settle to clean edit pose, no identity drift, no anatomy change, no prop duplication, no text, no flicker, no warping, no canon resolution"
       }
     ],
     "audioPlan": {
       "strategy": "VOICE_FIRST",
-      "sourceTextBinding": "Every scene carries exact M7 sourceText; dialogue cues are copied from M7 voiceGuidanceJson without alteration.",
+      "sourceTextBinding": "One authoritative M7 narration source is bound once; shots reference exact non-overlapping source-character ranges or an explicit no-playback state.",
       "voiceAssetStatus": "MISSING",
       "lipSyncRequirement": "Use lip sync only after a separate capability and quality gate; otherwise use narration, off-mouth framing, held expressions, or reaction coverage without changing dialogue.",
       "fallbackClassification": "VOICE_FIRST_APPROVED_FALLBACK_REQUIRED_BEFORE_RENDERING",
       "musicStatus": "NOT_CREATED",
-      "soundStatus": "NOT_CREATED"
+      "soundStatus": "NOT_CREATED",
+      "narrationSourceBinding": {
+        "sourceBindingId": "MILO-007-S01-P01-NARRATION-SOURCE-V001",
+        "sourceType": "M7_APPROVED_SNAPSHOT",
+        "sourcePath": "08-production/MILO-007-S01-P01/phase3/source/M7_PRODUCTION_PACKAGE_SNAPSHOT.json",
+        "sourceByteSha256": "c1221fe13d7278912b73572658dc569756de4baa98679b7e3567bd3768d98233",
+        "voiceAssetId": "MILO-007-S01-P01-P3A-VOICE001-V01",
+        "dialogueRule": "Dialogue remains embedded in the authoritative narration source and is located by exact cue records; it must not be played twice."
+      },
+      "narrationAllocationStatus": "PROVISIONAL_EXACT_SOURCE_RANGES_PENDING_VOICE_TIMING",
+      "finalTimingGate": "Final shot and cue timing must be derived from a scratch or approved voice performance before pilot motion generation."
     },
     "rendererAdapters": [],
     "qualityChecks": [
@@ -2736,7 +3139,10 @@
       "Character identity and path-axis continuity",
       "No missing asset represented as existing",
       "No renderer-specific live target or provider setting",
-      "No media-generation or approval claim"
+      "No media-generation or approval claim",
+      "Narration ranges are unique, non-overlapping, and cover each exact M7 scene source once.",
+      "Dialogue windows are non-overlapping and have complete voice dependencies.",
+      "Ambience, dialogue, SFX, music, and non-audio production notes remain semantically separated."
     ],
     "revisionBoundaries": {
       "newVersionRequiredFor": [

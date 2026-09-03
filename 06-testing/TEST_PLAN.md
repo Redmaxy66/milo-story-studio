@@ -103,6 +103,6 @@ node --check 05-code/m8/phase3-validation.mjs
 node 06-testing/validate_m8_phase3.mjs
 ```
 
-The Phase 3 gate verifies the byte-identical approved M7 snapshot, exact lineage and source coverage, visual-reference governance, all three specialist boundaries, stable scene/shot/panel/prompt IDs, storyboard and animation timing, dialogue preservation, source hashes, provider neutrality, pending-only repository approval templates, the closed visual-generation gate, and absence of media or live-system claims. Run the complete Phase 2 and M3–M7 suites in `M8_PHASE3_TEST_CASES.md` before commit.
+The Phase 3 gate verifies the byte-identical approved M7 snapshot, exact lineage and source coverage, visual-reference governance, all three specialist boundaries, stable scene/shot/panel/prompt IDs, storyboard and animation timing, deterministic narration/dialogue allocation, complete voice dependencies, corrected action order, prompt/reference bindings, source hashes, provider neutrality, conditional AP01–AP04 repository evidence, pending AP05–AP06 review, the unexecuted cost-blocked reference proposal, and absence of media or live-system claims. Run the complete Phase 2 and M3–M7 suites in `M8_PHASE3_TEST_CASES.md` before commit.
 
 Phase 3 is offline and text/specification-only. It grants no provider, generation, live approval, workflow, assembly, publication, Phase 4 or A3 authority.

@@ -56,17 +56,17 @@
     },
     {
       "path": "08-production/MILO-007-S01-P01/phase3/animation/animation-production-manifest-v1.json",
-      "byteSha256": "542a35d52f8b1bf66352e2be4a2adce7799c4496be4847868d21cd9d12974146",
-      "contentHash": "ace496163aa11c9988186a0a9721fab60db361fb0cd10ed0f24ae8ddc59b38e8"
+      "byteSha256": "fd5fbe18528ce0674379d58536b21dd993de23a2bf7c9e41ae4194969554689c",
+      "contentHash": "8e2bc4ba60e2c53ebda2b3a782a53edc6ae1dfae818bfa0254186111b23879f7"
     },
     {
       "path": "03-prompts/m8/MILO-007-S01-P01/provider-neutral-prompt-bundle-v1.json",
-      "byteSha256": "a23134d03fc1627ed728d6e62a9937ed47cda7f626f3342c41ccef85ea6b9119",
-      "contentHash": "817b393037598d9b7dcbfd054d0ab8d99b1f6c95686e77d0b93ab52eb294f1cd"
+      "byteSha256": "a57cccd81c6a8166cdb6935f02a41e390ccd8db88095669309ce4c7f1bc45648",
+      "contentHash": "0b016b0d07da023f3c51ff2b78dcc07cb669a6f24bb4ecc1588016ce40cce91d"
     },
     {
       "path": "08-production/MILO-007-S01-P01/phase3/approval/phase3-approval-record-templates-v1.json",
-      "byteSha256": "bd3c714bc9b8094b179b2add6ea83f188fe0fc898c31b6a53bfaeb5a13a54d25",
+      "byteSha256": "ae4fbd977bc69e3550061fbfb44d13f59fcf9abb818c8a70bdcc8d4be00fbbc0",
       "contentHash": null
     },
     {
@@ -86,22 +86,27 @@
     },
     {
       "path": "08-production/MILO-007-S01-P01/phase3/approval/reference-generation-gate-v1.md",
-      "byteSha256": "a1fd51aebf9dd0b136b23bc9efe633d5f4119dc82bd87764d5871f2f8988d70a",
+      "byteSha256": "6aa6537508c326e3ce681af49325f09327dd3235128c17f001edcf654f25c94e",
+      "contentHash": null
+    },
+    {
+      "path": "08-production/MILO-007-S01-P01/phase3/approval/reference-generation-proposal-v1.json",
+      "byteSha256": "76f0d16bf50ddf6e3020b5e147588eaeb32e229431f29e694d98a9bb272757d5",
       "contentHash": null
     },
     {
       "path": "08-production/MILO-007-S01-P01/phase3/approval/phase3-approval-package-v1.md",
-      "byteSha256": "591f5e4e83c0ef5054a90c12554d914cc0e1d35950ef5488e5149ec03df775bb",
+      "byteSha256": "cd079897f879d4de092ef01b52ccb5b28bc4c63648e322cac875a5f3c14f4489",
       "contentHash": null
     },
     {
       "path": "08-production/MILO-007-S01-P01/phase3/README.md",
-      "byteSha256": "a7eb45cb14b5dd3afa09f12f666ce8bd42f85146f2dc6e5f5c7e0c113682c26e",
+      "byteSha256": "d12c55d90ef44256c9998c97e47084a11b79a61db49c4d6fa470d4f7281b80ae",
       "contentHash": null
     },
     {
       "path": "08-production/README.md",
-      "byteSha256": "d15e72dc11f5a94491cdc72a6fa0a31e17dbd548f8287a24ddc6749c730bea75",
+      "byteSha256": "17c736850944d7bfba8a32b81b0c8796abf45aaa181b96be7ecb580b23127709",
       "contentHash": null
     }
   ],

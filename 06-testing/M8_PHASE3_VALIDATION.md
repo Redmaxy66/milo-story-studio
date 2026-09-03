@@ -2,10 +2,11 @@
 
 **Result:** PASS
 **Validation date:** 2026-09-03
-**Authority:** A2 — M8 Phase 3 Reference and Production Intent Preparation
-**Entry remote `main`:** `ea7e5fdf1c8f2f349594adb2744c2d2d7224a2d7`
-**Rollback position:** `ea7e5fdf1c8f2f349594adb2744c2d2d7224a2d7`
-**Entry tree:** `d1d6fe4e3b63c461d98fc7a78780bf733da1b695`
+**Authority:** A2 — M8 Phase 3 Conditional Approval, Targeted Remediation and Reference Proposal
+**Entry remote `main`:** `59e479e37ba9306732f423a1136ebe67beb280bb`
+**Rollback position:** `59e479e37ba9306732f423a1136ebe67beb280bb`
+**Entry parent:** `ea7e5fdf1c8f2f349594adb2744c2d2d7224a2d7`
+**Entry tree:** `2199af56fc35671d609997faebd72a7fb6eaded4`
 
 ## Source verification
 
@@ -20,11 +21,11 @@
 | Suite | Result |
 |---|---:|
 | `node --check 05-code/m8/phase3-validation.mjs` | PASS |
-| `validate_m8_phase3.mjs` | PASS — 101 / 101 |
+| `validate_m8_phase3.mjs` | PASS — 115 / 115 |
 | JSON parse gate | PASS |
 | `git diff --check` | PASS |
 
-The dedicated suite proves eight-scene lineage, exact source hashes, all reference classifications and categories, rights/provenance/checksum gates, all three specialist boundaries, 24 stable shots, 32 stable panels, a contiguous 24 fps timeline of 5,760 frames / 240 seconds, exact dialogue preservation, honest missing-asset state, provider-neutral prompts, null live configuration, pending-only approvals, and absence of generated-media claims.
+The dedicated suite proves eight-scene lineage, exact source hashes, all reference classifications and categories, rights/provenance/checksum gates, all three specialist boundaries, 24 stable shots, 32 stable panels, a contiguous 24 fps timeline of 5,760 frames / 240 seconds, one authoritative narration binding, complete non-overlapping narration allocation, non-overlapping dialogue windows, complete voice dependencies, corrected action order, separated audio/production-note semantics, prompt/manifest synchronization, future reference-specification bindings without asset claims, null live configuration, AP01–AP04 conditional approval evidence, pending AP05/AP06 review, a finite cost-blocked reference proposal, and absence of generated-media claims.
 
 ## M8 Phase 2 regression
 
@@ -42,14 +43,26 @@ The dedicated suite proves eight-scene lineage, exact source hashes, all referen
 
 All applicable suites pass: canon initialization, canon lineage, continuity eligible selection, failure instrumentation, outline eligible selection, production package, and script eligible selection. M7 remains `63 / 63`.
 
-## Specialist and creative boundary
+## Conditional approvals and remediation
 
-Film Director, Storyboard Creator and Animation Production Director instructions were each read in full and used in the approved sequence. All outputs are offline text specifications. No specialist was skipped and no specialist changed protected story meaning, dialogue, scene order, characterisation, canon lineage, or M7 identity/meaning.
+- AP01–AP04 record controlled `APPROVED` decisions by `Alex` at `2026-09-03T06:28:06.000Z`, with every approval condition preserved in the existing `notes` field.
+- AP05 and AP06 remain `PENDING_REVIEW` with null decision, reviewer and timestamp.
+- AP05 removes repeated narration playback text, adds exact shot-level ranges or no-playback states, separates the two SC04 cue windows, supplies the derived missing voice dependency, corrects SC02/SC03/SC05/SC07/SC08 action allocation, and separates ambience/dialogue/SFX/music from non-audio production notes.
+- AP06 binds future reference specification IDs without claiming assets exist, requires exact episode-reference matching without canonisation, synchronizes affected prompts to AP05, leaves all provider/configuration fields null and non-callable, and marks duration mapping unresolved pending A3 evidence.
+- The Animation Production Director instructions were read in full and used only to validate the targeted timing, action, voice and handoff corrections. No creative package was broadly regenerated.
+
+## Reference-generation proposal
+
+- Exactly five reference sheets are specified.
+- Each sheet proposes one initial generation operation and at most one separately approved bounded revision operation: five initial, five maximum revisions, ten maximum operations.
+- Proposed route is OpenArt `TEXT_TO_IMAGE`, explicitly unverified; model remains null.
+- Per-operation estimates, hard per-sheet caps and total cap remain null and `UNSET_BLOCKING_GENERATION` because the approved spike does not prove current reference-image unit cost.
+- The proposal is unexecuted and states exactly: `PROPOSAL ONLY — NO OPENART ACCESS, GENERATION OR CREDIT SPEND AUTHORISED`.
 
 ## Issues and decisions
 
 - Critical now: none.
-- Material but deferrable: final visual style; open-canon appearance/staging choices; actual reference artwork; 24 fps/16:9/240-second planning assumptions; voice, music/SFX and lip-sync route; later provider route and stage-specific caps. Each remains review- or later-gate-bound.
+- Material before next relevant gate: AP05/AP06 require fresh human review; actual reference bytes do not exist; provider/model/capability, current unit costs and hard reference caps remain unverified or unset; final shot timing still requires a scratch or approved voice performance.
 - Parkable: D-015 and unrelated legacy/test workflow cleanup remain unchanged.
 - No new material governance decision was required; `DECISION_LOG.md` remains unchanged.
 
@@ -61,4 +74,4 @@ No media was generated or retrieved; no credits were spent; no live approval rec
 
 ## Disposition
 
-Phase 3 repository preparation satisfies its offline acceptance criteria and is ready for human review. It grants no later-phase, provider, generation, assembly or publication authority.
+AP01–AP04 conditional approvals are recorded. Targeted AP05/AP06 remediation and the cost-blocked reference proposal satisfy their offline acceptance criteria and await human review. They grant no later-phase, provider, generation, assembly or publication authority.

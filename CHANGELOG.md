@@ -1,5 +1,14 @@
 ﻿# Changelog
 
+## 0.8.2 — M8 Phase 3 conditional approval and targeted remediation
+
+- Recorded AP01–AP04 as controlled `APPROVED` repository decisions by Alex with explicit conditions; no live Story Vault approval was created.
+- Kept AP05/AP06 pending while correcting narration allocation, dialogue timing, voice dependencies, scene action order, audio semantics, prompt/reference binding, and unresolved provider-duration mapping.
+- Prepared a five-sheet reference-generation proposal with one initial and at most one revision operation per sheet.
+- Left per-operation estimates and hard caps null and blocking because current `TEXT_TO_IMAGE` cost evidence is insufficient.
+- Preserved non-callable provider-neutral prompts, null live configuration, exact M7/canon lineage, and all protected story meaning.
+- Generated no media, spent no credits, accessed no operational system other than the authorised GitHub repository, and began neither Phase 4 nor A3.
+
 ## 0.8.1 — M8 reference and production intent preparation
 
 - Added the byte-identical approved `MILO-007-S01-P01` M7 snapshot and exact source/hash manifest.
