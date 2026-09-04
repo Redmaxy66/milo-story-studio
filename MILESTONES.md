@@ -9,7 +9,7 @@
 | M5 | Script Pipeline | Week 8 | Complete | Outline Generator, Outline Approval, Script Generator, and Script Approval v0.1 completed, tested, exported, committed, and pushed. End-to-end status progression proven from CONCEPT_APPROVED through OUTLINE_GENERATED, OUTLINE_APPROVED, SCRIPT_GENERATED, and SCRIPT_APPROVED. Deterministic validation, duplicate protection, approval repair paths, Story readiness checks, structured failure payloads, and canon-grounded script generation are working. |
 | M6 | Continuity Agent | Week 10 | Complete | Continuity Reviewer and Continuity Approval v0.1 completed, tested, exported, committed, and pushed. Deterministic validation, version-based duplicate protection, PASS / REVIEW_REQUIRED / FAIL routing, open-canon handling, human approval, approval repair, structured failures, and status progression through CONTINUITY_REVIEWED, CONTINUITY_APPROVED, and SCRIPT_REVISION_REQUIRED are proven. |
 | M7 | Production Package | Week 12 | Complete | Approved design and D-013 recorded; specification, schema, prompt, lifecycle/error contracts, two-tab persistence, workflow export, repair/no-op controls, and `63 / 63` offline validation complete. Canonical workflow `SNnLunczq5mxrXLn` passed terminal zero-write verification in execution `#432`; one version-1 `INITIAL` header and eight scenes remain intact with matching canon and prompt provenance. |
-| M8 | Complete Studio | Week 16 | In progress | Design revision 1.1 and D-016 through D-021 govern the milestone. Phases 1–3 remain complete. `REFSHEET01` route evidence, approved-with-limitations `REFSHEET02` and curated `REFSHEET03` firefly evidence are reconciled. The approved firefly anchor and curated reference are durably preserved with exact Drive-download checksum parity. Total reference spend is 75 credits with zero automatic retries and a known balance of 3,373. Scale, fern-hover, peeking and precise glow-transition coverage remain material before affected moving-image shots; rights remain pending final commercial-publication confirmation. Further `REFSHEET03` generation, the next reference sheet, Character Library testing, Phase 4 and further production activity remain unauthorised. |
+| M8 | Complete Studio | Week 16 | In progress | Design revision 1.1 and D-016 through D-022 govern the milestone. Phases 1–3 remain complete. Reference evidence through `REFSHEET04` is reconciled. D-022 rejects `REFSHEET04` V01/V02 and approves the checksum-bound deterministic geography guide as the authoritative episode topology and zone-order reference; its restricted Drive download matches the approved SHA-256. `REFSHEET04` is closed without V03. Total reference spend is 105 credits with zero automatic retries and a last-known balance of 3,343. `REFSHEET05`, Phase 4 and further production activity remain separately gated and unauthorised. |
 
 ## M5 closure
 
@@ -57,7 +57,7 @@ Key M6 implementation commits:
 
 ## Current focus
 
-Current milestone: **M8 — Complete Studio (Phase 3 complete; curated `REFSHEET03` firefly reference approved with limitations and durably preserved)**
+Current milestone: **M8 — Complete Studio (Phase 3 complete; deterministic `REFSHEET04` geography guide approved and durably preserved; `REFSHEET04` closed without V03)**
 
 M8 governance evidence:
 
@@ -113,6 +113,14 @@ M8 `REFSHEET03` curated firefly evidence:
 - `REFSHEET03` used two 15-credit attempts with zero retries, moving the known balance from 3,403 to 3,373. Curation, promotion and reconciliation spent zero credits.
 - Scale, fern-hover, distinct peeking and exact glow-transition coverage remain material before affected moving-image shots. No further `REFSHEET03` generation, next reference sheet, Character Library, moving-image or Phase 4 authority exists.
 
+M8 `REFSHEET04` deterministic geography evidence:
+
+- D-022 rejects V01 for disconnected geography and a water hazard and rejects V02 for branched/looping geography and an invented gate; each cost 15 credits with zero retries.
+- The 2848×1600 RGB PNG at SHA-256 `2951f25d59e9b87df9576a463390573906f4dc93ef925c6c4ead9fca794a1dd4` is approved as the authoritative episode-scoped topology and zone-order guide, not finished artwork or permanent world canon.
+- Drive file `1PKxd40UOEftwQd3LoWvoS3rbTdXgoCIc` is owner-only and non-public under Approved References; its downloaded bytes match the approved checksum exactly.
+- `REFSHEET04` is closed without V03. Total reference spend is 105 credits and the last-known balance is 3,343; this reconciliation spent zero credits.
+- Every later shot background must preserve the unbranched left-to-right route and use the existing style anchor separately for atmosphere. `REFSHEET05` and Phase 4 require separate authority.
+
 M7 closure evidence:
 
 - Canonical workflow: `SNnLunczq5mxrXLn`, inactive/unpublished, 47 nodes, 57 edges, zero pins.
@@ -121,7 +129,7 @@ M7 closure evidence:
 - Repository/live parity: passed against the certified workflow export, excluding only volatile n8n metadata.
 - Residual note: D-015 remains non-blocking post-M7 hardening debt.
 
-Next gate: **SEPARATELY AUTHORISE ANY NEXT REFERENCE OPERATION OR AFFECTED SHOT-SPECIFIC COVERAGE.** Kneeling, one-finger count, firefly scale, fern-hover, peeking and precise glow-transition coverage require establishment and human review before affected moving-image shots. Rights require final confirmation before public release. No further `REFSHEET03` generation or next reference sheet is authorised; Phase 4 is not started.
+Next gate: **SEPARATELY AUTHORISE REFSHEET05 OR AFFECTED SHOT-SPECIFIC COVERAGE.** The `REFSHEET04` topology guide must be checksum-verified and preserved alongside the style anchor for later shot preparation. Kneeling, one-finger count, firefly scale, fern-hover, peeking and precise glow-transition coverage require establishment and human review before affected moving-image shots. Rights require final confirmation before public release. No `REFSHEET04-V03`, `REFSHEET05` or Phase 4 work is authorised.
 
 ## Status values
 

@@ -8,11 +8,11 @@ The studio now supports the controlled progression:
 
 `IDEA -> CONCEPT_GENERATED -> CONCEPT_APPROVED -> OUTLINE_GENERATED -> OUTLINE_APPROVED -> SCRIPT_GENERATED -> SCRIPT_APPROVED -> CONTINUITY_REVIEWED -> CONTINUITY_APPROVED -> PRODUCTION_PACKAGE_GENERATED`
 
-Current milestone: **M8 — Complete Studio — Phase 3 complete; curated `REFSHEET03` firefly reference approved with limitations and durably preserved**
+Current milestone: **M8 — Complete Studio — Phase 3 complete; deterministic `REFSHEET04` geography guide approved and durably preserved; `REFSHEET04` closed without V03**
 
 M7 status: **Complete.** Canonical workflow `SNnLunczq5mxrXLn` passed the controlled terminal no-op verification in execution `#432`; repository/live parity, persistence, provenance, lifecycle isolation, recovery, failure safety, and the `63 / 63` offline suite all pass.
 
-M8 status: **IN PROGRESS — PHASE 3 COMPLETE; CURATED REFSHEET03 FIREFLY REFERENCE APPROVED WITH RECORDED LIMITATIONS AND DURABLY PRESERVED.** D-021 rejects V01 and the complete V02 sheet, approves V02 only as a component source with exclusions, and binds the exact firefly anchor and curated PNG to restricted owner-only Drive files through download SHA-256 parity. The Milo-hand/human-fingertip panel, fern-perching panel and second glow row are prohibited. Total reference spend is 75 credits with zero automatic retries and a current known balance of 3,373. Missing scale, fern-hover, peeking and precise glow-transition coverage remains material before affected moving-image shots; commercial-publication rights remain pending final confirmation. No further `REFSHEET03` generation, next reference sheet, Character Library pilot, production implementation or Phase 4 work is authorised.
+M8 status: **IN PROGRESS — PHASE 3 COMPLETE; REFSHEET04 DETERMINISTIC GEOGRAPHY APPROVED AND DURABLY PRESERVED.** D-022 rejects `REFSHEET04` V01/V02, approves the exact 2848×1600 PNG at SHA-256 `2951f25d59e9b87df9576a463390573906f4dc93ef925c6c4ead9fca794a1dd4` as the episode-scoped authority for unbranched left-to-right topology and four-zone order, and closes `REFSHEET04` without V03. The existing style anchor remains the authority for atmosphere; the guide is schematic, not finished artwork or permanent world canon. Restricted Drive file `1PKxd40UOEftwQd3LoWvoS3rbTdXgoCIc` passed download checksum parity. Total reference spend is 105 credits with zero automatic retries and a last-known balance of 3,343. `REFSHEET05`, Character Library work, production implementation and Phase 4 remain separately gated and unauthorised.
 
 ---
 
@@ -140,4 +140,4 @@ M8 status: **IN PROGRESS — PHASE 3 COMPLETE; CURATED REFSHEET03 FIREFLY REFERE
 - M5 — Complete
 - M6 — Complete
 - M7 — Complete
-- M8 — In progress (Phase 3 complete; curated `REFSHEET03` firefly reference approved with limitations and durably preserved; further generation, the next reference sheet, Character Library and Phase 4 separately gated)
+- M8 — In progress (Phase 3 complete; deterministic `REFSHEET04` geography guide approved and durably preserved; V01/V02 rejected; `REFSHEET04` closed without V03; `REFSHEET05`, Character Library and Phase 4 separately gated)

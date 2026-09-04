@@ -1,0 +1,184 @@
+{
+  "evidenceVersion": "m8-refsheet04-deterministic-geography-approval-durable-promotion-v1",
+  "sanitized": true,
+  "outcome": "APPROVED_WITH_RECORDED_LIMITATIONS",
+  "approvedAt": "2026-09-04T15:14:01Z",
+  "reconciledAt": "2026-09-04T15:14:01Z",
+  "governedEntry": {
+    "repository": "Redmaxy66/milo-story-studio",
+    "branch": "main",
+    "head": "a07d587262b12c74a66855b97b0c0d8509cbbea7",
+    "tree": "2cf2a0fc8b44b36298e365de330068debaad1be1",
+    "subject": "Approve M8 curated firefly reference",
+    "latestDecision": "D-021"
+  },
+  "lineage": {
+    "storyId": "MILO-007",
+    "scriptId": "MILO-007-S01",
+    "packageId": "MILO-007-S01-P01",
+    "packageVersion": 1,
+    "referencePackId": "MILO-007-S01-P01-REFPACK-V001",
+    "canonVersion": "canon-v1.0",
+    "canonRef": "977755913d9ad41e4f16392d01ea993507af4102"
+  },
+  "deterministicGuide": {
+    "sourceFileName": "MILO-007-S01-P01-MOONBERRY-WOOD-GEOGRAPHY-GUIDE-CANDIDATE-V01.png",
+    "durableFileName": "MILO-007-S01-P01-MOONBERRY-WOOD-GEOGRAPHY-GUIDE-V01.png",
+    "mimeType": "image/png",
+    "format": "PNG",
+    "width": 2848,
+    "height": 1600,
+    "sizeBytes": 42570,
+    "colourMode": "RGB",
+    "opaque": true,
+    "lossless": true,
+    "explicitSrgb": true,
+    "decodable": true,
+    "sha256": "2951f25d59e9b87df9576a463390573906f4dc93ef925c6c4ead9fca794a1dd4",
+    "status": "APPROVED_BY_PROJECT_OWNER",
+    "scope": "AUTHORITATIVE_EPISODE_SCOPED_GEOGRAPHY_PLANNING_REFERENCE",
+    "finishedArtwork": false,
+    "permanentWorldCanon": false,
+    "replacesStyleAnchor": false,
+    "checksumBound": true,
+    "preUseChecksumVerificationRequired": true,
+    "governanceNoOverwritePolicy": true,
+    "topology": {
+      "connectedPathComponents": 1,
+      "leftEntrances": 1,
+      "rightExits": 1,
+      "fragments": 0,
+      "branches": 0,
+      "deterministicallyTestableSelfIntersections": 0,
+      "zoneOrder": [
+        "FERN_DISCOVERY_AREA",
+        "DRY_LANTERN_PRACTICE_CLEARING",
+        "DECISION_PATH_AREA",
+        "FINAL_LANTERN_CIRCLE_CLEARING"
+      ],
+      "zoneCentres": [[520, 1031], [1120, 918], [1780, 771], [2420, 656]],
+      "strictLeftToRightOrder": true,
+      "water": false,
+      "buildingDoorwayGateOrPortal": false
+    },
+    "constructionEvidence": {
+      "deterministicRasterRenderer": "Pillow 12.3.0",
+      "consecutiveBuildByteParity": true,
+      "reproducibilitySvgSha256": "fecad30f53c49045e72b94e8d729dfc604fc9762d713fb3e0f82b0918bd4927e",
+      "svgApprovedForDurablePromotion": false
+    }
+  },
+  "refsheet04V01": {
+    "candidateId": "MILO-007-S01-P01-REFSHEET04-V01",
+    "sha256": "f05ac2ed88d9a4eb07e3675b12e38ed469b71f5afac53812f7eb997d7e5810d2",
+    "historyId": "OWoC0Z5F5FziR76Yi1WU",
+    "resourceId": "LYbX75ztenGK0hV7qLrR",
+    "costCredits": 15,
+    "decision": "REJECTED",
+    "primaryReason": "DISCONNECTED_GEOGRAPHY_AND_WATER_HAZARD",
+    "classification": "CANDIDATE_GENERATED_WITH_MATERIAL_DEFECTS",
+    "promotionAuthorized": false,
+    "conditioningUseAuthorized": false
+  },
+  "refsheet04V02": {
+    "candidateId": "MILO-007-S01-P01-REFSHEET04-V02",
+    "sha256": "7b20d7abaa77ed1757051e2ecbba833403cea5fd41691122e0f762804d154225",
+    "historyId": "aRzskUsyHU8ID37xp8YM",
+    "resourceId": "o4DfUtwGdeZQzMRRAI0W",
+    "costCredits": 15,
+    "decision": "REJECTED",
+    "primaryReason": "BRANCHED_LOOPING_GEOGRAPHY_AND_INVENTED_GATE",
+    "classification": "CANDIDATE_GENERATED_WITH_MATERIAL_DEFECTS",
+    "atmosphereEvidenceOnly": true,
+    "promotionAuthorized": false,
+    "conditioningUseAuthorized": false
+  },
+  "refsheet04Closure": {
+    "decisionId": "D-022",
+    "closedWithoutV03": true,
+    "initialAndRevisionAllowanceExhausted": true,
+    "furtherGenerationAuthorized": false
+  },
+  "drive": {
+    "rootId": "1qcFFzXAas7VrdLHdhqGCkZpTtzBFPjMo",
+    "productionAssetsFolderId": "17l5dSuW5LdOhsf4osjmLJZ8ZZ2lxZj_Z",
+    "storyFolderId": "1koWv75KVv5GU2NZnQYfwG-RexTCjthgN",
+    "packageFolderId": "1Cso9LGhf0iL0zwVuokRW2xuQesRwu2_J",
+    "approvedReferencesFolderId": "1UKviDhvZoEMibTorJsJmW7RbK0gDIIbJ",
+    "fileId": "1PKxd40UOEftwQd3LoWvoS3rbTdXgoCIc",
+    "durablePath": "Milo Story Studio/Production Assets/MILO-007/MILO-007-S01-P01/Approved References/MILO-007-S01-P01-MOONBERRY-WOOD-GEOGRAPHY-GUIDE-V01.png",
+    "createdAt": "2026-09-04T15:12:39.404Z",
+    "mimeType": "image/png",
+    "sizeBytes": 42570,
+    "sourceSha256": "2951f25d59e9b87df9576a463390573906f4dc93ef925c6c4ead9fca794a1dd4",
+    "downloadSha256": "2951f25d59e9b87df9576a463390573906f4dc93ef925c6c4ead9fca794a1dd4",
+    "byteParityVerified": true,
+    "restrictedSharingVerified": true,
+    "shared": false,
+    "permissions": [
+      {
+        "type": "user",
+        "role": "owner",
+        "displayName": "Alex Maxwell",
+        "emailAddress": "redmaxy66@gmail.com"
+      }
+    ],
+    "publicPermission": false,
+    "linkPermission": false,
+    "domainPermission": false,
+    "groupPermission": false,
+    "additionalUserPermission": false,
+    "historicalMiloMoonberryFolderUsed": false,
+    "technicalImmutability": false,
+    "governanceNoOverwritePolicy": true
+  },
+  "authorityHierarchy": [
+    "APPROVED_SCRIPT_AND_CONTINUITY_LINEAGE",
+    "APPROVED_M7_PRODUCTION_PACKAGE",
+    "APPROVED_PHASE3_DIRECTOR_STORYBOARD_AND_ANIMATION_ARTIFACTS",
+    "DETERMINISTIC_GUIDE_FOR_ROUTE_TOPOLOGY_AND_ZONE_ORDER",
+    "APPROVED_STYLE_ANCHOR_FOR_ATMOSPHERE_AND_VISUAL_LANGUAGE"
+  ],
+  "cost": {
+    "refsheet01Credits": 30,
+    "refsheet02Credits": 15,
+    "refsheet03Credits": 30,
+    "refsheet04Credits": 30,
+    "allReferenceGenerationCredits": 105,
+    "currentKnownBalance": 3343,
+    "additionalCreditsDuringReconciliation": 0,
+    "unit": "OpenArt credits"
+  },
+  "issueDisposition": {
+    "criticalNow": [],
+    "materialBeforeAffectedShotProduction": [
+      "PRESERVE_APPROVED_UNBRANCHED_GEOGRAPHY",
+      "DISTINGUISH_TOPOLOGY_GUIDE_FROM_STYLE_ANCHOR",
+      "VALIDATE_ROUTE_DIRECTION_AND_ZONE_ORDER",
+      "PROHIBIT_WATER_ALTERNATE_ROUTE_GATE_PORTAL_OR_INVENTED_DESTINATION",
+      "VERIFY_GUIDE_SHA256_BEFORE_USE",
+      "CONFIRM_COMMERCIAL_PUBLICATION_RIGHTS_FOR_PROVIDER_GENERATED_VISUAL_MATERIAL"
+    ],
+    "parkableAtNoCurrentRisk": [
+      "DELIBERATELY_SCHEMATIC_GUIDE_APPEARANCE",
+      "ABSENCE_OF_FINISHED_ENVIRONMENT_ARTWORK",
+      "ABSENCE_OF_REFSHEET04_V03",
+      "UNEXECUTED_TWO_REFERENCE_EXCEPTION_PROPOSAL",
+      "COSMETIC_SHORTCOMINGS_OF_REJECTED_V01_AND_V02"
+    ]
+  },
+  "authorityBoundaries": {
+    "refsheet04V03Authorized": false,
+    "refsheet05Started": false,
+    "refsheet05Authorized": false,
+    "phase4Started": false,
+    "phase4Authorized": false,
+    "storyVaultMutation": false,
+    "canonMutation": false,
+    "providerOperationDuringReconciliation": false,
+    "n8nAccessDuringReconciliation": false,
+    "additionalCreditsSpentDuringReconciliation": 0,
+    "mediaBinaryCommittedToGit": false
+  },
+  "secretMaterialIncluded": false
+}

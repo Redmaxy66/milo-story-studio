@@ -1,7 +1,7 @@
 # WORK_ORDER.md
 ## Milo Story Studio — M8 Complete Studio
 
-**Status:** Active — Phase 3 complete; reference evidence through curated `REFSHEET03` reconciled; approved anchors and curated firefly reference durably preserved; Character Library deferred; Phase 4 and all further A3 activity remain separately gated
+**Status:** Active — Phase 3 complete; reference evidence through `REFSHEET04` reconciled; deterministic geography guide approved and durably preserved; `REFSHEET04` closed without V03; Character Library deferred; `REFSHEET05`, Phase 4 and all further A3 activity remain separately gated
 **Project:** Redmaxy66/milo-story-studio  
 **Milestone:** M8 — Complete Studio  
 **Design basis:** MILO_M8_DESIGN_APPROVAL_PACKAGE.md revision 1.1  
@@ -89,6 +89,8 @@ The approved visual-reference pack is a derived canon-controlled production arti
 No phase inherits authority from a prior phase.
 
 `REFSHEET01` remains governed by D-018, Character Library by D-019 and `REFSHEET02` by D-020. D-021 rejects `REFSHEET03` V01 and the complete V02 sheet, approves V02 only as a component source with exclusions, and approves the checksum-bound firefly anchor plus deterministic curated reference with recorded limitations. The raw V02 composite, Milo-hand/human-fingertip panel, fern-perching panel and second glow row are prohibited as conditioning or interaction authority. Missing Milo-fingertip scale, fern-hover, peeking and precise glow-transition coverage remains material before affected moving-image shots. The current known balance is 3,373 credits after 75 credits of reference generation with zero retries; curation and promotion spent zero credits. No further `REFSHEET03` generation, next reference sheet, Character Library creation or other provider operation is authorised. D-017 ceilings remain governance limits, not spend authority; every future paid operation requires a new explicit instruction, fresh pricing, unit-cap and remaining-stage-cap confirmation, sequential human review, no automatic retry, and immediate stop when cost cannot be bounded.
+
+D-022 rejects `REFSHEET04` V01 and V02, approves the checksum-bound deterministic geography guide as the authoritative episode-scoped route-topology and zone-order reference, and closes `REFSHEET04` without V03 after exhausting its one-initial-plus-one-revision allowance. The approved Moonberry Wood style anchor remains authoritative for atmosphere and visual language; later shot preparation must respect both, with geography conflicts resolved in favour of the deterministic guide and all references subordinate to the approved story, M7 package, director brief, storyboard and animation manifest. Drive file `1PKxd40UOEftwQd3LoWvoS3rbTdXgoCIc` passed restricted owner-only download checksum parity. Total reference-generation expenditure is 105 credits with zero automatic retries and the last-known OpenArt balance is 3,343. This reconciliation spent zero credits. No `REFSHEET04-V03`, `REFSHEET05`, Character Library, moving-image or Phase 4 authority exists.
 
 ## 9. Protected invariants
 
