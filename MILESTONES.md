@@ -9,7 +9,7 @@
 | M5 | Script Pipeline | Week 8 | Complete | Outline Generator, Outline Approval, Script Generator, and Script Approval v0.1 completed, tested, exported, committed, and pushed. End-to-end status progression proven from CONCEPT_APPROVED through OUTLINE_GENERATED, OUTLINE_APPROVED, SCRIPT_GENERATED, and SCRIPT_APPROVED. Deterministic validation, duplicate protection, approval repair paths, Story readiness checks, structured failure payloads, and canon-grounded script generation are working. |
 | M6 | Continuity Agent | Week 10 | Complete | Continuity Reviewer and Continuity Approval v0.1 completed, tested, exported, committed, and pushed. Deterministic validation, version-based duplicate protection, PASS / REVIEW_REQUIRED / FAIL routing, open-canon handling, human approval, approval repair, structured failures, and status progression through CONTINUITY_REVIEWED, CONTINUITY_APPROVED, and SCRIPT_REVISION_REQUIRED are proven. |
 | M7 | Production Package | Week 12 | Complete | Approved design and D-013 recorded; specification, schema, prompt, lifecycle/error contracts, two-tab persistence, workflow export, repair/no-op controls, and `63 / 63` offline validation complete. Canonical workflow `SNnLunczq5mxrXLn` passed terminal zero-write verification in execution `#432`; one version-1 `INITIAL` header and eight scenes remain intact with matching canon and prompt provenance. |
-| M8 | Complete Studio | Week 16 | In progress | Design revision 1.1 and D-016 through D-018 govern the milestone. Phases 1–3 remain complete and AP01–AP06 remain approved with conditions. OpenArt proof and `REFSHEET01` V01/V02 evidence are reconciled: V01 is rejected, the checksum-bound non-canon anchor is the authoritative episode identity input, and V02 proves image-conditioned identity preservation only. Total `REFSHEET01` spend is 30 credits with zero automatic retries and a known balance of 3,418. Final `REFSHEET01`, `REFSHEET02`–`REFSHEET05`, Character Library testing, Phase 4 and further production activity remain unauthorised. |
+| M8 | Complete Studio | Week 16 | In progress | Design revision 1.1 and D-016 through D-020 govern the milestone. Phases 1–3 remain complete. `REFSHEET01` route evidence is reconciled; the authoritative non-canon identity anchor and approved-with-limitations `REFSHEET02` V01 are durably preserved with exact Drive-download checksum parity. Total reference spend is 45 credits with zero automatic retries and a known balance of 3,403. Kneeling and one-finger count remain material before affected moving-image shots; rights remain pending final commercial-publication confirmation. `REFSHEET02-V02`, `REFSHEET03`–`REFSHEET05`, Character Library testing, Phase 4 and further production activity remain unauthorised. |
 
 ## M5 closure
 
@@ -57,7 +57,7 @@ Key M6 implementation commits:
 
 ## Current focus
 
-Current milestone: **M8 — Complete Studio (Phase 3 complete; `REFSHEET01` route evidence reconciled; final sheet not approved)**
+Current milestone: **M8 — Complete Studio (Phase 3 complete; `REFSHEET02` V01 approved with limitations and durably preserved)**
 
 M8 governance evidence:
 
@@ -93,9 +93,17 @@ M8 isolated OpenArt A3 proof evidence:
 M8 `REFSHEET01` route evidence:
 
 - V01 cost 15 credits and is rejected for `WRONG_CHARACTER_IDENTITY`; its SHA-256 and provider identifiers remain historical evidence only.
-- The project-owner-approved 1056×408 non-generative crop at SHA-256 `3d9e94da9114d9b907216a1e1d63ac1c1b19757ab8c2865678c0b64809c12fe2` is the authoritative non-canon episode identity input pending durable-storage and provenance reconciliation.
+- The project-owner-approved 1056×408 non-generative crop at SHA-256 `3d9e94da9114d9b907216a1e1d63ac1c1b19757ab8c2865678c0b64809c12fe2` is the authoritative non-canon episode identity input; D-020 records its later restricted durable storage and exact Drive-download checksum parity.
 - V02 used one 15-credit Seedream 4.5 `image2image` operation with zero retries and preserved Milo's broad non-human identity. It is accepted with limitations for route evidence only, not as the completed sheet or a production/canon asset.
-- Total `REFSHEET01` spend is 30 credits; the current known balance is 3,418 credits. Another revision, `REFSHEET02`–`REFSHEET05`, Character Library testing and Phase 4 remain unauthorised.
+- Total `REFSHEET01` spend is 30 credits; the balance after V02 was 3,418 credits. Another `REFSHEET01` revision, Character Library testing and Phase 4 remain unauthorised.
+
+M8 `REFSHEET02` approval and durable evidence:
+
+- D-020 approves exact candidate `MILO-007-S01-P01-REFSHEET02-V01` at SHA-256 `915e077c8338802a584b66c799b4c718c94c24242d694a60b02c718fb3524035` with recorded limitations.
+- The candidate and authoritative anchor are stored under the restricted `Milo Story Studio/Production Assets/MILO-007/MILO-007-S01-P01/Approved References` hierarchy; Drive-download hashes match both approved sources.
+- `REFSHEET02` V01 used one 15-credit operation and zero retries, moving the known balance from 3,418 to 3,403. Durable promotion and reconciliation spent zero additional credits.
+- Kneeling and one-finger count remain material before affected moving-image shots. Commercial-publication rights remain pending final confirmation; owner-level technical mutability requires the no-overwrite policy and pre-use checksum revalidation.
+- No `REFSHEET02-V02`, `REFSHEET03`–`REFSHEET05`, Character Library, moving-image or Phase 4 authority exists.
 
 M7 closure evidence:
 
@@ -105,7 +113,7 @@ M7 closure evidence:
 - Repository/live parity: passed against the certified workflow export, excluding only volatile n8n metadata.
 - Residual note: D-015 remains non-blocking post-M7 hardening debt.
 
-Next gate: **RESOLVE DISTINCT THREE-QUARTER COVERAGE, IDENTITY DRIFT, DURABLE STORAGE AND PROVENANCE BEFORE PRODUCTION USE.** Any final-sheet approval, Character Library pilot or further generation requires separate explicit authority. Phase 4 is not started.
+Next gate: **SEPARATELY AUTHORISE THE NEXT REFERENCE OPERATION OR AFFECTED SHOT-SPECIFIC COVERAGE.** Kneeling and one-finger count require establishment and human review before their affected moving-image shots. Rights require final confirmation before public release. Any further generation requires separate explicit authority; Phase 4 is not started.
 
 ## Status values
 

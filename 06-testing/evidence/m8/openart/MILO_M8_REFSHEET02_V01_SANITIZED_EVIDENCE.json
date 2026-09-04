@@ -1,0 +1,186 @@
+{
+  "evidenceVersion": "m8-refsheet02-v01-approval-durable-promotion-v1",
+  "sanitized": true,
+  "outcome": "APPROVED_WITH_RECORDED_LIMITATIONS",
+  "reconciledAt": "2026-09-04T02:03:13Z",
+  "governedEntry": {
+    "repository": "Redmaxy66/milo-story-studio",
+    "branch": "main",
+    "head": "91f378c261773bd1530453d2ab741d98e8ace7a7",
+    "parent": "c288bf9f1138d50e07787985783a7f86e88103bc",
+    "tree": "962386a45b8edee6a77822431d83c994bccef570",
+    "subject": "Record M8 Character Library deferral"
+  },
+  "lineage": {
+    "storyId": "MILO-007",
+    "scriptId": "MILO-007-S01",
+    "packageId": "MILO-007-S01-P01",
+    "packageVersion": 1,
+    "referencePackId": "MILO-007-S01-P01-REFPACK-V001",
+    "canonVersion": "canon-v1.0",
+    "canonRef": "977755913d9ad41e4f16392d01ea993507af4102"
+  },
+  "identityAnchor": {
+    "fileName": "MILO-007-S01-P01-MILO-IDENTITY-ANCHOR-CANDIDATE-V01.png",
+    "mimeType": "image/png",
+    "width": 1056,
+    "height": 408,
+    "sizeBytes": 686877,
+    "sha256": "3d9e94da9114d9b907216a1e1d63ac1c1b19757ab8c2865678c0b64809c12fe2",
+    "derivation": "NON_GENERATIVE_CROP_FROM_HISTORICAL_OPENART_SPIKE_COMPOSITE",
+    "cropOperation": "1056x408+0+45",
+    "sourceRectanglePixelChanges": 0,
+    "approvedChecksumBoundEpisodeIdentityAnchor": true,
+    "canon": false,
+    "driveFileId": "10wyycATGlCfrHS7tfiLcr3IRpBzH_S3v",
+    "durablePath": "Milo Story Studio/Production Assets/MILO-007/MILO-007-S01-P01/Approved References/MILO-007-S01-P01-MILO-IDENTITY-ANCHOR-CANDIDATE-V01.png",
+    "driveDownloadSha256": "3d9e94da9114d9b907216a1e1d63ac1c1b19757ab8c2865678c0b64809c12fe2",
+    "byteParityVerified": true
+  },
+  "refsheet02": {
+    "candidateId": "MILO-007-S01-P01-REFSHEET02-V01",
+    "originalFileName": "MILO-007-S01-P01-REFSHEET02-V01.jpeg",
+    "mimeType": "image/jpeg",
+    "width": 2848,
+    "height": 1600,
+    "sizeBytes": 959636,
+    "sha256": "915e077c8338802a584b66c799b4c718c94c24242d694a60b02c718fb3524035",
+    "provider": "OpenArt",
+    "operation": "openart_generate_image",
+    "model": "byte-plus-seedream-4-5",
+    "mode": "image2image",
+    "promptSha256": "32dcee6b806217b3164e578a6807d1a87f758b02bebc510244b4691feabc2588",
+    "historyId": "NNhNL0zJs6wIn26EUYIt",
+    "resourceId": "JJBSXiMyFCJlshy0vTtm",
+    "providerTimestamp": "2026-09-04T01:08:35.794Z",
+    "uploadReferenceId": "jUX4awRS6468gTgNOZvo",
+    "actualSettings": {
+      "resolution": "2K",
+      "aspectRatio": "16:9",
+      "imageCount": 1,
+      "visualReferenceCount": 1,
+      "autoEnhancePrompt": false
+    },
+    "generationCount": 1,
+    "retryCount": 0,
+    "cost": {
+      "unit": "OpenArt credits",
+      "before": 3418,
+      "after": 3403,
+      "charged": 15
+    },
+    "decision": "APPROVED",
+    "qualification": "APPROVED_WITH_RECORDED_LIMITATIONS",
+    "approvedBy": "Alex",
+    "approvedAt": "2026-09-04T01:13:58Z",
+    "driveFileId": "1r7OQzymTGyjkctCUjf9874mq8_DvI1fP",
+    "durablePath": "Milo Story Studio/Production Assets/MILO-007/MILO-007-S01-P01/Approved References/MILO-007-S01-P01-REFSHEET02-V01.jpeg",
+    "driveDownloadSha256": "915e077c8338802a584b66c799b4c718c94c24242d694a60b02c718fb3524035",
+    "byteParityVerified": true,
+    "canon": false,
+    "revisionAuthorized": false
+  },
+  "acceptedCoverage": [
+    "TWO_READABLE_WALK_CYCLE_POSES",
+    "SEATED_PERFORMANCE",
+    "FERN_INTERACTION",
+    "GENERIC_TREAT_OFFER",
+    "FRIENDLY_WAVE",
+    "RESTRAINED_SOFT_CLAP",
+    "BACKPACK_OPENING_INTERACTION",
+    "STABLE_BROAD_IDENTITY_AND_TREATMENT"
+  ],
+  "acceptedLimitations": [
+    "NO_CLEARLY_DISTINCT_KNEELING_POSE",
+    "NO_CLEARLY_DEMONSTRATED_ONE_FINGER_COUNT",
+    "TREAT_OFFER_AND_WAVE_COMBINED",
+    "FERN_INTERACTION_CONTAINS_TWO_MILO_FIGURES",
+    "SOME_ACTIONS_NOT_ISOLATED_PRODUCTION_PANELS"
+  ],
+  "drive": {
+    "root": {
+      "name": "Milo Story Studio",
+      "id": "1qcFFzXAas7VrdLHdhqGCkZpTtzBFPjMo",
+      "parent": "MY_DRIVE_ROOT",
+      "owner": "redmaxy66@gmail.com",
+      "createdAt": "2026-09-04T01:56:40.589Z",
+      "shared": false,
+      "permissions": [
+        {
+          "type": "user",
+          "role": "owner",
+          "emailAddress": "redmaxy66@gmail.com"
+        }
+      ]
+    },
+    "folders": {
+      "productionAssets": "17l5dSuW5LdOhsf4osjmLJZ8ZZ2lxZj_Z",
+      "story": "1koWv75KVv5GU2NZnQYfwG-RexTCjthgN",
+      "package": "1Cso9LGhf0iL0zwVuokRW2xuQesRwu2_J",
+      "approvedReferences": "1UKviDhvZoEMibTorJsJmW7RbK0gDIIbJ"
+    },
+    "restrictedSharingVerified": true,
+    "publicPermission": false,
+    "linkPermission": false,
+    "domainPermission": false,
+    "additionalUserOrGroupPermission": false,
+    "technicalImmutability": false,
+    "governanceNoOverwritePolicy": true
+  },
+  "rightsStatus": "PENDING_FINAL_COMMERCIAL_PUBLICATION_CONFIRMATION",
+  "rightsEvidence": {
+    "termsUrl": "https://openart.ai/suite/terms",
+    "termsLastUpdated": "2026-07-30",
+    "commercialUseConditionalOnEligibleSubscription": true,
+    "generationSubscriptionTierConclusive": false
+  },
+  "issueDisposition": {
+    "criticalNow": [],
+    "materialBeforeAffectedMovingImageShots": [
+      "ESTABLISH_AND_HUMAN_REVIEW_KNEELING_ACTION",
+      "ESTABLISH_AND_HUMAN_REVIEW_ONE_FINGER_COUNT"
+    ],
+    "materialBeforePublicRelease": [
+      "CONFIRM_COMMERCIAL_PUBLICATION_RIGHTS"
+    ],
+    "materialBeforeFinalAssembly": [
+      "REVALIDATE_SHA256_AND_ENFORCE_NO_OVERWRITE_POLICY"
+    ],
+    "parkableAtNoCurrentRisk": [
+      "COMBINED_TREAT_WAVE_PRESENTATION",
+      "PAIRED_FERN_FIGURES",
+      "COSMETIC_SHEET_LAYOUT"
+    ]
+  },
+  "pendingLiveStoryVaultInstallation": {
+    "status": "PENDING LIVE M8 STORY VAULT INSTALLATION",
+    "GeneratedAssets": [
+      "MILO-007-S01-P01-REFSHEET02-V01-AT01-GA001"
+    ],
+    "AssetReferences": [
+      "MILO-007-S01-P01-REF001-V01",
+      "MILO-007-S01-P01-REF009-V01"
+    ],
+    "AssetApprovals": [
+      "MILO-007-S01-P01-REFSHEET02-V01-AT01-GA001-AP01"
+    ],
+    "CostRecords": [
+      "MILO-007-S01-P01-REFSHEET02-V01-AT01-COST-001"
+    ],
+    "liveRowsCreated": false
+  },
+  "authorityBoundaries": {
+    "refsheets02V02Authorized": false,
+    "refsheets03Through05Authorized": false,
+    "characterLibraryAuthorized": false,
+    "movingImageGenerationAuthorized": false,
+    "phase4Authorized": false,
+    "storyVaultMutation": false,
+    "canonMutation": false,
+    "providerOperationDuringReconciliation": false,
+    "n8nAccessDuringReconciliation": false,
+    "additionalCreditsSpentDuringReconciliation": 0
+  },
+  "currentKnownOpenArtBalance": 3403,
+  "secretMaterialIncluded": false
+}

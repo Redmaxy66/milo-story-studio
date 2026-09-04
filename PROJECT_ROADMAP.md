@@ -8,11 +8,11 @@ The studio now supports the controlled progression:
 
 `IDEA -> CONCEPT_GENERATED -> CONCEPT_APPROVED -> OUTLINE_GENERATED -> OUTLINE_APPROVED -> SCRIPT_GENERATED -> SCRIPT_APPROVED -> CONTINUITY_REVIEWED -> CONTINUITY_APPROVED -> PRODUCTION_PACKAGE_GENERATED`
 
-Current milestone: **M8 — Complete Studio — Phase 3 complete; `REFSHEET01` route evidence reconciled; final sheet not approved**
+Current milestone: **M8 — Complete Studio — Phase 3 complete; `REFSHEET02` V01 approved with limitations and durably preserved**
 
 M7 status: **Complete.** Canonical workflow `SNnLunczq5mxrXLn` passed the controlled terminal no-op verification in execution `#432`; repository/live parity, persistence, provenance, lifecycle isolation, recovery, failure safety, and the `63 / 63` offline suite all pass.
 
-M8 status: **IN PROGRESS — PHASE 3 COMPLETE; OPENART PROOF AND REFSHEET01 V01/V02 ROUTE EVIDENCE RECONCILED.** Phase 1 governance, Phase 2 repository contracts and Phase 3 reference/production-intent preparation remain complete. V01 was rejected for wrong character identity. The project-owner-approved checksum-bound non-generative crop is now the authoritative non-canon episode identity input, and V02 proves that the image-conditioned Seedream 4.5 route can preserve Milo's broad non-human identity. V02 remains limited route evidence rather than a completed sheet or production reference because distinct three-quarter coverage, neutral pose, typography, output format and possible anatomical/proportional drift remain unresolved. Total `REFSHEET01` spend is 30 credits with zero automatic retries and a current known balance of 3,418. No further `REFSHEET01` revision, `REFSHEET02`–`REFSHEET05`, Character Library pilot, production implementation or Phase 4 work is authorised.
+M8 status: **IN PROGRESS — PHASE 3 COMPLETE; REFSHEET02 V01 APPROVED WITH RECORDED LIMITATIONS AND DURABLY PRESERVED.** `REFSHEET01` route evidence remains reconciled: V01 is rejected and V02 proves image-conditioned identity preservation only. D-020 approves the exact `REFSHEET02` V01 bytes with limitations and records Drive-download SHA-256 parity for both the candidate and authoritative non-canon identity anchor under a restricted owner-only hierarchy. Total reference spend is 45 credits with zero automatic retries and a current known balance of 3,403. Kneeling and one-finger count remain material before affected moving-image shots; commercial-publication rights remain pending final confirmation. No `REFSHEET02-V02`, `REFSHEET03`–`REFSHEET05`, Character Library pilot, production implementation or Phase 4 work is authorised.
 
 ---
 
@@ -140,4 +140,4 @@ M8 status: **IN PROGRESS — PHASE 3 COMPLETE; OPENART PROOF AND REFSHEET01 V01/
 - M5 — Complete
 - M6 — Complete
 - M7 — Complete
-- M8 — In progress (Phase 3 complete; `REFSHEET01` route evidence reconciled; final sheet, Character Library pilot, further generation and Phase 4 separately gated)
+- M8 — In progress (Phase 3 complete; `REFSHEET02` V01 approved with limitations and durably preserved; further generation, Character Library and Phase 4 separately gated)
