@@ -8,11 +8,11 @@ The studio now supports the controlled progression:
 
 `IDEA -> CONCEPT_GENERATED -> CONCEPT_APPROVED -> OUTLINE_GENERATED -> OUTLINE_APPROVED -> SCRIPT_GENERATED -> SCRIPT_APPROVED -> CONTINUITY_REVIEWED -> CONTINUITY_APPROVED -> PRODUCTION_PACKAGE_GENERATED`
 
-Current milestone: **M8 — Complete Studio — Phase 3 complete; `REFSHEET02` V01 approved with limitations and durably preserved**
+Current milestone: **M8 — Complete Studio — Phase 3 complete; curated `REFSHEET03` firefly reference approved with limitations and durably preserved**
 
 M7 status: **Complete.** Canonical workflow `SNnLunczq5mxrXLn` passed the controlled terminal no-op verification in execution `#432`; repository/live parity, persistence, provenance, lifecycle isolation, recovery, failure safety, and the `63 / 63` offline suite all pass.
 
-M8 status: **IN PROGRESS — PHASE 3 COMPLETE; REFSHEET02 V01 APPROVED WITH RECORDED LIMITATIONS AND DURABLY PRESERVED.** `REFSHEET01` route evidence remains reconciled: V01 is rejected and V02 proves image-conditioned identity preservation only. D-020 approves the exact `REFSHEET02` V01 bytes with limitations and records Drive-download SHA-256 parity for both the candidate and authoritative non-canon identity anchor under a restricted owner-only hierarchy. Total reference spend is 45 credits with zero automatic retries and a current known balance of 3,403. Kneeling and one-finger count remain material before affected moving-image shots; commercial-publication rights remain pending final confirmation. No `REFSHEET02-V02`, `REFSHEET03`–`REFSHEET05`, Character Library pilot, production implementation or Phase 4 work is authorised.
+M8 status: **IN PROGRESS — PHASE 3 COMPLETE; CURATED REFSHEET03 FIREFLY REFERENCE APPROVED WITH RECORDED LIMITATIONS AND DURABLY PRESERVED.** D-021 rejects V01 and the complete V02 sheet, approves V02 only as a component source with exclusions, and binds the exact firefly anchor and curated PNG to restricted owner-only Drive files through download SHA-256 parity. The Milo-hand/human-fingertip panel, fern-perching panel and second glow row are prohibited. Total reference spend is 75 credits with zero automatic retries and a current known balance of 3,373. Missing scale, fern-hover, peeking and precise glow-transition coverage remains material before affected moving-image shots; commercial-publication rights remain pending final confirmation. No further `REFSHEET03` generation, next reference sheet, Character Library pilot, production implementation or Phase 4 work is authorised.
 
 ---
 
@@ -140,4 +140,4 @@ M8 status: **IN PROGRESS — PHASE 3 COMPLETE; REFSHEET02 V01 APPROVED WITH RECO
 - M5 — Complete
 - M6 — Complete
 - M7 — Complete
-- M8 — In progress (Phase 3 complete; `REFSHEET02` V01 approved with limitations and durably preserved; further generation, Character Library and Phase 4 separately gated)
+- M8 — In progress (Phase 3 complete; curated `REFSHEET03` firefly reference approved with limitations and durably preserved; further generation, the next reference sheet, Character Library and Phase 4 separately gated)

@@ -1,0 +1,198 @@
+{
+  "evidenceVersion": "m8-refsheet03-curated-approval-durable-promotion-v1",
+  "sanitized": true,
+  "outcome": "APPROVED_WITH_RECORDED_LIMITATIONS",
+  "reconciledAt": "2026-09-04T03:54:57Z",
+  "governedEntry": {
+    "repository": "Redmaxy66/milo-story-studio",
+    "branch": "main",
+    "head": "54d93eaa673d3f55ba6c8f75b0fabefdc63f6eac",
+    "subject": "Promote M8 REFSHEET02 approved reference"
+  },
+  "lineage": {
+    "storyId": "MILO-007",
+    "scriptId": "MILO-007-S01",
+    "packageId": "MILO-007-S01-P01",
+    "packageVersion": 1,
+    "referencePackId": "MILO-007-S01-P01-REFPACK-V001",
+    "canonVersion": "canon-v1.0",
+    "canonRef": "977755913d9ad41e4f16392d01ea993507af4102"
+  },
+  "refsheet03V01": {
+    "candidateId": "MILO-007-S01-P01-REFSHEET03-V01",
+    "sha256": "10615f310a876c237c466ed3e4f6a0fa5f825f0571cfdd66776c2caa9d51f475",
+    "historyId": "QjEjTJ9w4jz1VIPYW8HY",
+    "resourceId": "PIndeonbLAkhCQ4CJ2bL",
+    "costCredits": 15,
+    "decision": "REJECTED",
+    "classification": "CANDIDATE_GENERATED_WITH_MATERIAL_DEFECTS",
+    "primaryReason": "REFERENCE_REQUIREMENTS_AND_INTERACTION_IDENTITY_FAILURE",
+    "providerConditioningPermitted": false,
+    "durablyPromoted": false
+  },
+  "refsheet03V02": {
+    "candidateId": "MILO-007-S01-P01-REFSHEET03-V02",
+    "mimeType": "image/jpeg",
+    "width": 2848,
+    "height": 1600,
+    "sizeBytes": 804088,
+    "sha256": "3bbfcca03358484939b5799df0014f686f8e39e2502c428f53c73b33fda8afe0",
+    "promptSha256": "7a84070ab373d84cf06bb4231093823c86327a2c5f7a43b1399cc0f1e2b26efc",
+    "historyId": "WWcmMCj9wwaimiQgt5SX",
+    "resourceId": "nleuRdJQVZd1BXzVmCru",
+    "providerTimestamp": "2026-09-04T03:29:00.014Z",
+    "referenceUploadIdsInOrder": [
+      "J1I4Gjx2t2tsnr079jvB",
+      "jUX4awRS6468gTgNOZvo"
+    ],
+    "costCredits": 15,
+    "generationAttempts": 1,
+    "retries": 0,
+    "decision": "NOT_APPROVED_AS_COMPLETE_REFERENCE",
+    "componentStatus": "APPROVED_AS_COMPONENT_SOURCE_WITH_EXCLUSIONS",
+    "classification": "CANDIDATE_GENERATED_WITH_MATERIAL_DEFECTS",
+    "providerConditioningPermitted": false,
+    "durablyPromoted": false
+  },
+  "fireflyIdentityAnchor": {
+    "sourceFileName": "MILO-007-S01-P01-FIREFLY-IDENTITY-ANCHOR-CANDIDATE-V01.png",
+    "durableFileName": "MILO-007-S01-P01-FIREFLY-IDENTITY-ANCHOR-V01.png",
+    "mimeType": "image/png",
+    "width": 184,
+    "height": 356,
+    "sizeBytes": 114695,
+    "sha256": "085e063ded663042e0708cbe629db2e1dc8ad6899d4bed6bc3e32e6dd7375e24",
+    "historicalSourceSha256": "3712a69aa6d6875d72203aa5f48f5cbfb9e6ec18cc387c60cac3ac7bba3ab6f4",
+    "cropOperation": "184x356+1056+82",
+    "changedSourcePixels": 0,
+    "status": "APPROVED",
+    "scope": "EPISODE_SCOPED_FIREFLY_IDENTITY_REFERENCE",
+    "permanentSpeciesCanon": false,
+    "driveFileId": "1dk70EsM1cVMeZ3FyUAFStjmL99752DPF",
+    "drivePath": "Milo Story Studio/Production Assets/MILO-007/MILO-007-S01-P01/Approved References/MILO-007-S01-P01-FIREFLY-IDENTITY-ANCHOR-V01.png",
+    "driveDownloadSha256": "085e063ded663042e0708cbe629db2e1dc8ad6899d4bed6bc3e32e6dd7375e24",
+    "byteParityVerified": true
+  },
+  "curatedReference": {
+    "assetId": "MILO-007-S01-P01-REFSHEET03-CURATED-V01",
+    "fileName": "MILO-007-S01-P01-REFSHEET03-CURATED-V01.png",
+    "mimeType": "image/png",
+    "width": 2088,
+    "height": 1788,
+    "sizeBytes": 1707992,
+    "sha256": "08b96e60525eba09ff500162f58b9953ec63e81dfb508b5c9d5693ced3a1dd6d",
+    "backgroundRgb": [250, 248, 242],
+    "status": "APPROVED_WITH_RECORDED_LIMITATIONS",
+    "scope": "EPISODE_FIREFLY_IDENTITY_GLOW_RANGE_SHELTER_FLIGHT_DISTANT_FAMILY_LIGHTS",
+    "episodeScoped": true,
+    "canon": false,
+    "providerConditioningRequiresSeparateAuthority": true,
+    "driveFileId": "1N-Ydo8Y80PDZS9ayuq-wvCthuditfGWn",
+    "drivePath": "Milo Story Studio/Production Assets/MILO-007/MILO-007-S01-P01/Approved References/MILO-007-S01-P01-REFSHEET03-CURATED-V01.png",
+    "driveDownloadSha256": "08b96e60525eba09ff500162f58b9953ec63e81dfb508b5c9d5693ced3a1dd6d",
+    "byteParityVerified": true,
+    "sourceDecodedOnce": true,
+    "totalChangedSelectedPixels": 0,
+    "components": [
+      {
+        "name": "NEUTRAL_IDENTITY",
+        "sourceRectangle": {"x": 20, "y": 20, "width": 880, "height": 740},
+        "curatedPlacement": {"x": 96, "y": 96, "width": 880, "height": 740},
+        "decodedPixelFormat": "RGB8",
+        "sourcePixelSha256": "46375e488cd6c8dd2cc7cb48fe28071f139fa3520ab03e242f2c8a9805041ab0",
+        "curatedPixelSha256": "46375e488cd6c8dd2cc7cb48fe28071f139fa3520ab03e242f2c8a9805041ab0",
+        "changedPixels": 0
+      },
+      {
+        "name": "FOUR_GLOW_EXAMPLES",
+        "sourceRectangle": {"x": 0, "y": 780, "width": 920, "height": 360},
+        "curatedPlacement": {"x": 1072, "y": 96, "width": 920, "height": 360},
+        "decodedPixelFormat": "RGB8",
+        "sourcePixelSha256": "be7d68cefc843ebcc9e307a79595cae75df6391a7c12abd866c1fafb29a33de6",
+        "curatedPixelSha256": "be7d68cefc843ebcc9e307a79595cae75df6391a7c12abd866c1fafb29a33de6",
+        "changedPixels": 0
+      },
+      {
+        "name": "SHELTERED",
+        "sourceRectangle": {"x": 970, "y": 830, "width": 855, "height": 760},
+        "curatedPlacement": {"x": 96, "y": 932, "width": 855, "height": 760},
+        "decodedPixelFormat": "RGB8",
+        "sourcePixelSha256": "9c38f84772e67eb59df722b0d6580a0ceeafa86244d5488f2cfec3463ce2a42d",
+        "curatedPixelSha256": "9c38f84772e67eb59df722b0d6580a0ceeafa86244d5488f2cfec3463ce2a42d",
+        "changedPixels": 0
+      },
+      {
+        "name": "FLIGHT_AND_DISTANT_LIGHTS",
+        "sourceRectangle": {"x": 1930, "y": 830, "width": 908, "height": 760},
+        "curatedPlacement": {"x": 1047, "y": 932, "width": 908, "height": 760},
+        "decodedPixelFormat": "RGB8",
+        "sourcePixelSha256": "efe1d403f84b522f4a441a31ea6c9f92139237d0f42b527d105aa918f3278dc3",
+        "curatedPixelSha256": "efe1d403f84b522f4a441a31ea6c9f92139237d0f42b527d105aa918f3278dc3",
+        "changedPixels": 0
+      }
+    ]
+  },
+  "excludedContent": [
+    "COMPLETE_MILO_HAND_PANEL",
+    "HUMAN_STYLE_FINGERTIPS",
+    "COMPLETE_FERN_PERCHING_PANEL",
+    "UNSELECTED_SECOND_GLOW_ROW",
+    "DEFECTIVE_OR_UNRELATED_PANELS"
+  ],
+  "drive": {
+    "rootId": "1qcFFzXAas7VrdLHdhqGCkZpTtzBFPjMo",
+    "approvedReferencesFolderId": "1UKviDhvZoEMibTorJsJmW7RbK0gDIIbJ",
+    "restrictedSharingVerified": true,
+    "shared": false,
+    "permissions": [
+      {"type": "user", "role": "owner", "displayName": "Alex Maxwell", "emailAddress": "redmaxy66@gmail.com"}
+    ],
+    "publicPermission": false,
+    "linkPermission": false,
+    "domainPermission": false,
+    "groupPermission": false,
+    "additionalUserPermission": false,
+    "technicalImmutability": false,
+    "governanceNoOverwritePolicy": true
+  },
+  "continuingLimitations": [
+    "NO_APPROVED_MILO_FINGERTIP_RELATIVE_SCALE_IMAGE",
+    "V02_MILO_HAND_PANEL_PROHIBITED_HUMAN_STYLE_FINGERTIPS",
+    "NO_FERN_HOVER_INTERACTION_REFERENCE",
+    "V02_FERN_PERCHING_PANEL_PROHIBITED_AS_INTERACTION_AUTHORITY",
+    "NO_DISTINCT_PEEKING_POSE",
+    "GLOW_IMAGES_DO_NOT_PROVE_EXACT_MONOTONIC_ANIMATION_CURVE",
+    "FIREFLY_AGENCY_AND_NON_CONTACT_INTERACTION_REMAIN_TEXTUAL_LOCKS",
+    "MILO_HUMAN_HAND_ANATOMY_PROHIBITED",
+    "MISSING_COVERAGE_REQUIRES_VERIFICATION_BEFORE_AFFECTED_MOVING_IMAGE_SHOTS"
+  ],
+  "rightsStatus": "PENDING_FINAL_COMMERCIAL_PUBLICATION_CONFIRMATION",
+  "cost": {
+    "refsheet03V01": 15,
+    "refsheet03V02": 15,
+    "refsheet03Total": 30,
+    "allReferenceGenerationTotal": 75,
+    "knownBalance": 3373,
+    "additionalCreditsDuringReconciliation": 0,
+    "unit": "OpenArt credits"
+  },
+  "pendingLiveStoryVaultInstallation": {
+    "status": "PENDING LIVE M8 STORY VAULT INSTALLATION",
+    "liveRowsCreated": false,
+    "contracts": ["GeneratedAssets", "AssetReferences", "AssetApprovals", "CostRecords"]
+  },
+  "authorityBoundaries": {
+    "rawV02ProviderConditioningPermitted": false,
+    "furtherRefsheet03GenerationAuthorized": false,
+    "nextReferenceSheetAuthorized": false,
+    "characterLibraryAuthorized": false,
+    "movingImageGenerationAuthorized": false,
+    "phase4Authorized": false,
+    "storyVaultMutation": false,
+    "canonMutation": false,
+    "providerOperationDuringReconciliation": false,
+    "n8nAccessDuringReconciliation": false,
+    "additionalCreditsSpentDuringReconciliation": 0
+  },
+  "secretMaterialIncluded": false
+}
