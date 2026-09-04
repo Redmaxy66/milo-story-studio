@@ -9,7 +9,7 @@
 | M5 | Script Pipeline | Week 8 | Complete | Outline Generator, Outline Approval, Script Generator, and Script Approval v0.1 completed, tested, exported, committed, and pushed. End-to-end status progression proven from CONCEPT_APPROVED through OUTLINE_GENERATED, OUTLINE_APPROVED, SCRIPT_GENERATED, and SCRIPT_APPROVED. Deterministic validation, duplicate protection, approval repair paths, Story readiness checks, structured failure payloads, and canon-grounded script generation are working. |
 | M6 | Continuity Agent | Week 10 | Complete | Continuity Reviewer and Continuity Approval v0.1 completed, tested, exported, committed, and pushed. Deterministic validation, version-based duplicate protection, PASS / REVIEW_REQUIRED / FAIL routing, open-canon handling, human approval, approval repair, structured failures, and status progression through CONTINUITY_REVIEWED, CONTINUITY_APPROVED, and SCRIPT_REVISION_REQUIRED are proven. |
 | M7 | Production Package | Week 12 | Complete | Approved design and D-013 recorded; specification, schema, prompt, lifecycle/error contracts, two-tab persistence, workflow export, repair/no-op controls, and `63 / 63` offline validation complete. Canonical workflow `SNnLunczq5mxrXLn` passed terminal zero-write verification in execution `#432`; one version-1 `INITIAL` header and eight scenes remain intact with matching canon and prompt provenance. |
-| M8 | Complete Studio | Week 16 | In progress | Design revision 1.1, D-016 and D-017 govern the milestone. Phases 1–3 are complete and AP01–AP06 are approved with explicit conditions. The isolated OpenArt A3 connectivity/capability/cost proof passed with notes and its sanitized evidence is reconciled. Governance ceilings are 15 credits per initial sheet, 75 credits for five initial sheets, one separately approved revision per sheet at up to 15 credits, and 150 credits absolute for five initial sheets plus five revisions; they confer no spend authority. `REFSHEET01`, Phase 4 and production activity remain unauthorised and unstarted. |
+| M8 | Complete Studio | Week 16 | In progress | Design revision 1.1 and D-016 through D-018 govern the milestone. Phases 1–3 remain complete and AP01–AP06 remain approved with conditions. OpenArt proof and `REFSHEET01` V01/V02 evidence are reconciled: V01 is rejected, the checksum-bound non-canon anchor is the authoritative episode identity input, and V02 proves image-conditioned identity preservation only. Total `REFSHEET01` spend is 30 credits with zero automatic retries and a known balance of 3,418. Final `REFSHEET01`, `REFSHEET02`–`REFSHEET05`, Character Library testing, Phase 4 and further production activity remain unauthorised. |
 
 ## M5 closure
 
@@ -57,7 +57,7 @@ Key M6 implementation commits:
 
 ## Current focus
 
-Current milestone: **M8 — Complete Studio (Phase 3 complete; OpenArt A3 proof reconciled; `REFSHEET01` not authorised)**
+Current milestone: **M8 — Complete Studio (Phase 3 complete; `REFSHEET01` route evidence reconciled; final sheet not approved)**
 
 M8 governance evidence:
 
@@ -90,6 +90,13 @@ M8 isolated OpenArt A3 proof evidence:
 - D-017 accepts the route as technically proven, requires governed read-only status retrieval, and records planning ceilings that do not grant spend authority.
 - The proof does not establish Milo fidelity, multiview or character consistency, or production suitability.
 
+M8 `REFSHEET01` route evidence:
+
+- V01 cost 15 credits and is rejected for `WRONG_CHARACTER_IDENTITY`; its SHA-256 and provider identifiers remain historical evidence only.
+- The project-owner-approved 1056×408 non-generative crop at SHA-256 `3d9e94da9114d9b907216a1e1d63ac1c1b19757ab8c2865678c0b64809c12fe2` is the authoritative non-canon episode identity input pending durable-storage and provenance reconciliation.
+- V02 used one 15-credit Seedream 4.5 `image2image` operation with zero retries and preserved Milo's broad non-human identity. It is accepted with limitations for route evidence only, not as the completed sheet or a production/canon asset.
+- Total `REFSHEET01` spend is 30 credits; the current known balance is 3,418 credits. Another revision, `REFSHEET02`–`REFSHEET05`, Character Library testing and Phase 4 remain unauthorised.
+
 M7 closure evidence:
 
 - Canonical workflow: `SNnLunczq5mxrXLn`, inactive/unpublished, 47 nodes, 57 edges, zero pins.
@@ -98,7 +105,7 @@ M7 closure evidence:
 - Repository/live parity: passed against the certified workflow export, excluding only volatile n8n metadata.
 - Residual note: D-015 remains non-blocking post-M7 hardening debt.
 
-Next gate: **SEPARATELY AUTHORISED, NARROWLY SCOPED A3 INSTRUCTION FOR `REFSHEET01`.** Fresh pricing and all D-017 unit/stage controls remain mandatory. The approved ceilings do not constitute spend authority. Reference generation and Phase 4 remain unauthorised and unstarted.
+Next gate: **RESOLVE DISTINCT THREE-QUARTER COVERAGE, IDENTITY DRIFT, DURABLE STORAGE AND PROVENANCE BEFORE PRODUCTION USE.** Any final-sheet approval, Character Library pilot or further generation requires separate explicit authority. Phase 4 is not started.
 
 ## Status values
 

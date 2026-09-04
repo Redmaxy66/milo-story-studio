@@ -1,0 +1,125 @@
+{
+  "evidenceVersion": "m8-refsheet01-v01-v02-reconciliation-v1",
+  "sanitized": true,
+  "outcome": "COMPLETE_WITH_NOTES",
+  "governedEntry": {
+    "repository": "Redmaxy66/milo-story-studio",
+    "branch": "main",
+    "head": "8bab1643675293fecf82f9b35400230a47293e26",
+    "parent": "20a7ece80e7126c6d35eae7e8aec3dce47b46e84",
+    "tree": "5006874b897fb58d5fb7641efe9f8b78dd73350a",
+    "subject": "Record M8 OpenArt A3 proof evidence"
+  },
+  "lineage": {
+    "storyId": "MILO-007",
+    "scriptId": "MILO-007-S01",
+    "packageId": "MILO-007-S01-P01",
+    "packageVersion": 1,
+    "referencePackId": "MILO-007-S01-P01-REFPACK-V001",
+    "canonVersion": "canon-v1.0",
+    "canonRef": "977755913d9ad41e4f16392d01ea993507af4102"
+  },
+  "v01": {
+    "candidateId": "MILO-007-S01-P01-REFSHEET01-V01",
+    "sha256": "8463309495991a2f6b9cec76a922a5e526f6a504b83c92e12497420bbb778e37",
+    "historyId": "x6q6A3FQPT5Y3mpl4YTE",
+    "resourceId": "RGg7R5t90FGvWeSWSZHV",
+    "costCredits": 15,
+    "decision": "REJECTED",
+    "primaryReason": "WRONG_CHARACTER_IDENTITY",
+    "classification": "CANDIDATE GENERATED WITH MATERIAL DEFECTS",
+    "promotionAuthorized": false,
+    "reuseAuthorized": false
+  },
+  "identityAnchor": {
+    "fileName": "MILO-007-S01-P01-MILO-IDENTITY-ANCHOR-CANDIDATE-V01.png",
+    "format": "png",
+    "width": 1056,
+    "height": 408,
+    "sha256": "3d9e94da9114d9b907216a1e1d63ac1c1b19757ab8c2865678c0b64809c12fe2",
+    "source": {
+      "description": "NON_GENERATIVE_CROP_FROM_HISTORICAL_OPENART_SPIKE_COMPOSITE",
+      "format": "png",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "3712a69aa6d6875d72203aa5f48f5cbfb9e6ec18cc387c60cac3ac7bba3ab6f4"
+    },
+    "cropOperation": "1056x408+0+45",
+    "sourceRectanglePixelChanges": 0,
+    "ownerApproved": true,
+    "authoritativeEpisodeIdentityInput": true,
+    "canon": false,
+    "episodeScoped": true,
+    "checksumBound": true,
+    "durableStorageReconciled": false,
+    "provenanceReconciled": false,
+    "unrestrictedGenerationAuthorized": false,
+    "movingImageUseAuthorized": false,
+    "publicationAuthorized": false
+  },
+  "v02": {
+    "candidateId": "MILO-007-S01-P01-REFSHEET01-V02",
+    "decision": "ACCEPTED_WITH_LIMITATIONS_FOR_IMAGE_CONDITIONING_ROUTE_EVIDENCE_ONLY",
+    "secondaryVisualCandidateForHumanComparison": true,
+    "completedRefsheetApproved": false,
+    "productionReferenceApproved": false,
+    "canonAsset": false,
+    "unrestrictedProviderInputApproved": false,
+    "operation": "openart_generate_image",
+    "model": "byte-plus-seedream-4-5",
+    "mode": "image2image",
+    "promptSha256": "33026145f0a105cadefb0c9cad00a65dde78b989b5d24e05acf0917312eb3351",
+    "anchorSha256": "3d9e94da9114d9b907216a1e1d63ac1c1b19757ab8c2865678c0b64809c12fe2",
+    "uploadId": "jUX4awRS6468gTgNOZvo",
+    "historyId": "clmIXuZAvzYDo7A8H0QM",
+    "resourceId": "HJc5v7ubm6ATmUhRyeV6",
+    "createdAt": "2026-09-03T23:30:58.438Z",
+    "result": {
+      "format": "jpeg",
+      "width": 2848,
+      "height": 1600,
+      "sizeBytes": 710302,
+      "sha256": "5663bd8fc42fca2a3cd4ddeef88565063a087b63edb93638d913766dbfc46d83"
+    },
+    "cost": {
+      "before": 3433,
+      "after": 3418,
+      "spent": 15,
+      "currency": "OpenArt credits"
+    },
+    "generationAttempts": 1,
+    "automaticRetries": 0,
+    "routeEvidenceProven": true,
+    "primaryV01IdentityFailureResolved": true,
+    "fullSpecificationSatisfied": false
+  },
+  "refsheet01Cost": {
+    "v01Credits": 15,
+    "v02Credits": 15,
+    "totalCredits": 30,
+    "currentKnownBalance": 3418,
+    "additionalCreditsSpentDuringReconciliation": 0
+  },
+  "remainingLimitations": [
+    "NO_CLEARLY_DISTINCT_THREE_QUARTER_NEUTRAL_VIEW",
+    "FRONT_POSE_NOT_FULLY_NEUTRAL",
+    "TWO_MIDDLE_VIEWS_EFFECTIVELY_PROFILES",
+    "MALFORMED_GENERATED_HEADINGS_AND_LABELS",
+    "ADDITIONAL_HEADING_TEXT",
+    "JPEG_RETURNED_WITHOUT_LIVE_OUTPUT_FORMAT_CONTROL",
+    "POSSIBLE_ANATOMICAL_OR_PROPORTIONAL_DRIFT_REQUIRES_HUMAN_COMPARISON"
+  ],
+  "authorityBoundaries": {
+    "anotherRefsheet01RevisionAuthorized": false,
+    "refsheets02Through05Authorized": false,
+    "characterLibraryPilotAuthorized": false,
+    "durableAssetPromotionAuthorized": false,
+    "phase4Authorized": false,
+    "providerOperationDuringReconciliation": false,
+    "n8nAccessDuringReconciliation": false,
+    "storyVaultMutation": false,
+    "driveMutation": false,
+    "canonMutation": false
+  },
+  "secretMaterialIncluded": false
+}
