@@ -2,20 +2,20 @@
 ## Milo Story Studio — Current Operational State
 
 **Status date:** 2026-09-04
-**State basis:** Repository evidence, complete applicable M7 validation and acceptance evidence, approved external `MILO_M8_DESIGN_APPROVAL_PACKAGE.md` revision 1.1, completed M8 Phase 1 governance installation, passing M8 Phase 2 contracts, completed M8 Phase 3 preparation and approvals, reconciled OpenArt and reference evidence through deterministic `REFSHEET04` geography closure, and restricted durable-promotion evidence
-**Authority for this baseline:** A3 — M8 REFSHEET04 deterministic geography approval, durable promotion and repository reconciliation
+**State basis:** Repository evidence, complete applicable M7 validation and acceptance evidence, approved external `MILO_M8_DESIGN_APPROVAL_PACKAGE.md` revision 1.1, completed M8 Phase 1 governance installation, passing M8 Phase 2 contracts, completed M8 Phase 3 preparation and approvals, reconciled reference evidence through deterministic `REFSHEET05`, restricted durable-promotion evidence, and reference-pack readiness assessment
+**Authority for this baseline:** A3 — M8 REFSHEET05 deterministic approval, durable promotion, D-023 reconciliation and reference-pack readiness assessment
 
 ---
 
 ## 1. Current Milestone
 
-**M8 — Complete Studio — PHASE 3 COMPLETE; REFSHEET04 DETERMINISTIC GEOGRAPHY APPROVED AND DURABLY PRESERVED; REFSHEET04 CLOSED WITHOUT V03**
+**M8 — Complete Studio — PHASE 3 COMPLETE; FIVE-SHEET REFERENCE-DEVELOPMENT STAGE ASSESSED READY WITH CONDITIONS FOR 30-SECOND SPIKE PREPARATION**
 
 ---
 
 ## 2. Current Status
 
-**M8 DESIGN REVISION 1.1 APPROVED; PHASE 3 COMPLETE; CHECKSUM-BOUND APPROVED REFERENCES THROUGH REFSHEET04 DURABLY PRESERVED**
+**M8 DESIGN REVISION 1.1 APPROVED; PHASE 3 COMPLETE; CHECKSUM-BOUND APPROVED REFERENCES THROUGH REFSHEET05 DURABLY PRESERVED**
 
 The approved M8 design baseline is `MILO_M8_DESIGN_APPROVAL_PACKAGE.md` revision 1.1, SHA-256 `6934b997f79e3d5aa7ff5b9405926abb8c9e401a1a539a31e16b1c32dac0d8a2`. Decision D-016 records M8-D01 through M8-D13 and the four incorporated amendments.
 
@@ -33,11 +33,11 @@ The certified repository export was first proven in temporary workflow `xuzK7QTs
 
 ## 3. Current M8 Phase
 
-**PHASE 3 — COMPLETE; AP01–AP06 APPROVED WITH CONDITIONS; REFSHEET04 DETERMINISTIC GEOGRAPHY APPROVED AND CLOSED WITH RECORDED LIMITATIONS**
+**PHASE 3 — COMPLETE; AP01–AP06 APPROVED WITH CONDITIONS; REFERENCE PACK READY WITH CONDITIONS FOR 30-SECOND SPIKE PREPARATION**
 
 The approved replacement `WORK_ORDER.md`, decisions D-016 through D-019, and Phase 2 repository foundations remain installed. The project owner approved AP01–AP06 with explicit conditions, closing the repository-only Phase 3 package. The isolated OpenArt A3 proof passed with notes and established OAuth authentication, MCP capability discovery, read-only account access, bounded generation, asynchronous `PENDING` handling and exact cost reconciliation. Subsequent separately authorised operations produced `REFSHEET01` V01 and V02: V01 was rejected for wrong character identity, while image-conditioned V02 preserved Milo's broad non-human identity and proves the route only, with material specification limitations.
 
-D-017's ceilings remain limits rather than spend authority. D-018 governs `REFSHEET01`, D-019 defers Character Library, D-020 approves `REFSHEET02`, and D-021 governs the curated `REFSHEET03` firefly reference. D-022 rejects `REFSHEET04` V01/V02, approves the exact deterministic geography guide as the authoritative episode-scoped topology and zone-order reference, and closes `REFSHEET04` without V03. The guide's restricted Drive download matches its approved SHA-256 exactly; it is schematic planning authority rather than finished artwork or permanent world canon, and the existing style anchor continues to control atmosphere. Total reference expenditure is 105 credits with zero automatic retries and a last-known balance of 3,343 credits. Kneeling, one-finger count, firefly scale, fern-hover, peeking and precise glow-transition coverage remain material before affected moving-image shots; geography must preserve the approved unbranched left-to-right route. Commercial-publication rights remain pending final confirmation. No `REFSHEET04-V03`, `REFSHEET05`, Character Library creation or Phase 4 work is authorised.
+D-017's ceilings remain limits rather than spend authority. D-018 through D-022 retain the recorded REFSHEET01–REFSHEET04 dispositions. D-023 approves the exact deterministic REFSHEET05 PNG, SVG and JSON as renderer-neutral, episode-scoped palette, SC01–SC08 lighting, four-stage glow and relative-scale controls, with restricted Drive download parity for all three artifacts. The five-sheet reference-development stage is now assessed `READY WITH CONDITIONS FOR 30-SECOND SPIKE PREPARATION`. A bounded SC06 excerpt can use approved identity, seated/soft-cheer, glow, scale and unbranched-geography coverage while excluding unsupported kneeling, one-finger count, fingertip interaction, fern hover/perching and peeking. Total reference expenditure remains 105 credits with zero automatic retries and a last-known balance of 3,343 credits. Fresh video capability/cost evidence, exact shot trims and mappings, a hard ceiling, zero retries and separate A3 authority are required before any spike. Phase 4 has not started.
 
 ---
 
@@ -61,6 +61,9 @@ D-017's ceilings remain limits rather than spend authority. D-018 governs `REFSH
 - The 2848×1600 RGB geography-guide PNG at SHA-256 `2951f25d59e9b87df9576a463390573906f4dc93ef925c6c4ead9fca794a1dd4` is approved as the authoritative episode-scoped route-topology and zone-order reference, not finished artwork or permanent world canon.
 - Geography-guide Drive file `1PKxd40UOEftwQd3LoWvoS3rbTdXgoCIc` is owner-only and non-public under Approved References. Its 42,570 downloaded bytes match the approved SHA-256 exactly.
 - The guide and existing style anchor are complementary: the guide governs geography and the style anchor governs atmosphere. Approved upstream artifacts remain higher authorities. `REFSHEET04` is closed without V03.
+- `REFSHEET05` deterministic approval and reference-pack readiness evidence is installed under `06-testing/evidence/m8/openart/`. The approved PNG/SVG/JSON Drive files are `1mm9lmyzF4s3mKl7gcVtOGJeEuXX0RRCq`, `1WaTCo7_MUvqPVPsSp9l4veSIErrXSU5f` and `1xArJTaDLgcnyMP6Cra86gtF_ZPrNAkqK`; each owner-only download matches its approved SHA-256.
+- D-023 approves the exact episode palette, SC01–SC08 progression, four glow stages and relative scale values Milo 1.00, fern 0.46, firefly 0.035, treat 0.055 and Moonberry lantern 0.24. These are renderer-neutral, relative and non-canon. The embedded lighting-strip Milo has no identity, anatomy, proportion or scale authority.
+- The reference pack is `READY WITH CONDITIONS FOR 30-SECOND SPIKE PREPARATION`; the recommended preparation scope is a 30-second, three-clip SC06 excerpt with unsupported poses and interactions explicitly excluded.
 
 - The approved M7 snapshot is copied byte-identically at SHA-256 `c1221fe13d7278912b73572658dc569756de4baa98679b7e3567bd3768d98233` with one header and eight exact ordered scenes.
 - The Phase 3 package contains reference governance, eight Film Director briefs, 24 stable shots, 32 text storyboard panels, a renderer-neutral 5,760-frame plan and 24 provider-neutral prompts.
@@ -197,6 +200,7 @@ The live `MILO-001` lineage contains:
 - Separately authorised `REFSHEET02` V01 used one 15-credit image-conditioned operation and zero retries, moving the known balance from 3,418 to 3,403. Alex approved the exact candidate bytes with recorded limitations at `2026-09-04T01:13:58Z`. The later durable-promotion operation created the restricted Drive hierarchy and verified both approved files without additional OpenArt spend, Story Vault, canon, n8n or production-workflow mutation.
 - Separately authorised `REFSHEET03` V01 and V02 each used one 15-credit image-conditioned operation and zero retries, moving the known balance from 3,403 to 3,373. V01 and the complete V02 sheet are rejected. V02 is approved only as a component source with exclusions; deterministic curation and restricted Drive promotion spent zero additional credits.
 - Separately authorised `REFSHEET04` V01 and V02 each used one 15-credit image-conditioned operation and zero retries, moving the known balance from 3,373 to 3,343. Both candidates are rejected. The deterministic geography guide was created without provider generation, approved by Alex, and promoted with exact restricted-Drive checksum parity; approval, promotion and reconciliation spent zero additional credits.
+- Deterministic `REFSHEET05` required no provider generation. Its approved PNG, SVG and JSON were promoted with exact restricted-Drive download parity. The reconciliation spent zero credits; the unspent REFSHEET05 generation allowance is not automatically transferable.
 
 ---
 
@@ -222,14 +226,15 @@ The live `MILO-001` lineage contains:
 - Preserve decision D-020, the exact approved REFSHEET02 checksum, accepted limitations, restricted durable locators and no-overwrite/pre-use checksum controls.
 - Preserve decision D-021, both REFSHEET03 rejections, the approved anchor and curated checksums, the excluded human-anatomy and fern panels, restricted durable locators, continuing limitations and raw-V02 conditioning prohibition.
 - Preserve decision D-022, both REFSHEET04 rejections, the deterministic guide checksum and restricted durable locator, the separation of topology from atmosphere, the no-overwrite/pre-use checksum controls and closure without V03.
+- Preserve decision D-023, the three REFSHEET05 artifact checksums and Drive locators, exact episode controls, embedded-Milo authority limit, readiness classification and future spike conditions.
 - Do not begin M8 Phase 4 or any later phase without a separate explicit instruction.
-- Do not execute another `REFSHEET01` revision, `REFSHEET02-V02`, any further `REFSHEET03`, `REFSHEET04-V03`, `REFSHEET05`, a Character Library pilot or any other provider operation without separate explicit authority and fresh bounded-cost preflight.
+- Do not execute another reference generation, a 30-second spike, a Character Library pilot or any other provider operation without separate explicit authority and fresh bounded-cost preflight.
 
 ---
 
 ## 8. Governance Dispositions and Residual Non-Blocking Notes
 
-The governed upstream lineage and M7 completion evidence remain unchanged. M8 design revision 1.1 and its Phase 1 governance baseline are installed. Phase 2 repository contracts and Phase 3 reference/production-intent preparation are complete. OpenArt and reference evidence through deterministic `REFSHEET04` geography closure is reconciled. Character Library remains deferred. The geography guide is approved as episode topology and zone-order authority and durably preserved through exact restricted-Drive checksum parity; it is not finished artwork or permanent world canon. `REFSHEET04` is closed without V03. `REFSHEET05` and Phase 4 remain separately gated and unauthorised.
+The governed upstream lineage and M7 completion evidence remain unchanged. M8 design revision 1.1 and its Phase 1 governance baseline are installed. Phase 2 repository contracts and Phase 3 reference/production-intent preparation are complete. Reference evidence through deterministic `REFSHEET05` is reconciled and durably preserved with checksum parity. Character Library remains deferred. The five-sheet reference-development stage is assessed ready with conditions for spike preparation. The 30-second spike and Phase 4 remain separately gated and unauthorised.
 
 1. **Governed — not an M7 blocker:** `Milo Failure Handler v0.1` is currently **Published**. Decision D-011 accepts this as an explicitly approved handler-specific operational exception. Publication is not technically required, does not create general permission to publish other Milo workflows, and may be changed only through a separately authorised production action.
 2. **Governed — not an M7 blocker:** Five Stories (`MILO-002` through `MILO-006`), fourteen Concepts, and two Outlines (`MILO-002-O01` and `MILO-003-O01`) have blank `canonVersion` and `canonRef`. Decision D-012 classifies them as PRE-CANON LEGACY records. Blank lineage is not any canon release, and these lineages are ineligible for M7 or later production unless a separately authorised migration establishes valid provenance for the complete Story lineage without fabrication.
@@ -247,11 +252,11 @@ The governed upstream lineage and M7 completion evidence remain unchanged. M8 de
 
 ## 9. Next Required Gate
 
-**M8 PHASE 3 COMPLETE; REFSHEET04 DETERMINISTIC GEOGRAPHY APPROVED AND DURABLY PRESERVED; REFSHEET04 CLOSED WITHOUT V03.**
+**M8 PHASE 3 COMPLETE; REFERENCE PACK READY WITH CONDITIONS FOR 30-SECOND SPIKE PREPARATION.**
 
-Before affected moving-image shots, every background must preserve the approved unbranched left-to-right route and zone order; prompts must distinguish the deterministic topology guide from the style anchor, and the guide checksum must be verified before use. Kneeling, one-finger count, firefly relative scale, fern-hover, distinct peeking and precise glow-transition coverage must also be established and human-reviewed through separately authorised shot-specific generation or later approved reference work. The raw REFSHEET03 V02 composite and its human-style Milo-hand and fern-perching panels remain prohibited as conditioning or interaction authority. Final commercial-publication rights require confirmation before public release. The owner-modifiable Drive files remain protected by governance-level no-overwrite controls and mandatory SHA-256 revalidation before use.
+The next gate is separate preparation authority for the bounded 30-second SC06 spike: exact trims, per-shot reference mappings, current video-model capability and cost, a hard overall credit ceiling, zero automatic retries, asynchronous lifecycle handling, deterministic assembly and explicit acceptance criteria. Unsupported kneeling, one-finger count, fingertip contact/scale imagery, fern hover/perching and peeking remain excluded. Every background must preserve the unbranched route, every source checksum must be revalidated, and final commercial-publication rights require confirmation before public release.
 
-The approved planning ceilings do not constitute spend authority. `REFSHEET05` and Phase 4 have not begun. This state record does not authorise n8n modification or execution, Story Vault changes, OpenArt access, credential changes, paid generation, Character Library creation, further durable-media writes, assembly execution, activation, publication, canon changes, D-015 remediation, or legacy/test-workflow cleanup.
+The approved planning ceilings do not constitute spend authority. The 30-second spike and Phase 4 have not begun. This state record does not authorise n8n modification or execution, Story Vault changes, OpenArt access, credential changes, paid generation, Character Library creation, further durable-media writes, assembly execution, activation, publication, canon changes, D-015 remediation, or legacy/test-workflow cleanup.
 
 ---
 

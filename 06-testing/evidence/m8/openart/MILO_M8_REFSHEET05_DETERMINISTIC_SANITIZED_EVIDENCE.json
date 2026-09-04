@@ -1,0 +1,184 @@
+{
+  "evidenceVersion": "m8-refsheet05-deterministic-approval-readiness-v1",
+  "sanitized": true,
+  "outcome": "APPROVED_AND_DURABLY_PROMOTED",
+  "approvedAt": "2026-09-04T16:26:51Z",
+  "reconciledAt": "2026-09-04T16:26:51Z",
+  "governedEntry": {
+    "repository": "Redmaxy66/milo-story-studio",
+    "branch": "main",
+    "head": "b20acad4d96c82a2529929adcdef67e227f467ca",
+    "tree": "c2f81b66dbd68879579797f67becc9f4792f6fdf",
+    "subject": "Approve M8 deterministic geography guide",
+    "latestDecision": "D-022"
+  },
+  "lineage": {
+    "storyId": "MILO-007",
+    "scriptId": "MILO-007-S01",
+    "packageId": "MILO-007-S01-P01",
+    "packageVersion": 1,
+    "referencePackId": "MILO-007-S01-P01-REFPACK-V001",
+    "canonVersion": "canon-v1.0",
+    "canonRef": "977755913d9ad41e4f16392d01ea993507af4102"
+  },
+  "artifacts": {
+    "png": {
+      "sourceFileName": "MILO-007-S01-P01-REFSHEET05-DETERMINISTIC-CANDIDATE-V01.png",
+      "durableFileName": "MILO-007-S01-P01-REFSHEET05-DETERMINISTIC-V01.png",
+      "mimeType": "image/png",
+      "width": 2848,
+      "height": 1600,
+      "colourMode": "RGB",
+      "sizeBytes": 459877,
+      "sha256": "a4f651101c25f80734e7d26fd0cf1e02a2a71b5dd4a6c4fb22ac9ff9455ac0f6",
+      "decoded": true,
+      "driveFileId": "1mm9lmyzF4s3mKl7gcVtOGJeEuXX0RRCq",
+      "driveDownloadSha256": "a4f651101c25f80734e7d26fd0cf1e02a2a71b5dd4a6c4fb22ac9ff9455ac0f6"
+    },
+    "svg": {
+      "sourceFileName": "MILO-007-S01-P01-REFSHEET05-DETERMINISTIC-CANDIDATE-V01.svg",
+      "durableFileName": "MILO-007-S01-P01-REFSHEET05-DETERMINISTIC-V01.svg",
+      "mimeType": "image/svg+xml",
+      "width": 2848,
+      "height": 1600,
+      "sizeBytes": 317379,
+      "sha256": "8ffb7675f709af51773449d96a574efbe51b6b52e91fd95195d87f4ee719ac51",
+      "externalResources": false,
+      "networkResources": false,
+      "driveFileId": "1WaTCo7_MUvqPVPsSp9l4veSIErrXSU5f",
+      "driveDownloadSha256": "8ffb7675f709af51773449d96a574efbe51b6b52e91fd95195d87f4ee719ac51"
+    },
+    "json": {
+      "sourceFileName": "MILO-007-S01-P01-REFSHEET05-DETERMINISTIC-SPEC-V01.json",
+      "durableFileName": "MILO-007-S01-P01-REFSHEET05-DETERMINISTIC-SPEC-V01.json",
+      "mimeType": "application/json",
+      "sizeBytes": 20715,
+      "sha256": "c033ac8c7acb146a835cedac49cbcf425b26cf2c0f2d01554b2294f1058c8c9e",
+      "parsed": true,
+      "crossArtifactConsistency": true,
+      "driveFileId": "1xArJTaDLgcnyMP6Cra86gtF_ZPrNAkqK",
+      "driveDownloadSha256": "c033ac8c7acb146a835cedac49cbcf425b26cf2c0f2d01554b2294f1058c8c9e"
+    }
+  },
+  "palette": [
+    {"label": "Mustard Backpack", "hex": "#B98933"},
+    {"label": "Amber Lantern", "hex": "#E09F30"},
+    {"label": "Warm Cream", "hex": "#E3CA98"},
+    {"label": "Soft Sage", "hex": "#99B3A2"},
+    {"label": "Milo Turquoise", "hex": "#57867F"},
+    {"label": "Moss Green", "hex": "#5A693C"},
+    {"label": "Deep Forest", "hex": "#424A2B"},
+    {"label": "Warm Off-White", "hex": "#E3D6BE"}
+  ],
+  "sceneLightingControls": [
+    {"sceneId":"SC01","title":"Soft amber evening","overallExposureOffset":0.0,"ambientWarmth":0.72,"lanternIntensity":0.28,"fireflyIntensity":0.0,"bloomRadiusRelative":0.10,"contrastLevel":0.28},
+    {"sceneId":"SC02","title":"Faint discovery glow","overallExposureOffset":-0.05,"ambientWarmth":0.60,"lanternIntensity":0.30,"fireflyIntensity":0.18,"bloomRadiusRelative":0.08,"contrastLevel":0.30},
+    {"sceneId":"SC03","title":"Cautious response","overallExposureOffset":-0.03,"ambientWarmth":0.62,"lanternIntensity":0.34,"fireflyIntensity":0.30,"bloomRadiusRelative":0.12,"contrastLevel":0.31},
+    {"sceneId":"SC04","title":"Building confidence","overallExposureOffset":0.0,"ambientWarmth":0.65,"lanternIntensity":0.38,"fireflyIntensity":0.42,"bloomRadiusRelative":0.16,"contrastLevel":0.32},
+    {"sceneId":"SC05","title":"Steady confidence","overallExposureOffset":0.03,"ambientWarmth":0.68,"lanternIntensity":0.44,"fireflyIntensity":0.56,"bloomRadiusRelative":0.20,"contrastLevel":0.34},
+    {"sceneId":"SC06","title":"Pre-lift anticipation","overallExposureOffset":0.06,"ambientWarmth":0.72,"lanternIntensity":0.50,"fireflyIntensity":0.70,"bloomRadiusRelative":0.24,"contrastLevel":0.36},
+    {"sceneId":"SC07","title":"Bright voluntary lift","overallExposureOffset":0.10,"ambientWarmth":0.78,"lanternIntensity":0.58,"fireflyIntensity":1.0,"bloomRadiusRelative":0.32,"contrastLevel":0.38},
+    {"sceneId":"SC08","title":"Warm constellation resolution","overallExposureOffset":0.12,"ambientWarmth":0.90,"lanternIntensity":0.70,"fireflyIntensity":0.78,"bloomRadiusRelative":0.28,"contrastLevel":0.36}
+  ],
+  "glowStageControls": [
+    {"stage":1,"label":"Faint Discovery","intensity":0.18,"bloomRadiusRelative":0.08},
+    {"stage":2,"label":"Cautious Response","intensity":0.42,"bloomRadiusRelative":0.16},
+    {"stage":3,"label":"Steady Confidence","intensity":0.70,"bloomRadiusRelative":0.24},
+    {"stage":4,"label":"Bright Voluntary Lift","intensity":1.0,"bloomRadiusRelative":0.32}
+  ],
+  "relativeScale": [
+    {"subject":"Milo","value":1.00},
+    {"subject":"Fern","value":0.46},
+    {"subject":"Firefly","value":0.035},
+    {"subject":"Treat","value":0.055},
+    {"subject":"Moonberry lantern","value":0.24}
+  ],
+  "controlScope": {
+    "rendererNeutral": true,
+    "episodeScoped": true,
+    "absoluteMeasurement": false,
+    "permanentCanon": false,
+    "embeddedLightingMiloIdentityAuthority": false,
+    "embeddedLightingMiloAnatomyAuthority": false,
+    "embeddedLightingMiloProportionAuthority": false,
+    "embeddedLightingMiloScaleAuthority": false
+  },
+  "deterministicProvenance": {
+    "builderSha256": "484baf7a7eb5f63769e0a125c5fb9a7a456ba79e76a257e081fece7fde60dcf4",
+    "renderer": "Pillow 12.3.0",
+    "pythonVersion": "3.12.13",
+    "consecutiveBuildByteParity": true,
+    "providerGenerationRequired": false,
+    "providerOperationPerformed": false,
+    "paletteAnchorSha256": "30652a4a86dde603629bb9849258d8049e918160ef4b3530a74ef1b188983864",
+    "lightingMoodAnchorSha256": "98b79a4cea83bd2a81e6e56ab73dde033b9515c3014e1510db65c867c8454785"
+  },
+  "drive": {
+    "rootId": "1qcFFzXAas7VrdLHdhqGCkZpTtzBFPjMo",
+    "productionAssetsFolderId": "17l5dSuW5LdOhsf4osjmLJZ8ZZ2lxZj_Z",
+    "storyFolderId": "1koWv75KVv5GU2NZnQYfwG-RexTCjthgN",
+    "packageFolderId": "1Cso9LGhf0iL0zwVuokRW2xuQesRwu2_J",
+    "approvedReferencesFolderId": "1UKviDhvZoEMibTorJsJmW7RbK0gDIIbJ",
+    "durablePathPrefix": "Milo Story Studio/Production Assets/MILO-007/MILO-007-S01-P01/Approved References",
+    "restrictedSharingVerified": true,
+    "shared": false,
+    "permissions": [{"type":"user","role":"owner","displayName":"Alex Maxwell","emailAddress":"redmaxy66@gmail.com"}],
+    "publicPermission": false,
+    "linkPermission": false,
+    "domainPermission": false,
+    "groupPermission": false,
+    "additionalUserPermission": false,
+    "historicalMiloMoonberryFolderUsed": false,
+    "technicalImmutability": false,
+    "governanceNoOverwritePolicy": true,
+    "preUseChecksumVerificationRequired": true,
+    "allDownloadHashesMatch": true
+  },
+  "referencePackAssessment": {
+    "classification": "READY_WITH_CONDITIONS_FOR_30_SECOND_SPIKE_PREPARATION",
+    "refsheet01": {"v01Rejected":true,"v02RouteEvidenceOnly":true,"identityAnchorDriveId":"10wyycATGlCfrHS7tfiLcr3IRpBzH_S3v","distinctThreeQuarterUnresolved":true},
+    "refsheet02": {"approved":true,"driveId":"1r7OQzymTGyjkctCUjf9874mq8_DvI1fP","kneelingUnsupported":true,"oneFingerCountUnsupported":true},
+    "refsheet03": {"fireflyAnchorDriveId":"1dk70EsM1cVMeZ3FyUAFStjmL99752DPF","curatedReferenceDriveId":"1N-Ydo8Y80PDZS9ayuq-wvCthuditfGWn","fingertipInteractionUnsupported":true,"fernHoverUnsupported":true,"peekingUnsupported":true,"nonContactAndAgencyRequired":true},
+    "refsheet04": {"v01Rejected":true,"v02Rejected":true,"geographyGuideDriveId":"1PKxd40UOEftwQd3LoWvoS3rbTdXgoCIc","unbranchedLeftToRightRoute":true,"topologyAuthorityDistinctFromStyle":true},
+    "refsheet05": {"approved":true,"artifactCount":3,"rendererNeutral":true,"episodeScoped":true,"canon":false}
+  },
+  "futureSpike": {
+    "authorized": false,
+    "recommendedRange": ["MILO-007-S01-P01-SC06-SH01","MILO-007-S01-P01-SC06-SH02","MILO-007-S01-P01-SC06-SH03"],
+    "intendedDurationSeconds": 30,
+    "componentClipCount": 3,
+    "proposedClipSeconds": [10,10,10],
+    "exactTrimPlanPending": true,
+    "requiresSeparateA3Authority": true,
+    "requiresFreshVideoCapabilityAndCostPreflight": true,
+    "requiresHardOverallCreditCeiling": true,
+    "automaticRetriesPermitted": false,
+    "excludedRequirements": ["KNEELING","ONE_FINGER_COUNT","FINGERTIP_CONTACT_OR_SCALE_IMAGE","FERN_HOVER_OR_PERCHING","PEEKING","BRANCHED_GEOGRAPHY","WATER","INVENTED_GATE_OR_DESTINATION","PREMATURE_BRIGHTNESS","MILO_STAR_CAUSALITY"]
+  },
+  "cost": {
+    "priorReferenceGenerationCredits": 105,
+    "currentKnownBalance": 3343,
+    "additionalCreditsDuringReconciliation": 0,
+    "unit": "OpenArt credits"
+  },
+  "issueDisposition": {
+    "criticalNow": [],
+    "materialBeforeThirtySecondSpike": ["FRESH_VIDEO_MODEL_CAPABILITY_AND_COST_ASSESSMENT","EXACT_SHOT_TRIMS_AND_REFERENCE_MAPPING","CLIP_DURATION_AND_ASSEMBLY_PLAN","HARD_OVERALL_CREDIT_CEILING","ZERO_AUTOMATIC_RETRY","IDENTITY_SCALE_GLOW_NON_CONTACT_AND_GEOGRAPHY_ACCEPTANCE","ASYNCHRONOUS_RESPONSE_HANDLING","EXCLUDE_UNSUPPORTED_POSES_AND_INTERACTIONS","FINAL_COMMERCIAL_PUBLICATION_RIGHTS_CONFIRMATION_BEFORE_RELEASE"],
+    "parkableAtNoCurrentRisk": ["UNUSED_REFSHEET05_GENERATION_ALLOWANCE","NO_PROVIDER_GENERATED_LIGHTING_SHEET","COSMETIC_LAYOUT_CHOICES","UNRESOLVED_COVERAGE_EXCLUDED_FROM_SPIKE","CHARACTER_LIBRARY_DEFERRAL"]
+  },
+  "authorityBoundaries": {
+    "refsheet05GenerationAllowanceSpent": false,
+    "refsheet05GenerationAllowanceAutomaticallyTransferable": false,
+    "additionalReferenceGenerationAuthorized": false,
+    "thirtySecondSpikeAuthorized": false,
+    "phase4Started": false,
+    "phase4Authorized": false,
+    "storyVaultMutation": false,
+    "canonMutation": false,
+    "providerOperationDuringReconciliation": false,
+    "n8nAccessDuringReconciliation": false,
+    "additionalCreditsSpentDuringReconciliation": 0,
+    "mediaBinaryCommittedToGit": false
+  },
+  "secretMaterialIncluded": false
+}

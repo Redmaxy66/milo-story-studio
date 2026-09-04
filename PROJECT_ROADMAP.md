@@ -8,11 +8,11 @@ The studio now supports the controlled progression:
 
 `IDEA -> CONCEPT_GENERATED -> CONCEPT_APPROVED -> OUTLINE_GENERATED -> OUTLINE_APPROVED -> SCRIPT_GENERATED -> SCRIPT_APPROVED -> CONTINUITY_REVIEWED -> CONTINUITY_APPROVED -> PRODUCTION_PACKAGE_GENERATED`
 
-Current milestone: **M8 — Complete Studio — Phase 3 complete; deterministic `REFSHEET04` geography guide approved and durably preserved; `REFSHEET04` closed without V03**
+Current milestone: **M8 — Complete Studio — Phase 3 complete; five-sheet reference-development stage assessed as ready with conditions for 30-second spike preparation**
 
 M7 status: **Complete.** Canonical workflow `SNnLunczq5mxrXLn` passed the controlled terminal no-op verification in execution `#432`; repository/live parity, persistence, provenance, lifecycle isolation, recovery, failure safety, and the `63 / 63` offline suite all pass.
 
-M8 status: **IN PROGRESS — PHASE 3 COMPLETE; REFSHEET04 DETERMINISTIC GEOGRAPHY APPROVED AND DURABLY PRESERVED.** D-022 rejects `REFSHEET04` V01/V02, approves the exact 2848×1600 PNG at SHA-256 `2951f25d59e9b87df9576a463390573906f4dc93ef925c6c4ead9fca794a1dd4` as the episode-scoped authority for unbranched left-to-right topology and four-zone order, and closes `REFSHEET04` without V03. The existing style anchor remains the authority for atmosphere; the guide is schematic, not finished artwork or permanent world canon. Restricted Drive file `1PKxd40UOEftwQd3LoWvoS3rbTdXgoCIc` passed download checksum parity. Total reference spend is 105 credits with zero automatic retries and a last-known balance of 3,343. `REFSHEET05`, Character Library work, production implementation and Phase 4 remain separately gated and unauthorised.
+M8 status: **IN PROGRESS — PHASE 3 COMPLETE; REFERENCE PACK READY WITH CONDITIONS FOR 30-SECOND SPIKE PREPARATION.** D-023 approves the checksum-bound deterministic REFSHEET05 PNG, SVG and JSON as episode-scoped renderer-neutral palette, lighting, glow and relative-scale controls; all three restricted Drive downloads match the approved bytes. The reference-development stage has reached final readiness assessment. A bounded SC06 multi-shot spike can be prepared only with explicit exclusions for unsupported poses and interactions, fresh live video capability and cost evidence, exact reference mapping, a hard credit ceiling, zero automatic retries and separate A3 authority. Total reference spend remains 105 credits and the last-known balance remains 3,343. The spike, additional generation, production implementation and Phase 4 remain unauthorised.
 
 ---
 
@@ -140,4 +140,4 @@ M8 status: **IN PROGRESS — PHASE 3 COMPLETE; REFSHEET04 DETERMINISTIC GEOGRAPH
 - M5 — Complete
 - M6 — Complete
 - M7 — Complete
-- M8 — In progress (Phase 3 complete; deterministic `REFSHEET04` geography guide approved and durably preserved; V01/V02 rejected; `REFSHEET04` closed without V03; `REFSHEET05`, Character Library and Phase 4 separately gated)
+- M8 — In progress (Phase 3 complete; REFSHEET05 deterministic controls approved and durably preserved; reference pack ready with conditions for 30-second spike preparation; spike execution and Phase 4 separately gated)

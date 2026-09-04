@@ -9,7 +9,7 @@
 | M5 | Script Pipeline | Week 8 | Complete | Outline Generator, Outline Approval, Script Generator, and Script Approval v0.1 completed, tested, exported, committed, and pushed. End-to-end status progression proven from CONCEPT_APPROVED through OUTLINE_GENERATED, OUTLINE_APPROVED, SCRIPT_GENERATED, and SCRIPT_APPROVED. Deterministic validation, duplicate protection, approval repair paths, Story readiness checks, structured failure payloads, and canon-grounded script generation are working. |
 | M6 | Continuity Agent | Week 10 | Complete | Continuity Reviewer and Continuity Approval v0.1 completed, tested, exported, committed, and pushed. Deterministic validation, version-based duplicate protection, PASS / REVIEW_REQUIRED / FAIL routing, open-canon handling, human approval, approval repair, structured failures, and status progression through CONTINUITY_REVIEWED, CONTINUITY_APPROVED, and SCRIPT_REVISION_REQUIRED are proven. |
 | M7 | Production Package | Week 12 | Complete | Approved design and D-013 recorded; specification, schema, prompt, lifecycle/error contracts, two-tab persistence, workflow export, repair/no-op controls, and `63 / 63` offline validation complete. Canonical workflow `SNnLunczq5mxrXLn` passed terminal zero-write verification in execution `#432`; one version-1 `INITIAL` header and eight scenes remain intact with matching canon and prompt provenance. |
-| M8 | Complete Studio | Week 16 | In progress | Design revision 1.1 and D-016 through D-022 govern the milestone. Phases 1–3 remain complete. Reference evidence through `REFSHEET04` is reconciled. D-022 rejects `REFSHEET04` V01/V02 and approves the checksum-bound deterministic geography guide as the authoritative episode topology and zone-order reference; its restricted Drive download matches the approved SHA-256. `REFSHEET04` is closed without V03. Total reference spend is 105 credits with zero automatic retries and a last-known balance of 3,343. `REFSHEET05`, Phase 4 and further production activity remain separately gated and unauthorised. |
+| M8 | Complete Studio | Week 16 | In progress | Design revision 1.1 and D-016 through D-023 govern the milestone. Phases 1–3 remain complete. The five-sheet reference-development stage has reached final readiness assessment. D-023 approves the deterministic REFSHEET05 PNG/SVG/JSON controls, verifies restricted Drive byte parity, and classifies the reference package as `READY WITH CONDITIONS FOR 30-SECOND SPIKE PREPARATION`. Total reference spend remains 105 credits with zero automatic retries and a last-known balance of 3,343. The spike requires separate preparation, live video cost validation, a hard ceiling and A3 authority; Phase 4 remains not started. |
 
 ## M5 closure
 
@@ -57,7 +57,7 @@ Key M6 implementation commits:
 
 ## Current focus
 
-Current milestone: **M8 — Complete Studio (Phase 3 complete; deterministic `REFSHEET04` geography guide approved and durably preserved; `REFSHEET04` closed without V03)**
+Current milestone: **M8 — Complete Studio (Phase 3 complete; five-sheet reference-development stage assessed as READY WITH CONDITIONS for 30-second spike preparation)**
 
 M8 governance evidence:
 
@@ -121,6 +121,13 @@ M8 `REFSHEET04` deterministic geography evidence:
 - `REFSHEET04` is closed without V03. Total reference spend is 105 credits and the last-known balance is 3,343; this reconciliation spent zero credits.
 - Every later shot background must preserve the unbranched left-to-right route and use the existing style anchor separately for atmosphere. `REFSHEET05` and Phase 4 require separate authority.
 
+M8 `REFSHEET05` deterministic controls and reference-pack readiness:
+
+- The exact PNG, reproducible SVG and machine-readable JSON specification are owner-approved, restricted, and download-verified at SHA-256 `a4f651101c25f80734e7d26fd0cf1e02a2a71b5dd4a6c4fb22ac9ff9455ac0f6`, `8ffb7675f709af51773449d96a574efbe51b6b52e91fd95195d87f4ee719ac51`, and `c033ac8c7acb146a835cedac49cbcf425b26cf2c0f2d01554b2294f1058c8c9e`.
+- D-023 approves the episode palette, SC01–SC08 lighting progression, four glow stages and relative scale values Milo 1.00, fern 0.46, firefly 0.035, treat 0.055 and Moonberry lantern 0.24. The controls are renderer-neutral, relative, episode-only and non-canon.
+- The complete reference position is `READY WITH CONDITIONS FOR 30-SECOND SPIKE PREPARATION`. A bounded SC06 multi-shot excerpt can avoid unsupported kneeling, one-finger count, fingertip interaction, fern hover/perching and peeking.
+- REFSHEET05 used no provider generation and spent zero credits. Its unused generation allowance is not automatically transferable. The last-known balance remains 3,343.
+
 M7 closure evidence:
 
 - Canonical workflow: `SNnLunczq5mxrXLn`, inactive/unpublished, 47 nodes, 57 edges, zero pins.
@@ -129,7 +136,7 @@ M7 closure evidence:
 - Repository/live parity: passed against the certified workflow export, excluding only volatile n8n metadata.
 - Residual note: D-015 remains non-blocking post-M7 hardening debt.
 
-Next gate: **SEPARATELY AUTHORISE REFSHEET05 OR AFFECTED SHOT-SPECIFIC COVERAGE.** The `REFSHEET04` topology guide must be checksum-verified and preserved alongside the style anchor for later shot preparation. Kneeling, one-finger count, firefly scale, fern-hover, peeking and precise glow-transition coverage require establishment and human review before affected moving-image shots. Rights require final confirmation before public release. No `REFSHEET04-V03`, `REFSHEET05` or Phase 4 work is authorised.
+Next gate: **SEPARATELY AUTHORISE 30-SECOND SPIKE PREPARATION.** It must define exact shot trims and reference mapping, confirm current video capability and cost, establish a hard overall credit ceiling and zero-retry policy, and preserve identity, scale, glow, non-contact and unbranched-geography controls. Final commercial-publication rights require confirmation before public release. No spike execution or Phase 4 work is authorised.
 
 ## Status values
 
