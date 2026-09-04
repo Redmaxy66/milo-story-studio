@@ -1,7 +1,7 @@
 # WORK_ORDER.md
 ## Milo Story Studio — M8 Complete Studio
 
-**Status:** Active — Phase 3 complete; OpenArt proof and `REFSHEET01` V01/V02 route evidence reconciled; final `REFSHEET01`, Character Library testing, Phase 4 and all further A3 activity remain separately gated
+**Status:** Active — Phase 3 complete; OpenArt proof and `REFSHEET01` V01/V02 route evidence reconciled; Character Library deferred without a current M8 block; final `REFSHEET01`, Phase 4 and all further A3 activity remain separately gated
 **Project:** Redmaxy66/milo-story-studio  
 **Milestone:** M8 — Complete Studio  
 **Design basis:** MILO_M8_DESIGN_APPROVAL_PACKAGE.md revision 1.1  
@@ -88,7 +88,7 @@ The approved visual-reference pack is a derived canon-controlled production arti
 
 No phase inherits authority from a prior phase.
 
-`REFSHEET01` V01 and its one authorised V02 revision have been executed and reconciled under D-018. V01 is rejected; V02 proves the image-conditioned identity route only and is not an approved final sheet or production reference. The authoritative episode identity input is the checksum-bound non-canon anchor at SHA-256 `3d9e94da9114d9b907216a1e1d63ac1c1b19757ab8c2865678c0b64809c12fe2`. No additional `REFSHEET01` revision, `REFSHEET02`–`REFSHEET05`, Character Library pilot or other provider operation is authorised. D-017 ceilings remain governance limits, not spend authority; every future paid operation requires a new explicit instruction, fresh pricing, unit-cap and remaining-stage-cap confirmation, sequential human review, no automatic retry, and immediate stop when cost cannot be bounded.
+`REFSHEET01` V01 and its one authorised V02 revision have been executed and reconciled under D-018. V01 is rejected; V02 proves the image-conditioned identity route only and is not an approved final sheet or production reference. The authoritative episode identity input is the checksum-bound non-canon anchor at SHA-256 `3d9e94da9114d9b907216a1e1d63ac1c1b19757ab8c2865678c0b64809c12fe2`. D-019 defers Character Library creation without blocking M8 and retains direct checksum-bound `visualReferences` as the current approved provider-integration direction. No additional `REFSHEET01` revision, `REFSHEET02`–`REFSHEET05`, Character Library creation or other provider operation is authorised. D-017 ceilings remain governance limits, not spend authority; every future paid operation requires a new explicit instruction, fresh pricing, unit-cap and remaining-stage-cap confirmation, sequential human review, no automatic retry, and immediate stop when cost cannot be bounded.
 
 ## 9. Protected invariants
 

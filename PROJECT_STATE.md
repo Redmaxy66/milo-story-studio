@@ -1,21 +1,21 @@
 # PROJECT_STATE.md
 ## Milo Story Studio — Current Operational State
 
-**Status date:** 2026-09-03
-**State basis:** Repository evidence, complete applicable M7 validation and acceptance evidence, approved external `MILO_M8_DESIGN_APPROVAL_PACKAGE.md` revision 1.1, completed M8 Phase 1 governance installation, passing M8 Phase 2 contracts, completed M8 Phase 3 preparation and approvals, reconciled isolated OpenArt A3 proof evidence, and reconciled `REFSHEET01` V01/V02 route evidence
-**Authority for this baseline:** A2 — M8 REFSHEET01 V01/V02 Evidence Reconciliation
+**Status date:** 2026-09-04
+**State basis:** Repository evidence, complete applicable M7 validation and acceptance evidence, approved external `MILO_M8_DESIGN_APPROVAL_PACKAGE.md` revision 1.1, completed M8 Phase 1 governance installation, passing M8 Phase 2 contracts, completed M8 Phase 3 preparation and approvals, reconciled isolated OpenArt A3 proof evidence, reconciled `REFSHEET01` V01/V02 route evidence, and reconciled OpenArt Character Library Stage A deferral
+**Authority for this baseline:** A2 — M8 Character Library Preflight Reconciliation and Deferral
 
 ---
 
 ## 1. Current Milestone
 
-**M8 — Complete Studio — PHASE 3 COMPLETE; REFSHEET01 ROUTE EVIDENCE RECONCILED; FINAL REFERENCE NOT APPROVED**
+**M8 — Complete Studio — PHASE 3 COMPLETE; REFSHEET01 ROUTE EVIDENCE RECONCILED; CHARACTER LIBRARY DEFERRED WITHOUT BLOCK**
 
 ---
 
 ## 2. Current Status
 
-**M8 DESIGN REVISION 1.1 APPROVED; PHASE 3 COMPLETE; IMAGE-CONDITIONED MILO IDENTITY ROUTE PROVEN WITH LIMITATIONS**
+**M8 DESIGN REVISION 1.1 APPROVED; PHASE 3 COMPLETE; CHECKSUM-BOUND IMAGE CONDITIONING RETAINED; CHARACTER LIBRARY DEFERRED WITHOUT BLOCK**
 
 The approved M8 design baseline is `MILO_M8_DESIGN_APPROVAL_PACKAGE.md` revision 1.1, SHA-256 `6934b997f79e3d5aa7ff5b9405926abb8c9e401a1a539a31e16b1c32dac0d8a2`. Decision D-016 records M8-D01 through M8-D13 and the four incorporated amendments.
 
@@ -35,9 +35,9 @@ The certified repository export was first proven in temporary workflow `xuzK7QTs
 
 **PHASE 3 — COMPLETE; AP01–AP06 APPROVED WITH CONDITIONS; REFSHEET01 V01/V02 EVIDENCE RECONCILED**
 
-The approved replacement `WORK_ORDER.md`, decisions D-016 through D-018, and Phase 2 repository foundations remain installed. The project owner approved AP01–AP06 with explicit conditions, closing the repository-only Phase 3 package. The isolated OpenArt A3 proof passed with notes and established OAuth authentication, MCP capability discovery, read-only account access, bounded generation, asynchronous `PENDING` handling and exact cost reconciliation. Subsequent separately authorised operations produced `REFSHEET01` V01 and V02: V01 was rejected for wrong character identity, while image-conditioned V02 preserved Milo's broad non-human identity and proves the route only, with material specification limitations.
+The approved replacement `WORK_ORDER.md`, decisions D-016 through D-019, and Phase 2 repository foundations remain installed. The project owner approved AP01–AP06 with explicit conditions, closing the repository-only Phase 3 package. The isolated OpenArt A3 proof passed with notes and established OAuth authentication, MCP capability discovery, read-only account access, bounded generation, asynchronous `PENDING` handling and exact cost reconciliation. Subsequent separately authorised operations produced `REFSHEET01` V01 and V02: V01 was rejected for wrong character identity, while image-conditioned V02 preserved Milo's broad non-human identity and proves the route only, with material specification limitations.
 
-D-017's governance ceilings remain limits rather than spend authority. D-018 records the V01 rejection, approves the checksum-bound non-generative crop at SHA-256 `3d9e94da9114d9b907216a1e1d63ac1c1b19757ab8c2865678c0b64809c12fe2` as the authoritative non-canon episode identity input, and accepts V02 only as image-conditioning route evidence. `REFSHEET01` expenditure totals 30 credits with zero automatic retries and a current known balance of 3,418 credits. No further `REFSHEET01` revision, `REFSHEET02`–`REFSHEET05`, Character Library pilot or Phase 4 work is authorised.
+D-017's governance ceilings remain limits rather than spend authority. D-018 records the V01 rejection, approves the checksum-bound non-generative crop at SHA-256 `3d9e94da9114d9b907216a1e1d63ac1c1b19757ab8c2865678c0b64809c12fe2` as the authoritative non-canon episode identity input, and accepts V02 only as image-conditioning route evidence. D-019 defers the Character Library route without a current M8 block because non-human support, bounded cost, private visibility, automatic outputs and stable automation were not sufficiently demonstrated; the proven checksum-bound `visualReferences` route remains the current approved integration direction. `REFSHEET01` expenditure totals 30 credits with zero automatic retries and a current known balance of 3,418 credits. No further `REFSHEET01` revision, `REFSHEET02`–`REFSHEET05`, Character Library creation or Phase 4 work is authorised.
 
 ---
 
@@ -49,6 +49,7 @@ D-017's governance ceilings remain limits rather than spend authority. D-018 rec
 - Decision D-017 accepts the OpenArt MCP route as technically proven for M8, records mandatory read-only status retrieval for initial `PENDING` responses, retains earlier OAuth/browser failures as non-blocking evidence, and establishes conditional reference-generation planning ceilings without granting spend authority.
 - `REFSHEET01` V01/V02 evidence is installed under `06-testing/evidence/m8/openart/`. V01 is rejected at SHA-256 `8463309495991a2f6b9cec76a922a5e526f6a504b83c92e12497420bbb778e37`; V02 is route-evidence-only at SHA-256 `5663bd8fc42fca2a3cd4ddeef88565063a087b63edb93638d913766dbfc46d83`.
 - Decision D-018 approves the exact 1056×408 identity-anchor bytes at SHA-256 `3d9e94da9114d9b907216a1e1d63ac1c1b19757ab8c2865678c0b64809c12fe2` as the authoritative non-canon episode identity input and records the limited V02 disposition.
+- Decision D-019 records Character Library as `DEFERRED_WITHOUT_CURRENT_M8_BLOCK`, preserves checksum-bound image conditioning as the current direction and grants no upload, creation or spend authority. The prepared 220×282 pilot crop at SHA-256 `cdb0b32371b4848eb7ec076b72b83f4e9bfaf0eaca3f86e1b9a3293eb4f5d049` remains non-uploaded evidence only; its binary is not stored in Git.
 
 - The approved M7 snapshot is copied byte-identically at SHA-256 `c1221fe13d7278912b73572658dc569756de4baa98679b7e3567bd3768d98233` with one header and eight exact ordered scenes.
 - The Phase 3 package contains reference governance, eight Film Director briefs, 24 stable shots, 32 text storyboard panels, a renderer-neutral 5,760-frame plan and 24 provider-neutral prompts.
@@ -203,6 +204,7 @@ The live `MILO-001` lineage contains:
 - Preserve decision D-016 and the approved M8 revision 1.1 design baseline.
 - Preserve decision D-017 and its distinction between governance ceilings and spend authority.
 - Preserve decision D-018, the V01 rejection, V02's route-evidence-only limitation and the authoritative anchor checksum.
+- Preserve decision D-019, the Character Library deferral and the authoritative role of Milo Story Studio's checksum-bound reference records.
 - Do not begin M8 Phase 4 or any later phase without a separate explicit instruction.
 - Do not execute another `REFSHEET01` revision, `REFSHEET02`–`REFSHEET05`, a Character Library pilot or any other provider operation without separate explicit authority and fresh bounded-cost preflight.
 
@@ -210,7 +212,7 @@ The live `MILO-001` lineage contains:
 
 ## 8. Governance Dispositions and Residual Non-Blocking Notes
 
-The governed upstream lineage and M7 completion evidence remain unchanged. M8 design revision 1.1 and its Phase 1 governance baseline are installed. Phase 2 repository contracts and Phase 3 reference/production-intent preparation are complete. The isolated OpenArt A3 proof and `REFSHEET01` V01/V02 evidence are reconciled. V02 proves image-conditioned identity preservation only; the final sheet, Character Library testing, all further generation and Phase 4 remain separately gated and unauthorised.
+The governed upstream lineage and M7 completion evidence remain unchanged. M8 design revision 1.1 and its Phase 1 governance baseline are installed. Phase 2 repository contracts and Phase 3 reference/production-intent preparation are complete. The isolated OpenArt A3 proof and `REFSHEET01` V01/V02 evidence are reconciled. V02 proves image-conditioned identity preservation only. Character Library creation is deferred without blocking M8, and checksum-bound direct image conditioning remains the current approved integration direction; the final sheet, all further generation and Phase 4 remain separately gated and unauthorised.
 
 1. **Governed — not an M7 blocker:** `Milo Failure Handler v0.1` is currently **Published**. Decision D-011 accepts this as an explicitly approved handler-specific operational exception. Publication is not technically required, does not create general permission to publish other Milo workflows, and may be changed only through a separately authorised production action.
 2. **Governed — not an M7 blocker:** Five Stories (`MILO-002` through `MILO-006`), fourteen Concepts, and two Outlines (`MILO-002-O01` and `MILO-003-O01`) have blank `canonVersion` and `canonRef`. Decision D-012 classifies them as PRE-CANON LEGACY records. Blank lineage is not any canon release, and these lineages are ineligible for M7 or later production unless a separately authorised migration establishes valid provenance for the complete Story lineage without fabrication.
@@ -228,9 +230,9 @@ The governed upstream lineage and M7 completion evidence remain unchanged. M8 de
 
 ## 9. Next Required Gate
 
-**M8 PHASE 3 COMPLETE; REFSHEET01 ROUTE EVIDENCE RECONCILED; FINAL REFSHEET AND CHARACTER LIBRARY PILOT NOT AUTHORISED.**
+**M8 PHASE 3 COMPLETE; REFSHEET01 ROUTE EVIDENCE RECONCILED; CHARACTER LIBRARY DEFERRED WITHOUT BLOCK; FINAL REFSHEET NOT AUTHORISED.**
 
-Before the next relevant production gate, distinct three-quarter identity coverage and any anatomical or proportional drift must be resolved against the authoritative anchor, and durable checksum-bound storage and provenance must be established. Any provider-side Character Library asset, production reference or further paid generation requires separate explicit approval. Cosmetic typography and layout defects are parkable and do not justify another paid request; future sheets should preferably use clean unlabeled views with deterministic non-generative labels and markers added later.
+Before the next relevant production gate, distinct three-quarter identity coverage and any anatomical or proportional drift must be resolved against the authoritative anchor, and durable checksum-bound storage and provenance must be established. Direct checksum-bound `visualReferences` remain the current approved provider-integration direction. Character Library may be reconsidered only after live evidence demonstrates non-human support, exact bounded cost, private/unpublished storage, automatic-output behaviour, stable identity/lifecycle controls and an acceptable selection route. Cosmetic typography and layout defects are parkable and do not justify another paid request; future sheets should preferably use clean unlabeled views with deterministic non-generative labels and markers added later.
 
 The approved planning ceilings do not constitute spend authority. Phase 4 has not begun. This state record does not authorise n8n modification or execution, Story Vault changes, OpenArt access, credential changes, paid generation, Character Library creation, durable-media writes, assembly execution, activation, publication, canon changes, D-015 remediation, or legacy/test-workflow cleanup.
 
