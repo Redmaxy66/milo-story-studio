@@ -4,7 +4,7 @@
 
 ## Owner and authority
 
-The workflow-audit chat owns the build under Alex's explicit approval. Find MILO chat and former spike chats are advisory after the supplied handoff. WORK_ORDER.md and D-024 govern. Paid generation, production cutover and public publication require later approval.
+The workflow-audit chat owns the build under Alex's explicit approval. Find MILO chat and former spike chats are advisory after the supplied handoff. WORK_ORDER.md, D-024 and D-025 govern. The bounded paid pilot is approved; production cutover and public publication require later approval.
 
 ## Required output
 
@@ -49,6 +49,8 @@ Four separate inactive, unpublished workflows installed in project W5ZLBOvWbMpYa
 Evidence: 06-testing/evidence/streamlined/. Operator instructions: 05-code/streamlined/README.md. No paid provider calls, production writes, original workflow changes, activation or publication occurred in this build. No active executions remained in each new workflow's inspected execution history.
 
 ## Remaining work and next authority
+
+Resume preflight on 2026-09-05: GitHub main remains c61a746fe03b1270aa8eea07a1b16975373d8787. Direct OpenArt account check confirms Starter and 3,343 credits. The prepared Wan 2.7 element2video request (one 10-second 720p 16:9 clip) is quoted at 250 credits, finalized by the provider at submission. All five uploaded references resolve through provider metadata. Exact-byte pre-use validation is still outstanding: direct local downloads returned HTTP 403, so metadata is not being treated as checksum evidence. The fresh n8n browser is at sign-in; the pilot workflow has not been freshly inspected or changed. Attempt 1 remains RESERVED_NOT_SUBMITTED, with no history ID or generated output. Resume after secure n8n sign-in and completion of the reference-byte check.
 
 The four workflows validate/prepare explicit jobs. They do not yet call writing/voice/video providers, persist jobs remotely, launch a hosted renderer or schedule production. The local runner performs actual finishing, and the local SQLite store is tested but not connected to a hosted service. Provider schema acceptance and corrected live MCP binding remain unproven; current JSON is a locally validated candidate.
 

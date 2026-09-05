@@ -6,7 +6,9 @@ Approved by Alex on 2026-09-05 in the workflow-audit chat. This chat owns the bu
 
 Build a replacement supporting five 120-second weekday episodes and one weekly compilation targeting 600 seconds (590–610 seconds accepted), preserving Milo canon, identity and references. The explicit owner instruction authorises this complete non-paid package: versioned repository changes, explicit supersession, separate inactive/unpublished n8n workflows, isolated test data, local code and synthetic-media tests, and verification evidence. No routine re-approval is required within scope.
 
-Paid generation, new provider uploads, production Story Vault mutation, modification/retirement of original workflows, production cutover, activation/publication and public release remain unauthorised. Earlier spike spend authority does not transfer.
+D-025 and Alex's subsequent instruction to proceed extend this package with a bounded paid pilot: at most 750 existing OpenArt credits across no more than three ten-second video submissions, plus US$5 total writing/narration if needed. Check the current quote before each sequential submission, record its real history ID and reconcile the outcome and cost. No top-ups, subscriptions or automatic paid retries. Earlier spike spend authority does not transfer.
+
+New provider uploads, production Story Vault mutation, modification/retirement of original workflows, production cutover, activation/publication and public release remain unauthorised.
 
 ## Supersession
 
@@ -22,6 +24,7 @@ The replacement uses one explicit weekly job, five episode records, a shared med
 4. Test malformed/duplicate episodes, approval/version mismatch, ambiguous submission, duplicate-spend prevention, runtime/trim limits and file checksum verification. Render synthetic 120-second and approximately 600-second outputs. Preserve original regressions.
 5. Install and execute separate inactive non-paid n8n workflows; record IDs, outcomes and saved-state verification.
 6. Commit implementation/evidence and report remaining paid/hosting dependencies and a bounded pilot proposal. Fixture tests do not establish production quality or weekly throughput.
+7. Under D-025, verify approved reference bytes and the effective provider request, run the bounded isolated pilot, retrieve and assess actual footage, and assemble a technical sample where successful outputs permit. No further budget confirmation is required within the approved limits. Record any blocked prerequisite without treating preparation as a submitted generation.
 
 ## Limits and rollback
 

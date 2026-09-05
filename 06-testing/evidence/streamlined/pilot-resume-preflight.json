@@ -1,0 +1,32 @@
+{
+  "checked_on": "2026-09-05",
+  "authority": "D-025",
+  "baseline_commit": "c61a746fe03b1270aa8eea07a1b16975373d8787",
+  "workflow_id": "MZuwtFfJYrgYwpZ0",
+  "n8n_access": "SIGN_IN_REQUIRED",
+  "live_workflow_reinspection": false,
+  "openart_plan": "Starter",
+  "openart_credits": 3343,
+  "quote": {
+    "model": "wan2-7",
+    "mode": "element2video",
+    "resolution": "720p",
+    "aspectRatio": "16:9",
+    "duration": 10,
+    "videoCount": 1,
+    "totalCredits": 250,
+    "finalized_at_submission": true
+  },
+  "references": [
+    {"id":"jUX4awRS6468gTgNOZvo","width":1056,"height":408,"bytes":686877,"format":"png"},
+    {"id":"e7FwW14rRhqgKIeu0Jax","width":2848,"height":1600,"bytes":959636,"format":"jpeg"},
+    {"id":"2CAiaFCmUeyBxneE6CST","width":2088,"height":1788,"bytes":1707992,"format":"png"},
+    {"id":"OmlXGgGjg9hOAy9SBPuu","width":2848,"height":1600,"bytes":42570,"format":"png"},
+    {"id":"qaf2WGAXCgz48J1OFdCD","width":2848,"height":1600,"bytes":459877,"format":"png"}
+  ],
+  "reference_checksum_status": "NOT_REVALIDATED_LOCAL_DOWNLOAD_HTTP_403",
+  "attempt_status": "RESERVED_NOT_SUBMITTED",
+  "history_id": null,
+  "generation_calls_this_resume": 0,
+  "outputs": []
+}
