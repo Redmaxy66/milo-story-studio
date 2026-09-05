@@ -1,144 +1,32 @@
-# WORK_ORDER.md
-## Milo Story Studio — M8 Complete Studio
+# Milo Streamlined Production — Active Work Order
 
-**Status:** Active — Phase 3 complete; five-sheet reference-development stage reconciled; deterministic REFSHEET05 controls approved and durably preserved; reference pack ready with conditions for 30-second spike preparation; Phase 4 and all further A3 activity remain separately gated
-**Project:** Redmaxy66/milo-story-studio  
-**Milestone:** M8 — Complete Studio  
-**Design basis:** MILO_M8_DESIGN_APPROVAL_PACKAGE.md revision 1.1  
-**Design package SHA-256:** 6934b997f79e3d5aa7ff5b9405926abb8c9e401a1a539a31e16b1c32dac0d8a2  
-**Entry repository HEAD:** 0bd7c7ef64f3d582df2a239409e5c62ce5c83eca
+Approved by Alex on 2026-09-05 in the workflow-audit chat. This chat owns the build; Find MILO chat and former spike chats are advisory after handoff. Base: c601e85d256c21075e3fad18880e7895fb704dc4.
 
-## 1. Objective
+## Outcome and authority
 
-Implement and validate an approval-controlled complete studio that consumes immutable M7 Production Packages, creates approved production intent and references, generates and approves realised media, assembles an approved episode, and prepares approved platform publishing packages without public publication.
+Build a replacement supporting five 120-second weekday episodes and one weekly compilation targeting 600 seconds (590–610 seconds accepted), preserving Milo canon, identity and references. The explicit owner instruction authorises this complete non-paid package: versioned repository changes, explicit supersession, separate inactive/unpublished n8n workflows, isolated test data, local code and synthetic-media tests, and verification evidence. No routine re-approval is required within scope.
 
-## 2. Authority
+Paid generation, new provider uploads, production Story Vault mutation, modification/retirement of original workflows, production cutover, activation/publication and public release remain unauthorised. Earlier spike spend authority does not transfer.
 
-Authority is staged.
+## Supersession
 
-Approval or installation of this work order is a governance action only. It does not itself authorise A2 implementation or any A3 activity. Every implementation phase requires a separate explicit user instruction that names its scope and completion contract; no phase inherits authority.
+D-024 governs the replacement. The former work order is preserved at 09-archive/pre-streamlined-c601e85d/WORK_ORDER.md. Its mandatory 13-workflow topology, 12-tab implementation, separate routine approval workflows and per-phase build confirmations are superseded for the replacement only. D-007 and the original MILO_PROJECT stage boundaries still describe the preserved original system.
 
-- A2 is the authority ceiling for repository specifications, schemas, prompts, validators, workflow exports, offline fixtures/tests, documentation, and approved non-production artifacts, but each A2 phase still requires its own explicit instruction.
-- A3 is the authority ceiling for Story Vault schema changes, n8n/credential configuration, OpenArt or other provider execution, paid generation, durable-media writes, assembly execution, and controlled live acceptance, and each A3 phase requires its own explicit instruction.
+The replacement uses one explicit weekly job, five episode records, a shared media queue and a common daily/weekly assembly path. No legacy rows are selected implicitly. D-013 original M7 immutability; D-008–D-010 canon; D-012 legacy exclusions; D-018–D-023 reference restrictions; spending controls; durable approved originals; and final human publication approval remain binding.
 
-Every A3 phase requires a new explicit instruction naming targets, caps, side effects, tests, rollback, and stop conditions. This work order never authorises automatic public publication.
+## Sequence and completion
 
-## 3. Governing sources
+1. Reconcile supplied handoff and current repository/saved n8n state.
+2. Record D-024 and this work order; preserve former state/work order.
+3. Implement shared job validation, timed episode/compilation planning, safe structured adjustments, exact MCP request binding, attempt reconciliation, actual file assembly and release metadata.
+4. Test malformed/duplicate episodes, approval/version mismatch, ambiguous submission, duplicate-spend prevention, runtime/trim limits and file checksum verification. Render synthetic 120-second and approximately 600-second outputs. Preserve original regressions.
+5. Install and execute separate inactive non-paid n8n workflows; record IDs, outcomes and saved-state verification.
+6. Commit implementation/evidence and report remaining paid/hosting dependencies and a bounded pilot proposal. Fixture tests do not establish production quality or weekly throughput.
 
-Apply AGENTS.md, SOFTWARE_PROJECT.md, MILO_PROJECT.md, DECISION_LOG.md, PROJECT_STATE.md, the approved M8 design, M7 specifications/evidence, the OpenArt spike report, and this work order in the governed hierarchy.
+## Limits and rollback
 
-## 4. Entry conditions
+Paid execution remains behind a build-time gate independent of incoming JSON. Synthetic results cannot become production approvals. Unknown submission outcomes require reconciliation before resubmission. No automatic retry of paid submissions/appends. Approvals bind exact versions/assets; compilation edits cannot rewrite meaning or silently accelerate narration.
 
-- main remains at the explicitly authorised baseline or a reviewed M8 governance commit;
-- M7 remains COMPLETE WITH NOTES and READY FOR M8;
-- canonical M7 workflow SNnLunczq5mxrXLn remains protected;
-- M7 package and scene records remain coherent;
-- canon-v1.0 still resolves to 977755913d9ad41e4f16392d01ea993507af4102;
-- D-003 and D-008 through D-015 remain respected;
-- no PRE-CANON LEGACY record enters M8;
-- no unreviewed parallel M8 implementation exists.
+n8n Cloud cannot run FFmpeg locally. Finishing uses the repository external runner, initially through the controlled local pilot handoff. Persistent unattended hosting must be agreed and verified before production cutover; it is not assumed deployed.
 
-Stop on material mismatch.
-
-## 5. In scope
-
-- provider-neutral M8 contracts and validators;
-- additive Story Vault schemas;
-- approved visual-reference governance;
-- specialist production-intent artifacts;
-- OpenArt adapter and isolated connectivity proof;
-- generation, polling, retrieval, revision, approval, cost, and recovery workflows;
-- provider-neutral voice/audio/lip-sync route and fallback;
-- durable media storage;
-- deterministic episode assembly;
-- YouTube episode and Instagram Reels promo packages;
-- operator controls, security, failure handling, regression tests, capstone, and handoff.
-
-## 6. Out of scope
-
-- automatic or public publication;
-- canon changes or movement of canon-v1.0;
-- mutation of M7 package content or prior milestone records;
-- PRE-CANON LEGACY migration;
-- D-015 remediation unless separately authorised;
-- legacy/test workflow cleanup;
-- substantial dedicated UI unless separately approved;
-- unapproved cross-provider fallback;
-- deletion of approved originals or audit evidence.
-
-## 7. Required design
-
-Implement the approved contracts for ProductionIntentArtifact, ProductionAssetRequest, GenerationAttempt, GeneratedAsset, AssetReference, RevisionRequest, AssetApproval, CostRecord, EpisodeAssembly, AssemblyApproval, PublishingPackage, and PublishingApproval. OpenArt-specific fields remain inside a versioned adapter.
-
-The approved visual-reference pack is a derived canon-controlled production artifact, not canon. Specialist outputs may enrich but never rewrite approved story meaning, dialogue, canon, or M7 intent.
-
-## 8. Required sequence and gates
-
-1. Verify entry state.
-2. Obtain a separate explicit A2 instruction, then install repository contracts, schemas, error/lifecycle definitions, and deterministic tests.
-3. Pass offline validation and M3–M7 regression.
-4. Obtain separate A3 authority and pass the isolated n8n/OpenArt connectivity proof. **Completed with notes; repository evidence reconciled under A2.**
-5. Obtain separate A3 authority for additive Story Vault and inactive workflow installation.
-6. Obtain separate A3 authority with a distinct evidence-based pilot cap, then prove one-scene generation, durable retrieval, cost, revision, and approval.
-7. Prove voice/audio/lip-sync capability or approve the fallback.
-8. Obtain the separate A2 or A3 instruction applicable to the named environment, then implement and prove deterministic assembly and platform profiles.
-9. Obtain separate A3 authority with a distinct episode-preview cap derived from pilot evidence, then run the full-episode preview capstone.
-10. Obtain separate A3 authority with a distinct final-resolution cap derived from preview and benchmark evidence, then build the final master and packages without public publication.
-11. Obtain a separate A2 instruction to reconcile repository/live state and close M8.
-
-No phase inherits authority from a prior phase.
-
-`REFSHEET01` remains governed by D-018, Character Library by D-019 and `REFSHEET02` by D-020. D-021 rejects `REFSHEET03` V01 and the complete V02 sheet, approves V02 only as a component source with exclusions, and approves the checksum-bound firefly anchor plus deterministic curated reference with recorded limitations. The raw V02 composite, Milo-hand/human-fingertip panel, fern-perching panel and second glow row are prohibited as conditioning or interaction authority. Missing Milo-fingertip scale, fern-hover, peeking and precise glow-transition coverage remains material before affected moving-image shots. The current known balance is 3,373 credits after 75 credits of reference generation with zero retries; curation and promotion spent zero credits. No further `REFSHEET03` generation, next reference sheet, Character Library creation or other provider operation is authorised. D-017 ceilings remain governance limits, not spend authority; every future paid operation requires a new explicit instruction, fresh pricing, unit-cap and remaining-stage-cap confirmation, sequential human review, no automatic retry, and immediate stop when cost cannot be bounded.
-
-D-022 rejects `REFSHEET04` V01 and V02, approves the checksum-bound deterministic geography guide as the authoritative episode-scoped route-topology and zone-order reference, and closes `REFSHEET04` without V03 after exhausting its one-initial-plus-one-revision allowance. The approved Moonberry Wood style anchor remains authoritative for atmosphere and visual language; later shot preparation must respect both, with geography conflicts resolved in favour of the deterministic guide and all references subordinate to the approved story, M7 package, director brief, storyboard and animation manifest. Drive file `1PKxd40UOEftwQd3LoWvoS3rbTdXgoCIc` passed restricted owner-only download checksum parity. Total reference-generation expenditure is 105 credits with zero automatic retries and the last-known OpenArt balance is 3,343. This reconciliation spent zero credits. No `REFSHEET04-V03`, `REFSHEET05`, Character Library, moving-image or Phase 4 authority exists.
-
-D-023 approves the deterministic REFSHEET05 PNG, SVG and JSON as the authoritative episode-scoped renderer-neutral palette, SC01–SC08 lighting, four-stage glow and relative-scale controls. All three restricted Drive downloads match their approved source checksums. The embedded lighting-strip Milo image has atmosphere authority only. The complete reference package is `READY WITH CONDITIONS FOR 30-SECOND SPIKE PREPARATION`; the recommended bounded scope is a 30-second SC06 multi-shot excerpt that excludes unsupported kneeling, one-finger count, fingertip interaction, fern hover/perching and peeking. Exact trims, per-shot reference bindings, live video capability and pricing, a hard overall ceiling, asynchronous lifecycle controls, zero automatic retries and separate A3 authority remain mandatory before execution. REFSHEET05 required no provider generation; its unused allowance is not automatically transferable. The last-known balance remains 3,343 and this reconciliation spends zero credits. No spike execution or Phase 4 authority exists.
-
-## 9. Protected invariants
-
-- Story is authoritative for frozen canon lineage.
-- M7 packages and scenes are immutable.
-- Generated content never silently becomes canon.
-- Human approval is required before spend where configured, asset use, assembly acceptance, publishing-package acceptance, and all public release.
-- Milo owns idempotency and duplicate-spend prevention.
-- No automatic retry on appends or ambiguous provider submissions.
-- Requested and actual settings remain distinct.
-- Original assets remain immutable and independently retrievable.
-- SHA-256 is the authoritative identity of Google Drive bytes; Drive IDs and paths are locators.
-- Approved Google Drive files are write-restricted, approved content is never replaced in place, and every revision creates a new file and record.
-- Assembly requires a fresh SHA-256 match against each approved durable input.
-- Credentials and secrets remain outside repository, Sheets, prompts, packages, and logs.
-- Shared Failure Handler retains lifecycle isolation.
-- Existing M3–M7 workflow identities, rollback artifacts, and data remain protected.
-
-## 10. Validation
-
-Pass contract, adapter, idempotency, duplicate, polling, timeout, partial-result, selective-revision, lineage, approval, stage-specific budget, canon-separation, durable-file write-restriction, revision-file immutability, pre-assembly checksum revalidation, retrieval, voice/audio, assembly, publishing-profile, failure, manual-recovery, rollback, and M3–M7 regression tests defined by the approved M8 design.
-
-## 11. Stop conditions
-
-Stop the affected branch on repository/governance drift, target or credential ambiguity, unapproved spend, a missing stage-specific cap, attempted cross-stage budget transfer, missing/stale estimate, duplicate risk, uncertain provider charge, unsafe retry, missing provenance/rights/approval, canon mismatch, provider success without retrievable output, cost variance outside policy, missing durable copy, an approved Drive file that is not write-restricted, any attempted in-place replacement, a pre-assembly checksum mismatch, unresolved audience/safety decision, assembly nondeterminism, unexpected prior-milestone mutation, or any need for public publication.
-
-## 12. Rollback
-
-Use additive workflows/tabs, inactive installation, versioned records, durable hashes, and the pre-M8 repository anchor. Disable/unpublish M8 components independently. Preserve all prior milestone state, approved originals, attempt history, and audit evidence. No rollback may overwrite approved Drive content, reuse an approved Drive file ID for different bytes, delete unrelated production data, or rewrite history.
-
-## 13. Completion contract
-
-M8 is COMPLETE only when one approved M7 package has produced:
-
-- approved references and production intent;
-- approved durable media with complete lineage, rights, costs, authoritative SHA-256 hashes, write restrictions, append-only revision files, and successful pre-assembly checksum revalidation;
-- one approved reproducibly built episode master;
-- approved YT_EPISODE_16X9_V1 and IG_REEL_PROMO_9X16_V1 packages;
-- enforced human approvals and no automatic public publication;
-- passing failure/recovery, budget, duplicate, rollback, and M3–M7 regression evidence;
-- final repository/live parity and operational handoff.
-
-If these do not all pass, report COMPLETE WITH NOTES, PARTIAL, BLOCKED, or FAILED VALIDATION accurately.
-
-## 14. Final reporting
-
-Report status, implemented artifacts, tests, live systems touched, costs, generated resources, approvals, protected state, exceptions, rollback position, and whether public publication occurred. Completion does not authorise publication or later hardening.
-
-**End of proposed M8 work order**
+Stop the affected action on competing writes, changed target identity, unknown spend, protected-original mutation or material validation failure. Continue other safe authorised work. Rollback leaves replacement workflows inactive and preserves the originals; no deletion or history rewrite.

@@ -1,3 +1,5 @@
+> **Current direction (2026-09-05):** D-024 approves the streamlined replacement. See [WORK_ORDER.md](WORK_ORDER.md), [PROJECT_STATE.md](PROJECT_STATE.md) and [streamlined production](02-story-system/STREAMLINED_PRODUCTION.md). Earlier topology/roadmap text below is historical where it conflicts with that scope.
+
 ﻿# Milo Story Studio — 16-Week Roadmap
 
 ## Current position

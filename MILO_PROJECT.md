@@ -6,6 +6,10 @@
 
 ---
 
+## Active replacement overlay — D-024
+
+For the streamlined replacement approved 2026-09-05, WORK_ORDER.md and 02-story-system/STREAMLINED_PRODUCTION.md supersede the original topology and mandatory separate approval-workflow implementation below. These sections continue to document the original system. Canon, provenance, approved references, protected originals and final human release approval remain binding.
+
 ## 1. Purpose
 
 Milo Story Studio is an n8n-based learning and production system that turns a raw Milo story idea into a controlled, canon-grounded children's content package.
