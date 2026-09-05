@@ -1,0 +1,20 @@
+{
+  "model": "wan2-7",
+  "mode": "element2video",
+  "params": {
+    "prompt": "Create a single 10.000-second 16:9 moving shot for MILO-007-S01-P01-SC06-SH01 at a 24 fps editorial target. In warm Moonberry Wood evening light, preserve Milo as the exact small non-human turquoise-furred creature in the first identity reference: huge round cream-inner ears, amber eyes, pink nose, broad cream muzzle, cream belly, passive golden belly star, rounded proportions and mustard-yellow backpack. Preserve the tiny warm-golden firefly identity from the firefly reference with restrained translucent wings and one readable glow source. Establish the repeatable rhythm of blink and quiet cheer: the firefly makes small voluntary light pulses that increase only fractionally, while Milo watches from a seated or low stable supportive posture and answers after each pulse with one restrained soft clap and one small friendly wave. Milo never touches, carries, commands or powers the firefly. Begin in a readable settled close-montage composition, use gentle eased 65mm-equivalent observational camera movement, then hold the reaction and settle to a clean edit pose. Preserve the unbranched mossy path and screen-left-to-screen-right axis on dry ground; show low moss, rounded stones and a steady amber lantern-light pool. Apply SC06 controls faithfully: exposure +0.06, warmth 0.72, lantern 0.50, firefly 0.70, bloom 0.24, contrast 0.36; relative scale Milo 1.00, firefly 0.035 and Moonberry lantern 0.24. Keep foreground, midground and background stable with only restrained foliage and mote drift. No dialogue or lip sync; no generated audio requirement. No kneeling, one-finger counting, fingertip interaction, human hands, human-style fingertips, fern interaction, peeking, direct handling, humanised firefly anatomy, star causality, water, branches, loops, gates, buildings, new props, text, logos or watermark. No identity drift, anatomy warping, texture crawl, flicker, backpack duplication, extra characters or premature bright reunion glow.",
+    "negativePrompt": "human fingers, human fingernails, human hands, firefly contact, kneeling, one-finger count, fern perch, water, branched path, identity drift, anatomy warping, flicker, text, logo, watermark",
+    "visualReferences": [
+      {"type":"image","id":"jUX4awRS6468gTgNOZvo","url":"https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/BQYIt8w3thhcvrHNHqYm/MILO-007-S01-P01-MILO-IDENTITY-ANCHOR-CANDIDATE-V01_1788477932082_68683c36.png","label":"MILO_IDENTITY"},
+      {"type":"image","id":"e7FwW14rRhqgKIeu0Jax","url":"https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/BQYIt8w3thhcvrHNHqYm/MILO-007-S01-P01-REFSHEET02-V01_1788566105920_4c056707.jpeg","label":"MILO_ACTION_POSES"},
+      {"type":"image","id":"2CAiaFCmUeyBxneE6CST","url":"https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/BQYIt8w3thhcvrHNHqYm/MILO-007-S01-P01-REFSHEET03-CURATED-V01_1788566090639_4d6c58b2.png","label":"FIREFLY_IDENTITY_GLOW"},
+      {"type":"image","id":"OmlXGgGjg9hOAy9SBPuu","url":"https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/BQYIt8w3thhcvrHNHqYm/MILO-007-S01-P01-MOONBERRY-WOOD-GEOGRAPHY-GUIDE-CANDIDATE-V01_(1)_1788566097783_1284e23a.png","label":"GEOGRAPHY_TOPOLOGY"},
+      {"type":"image","id":"qaf2WGAXCgz48J1OFdCD","url":"https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/BQYIt8w3thhcvrHNHqYm/MILO-007-S01-P01-REFSHEET05-DETERMINISTIC-CANDIDATE-V01_1788566101685_e8aa6d92.png","label":"SC06_LIGHTING_SCALE"}
+    ],
+    "resolution": "720p",
+    "aspectRatio": "16:9",
+    "duration": 10,
+    "videoCount": 1,
+    "enablePromptExpansion": false
+  }
+}

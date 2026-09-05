@@ -1,0 +1,34 @@
+{
+  "pilot_id": "MILO-STREAMLINED-PILOT-D025",
+  "authority": "D-025",
+  "status": "IN_PROGRESS",
+  "credit_cap": 750,
+  "cash_cap_usd": 5,
+  "maximum_video_attempts": 3,
+  "starting_openart_credits": 3343,
+  "workflow_id": "MZuwtFfJYrgYwpZ0",
+  "attempts": [
+    {
+      "request_id": "MILO-007-S01-P01-SC06-SH01-D025-A01",
+      "attempt_no": 1,
+      "status": "RESERVED_NOT_SUBMITTED",
+      "quoted_credits": 250,
+      "maximum_credits": 250,
+      "actual_credits": null,
+      "automatic_retries": 0,
+      "model": "wan2-7",
+      "mode": "element2video",
+      "config": {
+        "duration": 10,
+        "resolution": "720p",
+        "aspectRatio": "16:9",
+        "videoCount": 1,
+        "enablePromptExpansion": false
+      },
+      "history_id": null,
+      "outputs": [],
+      "stop_on_unknown": true,
+      "request_sha256": "010697549bd40cb3f505229515e8714d0d9564728ca0e7425ff5f18fa0cf7629"
+    }
+  ]
+}

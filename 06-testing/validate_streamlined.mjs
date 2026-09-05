@@ -14,7 +14,7 @@ test('duplicate episode order blocks',()=>fails(f=>f.compilation.order[1]='ep_mo
 test('compilation edit needs exact review',()=>fails(f=>f.compilation.title+=' changed',/APPROVAL_CONTENT_CHANGED/));
 test('synthetic asset cannot cross into production',()=>assert.throws(()=>S.assetMap(f.assets,'production'),/ENVIRONMENT_MISMATCH/));
 const attempt=()=>S.prepareAttempt(f.request,[],f.budget,f.environment);
-test('MCP JSON params wrapper retained',()=>assert.deepEqual(JSON.parse(attempt().mcp_json),{params:f.request.params}));
+test('MCP JSON model/mode/params envelope retained',()=>{const {model,mode,...params}=f.request.params;assert.deepEqual(JSON.parse(attempt().mcp_json),{model,mode,params})});
 test('paid execution unconditionally locked',()=>assert.throws(()=>S.requirePaidAuthority({allow_paid:true}),/PAID_PILOT_APPROVAL_REQUIRED/));
 test('duplicate submission blocks',()=>assert.throws(()=>S.prepareAttempt(f.request,[{request_id:f.request.request_id}],f.budget,f.environment),/REQUEST_ALREADY_ATTEMPTED/));
 test('uncertain prior attempt blocks',()=>assert.throws(()=>S.prepareAttempt(f.request,[{status:'UNKNOWN'}],f.budget,f.environment),/PRIOR_ATTEMPT_UNRESOLVED/));

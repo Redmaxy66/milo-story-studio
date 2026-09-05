@@ -4,7 +4,7 @@ import { createHash } from 'node:crypto';
 export const VERSION = 'milo-streamlined-v1';
 export const CANON = '977755913d9ad41e4f16392d01ea993507af4102';
 export const DAYS = ['ep_mon', 'ep_tue', 'ep_wed', 'ep_thu', 'ep_fri'];
-export const PAID_EXECUTION_ENABLED = false; // Only a separately approved pilot may change this.
+export const PAID_EXECUTION_ENABLED = false; // General/production execution remains locked; D-025 is pilot-specific.
 export function canonical(value) {
   if (value === null || typeof value !== 'object') {
     if (value === undefined || (typeof value === 'number' && !Number.isFinite(value))) throw new Error('INVALID_JSON');
@@ -95,7 +95,10 @@ export function makePayload(request) {
   check(new Set(p.visualReferences.map(r=>r.id)).size===p.visualReferences.length,'DUPLICATE_PROVIDER_REFERENCE');
   check(p.duration===10&&p.resolution==='720p'&&p.aspectRatio==='16:9'&&p.videoCount===1&&p.enablePromptExpansion===false,'UNVERIFIED_VIDEO_SETTINGS');
   check(text(request.source_hash)&&/^[a-f0-9]{64}$/.test(request.source_hash),'SOURCE_HASH_REQUIRED');
-  return {params:p};
+  const {model,mode,...params}=p;
+  // MCP tool schema is {model, mode, params}; the earlier failed spike sent an
+  // empty params object. Keep this exact envelope hash-bound to the approval.
+  return {model,mode,params};
 }
 export function prepareAttempt(request, ledger, budget, environment) {
   const payload=makePayload(request);
