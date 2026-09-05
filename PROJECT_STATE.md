@@ -1,6 +1,6 @@
 # Milo Story Studio — Current State
 
-2026-09-05: **Non-paid streamlined build validated; paid pilot awaiting approval. Production replacement remains PARTIAL.**
+2026-09-05: **Non-paid streamlined build validated; bounded paid pilot approved and in progress. Production replacement remains PARTIAL.**
 
 ## Owner and authority
 
@@ -52,4 +52,4 @@ Evidence: 06-testing/evidence/streamlined/. Operator instructions: 05-code/strea
 
 The four workflows validate/prepare explicit jobs. They do not yet call writing/voice/video providers, persist jobs remotely, launch a hosted renderer or schedule production. The local runner performs actual finishing, and the local SQLite store is tested but not connected to a hosted service. Provider schema acceptance and corrected live MCP binding remain unproven; current JSON is a locally validated candidate.
 
-Next: owner decision on the bounded paid-pilot proposal in 06-testing/evidence/streamlined/PAID_PILOT_PROPOSAL.md. Proposed ceiling 750 existing OpenArt credits across at most three ten-second submissions plus US$5 total writing/narration, conditional on a verified quote within the ceiling. No paid authority is recorded yet. Then validate one real cut/episode and subsequently a full week before requesting final cutover. Production quality, actual costs, sustainable throughput and unattended hosting remain unproven. Public publication is separately approved.
+Alex approved the bounded pilot on 2026-09-05: at most 750 existing OpenArt credits across no more than three ten-second submissions, plus US$5 total writing/narration if needed, conditional on a verified quote within the ceiling. No top-up, subscription, automatic paid retry, activation, cutover or public publication. Execute sequentially, persist the real history ID and cost, and stop on an unknown outcome or excessive quote. Then validate one real cut/episode and subsequently a full week before requesting final cutover. Production quality, actual costs, sustainable throughput and unattended hosting remain unproven.

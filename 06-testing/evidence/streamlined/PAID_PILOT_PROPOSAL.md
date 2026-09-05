@@ -1,4 +1,6 @@
-# Bounded paid pilot — approval requested, not granted
+# Bounded paid pilot — APPROVED
+
+Approved by Alex in the workflow-audit chat on 2026-09-05. This approval authorises only the bounded sequence and ceilings below; it does not authorise production cutover, workflow activation, a subscription/top-up, or public publication.
 
 Purpose: resolve the failed provider binding with one actual request, then produce enough usable motion for a short reviewed cut and a two-minute hybrid episode. Do not fund an entire week's production before quality and costs are known.
 
