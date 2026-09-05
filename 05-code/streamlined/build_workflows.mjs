@@ -1,0 +1,16 @@
+import {readFileSync,writeFileSync}from'node:fs';
+import {fixture}from'../../06-testing/fixtures/streamlined/make_fixture.mjs';
+import * as S from './studio.mjs';
+const core=readFileSync(new URL('./studio.mjs',import.meta.url),'utf8').replace("import { createHash } from 'node:crypto';","const {createHash}=require('crypto');").replaceAll(/^export /gm,'');
+const f=fixture();const p=S.compilationTimeline(f.week,f.compilation,f.assets);
+const result={job_id:p.job_id,manifest_hash:p.manifest_hash,actual_runtime_sec:600,file:'SYNTHETIC_ONLY/master.mp4',sha256:'b'.repeat(64),thumbnail:{file:'SYNTHETIC_ONLY/thumbnail.jpg',sha256:'c'.repeat(64)}};
+const data=[f,f,{...f,format:'compilation'},{plan:p,render_result:result,approval:S.approvalFor({job_id:p.job_id,sha256:result.sha256},'FIXTURE_ONLY','2026-09-05T00:00:00Z','isolated_test')}];
+const actions=["prepareWeek(job.week,job.canon_text)","prepareAttempt(job.request,job.ledger,job.budget,job.environment)","job.format==='compilation'?compilationTimeline(job.week,job.compilation,job.assets):dailyTimeline(job.week,job.episode_id,job.assets)","releasePackage(job.plan,job.render_result,job.approval)"];
+const names=['Week Preparation','Media Queue','Assembly','Release Package'];
+for(let i=0;i<4;i++){
+ const process=core+`\nconst job=$input.first().json;\n${i===1?"if(job.submit===true) requirePaidAuthority();":""}\nconst result=(${actions[i]});\nreturn [{json:result}];`;
+ const nodes=[{id:'manual',name:'Run synthetic test',type:'n8n-nodes-base.manualTrigger',typeVersion:1,position:[0,0],parameters:{}},{id:'fixture',name:'Isolated fixture',type:'n8n-nodes-base.code',typeVersion:2,position:[220,0],parameters:{jsCode:'return [{json:'+JSON.stringify(data[i])+'}];'}},{id:'input',name:'Explicit job input',type:'n8n-nodes-base.executeWorkflowTrigger',typeVersion:1.1,position:[220,240],parameters:{inputSource:'passthrough'}},{id:'stage',name:names[i],type:'n8n-nodes-base.code',typeVersion:2,position:[480,80],parameters:{jsCode:process},retryOnFail:false,onError:'stopWorkflow'},{id:'notes',name:'Build boundary',type:'n8n-nodes-base.stickyNote',typeVersion:1,position:[-20,-240],parameters:{height:180,width:760,content:`## Streamlined ${names[i]} v1 — inactive build\nManual trigger uses only synthetic data. Explicit job input accepts one versioned job. No paid provider calls, production writes, scheduling or publication. ${i===2?'Output is a manifest for the repository FFmpeg runner.':i===1?'Prepares exact JSON; submission is locked pending paid pilot.':''}\nSource: 05-code/streamlined; D-024. Preserve original workflows.`}}];
+ const connections={'Run synthetic test':{main:[[{node:'Isolated fixture',type:'main',index:0}]]},'Isolated fixture':{main:[[{node:names[i],type:'main',index:0}]]},'Explicit job input':{main:[[{node:names[i],type:'main',index:0}]]}};
+ writeFileSync(new URL('../../04-n8n-workflows/streamlined/'+String(i+1).padStart(2,'0')+'-'+names[i].toLowerCase().replaceAll(' ','-')+'.json',import.meta.url),JSON.stringify({name:`Milo Streamlined ${i+1} - ${names[i]} - BUILD`,nodes,connections,active:false,settings:{executionOrder:'v1',saveManualExecutions:true,executionTimeout:120},pinData:{},tags:[]},null,2)+'\n');
+}
+console.log('Generated four inactive workflows; 20 nodes including notes, 16 executable nodes.');

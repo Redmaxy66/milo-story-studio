@@ -1,0 +1,61 @@
+{
+  "environment": "isolated_test",
+  "date": "2026-09-05",
+  "notice": "Neutral cards and silence only. No real story, voice or provider validation.",
+  "results": [
+    {
+      "job_id": "TEST_2026_W36-ep_mon-V1",
+      "manifest_hash": "2c22cc962aaea5cdb8404ce6927dd598f218d6812fa7a201db9ec5e20003cf50",
+      "sha256": "06e1c2dbf5a8659ac39379e5c10824edafadf286f352f5153e70984d10f08cd9",
+      "actual_runtime_sec": 120,
+      "video_frames": 2880,
+      "release_status": "SYNTHETIC_RELEASE_TEST_PASSED",
+      "published": false
+    },
+    {
+      "job_id": "TEST_2026_W36-ep_tue-V1",
+      "manifest_hash": "c7d2236a10a4b244b3a9ae1546986f658ea5aca89f94b8d4cc86bd89cec9660a",
+      "sha256": "cab75a844ac1032bc35997ea947093b64e9de8bb1a618c57417f9f1eec724fa4",
+      "actual_runtime_sec": 120,
+      "video_frames": 2880,
+      "release_status": "SYNTHETIC_RELEASE_TEST_PASSED",
+      "published": false
+    },
+    {
+      "job_id": "TEST_2026_W36-ep_wed-V1",
+      "manifest_hash": "98a5d8320c96825689cb66e5f876d67643e108d712258270bb30f0ab653272ae",
+      "sha256": "bee6a8022935d1a0199a02665cade07ac4aa4ac54a40cbd1b5f0898c5282ade4",
+      "actual_runtime_sec": 120,
+      "video_frames": 2880,
+      "release_status": "SYNTHETIC_RELEASE_TEST_PASSED",
+      "published": false
+    },
+    {
+      "job_id": "TEST_2026_W36-ep_thu-V1",
+      "manifest_hash": "63347776523476f0b43beb286196d6f8683d0106899ac00831aa915aa81bd5cb",
+      "sha256": "5f541b50ff13b65cde80f21b4137fe20eb492e5c2583b3f6aad5f6b055753fc3",
+      "actual_runtime_sec": 120,
+      "video_frames": 2880,
+      "release_status": "SYNTHETIC_RELEASE_TEST_PASSED",
+      "published": false
+    },
+    {
+      "job_id": "TEST_2026_W36-ep_fri-V1",
+      "manifest_hash": "ae2b621e1fb70774cbda0538f82b82a9ceabb0e1aef01c2546ce7ae9759ec308",
+      "sha256": "2ff83726812ab811a5d2ac2e05bc4e89e9252237667117851a768756a26d7d71",
+      "actual_runtime_sec": 120,
+      "video_frames": 2880,
+      "release_status": "SYNTHETIC_RELEASE_TEST_PASSED",
+      "published": false
+    },
+    {
+      "job_id": "TEST_2026_W36-COMPILATION",
+      "manifest_hash": "9b1dd33217d70e7c02cd90091e27841a5ca104fb99f1f9325455115c1f57751e",
+      "sha256": "7956b1ac52d3336225ec7c221fcbcd5eec46fbbf72197b13b0f61d42214f328c",
+      "actual_runtime_sec": 600,
+      "video_frames": 14400,
+      "release_status": "SYNTHETIC_RELEASE_TEST_PASSED",
+      "published": false
+    }
+  ]
+}

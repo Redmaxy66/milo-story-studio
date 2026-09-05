@@ -1,6 +1,6 @@
 # Milo Story Studio — Current State
 
-2026-09-05: **Streamlined replacement approved; non-paid implementation in progress.**
+2026-09-05: **Non-paid streamlined build validated; paid pilot awaiting approval. Production replacement remains PARTIAL.**
 
 ## Owner and authority
 
@@ -31,6 +31,25 @@ Preserved upload IDs:
 
 Validate metadata and approved source bytes before future reuse. SC06 controls do not grant blanket approval for new episodes.
 
-## Next
+## Validated build
 
-Implement and validate using isolated fixtures and synthetic media, then present evidence and a bounded paid-pilot proposal. Production quality, actual cost, sustainable throughput, unattended runner hosting and cutover remain unproven.
+Governance commit: 9eb375f72780ecf7aa75466ecd7b92774693af24 (D-024). Implementation/evidence are in the commit containing this state update.
+
+Four separate inactive, unpublished workflows installed in project W5ZLBOvWbMpYaOji:
+
+| Stage | Workflow | Isolated execution |
+|---|---|---|
+| Week Preparation | 6Zoa3Xz3DWDhQ9Us | 513 succeeded |
+| Media Queue | s8oz9PJ0WBbYA3O5 | 514 succeeded |
+| Assembly | n5UTwsiF9LoNiBau | 515 succeeded |
+| Release Package | BLILNQNIayoljFSD | 516 succeeded |
+
+24 deterministic/export test groups passed; SQLite stale-write, competing-connection and budget tests passed. Actual FFmpeg outputs: five 120-second masters and one 600-second compilation, 1280×720 at 24fps. Neutral cards and silence only. Real source hash mismatch and changed master/runtime were rejected. All 15 original validation scripts passed. Original tracked files outside the six authorised governance files are unchanged against c601e85d.
+
+Evidence: 06-testing/evidence/streamlined/. Operator instructions: 05-code/streamlined/README.md. No paid provider calls, production writes, original workflow changes, activation or publication occurred in this build. No active executions remained in each new workflow's inspected execution history.
+
+## Remaining work and next authority
+
+The four workflows validate/prepare explicit jobs. They do not yet call writing/voice/video providers, persist jobs remotely, launch a hosted renderer or schedule production. The local runner performs actual finishing, and the local SQLite store is tested but not connected to a hosted service. Provider schema acceptance and corrected live MCP binding remain unproven; current JSON is a locally validated candidate.
+
+Next: owner decision on the bounded paid-pilot proposal in 06-testing/evidence/streamlined/PAID_PILOT_PROPOSAL.md. Proposed ceiling 750 existing OpenArt credits across at most three ten-second submissions plus US$5 total writing/narration, conditional on a verified quote within the ceiling. No paid authority is recorded yet. Then validate one real cut/episode and subsequently a full week before requesting final cutover. Production quality, actual costs, sustainable throughput and unattended hosting remain unproven. Public publication is separately approved.

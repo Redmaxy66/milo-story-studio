@@ -1,0 +1,32 @@
+PASS five exact 120s daily timelines
+PASS 600s compilation with reordered hooks and actual chapters
+PASS canon mismatch blocks
+PASS changed script invalidates review
+PASS changed media invalidates review
+PASS wrong next-story hook blocks
+PASS unsafe dialogue trimming blocks
+PASS over-trimming blocks
+PASS duplicate episode order blocks
+PASS compilation edit needs exact review
+PASS synthetic asset cannot cross into production
+PASS MCP JSON params wrapper retained
+PASS paid execution unconditionally locked
+PASS duplicate submission blocks
+PASS uncertain prior attempt blocks
+PASS budget includes worst-case reservation
+PASS submit-failed is never a history id
+PASS pending job polls rather than resubmits
+PASS missing final cost blocks success
+PASS negative reported cost rejected
+20 test groups passed; no provider calls.
+PASS export isolation and executable code: 01-week-preparation.json
+PASS export isolation and executable code: 02-media-queue.json
+PASS export isolation and executable code: 03-assembly.json
+PASS export isolation and executable code: 04-release-package.json
+24 total test groups passed including exact generated n8n code.
+
+SQLite: PASS stale revision, competing connections, budget cap, paid lock.
+FFmpeg: PASS five 120s masters and one 600s master, 1280x720, 24fps, audio stream, actual master SHA and release checks.
+Original regression scripts: 15/15 exited 0. Canon lineage, initialization, selection, production package, failure instrumentation and M8 validations preserved.
+Protected file comparison: every original tracked file outside the six explicitly authorised governance files is unchanged against materialised c601e85d baseline.
+Negative renderer check: altered declared/reviewed source SHA with a recomputed manifest was rejected against actual vault bytes before encoding (Asset hash changed).
